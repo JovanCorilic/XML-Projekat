@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<P-1>
+    <popunjava_zavod>
+        
+        <broj_prijave></broj_prijave>
+        <datum_prijema></datum_prijema>
+        <priznati_datum_podnosenja></priznati_datum_podnosenja>
+        <pecat></pecat>
+        <potpis></potpis>
+        
+        <drzava>Republika Srbija</drzava>
+        <ustanova>Zavod za intelektualnu svojinu</ustanova>
+        <adresa>
+            <naziv_ulice>Kneginje LJubice</naziv_ulice> 
+            <broj_ulice>5</broj_ulice>
+            <grad>Beograd</grad>
+            <poštanski_broj>11000</poštanski_broj>
+        </adresa>
+     
+    </popunjava_zavod>
+    
+    <naslov>ZAHTEV ZA PRIZNANJE PATENTA</naslov>
+    
+    (popuniti pisaćom mašinom ili računarom)
+    
+    <polje broj="1" naziv="NAZIV PRONALASKA">
+        * Naziv pronalaska treba da jasno i sažeto izražava suštinu pronalaska i ne sme da sadrži 
+        izmišljene ili komercijalne nazive, žigove, imena, šifre, uobičajene skraćenice za proizvode i sl.
+        
+        <naziv_pronalaska>
+            <srpski_naziv></srpski_naziv>
+            <engleski_naziv></engleski_naziv>
+        </naziv_pronalaska>
+        
+    </polje>
+    
+    <polje broj="2" naziv="PODNOSILAC PRIJAVE">
+        <podnosilac_prijave>
+            <ime></ime>
+            <prezime></prezime>
+            <poslovno_ime></poslovno_ime>
+            
+            <prebivaliste>
+                <ulica></ulica>
+                <broj_ulice></broj_ulice>
+                <postanski_broj></postanski_broj>
+                <grad></grad>
+                <drzava></drzava>
+            </prebivaliste>
+            
+            <kontakt>
+                <broj_telefona></broj_telefona>
+                <broj_faksa></broj_faksa>
+                <e-posta></e-posta>
+            </kontakt>
+            
+            <drzavljanstvo></drzavljanstvo>
+        </podnosilac_prijave>
+        <je_pronalazac></je_pronalazac>
+        <da_li_su_ostali_podnosioci_prijave_navedeni></da_li_su_ostali_podnosioci_prijave_navedeni>
+        * Ako više lica podnosi prijavu, potrebno je odrediti jedno od tih lica kao zajedničkog predstavnika i 
+        dostaviti izjavu o zajedničkom predstavniku potpisanu od strane svih podnosilaca ili imenovati zajedničkog 
+        punomoćnika za zastupanje i dostaviti punomoćje
+    </polje>
+    
+    <polje broj="3" naziv="PRONALAZAČ">
+        
+        (ako su svi pronalazači ujedno i podnosioci prijave, polje broj III se ne popunjava)
+        * Ako svi podnosioci prijave nisu i pronalazači, dostavlja se izjava podnosilaca prijave o osnovu sticanja 
+        prava na podnošenje prijave u odnosu na pronalazače koji nisu i podnosioci prijave i u tom slučaju u 
+        polje broj III se unose podaci o svim pronalazačim
+        <da_li_pronalazac_zeli_da_bude_naveden></da_li_pronalazac_zeli_da_bude_naveden>
+        (ako pronalazač ne želi da bude naveden u prijavi polje broj III se ne popunjava)
+        *Ako pronalazač ne želi da bude naveden u prijavi, potrebno je dostaviti potpisanu izjavu 
+        pronalazača da ne želi da bude naveden.
+    
+        
+        
+        
+        <pronalazac>
+            <ime></ime>
+            <prezime></prezime>
+            <poslovno_ime></poslovno_ime>
+            
+            <prebivaliste>
+                <ulica></ulica>
+                <broj_ulice></broj_ulice>
+                <postanski_broj></postanski_broj>
+                <grad></grad>
+                <drzava></drzava>
+            </prebivaliste>
+            
+            <kontakt>
+                <broj_telefona></broj_telefona>
+                <broj_faksa></broj_faksa>
+                <e-posta></e-posta>
+            </kontakt>
+        </pronalazac>
+        
+        <da_li_su_ostali_pronalazaci_navedeni></da_li_su_ostali_pronalazaci_navedeni>
+    </polje>
+    
+    <polje broj="4" naziv="">
+        <da_li_je_punomocnik_za_zastupanje></da_li_je_punomocnik_za_zastupanje>
+        <da_li_je_punomocnik_za_prijem_pismena></da_li_je_punomocnik_za_prijem_pismena>
+        <da_li_je_zajednicki_predstavnik></da_li_je_zajednicki_predstavnik>
+        
+        
+        * Punomoćnik za zastupanje je lice koje po ovlašćenju podnosioca prijave preduzima radnje u upravnom 
+        postupku u granicama punomoćja
+        * Punomoćnik za prijem pismena je lice koje je podnosilac prijave odredio kao lice kome se  
+        upućuju sva pismena naslovljena na podnosioca
+        * Zajedniči prestavnik je podnosilac prijave koga su podnosioci prijave, u slučaju da prijavu 
+        podnosi više lica, odredili da istupa u postupku pred organom ako podnosioci nisu imenovali zajedničkog punomoćnika za zastupanje
+    
+        
+        <licne_informacije>
+            <ime></ime>
+            <prezime></prezime>
+            <poslovno_ime></poslovno_ime>
+            
+            <prebivaliste>
+                <ulica></ulica>
+                <broj_ulice></broj_ulice>
+                <postanski_broj></postanski_broj>
+                <grad></grad>
+                <drzava></drzava>
+            </prebivaliste>
+            
+            <kontakt>
+                <broj_telefona></broj_telefona>
+                <broj_faksa></broj_faksa>
+                <e-posta></e-posta>
+            </kontakt>
+        </licne_informacije>
+        
+    </polje>
+    
+    <polje broj="5" naziv="ADRESA ZA DOSTAVLJANJE">
+        (ovo polje se popunjava ako podnosilac prijave, zajednički predstavnik ili punomoćnik želi da se 
+        dostavljanje podnesaka vrši na drugoj adresi od njegove navedene adrese)
+        
+        <adresa_za_dostavljanje>
+            <ulica></ulica>
+            <broj_ulice></broj_ulice>
+            <postanski_broj></postanski_broj>
+            <grad></grad>
+        </adresa_za_dostavljanje>
+        
+    </polje>
+    
+    <polje broj="6" naziv="NAČIN DOSTAVLJANJA">
+        <dostavljanje_pismena_iskljucivo_elektronskim_putem></dostavljanje_pismena_iskljucivo_elektronskim_putem>
+        <dostavljanje_pismena_u_papirnoj_formi></dostavljanje_pismena_u_papirnoj_formi>
+    </polje>
+    
+    <polje broj="7" naziv="">
+        <da_li_je_dopunska_prijava></da_li_je_dopunska_prijava>
+        <da_li_je_izdvojena_prijava></da_li_je_izdvojena_prijava>
+        
+        <broj_prvobitne_prijave></broj_prvobitne_prijave>
+        <datum_podnosenja_prvobitne_prijave></datum_podnosenja_prvobitne_prijave>
+    </polje>
+    
+    <polje broj="8" naziv="ZAHTEV ZA PRIZNANJE PRAVA PRVENSTVA IZ RANIJIH PRIJAVA:">
+        
+        <ranija_prijava broj="1">
+            <datum_podnosenja_ranije_prijave></datum_podnosenja_ranije_prijave>
+            <broj_ranije_prijave></broj_ranije_prijave>
+            <dvoslovna_oznaka_drzave_ili_organizacije></dvoslovna_oznaka_drzave_ili_organizacije>
+        </ranija_prijava>
+        
+        <ranija_prijava broj="2">
+            <datum_podnosenja_ranije_prijave></datum_podnosenja_ranije_prijave>
+            <broj_ranije_prijave></broj_ranije_prijave>
+            <dvoslovna_oznaka_drzave_ili_organizacije></dvoslovna_oznaka_drzave_ili_organizacije>
+        </ranija_prijava>
+        
+        <da_li_su_podaci_o_ostalim_pravima_prvenstva_navedena></da_li_su_podaci_o_ostalim_pravima_prvenstva_navedena>
+    </polje>
+</P-1>
