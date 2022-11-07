@@ -1,4 +1,4 @@
-<zahtev_za_priznavanje_ziga>
+<zahtev_za_priznavanje_ziga id="www.ftn.uns.ac.rs/zig/UUID">
 
     <podnaslov></podnaslov><!-- Da li ovo uopste modelovati ili posmatrati kao staticki sadrzaj-->
 
@@ -52,10 +52,10 @@
     </zajednicki_predstavnik>
 
     <!-- <prijava>
-        <zig></zig>????
+        <zig></zig>
     </prijava> -->
 
-    <zig></zig><!-- STA SA OVIM!-->
+    <!--<zig></zig> !-->
 
     <znak>
 
@@ -94,7 +94,7 @@
         <ukupno>STRING/NUMBER</ukupno><!-- Da li ovo treba modelovati?-->
     </taksa>
 
-    <potpis_podnosioca_zahteva>NE ZNAM DA LI TREBA OVO UOPSTE MODELOVATI</potpis_podnosioca_zahteva>
+    <potpis_podnosioca_zahteva>NE ZNAM DA LI TREBA OVO UOPSTE MODELOVATI(VEROVATNO NE)</potpis_podnosioca_zahteva>
 
     <zavod><!-- PITAIT KOJI US PODACI ZA SVAKI OD ELEMENATA! VRV VECINA JE BOOLEAN-->
 
@@ -107,8 +107,16 @@
         <dokaz_o_pravu_prvenstva>BOOLEAN/STRING</dokaz_o_pravu_prvenstva>
         <dokaz_o_uplati_takse>BOOLEAN/STRING</dokaz_o_uplati_takse>
         <broj_prijave_ziga>STRING/PATTERN</broj_prijave_ziga>
-        <datum_podnosenja_zahteva>BOOLEAN/STRING</datum_podnosenja_zahteva>
+        <datum_podnosenja_zahteva>DATE/STRING</datum_podnosenja_zahteva>
 
     </zavod>
+
+    <QR_Code>URL DOKUMENTA/STRING</QR_Code>
+
+    <referencirani_dokumenti>
+        <dokument id="UUID">URL-LINK/STRING</dokument>
+        <dokument id="UUID">URL-LINK/STRING</dokument>
+        <dokument id="UUID">URL-LINK/STRING</dokument>
+    </referencirani_dokumenti>
 
 </zahtev_za_priznavanje_ziga>
