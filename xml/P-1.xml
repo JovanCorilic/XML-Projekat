@@ -5,8 +5,8 @@
         <broj_prijave></broj_prijave>
         <datum_prijema></datum_prijema>
         <priznati_datum_podnosenja></priznati_datum_podnosenja>
-        <pecat></pecat>
-        <potpis></potpis>
+        <pecat_i_potpis></pecat_i_potpis>
+        
         
         <drzava>Republika Srbija</drzava>
         <ustanova>Zavod za intelektualnu svojinu</ustanova>
@@ -87,7 +87,7 @@
         
         <!-- <da_li_su_ostali_pronalazaci_navedeni></da_li_su_ostali_pronalazaci_navedeni> -->
     
-    <polje broj="4" naziv="">
+    <punomocnik>
         <!-- Ili je jedno ili drugo -->
         <da_li_je_punomocnik_za_zastupanje></da_li_je_punomocnik_za_zastupanje>
         <da_li_je_punomocnik_za_prijem_pismena></da_li_je_punomocnik_za_prijem_pismena>
@@ -119,7 +119,7 @@
             </kontakt>
         </licne_informacije>
         
-    </polje>
+    </punomocnik>
     
     <dostavljanje>
         <adresa>
@@ -135,15 +135,15 @@
         </nacin>
     </dostavljanje>
     
-    <polje broj="7" naziv="">
+    <tip_prijave>
         <da_li_je_dopunska_prijava></da_li_je_dopunska_prijava>
         <da_li_je_izdvojena_prijava></da_li_je_izdvojena_prijava>
         
         <broj_prvobitne_prijave></broj_prvobitne_prijave>
         <datum_podnosenja_prvobitne_prijave></datum_podnosenja_prvobitne_prijave>
-    </polje>
+    </tip_prijave>
     
-    <polje broj="8" naziv="ZAHTEV ZA PRIZNANJE PRAVA PRVENSTVA IZ RANIJIH PRIJAVA:">
+    <zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
         <!-- Ovo je lista -->
         <ranija_prijava broj="1">
             <datum_podnosenja_ranije_prijave></datum_podnosenja_ranije_prijave>
@@ -158,5 +158,5 @@
         </ranija_prijava>
         
         <!-- <da_li_su_podaci_o_ostalim_pravima_prvenstva_navedena></da_li_su_podaci_o_ostalim_pravima_prvenstva_navedena> -->
-    </polje>
+    </zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>>
 </P-1>
