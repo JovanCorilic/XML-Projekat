@@ -14,7 +14,7 @@
             <naziv_ulice>Kneginje LJubice</naziv_ulice> 
             <broj_ulice>5</broj_ulice>
             <grad>Beograd</grad>
-            <poštanski_broj>11000</poštanski_broj>
+            <postanski_broj>11000</postanski_broj>
         </adresa>
      
     </popunjava_zavod>
@@ -26,33 +26,33 @@
         <engleski_naziv></engleski_naziv>
     </naziv_pronalaska>
         
-    
-    
-    
     <podnosilac_prijave>
-        <osoba>
-            <ime></ime>
-            <prezime></prezime>
-        </osoba>
-        
-        <firma>
-            <poslovno_ime></poslovno_ime>
-        </firma>
-        
-        <prebivaliste>
-            <ulica></ulica>
-            <broj_ulice></broj_ulice>
-            <postanski_broj></postanski_broj>
-            <grad></grad>
-            <drzava></drzava>
-        </prebivaliste>
-        
-        <kontakt>
-            <broj_telefona></broj_telefona>
-            <broj_faksa></broj_faksa>
-            <e-posta></e-posta>
-        </kontakt>
-        
+        <licne_informacije>
+            <naziv>
+                <osoba>
+                    <ime></ime>
+                    <prezime></prezime>
+                </osoba>
+                
+                <firma>
+                    <poslovno_ime></poslovno_ime>
+                </firma>
+            </naziv>
+            
+            <prebivaliste>
+                <ulica></ulica>
+                <broj_ulice></broj_ulice>
+                <postanski_broj></postanski_broj>
+                <grad></grad>
+                <drzava></drzava>
+            </prebivaliste>
+            
+            <kontakt>
+                <broj_telefona></broj_telefona>
+                <broj_faksa></broj_faksa>
+                <e-posta></e-posta>
+            </kontakt>
+        </licne_informacije>
         <drzavljanstvo></drzavljanstvo>
         <je_pronalazac></je_pronalazac>
     </podnosilac_prijave>
@@ -61,28 +61,32 @@
 
     <pronalazac>
         <da_li_pronalazac_zeli_da_bude_naveden></da_li_pronalazac_zeli_da_bude_naveden>
-        <osoba>
-            <ime></ime>
-            <prezime></prezime>
-        </osoba>
-        
-        <firma>
-            <poslovno_ime></poslovno_ime>
-        </firma>
-        
-        <prebivaliste>
-            <ulica></ulica>
-            <broj_ulice></broj_ulice>
-            <postanski_broj></postanski_broj>
-            <grad></grad>
-            <drzava></drzava>
-        </prebivaliste>
-        
-        <kontakt>
-            <broj_telefona></broj_telefona>
-            <broj_faksa></broj_faksa>
-            <e-posta></e-posta>
-        </kontakt>
+        <licne_informacije>
+            <naziv>
+                <osoba>
+                    <ime></ime>
+                    <prezime></prezime>
+                </osoba>
+                
+                <firma>
+                    <poslovno_ime></poslovno_ime>
+                </firma>
+            </naziv>
+            
+            <prebivaliste>
+                <ulica></ulica>
+                <broj_ulice></broj_ulice>
+                <postanski_broj></postanski_broj>
+                <grad></grad>
+                <drzava></drzava>
+            </prebivaliste>
+            
+            <kontakt>
+                <broj_telefona></broj_telefona>
+                <broj_faksa></broj_faksa>
+                <e-posta></e-posta>
+            </kontakt>
+        </licne_informacije>
     </pronalazac>
         
         <!-- <da_li_su_ostali_pronalazaci_navedeni></da_li_su_ostali_pronalazaci_navedeni> -->
@@ -95,14 +99,16 @@
         <da_li_je_zajednicki_predstavnik></da_li_je_zajednicki_predstavnik>
         
         <licne_informacije>
-            <osoba>
-                <ime></ime>
-                <prezime></prezime>
-            </osoba>
-            
-            <firma>
-                <poslovno_ime></poslovno_ime>
-            </firma>
+            <naziv>
+                <osoba>
+                    <ime></ime>
+                    <prezime></prezime>
+                </osoba>
+                
+                <firma>
+                    <poslovno_ime></poslovno_ime>
+                </firma>
+            </naziv>
             
             <prebivaliste>
                 <ulica></ulica>
@@ -123,10 +129,11 @@
     
     <dostavljanje>
         <adresa>
-            <ulica></ulica>
+            <naziv_ulice></naziv_ulice>
             <broj_ulice></broj_ulice>
-            <postanski_broj></postanski_broj>
+            
             <grad></grad>
+            <postanski_broj></postanski_broj>
         </adresa>
         
         <nacin>
