@@ -22,8 +22,8 @@
     <xs:complexType name="tipPopunjavaZavod">
         <xs:sequence>
             <xs:element name="broj_prijave" type="xs:int"/>
-            <xs:element name="datum_prijema" type="xs:date"/>
-            <xs:element name="priznati_datum_podnosenja" type="xs:date"/>
+            <xs:element name="datum_prijema" type="xs:string"/>
+            <xs:element name="priznati_datum_podnosenja" type="xs:string"/>
             <xs:element name="pecat_i_potpis" type="xs:string"/>
             <xs:element name="drzava" type="xs:string"/>
             <xs:element name="ustanova" type="xs:string"/>
@@ -65,8 +65,8 @@
     <xs:complexType name="tipPrebivaliste">
         <xs:sequence>
             <xs:element name="ulica" type="xs:string"/>
-            <xs:element name="broj_ulice" type="xs:int"/>
-            <xs:element name="postanski_broj" type="xs:int"/>
+            <xs:element name="broj_ulice" type="xs:int" nillable="true"/>
+            <xs:element name="postanski_broj" type="xs:int" nillable="true"/>
             <xs:element name="grad" type="xs:string"/>
             <xs:element name="drzava" type="xs:string"/>
         </xs:sequence>
@@ -80,8 +80,8 @@
     </xs:complexType>
     <xs:complexType name="tipNaziv">
         <xs:choice>
-            <xs:element name="osoba" type="P-1:tipOsoba"/>
-            <xs:element name="firma" type="P-1:tipFirma"/>
+            <xs:element name="osoba" type="P-1:tipOsoba" minOccurs="0"/>
+            <xs:element name="firma" type="P-1:tipFirma" minOccurs="0"/>
         </xs:choice>
     </xs:complexType>
     <xs:complexType name="tipLicneInformacije">
@@ -113,8 +113,8 @@
     </xs:complexType>
     <xs:complexType name="tipNacin">
         <xs:sequence>
-            <xs:element name="dostavljanje_pismena_iskljucivo_elektronskim_putem" type="xs:string"/>
-            <xs:element name="dostavljanje_pismena_u_papirnoj_formi" type="xs:string"/>
+            <xs:element name="dostavljanje_pismena_iskljucivo_elektronskim_putem" type="xs:boolean"/>
+            <xs:element name="dostavljanje_pismena_u_papirnoj_formi" type="xs:boolean"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="tipTipPrijave">
@@ -122,7 +122,7 @@
             <xs:element name="da_li_je_dopunska_prijava" type="xs:boolean"/>
             <xs:element name="da_li_je_izdvojena_prijava" type="xs:boolean"/>
             <xs:element name="broj_prvobitne_prijave" type="xs:int"/>
-            <xs:element name="datum_podnosenja_prvobitne_prijave" type="xs:date"/>
+            <xs:element name="datum_podnosenja_prvobitne_prijave" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="tipZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava">
@@ -133,7 +133,7 @@
     </xs:complexType>
     <xs:complexType name="tipRanijaPrijava">
         <xs:sequence>
-            <xs:element name="datum_podnosenja_ranije_prijave" type="xs:date"/>
+            <xs:element name="datum_podnosenja_ranije_prijave" type="xs:string"/>
             <xs:element name="broj_ranije_prijave" type="xs:string"/>
             <xs:element name="dvoslovna_oznaka_drzave_ili_organizacije" type="xs:string"/>
         </xs:sequence>
