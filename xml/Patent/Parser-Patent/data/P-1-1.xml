@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<P-1 id="1"
+    xmlns="http://www.ftn.uns.rs/P-1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.ftn.uns.rs/P-1 file:/C:/Users/Kssbc/Documents/GitHub/XML-Projekat/xml/Patent/P-1.xsd">
+    <popunjava_zavod>
+        
+        <broj_prijave>1</broj_prijave>
+        <datum_prijema>12.10.2019</datum_prijema>
+        <priznati_datum_podnosenja>13.10.2019</priznati_datum_podnosenja>
+        <pecat_i_potpis>Nevazno</pecat_i_potpis>
+        
+        
+        <drzava>Republika Srbija</drzava>
+        <ustanova>Zavod za intelektualnu svojinu</ustanova>
+        <adresa>
+            <naziv_ulice>Kneginje LJubice</naziv_ulice> 
+            <broj_ulice>5</broj_ulice>
+            <grad>Beograd</grad>
+            <postanski_broj>11000</postanski_broj>
+        </adresa>
+     
+    </popunjava_zavod>
+    
+    <naslov>ZAHTEV ZA PRIZNANJE PATENTA</naslov>
+        
+    <naziv_pronalaska>
+        <srpski_naziv>Sekač drva</srpski_naziv>
+        <engleski_naziv>Wood cutter</engleski_naziv>
+    </naziv_pronalaska>
+        
+    <podnosilac_prijave>
+        <licne_informacije>
+            <naziv>
+                <osoba>
+                    <ime>Nikola</ime>
+                    <prezime>Simić</prezime>
+                </osoba>
+                
+            </naziv>
+            
+            <prebivaliste>
+                <ulica>Maksimilija</ulica>
+                <broj_ulice>10</broj_ulice>
+                <postanski_broj>21000</postanski_broj>
+                <grad>Novi Sad</grad>
+                <drzava>Srbija</drzava>
+            </prebivaliste>
+            
+            <kontakt>
+                <broj_telefona>51654611545</broj_telefona>
+                <broj_faksa>4845154854</broj_faksa>
+                <e-posta>@gmail.com</e-posta>
+            </kontakt>
+        </licne_informacije>
+        <drzavljanstvo>Srpsko</drzavljanstvo>
+        <je_pronalazac>true</je_pronalazac>
+    </podnosilac_prijave>
+        
+        <!-- <da_li_su_ostali_podnosioci_prijave_navedeni></da_li_su_ostali_podnosioci_prijave_navedeni> -->
+
+    <pronalazac>
+        <da_li_pronalazac_zeli_da_bude_naveden>true</da_li_pronalazac_zeli_da_bude_naveden>
+        <licne_informacije>
+            <naziv>
+                <osoba>
+                    <ime>Nikola</ime>
+                    <prezime>Simić</prezime>
+                </osoba>
+                
+            </naziv>
+            
+            <prebivaliste>
+                <ulica>Maksimilija</ulica>
+                <broj_ulice>10</broj_ulice>
+                <postanski_broj>21000</postanski_broj>
+                <grad>Novi Sad</grad>
+                <drzava>Srbija</drzava>
+            </prebivaliste>
+            
+            <kontakt>
+                <broj_telefona>51654611545</broj_telefona>
+                <broj_faksa>4845154854</broj_faksa>
+                <e-posta>@gmail.com</e-posta>
+            </kontakt>
+        </licne_informacije>
+    </pronalazac>
+        
+        <!-- <da_li_su_ostali_pronalazaci_navedeni></da_li_su_ostali_pronalazaci_navedeni> -->
+    
+    <punomocnik>
+        <!-- Ili je jedno ili drugo -->
+        <da_li_je_punomocnik_za_zastupanje>true</da_li_je_punomocnik_za_zastupanje>
+        <da_li_je_punomocnik_za_prijem_pismena>false</da_li_je_punomocnik_za_prijem_pismena>
+        <!-- Moze da bude tu a ne mora -->
+        <da_li_je_zajednicki_predstavnik>true</da_li_je_zajednicki_predstavnik>
+        
+        <licne_informacije>
+            <naziv>
+                <osoba>
+                    <ime>Sava</ime>
+                    <prezime>Savić</prezime>
+                </osoba>
+
+            </naziv>
+            
+            <prebivaliste>
+                <ulica>Nikolija</ulica>
+                <broj_ulice>15</broj_ulice>
+                <postanski_broj>21000</postanski_broj>
+                <grad>Novi Sad</grad>
+                <drzava>Srbija</drzava>
+            </prebivaliste>
+            
+            <kontakt>
+                <broj_telefona>51161651654</broj_telefona>
+                <broj_faksa>6564441515</broj_faksa>
+                <e-posta>@gmail.com</e-posta>
+            </kontakt>
+        </licne_informacije>
+        
+    </punomocnik>
+    
+    <dostavljanje>
+        <adresa>
+            <naziv_ulice>Bulevar Oslobođenja</naziv_ulice>
+            <broj_ulice>20</broj_ulice>
+            
+            <grad>Novi Sad</grad>
+            <postanski_broj>21000</postanski_broj>
+        </adresa>
+        
+        <nacin>
+            <dostavljanje_pismena_iskljucivo_elektronskim_putem>true</dostavljanje_pismena_iskljucivo_elektronskim_putem>
+            <dostavljanje_pismena_u_papirnoj_formi>false</dostavljanje_pismena_u_papirnoj_formi>
+        </nacin>
+    </dostavljanje>
+    
+    <tip_prijave>
+        <da_li_je_dopunska_prijava>false</da_li_je_dopunska_prijava>
+        <da_li_je_izdvojena_prijava>true</da_li_je_izdvojena_prijava>
+        
+        <broj_prvobitne_prijave>1</broj_prvobitne_prijave>
+        <datum_podnosenja_prvobitne_prijave>12.10.2019</datum_podnosenja_prvobitne_prijave>
+    </tip_prijave>
+    
+    <zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+        <!-- Ovo je lista -->
+        <ranija_prijava>
+            <datum_podnosenja_ranije_prijave>09.10.2019</datum_podnosenja_ranije_prijave>
+            <broj_ranije_prijave>2</broj_ranije_prijave>
+            <dvoslovna_oznaka_drzave_ili_organizacije>RS</dvoslovna_oznaka_drzave_ili_organizacije>
+        </ranija_prijava>
+        
+        <ranija_prijava>
+            <datum_podnosenja_ranije_prijave>08.10.2019</datum_podnosenja_ranije_prijave>
+            <broj_ranije_prijave>3</broj_ranije_prijave>
+            <dvoslovna_oznaka_drzave_ili_organizacije>RS</dvoslovna_oznaka_drzave_ili_organizacije>
+        </ranija_prijava>
+        
+        <!-- <da_li_su_podaci_o_ostalim_pravima_prvenstva_navedena></da_li_su_podaci_o_ostalim_pravima_prvenstva_navedena> -->
+    </zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+</P-1>
