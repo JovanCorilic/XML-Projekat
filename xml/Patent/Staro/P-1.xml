@@ -5,8 +5,8 @@
         <broj_prijave></broj_prijave>
         <datum_prijema></datum_prijema>
         <priznati_datum_podnosenja></priznati_datum_podnosenja>
-        <pecat></pecat>
-        <potpis></potpis>
+        <pecat_i_potpis></pecat_i_potpis>
+        
         
         <drzava>Republika Srbija</drzava>
         <ustanova>Zavod za intelektualnu svojinu</ustanova>
@@ -14,7 +14,7 @@
             <naziv_ulice>Kneginje LJubice</naziv_ulice> 
             <broj_ulice>5</broj_ulice>
             <grad>Beograd</grad>
-            <poštanski_broj>11000</poštanski_broj>
+            <postanski_broj>11000</postanski_broj>
         </adresa>
      
     </popunjava_zavod>
@@ -26,33 +26,33 @@
         <engleski_naziv></engleski_naziv>
     </naziv_pronalaska>
         
-    
-    
-    
     <podnosilac_prijave>
-        <osoba>
-            <ime></ime>
-            <prezime></prezime>
-        </osoba>
-        
-        <firma>
-            <poslovno_ime></poslovno_ime>
-        </firma>
-        
-        <prebivaliste>
-            <ulica></ulica>
-            <broj_ulice></broj_ulice>
-            <postanski_broj></postanski_broj>
-            <grad></grad>
-            <drzava></drzava>
-        </prebivaliste>
-        
-        <kontakt>
-            <broj_telefona></broj_telefona>
-            <broj_faksa></broj_faksa>
-            <e-posta></e-posta>
-        </kontakt>
-        
+        <licne_informacije>
+            <naziv>
+                <osoba>
+                    <ime></ime>
+                    <prezime></prezime>
+                </osoba>
+                
+                <firma>
+                    <poslovno_ime></poslovno_ime>
+                </firma>
+            </naziv>
+            
+            <prebivaliste>
+                <ulica></ulica>
+                <broj_ulice></broj_ulice>
+                <postanski_broj></postanski_broj>
+                <grad></grad>
+                <drzava></drzava>
+            </prebivaliste>
+            
+            <kontakt>
+                <broj_telefona></broj_telefona>
+                <broj_faksa></broj_faksa>
+                <e-posta></e-posta>
+            </kontakt>
+        </licne_informacije>
         <drzavljanstvo></drzavljanstvo>
         <je_pronalazac></je_pronalazac>
     </podnosilac_prijave>
@@ -61,33 +61,37 @@
 
     <pronalazac>
         <da_li_pronalazac_zeli_da_bude_naveden></da_li_pronalazac_zeli_da_bude_naveden>
-        <osoba>
-            <ime></ime>
-            <prezime></prezime>
-        </osoba>
-        
-        <firma>
-            <poslovno_ime></poslovno_ime>
-        </firma>
-        
-        <prebivaliste>
-            <ulica></ulica>
-            <broj_ulice></broj_ulice>
-            <postanski_broj></postanski_broj>
-            <grad></grad>
-            <drzava></drzava>
-        </prebivaliste>
-        
-        <kontakt>
-            <broj_telefona></broj_telefona>
-            <broj_faksa></broj_faksa>
-            <e-posta></e-posta>
-        </kontakt>
+        <licne_informacije>
+            <naziv>
+                <osoba>
+                    <ime></ime>
+                    <prezime></prezime>
+                </osoba>
+                
+                <firma>
+                    <poslovno_ime></poslovno_ime>
+                </firma>
+            </naziv>
+            
+            <prebivaliste>
+                <ulica></ulica>
+                <broj_ulice></broj_ulice>
+                <postanski_broj></postanski_broj>
+                <grad></grad>
+                <drzava></drzava>
+            </prebivaliste>
+            
+            <kontakt>
+                <broj_telefona></broj_telefona>
+                <broj_faksa></broj_faksa>
+                <e-posta></e-posta>
+            </kontakt>
+        </licne_informacije>
     </pronalazac>
         
         <!-- <da_li_su_ostali_pronalazaci_navedeni></da_li_su_ostali_pronalazaci_navedeni> -->
     
-    <polje broj="4" naziv="">
+    <punomocnik>
         <!-- Ili je jedno ili drugo -->
         <da_li_je_punomocnik_za_zastupanje></da_li_je_punomocnik_za_zastupanje>
         <da_li_je_punomocnik_za_prijem_pismena></da_li_je_punomocnik_za_prijem_pismena>
@@ -95,14 +99,16 @@
         <da_li_je_zajednicki_predstavnik></da_li_je_zajednicki_predstavnik>
         
         <licne_informacije>
-            <osoba>
-                <ime></ime>
-                <prezime></prezime>
-            </osoba>
-            
-            <firma>
-                <poslovno_ime></poslovno_ime>
-            </firma>
+            <naziv>
+                <osoba>
+                    <ime></ime>
+                    <prezime></prezime>
+                </osoba>
+                
+                <firma>
+                    <poslovno_ime></poslovno_ime>
+                </firma>
+            </naziv>
             
             <prebivaliste>
                 <ulica></ulica>
@@ -119,14 +125,15 @@
             </kontakt>
         </licne_informacije>
         
-    </polje>
+    </punomocnik>
     
     <dostavljanje>
         <adresa>
-            <ulica></ulica>
+            <naziv_ulice></naziv_ulice>
             <broj_ulice></broj_ulice>
-            <postanski_broj></postanski_broj>
+            
             <grad></grad>
+            <postanski_broj></postanski_broj>
         </adresa>
         
         <nacin>
@@ -135,15 +142,15 @@
         </nacin>
     </dostavljanje>
     
-    <polje broj="7" naziv="">
+    <tip_prijave>
         <da_li_je_dopunska_prijava></da_li_je_dopunska_prijava>
         <da_li_je_izdvojena_prijava></da_li_je_izdvojena_prijava>
         
         <broj_prvobitne_prijave></broj_prvobitne_prijave>
         <datum_podnosenja_prvobitne_prijave></datum_podnosenja_prvobitne_prijave>
-    </polje>
+    </tip_prijave>
     
-    <polje broj="8" naziv="ZAHTEV ZA PRIZNANJE PRAVA PRVENSTVA IZ RANIJIH PRIJAVA:">
+    <zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
         <!-- Ovo je lista -->
         <ranija_prijava broj="1">
             <datum_podnosenja_ranije_prijave></datum_podnosenja_ranije_prijave>
@@ -158,5 +165,5 @@
         </ranija_prijava>
         
         <!-- <da_li_su_podaci_o_ostalim_pravima_prvenstva_navedena></da_li_su_podaci_o_ostalim_pravima_prvenstva_navedena> -->
-    </polje>
+    </zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>>
 </P-1>
