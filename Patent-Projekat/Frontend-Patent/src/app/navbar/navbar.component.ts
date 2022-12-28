@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css', './navbar.component.scss']
 })
 export class NavbarComponent {
 
@@ -15,4 +15,14 @@ export class NavbarComponent {
   goToHome() {
     this.router.navigate(['']);
   }
+
+  goToPatentCreate(){
+    this.router.navigate(['/patent-create']);
+  }
+
+  goToSviPatenti(){
+    this.router.navigate(['/svi-patent'])
+  }
+
+  goToLogOut(){}
 }
