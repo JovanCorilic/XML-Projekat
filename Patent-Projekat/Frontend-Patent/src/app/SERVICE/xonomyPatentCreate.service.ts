@@ -165,8 +165,88 @@ export class XonomyPatentCreateService{
                 },
                 'je_pronalazac':{
                     asker:Xonomy.askPicklist,
-                    askerParameter:["true","false"]
-                }    
+                    askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
+                },
+            'pronalazac':{
+                hasText:false
+            },
+            'punomocnik':{
+                hasText:false
+            },
+                'da_li_je_punomocnik_za_zastupanje':{
+                    asker:Xonomy.askPicklist,
+                    askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
+                },
+                'da_li_je_punomocnik_za_prijem_pismena':{
+                    asker:Xonomy.askPicklist,
+                    askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
+                },
+                'da_li_je_zajednicki_predstavnik':{
+                    asker:Xonomy.askPicklist,
+                    askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
+                },
+            'dostavljanje':{
+                hasText:false
+            },
+                'adresa':{
+                    hasText:false
+                },
+                    'grad':{
+                        hasText:true
+                    },
+                'nacin':{
+                    hasText:false
+                },
+                    'dostavljanje_pismena_iskljucivo_elektronskim_putem':{
+                        asker:Xonomy.askPicklist,
+                        askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
+                    },
+                    'dostavljanje_pismena_u_papirnoj_formi':{
+                        asker:Xonomy.askPicklist,
+                        askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
+                    },
+            'tip_prijave':{
+                hasText:false
+            },
+                'da_li_je_dopunska_prijava':{
+                    asker:Xonomy.askPicklist,
+                    askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
+                },
+                'da_li_je_izdvojena_prijava':{
+                    asker:Xonomy.askPicklist,
+                    askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
+                },
+                'broj_prvobitne_prijave':{
+                    hasText:true
+                },
+                'datum_podnosenja_prvobitne_prijave':{
+                    hasText:true
+                },
+            'zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava':{
+                hasText:false,
+                menu:[{
+                    caption:'Dodaj ranije prijave',
+                    action:Xonomy.newElementChild,
+                    actionParameter: 
+                    ' <ranija_prijava>'+
+                        ' <datum_podnosenja_ranije_prijave> </datum_podnosenja_ranije_prijave>'+
+                        ' <broj_ranije_prijave> </broj_ranije_prijave>'+
+                        ' <dvoslovna_oznaka_drzave_ili_organizacije> </dvoslovna_oznaka_drzave_ili_organizacije>'+
+                    ' </ranija_prijava> ',
+                }]
+            },
+                'ranija_prijava':{
+                    hasText:false
+                },
+                    'datum_podnosenja_ranije_prijave':{
+                        hasText:false
+                    },
+                    'broj_ranije_prijave':{
+                        hasText:false
+                    },
+                    'dvoslovna_oznaka_drzave_ili_organizacije':{
+                        hasText:false
+                    }
         }
     }
 }
