@@ -95,6 +95,9 @@ export class PatentCreateComponent {
       ' <zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava> </zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>'+
     ' </P-1>'
     
+    let specification = this.xonomyPatentCreateService.PatentSpecification;
+    Xonomy.setMode("laic");
+    Xonomy.render(xml,element,specification);
   }
 
   send(){

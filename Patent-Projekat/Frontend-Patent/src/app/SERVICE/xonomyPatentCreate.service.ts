@@ -15,16 +15,20 @@ export class XonomyPatentCreateService{
                 hasText:false,
             },
                 'popunjava_zavod':{
-                    hasText:false
+                    hasText:false,
+                    isReadOnly:true
                 },
                 'broj_prijave':{
-                    hasText:false
+                    hasText:false,
+                    isReadOnly:true
                 },
                 'datum_prijema':{
-                    hasText:false
+                    hasText:false,
+                    isReadOnly:true
                 },
                 'priznati_datum_podnosenja':{
-                    hasText:false
+                    hasText:false,
+                    isReadOnly:true
                 },
                 'pecat_i_potpis':{
                     hasText:true,
@@ -86,7 +90,7 @@ export class XonomyPatentCreateService{
                                 ' <prezime> </prezime>'+
                             ' </osoba> ',
                             hideIf: function(jsElement: {hasChildElement: (arg0: string) => any}){
-                                return jsElement.hasChildElement('ososba');
+                                return jsElement.hasChildElement('osoba') || jsElement.hasChildElement('firma');
                             }
                         },
                         {
@@ -97,8 +101,9 @@ export class XonomyPatentCreateService{
                             ' <poslovno_ime> </poslovno_ime>'+
                             ' </firma> ',
                             hideIf: function(jsElement: {hasChildElement: (arg0: string) => any}){
-                                return jsElement.hasChildElement('firma');
+                                return jsElement.hasChildElement('osoba') || jsElement.hasChildElement('firma');
                             }
+                            
                         }
                     ]
                     },
@@ -164,24 +169,33 @@ export class XonomyPatentCreateService{
                     hasText:true
                 },
                 'je_pronalazac':{
+                    hasText:true,
                     asker:Xonomy.askPicklist,
                     askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
                 },
             'pronalazac':{
                 hasText:false
             },
+                'da_li_pronalazac_zeli_da_bude_naveden':{
+                    hasText:true,
+                    asker:Xonomy.askPicklist,
+                    askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
+                },
             'punomocnik':{
                 hasText:false
             },
                 'da_li_je_punomocnik_za_zastupanje':{
+                    hasText:true,
                     asker:Xonomy.askPicklist,
                     askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
                 },
                 'da_li_je_punomocnik_za_prijem_pismena':{
+                    hasText:true,
                     asker:Xonomy.askPicklist,
                     askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
                 },
                 'da_li_je_zajednicki_predstavnik':{
+                    hasText:true,
                     asker:Xonomy.askPicklist,
                     askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
                 },
@@ -198,10 +212,12 @@ export class XonomyPatentCreateService{
                     hasText:false
                 },
                     'dostavljanje_pismena_iskljucivo_elektronskim_putem':{
+                        hasText:true,
                         asker:Xonomy.askPicklist,
                         askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
                     },
                     'dostavljanje_pismena_u_papirnoj_formi':{
+                        hasText:true,
                         asker:Xonomy.askPicklist,
                         askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
                     },
@@ -209,10 +225,12 @@ export class XonomyPatentCreateService{
                 hasText:false
             },
                 'da_li_je_dopunska_prijava':{
+                    hasText:true,
                     asker:Xonomy.askPicklist,
                     askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
                 },
                 'da_li_je_izdvojena_prijava':{
+                    hasText:true,
                     asker:Xonomy.askPicklist,
                     askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
                 },
@@ -239,13 +257,13 @@ export class XonomyPatentCreateService{
                     hasText:false
                 },
                     'datum_podnosenja_ranije_prijave':{
-                        hasText:false
+                        hasText:true
                     },
                     'broj_ranije_prijave':{
-                        hasText:false
+                        hasText:true
                     },
                     'dvoslovna_oznaka_drzave_ili_organizacije':{
-                        hasText:false
+                        hasText:true
                     }
         }
     }
