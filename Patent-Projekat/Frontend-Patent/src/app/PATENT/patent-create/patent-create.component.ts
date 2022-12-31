@@ -1,6 +1,6 @@
 import { Patent } from './../../MODEL/Patent';
 import { Router } from '@angular/router';
-import { XonomyService } from './../../SERVICE/xonomyPatent.service';
+import { XonomyPatentCreateService } from '../../SERVICE/xonomyPatentCreate.service';
 import { Component } from '@angular/core';
 import { PatentService } from 'src/app/SERVICE/patent.service';
 
@@ -11,7 +11,7 @@ declare const Xonomy: any;
   styleUrls: ['./patent-create.component.css']
 })
 export class PatentCreateComponent {
-  constructor(private xonomyService: XonomyService,
+  constructor(private xonomyPatentCreateService: XonomyPatentCreateService,
     private router: Router,
     private patentService: PatentService){}
 
@@ -22,11 +22,11 @@ export class PatentCreateComponent {
     ' <licne_informacije>'+
         ' <naziv></naziv>'+
         ' <prebivaliste>'+
-            ' <ulica> </ulica>'+
+            ' <naziv_ulice> </naziv_ulice>'+
             ' <broj_ulice> </broj_ulice>'+
             ' <postanski_broj> </postanski_broj>'+
-            ' <grad> </grad>'+
-            ' <drzava> </drzava>'+
+            ' <naziv_grada> </naziv_grada>'+
+            ' <naziv_drzave> </naziv_drzave>'+
         ' </prebivaliste>'+
         ' <kontakt>'+
             ' <broj_telefona> </broj_telefona>'+
@@ -47,12 +47,12 @@ export class PatentCreateComponent {
         ' <pecat_i_potpis>Nevazno</pecat_i_potpis>'+
         ' <drzava>Republika Srbija</drzava>'+
         ' <ustanova>Zavod za intelektualnu svojinu</ustanova>'+
-        ' <adresa>'+
-            ' <naziv_ulice>Kneginje LJubice</naziv_ulice>'+ 
-            ' <broj_ulice>5</broj_ulice>'+
-            ' <grad>Beograd</grad>'+
-            ' <postanski_broj>11000</postanski_broj>'+
-        ' </adresa>'+
+        ' <adresa_ustanove>'+
+            ' <naziv_ulice_ustanove>Kneginje LJubice</naziv_ulice_ustanove>'+ 
+            ' <broj_ulice_ustanove>5</broj_ulice_ustanove>'+
+            ' <grad_ustanove>Beograd</grad_ustanove>'+
+            ' <postanski_broj_ustanove>11000</postanski_broj_ustanove>'+
+        ' </adresa_ustanove>'+
       ' </popunjava_zavod>'+
       ' <naslov>ZAHTEV ZA PRIZNANJE PATENTA</naslov>'+
       ' <naziv_pronalaska about="http://www.ftn.uns.ac.rs/rdf/patent">'+
