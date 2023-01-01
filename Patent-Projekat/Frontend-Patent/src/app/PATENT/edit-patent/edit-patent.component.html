@@ -1,1 +1,14 @@
-<p>edit-patent works!</p>
+<table cellpadding="0" cellspacing="0" border="0" >
+    <tr>
+        <td valign="top">
+            <div id="editor"></div>
+            <button (click)="send()" class="button3">Promeni</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button (click)="natrag()" class="button3">Natrag</button>
+        </td>
+        <td valign="top" align="center">
+            <h2>Skidanje metapodataka</h2>
+            <button (click)="downloadRDF()" class="button2">Skini RDF verziju</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button (click)="downloadJSON()" class="button2">Skini JSON verziju</button>
+        </td>
+    </tr>
+</table>

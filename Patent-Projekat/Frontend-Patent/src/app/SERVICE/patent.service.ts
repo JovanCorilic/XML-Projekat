@@ -14,23 +14,23 @@ export class PatentService{
         return this.http.post(this.path+'/xonomy', entity);
       }
       
-      svaResenja():Observable<string[]>{
-        return this.http.get<string[]>(this.path+'/getAll');
-      }
-  
-      getResenje(id:string):Observable<Patent>{
-        return this.http.post<Patent>(this.path+'/getDocument',new Patent(id));
-      }
-  
-      searchMetapodaci(odluka:string, opcija:string):Observable<Patent>{
-        return this.http.get<Patent>(this.path+'/fusekiSearch'+`/${odluka}`+`/${opcija}`);
-      }
-  
-      searchTekstualniSadrzaj(odluka:string):Observable<string[]>{
-        return this.http.get<string[]>(this.path+'/pretragaPoTekstualnomSadrzaju'+`/${odluka}`);
-      }
-  
-      downloadRDF(id:string):Observable<Patent>{
-        return this.http.get<Patent>(this.path+"/downloadRDF"+`/${id}`);
-      }
+    sviPatenti():Observable<string[]>{
+      return this.http.get<string[]>(this.path+'/getAll');
+    }
+
+    getPatent(id:string):Observable<Patent>{
+      return this.http.post<Patent>(this.path+'/getDocument',new Patent(id));
+    }
+
+    searchMetapodaci(odluka:string, opcija:string):Observable<Patent>{
+      return this.http.get<Patent>(this.path+'/fusekiSearch'+`/${odluka}`+`/${opcija}`);
+    }
+
+    searchTekstualniSadrzaj(odluka:string):Observable<string[]>{
+      return this.http.get<string[]>(this.path+'/pretragaPoTekstualnomSadrzaju'+`/${odluka}`);
+    }
+
+    downloadRDF(id:string):Observable<Patent>{
+      return this.http.get<Patent>(this.path+"/downloadRDF"+`/${id}`);
+    }
 }

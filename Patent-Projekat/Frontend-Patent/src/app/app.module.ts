@@ -14,6 +14,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { EditPatentComponent } from './PATENT/edit-patent/edit-patent.component';
 import { PatentCreateComponent } from './PATENT/patent-create/patent-create.component';
 import { SviPatentComponent } from './PATENT/svi-patent/svi-patent.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -25,11 +26,15 @@ import { SviPatentComponent } from './PATENT/svi-patent/svi-patent.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    FormsModule,
     HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    NgSelectModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

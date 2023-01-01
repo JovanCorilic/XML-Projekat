@@ -6,7 +6,7 @@ declare const Xonomy: any;
     providedIn:'root'
 })
 
-export class XonomyPatentCreateService{
+export class XonomyPatentEditService{
     constructor(){}
     
     public PatentSpecification = {
@@ -15,20 +15,20 @@ export class XonomyPatentCreateService{
                 hasText:false,
             },
                 'popunjava_zavod':{
-                    hasText:false,
-                    isReadOnly:true
+                    hasText:true,
+                    oneliner:true
                 },
                 'broj_prijave':{
-                    hasText:false,
-                    isReadOnly:true
+                    hasText:true,
+                    oneliner:true
                 },
                 'datum_prijema':{
-                    hasText:false,
-                    isReadOnly:true
+                    hasText:true,
+                    oneliner:true
                 },
                 'priznati_datum_podnosenja':{
-                    hasText:false,
-                    isReadOnly:true
+                    hasText:true,
+                    oneliner:true
                 },
                 'pecat_i_potpis':{
                     hasText:true,
