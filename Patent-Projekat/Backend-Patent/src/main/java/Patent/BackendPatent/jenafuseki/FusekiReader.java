@@ -25,7 +25,7 @@ public class FusekiReader {
 
     public static ArrayList<String> executeQueryPatent(Map<String,String> params, String opcija) throws IOException {
         FusekiAuthenticationUtilities.ConnectionProperties conn = FusekiAuthenticationUtilities.loadProperties();
-        String QUERY_FILEPATH_PATENT = "src/main/resources/rdf/patent/sparql";
+        String QUERY_FILEPATH_PATENT = "src/main/resources/rdf/sparql";
         if (opcija.equals("3"))
             QUERY_FILEPATH_PATENT += "EngleskiNaziv.rq";
         else if(opcija.equals("2"))

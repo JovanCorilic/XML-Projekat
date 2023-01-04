@@ -19,7 +19,7 @@ export class SviPatentComponent implements OnInit{
   rezultat = <string>{}
 
   constructor(
-    private resenjeService:PatentService,
+    private patentService:PatentService,
     private router:Router,
     private fBuilder:FormBuilder
   ) {
@@ -38,15 +38,15 @@ export class SviPatentComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.resenjeService.sviPatenti().subscribe(
+    this.patentService.sviPatenti().subscribe(
       res=>{
         this.listaPatenta=res;
       }
     )
   }
 
-  idiNaEditResenja(resenje:string){
-    this.router.navigate(['/edit-patent/'+resenje]);
+  idiNaEditPatenta(patent:string){
+    this.router.navigate(['/edit-patent/'+patent]);
   }
 
   pretraziPrekoMetapodatak(){
@@ -54,7 +54,7 @@ export class SviPatentComponent implements OnInit{
       alert("Polje za unos metapodataka mora biti popunjeno!");
     }else{
       this.opcija = this.resForm.value["opcija"];
-      this.resenjeService.searchMetapodaci(this.resForm.value["odluka"], this.resForm.value["opcija"]).subscribe(
+      this.patentService.searchMetapodaci(this.resForm.value["odluka"], this.resForm.value["opcija"]).subscribe(
         res=>{
           this.rezultat = res.text;
           
@@ -80,7 +80,7 @@ export class SviPatentComponent implements OnInit{
     if (this.res2Form.value["odluka2"]==""){
       alert("Polje unos za pretragu tekstualnog sadrzaja mora biti popunjeno!");
     }else{
-      this.resenjeService.searchTekstualniSadrzaj(this.res2Form.value["odluka2"]).subscribe(
+      this.patentService.searchTekstualniSadrzaj(this.res2Form.value["odluka2"]).subscribe(
         res=>{
           this.opcija="1";
           this.listaPatenta2=res;

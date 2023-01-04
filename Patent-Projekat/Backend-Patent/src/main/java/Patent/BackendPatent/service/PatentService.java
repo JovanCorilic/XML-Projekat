@@ -77,7 +77,7 @@ public class PatentService {
         String text = patentRepository.findPatentById(id);
         metadataExtractor.extractMetadataPatent(text);
 
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/rdf/rdfResenjeOutput.rdf"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/rdf/rdfPatentOutput.rdf"));
         String rezultat="";
         String temp;
         while ((temp=bufferedReader.readLine())!=null){

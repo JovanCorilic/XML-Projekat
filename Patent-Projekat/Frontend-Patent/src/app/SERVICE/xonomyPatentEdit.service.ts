@@ -15,8 +15,7 @@ export class XonomyPatentEditService{
                 hasText:false,
             },
                 'popunjava_zavod':{
-                    hasText:true,
-                    oneliner:true
+                    hasText:false,
                 },
                 'broj_prijave':{
                     hasText:true,

@@ -104,14 +104,15 @@ public class ExistManager {
         createConnection();
         Collection col = null;
         XMLResource res = null;
-        try {
-            col = getOrCreateCollection(collectionId, 0);
-            res = (XMLResource) col.createResource(documentId, XMLResource.RESOURCE_TYPE);
-            res.setContent(xmlString);
-            col.storeResource(res);
-        } finally {
-            closeConnection(col, res);
-        }
+
+        col = getOrCreateCollection(collectionId, 0);
+        res = (XMLResource) col.createResource(documentId, XMLResource.RESOURCE_TYPE);
+        res.setContent(xmlString);
+
+        System.out.println(res.getContent());
+        col.storeResource(res);
+        closeConnection(col, res);
+
     }
 
     public XMLResource load(String collectionUri, String documentId) throws Exception  {

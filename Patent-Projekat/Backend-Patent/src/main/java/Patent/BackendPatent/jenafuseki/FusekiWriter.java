@@ -11,8 +11,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class FusekiWriter {
-    private static final String RDF_FILEPATH = "src/main/resources/rdf/rdfOutput.rdf";
-    private static final String GRAPH_URI = "metadata";
+
     private static final String RDF_FILEPATH_PATENT = "src/main/resources/rdf/rdfPatentOutput.rdf";
     private static final String GRAPH_URI_PATENT = "patentMetadata";
 

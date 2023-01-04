@@ -1,7 +1,7 @@
 <table cellpadding="0" cellspacing="0" border="0" >
     <tr valign="top"><td>
     <div *ngFor="let patent of listaPatenta" >
-    <button value="{{patent}}" (click)="idiNaEditResenja(patent)" class="button"><span>{{patent.split('%')[0]}}</span></button>
+    <button value="{{patent}}" (click)="idiNaEditPatenta(patent)" class="button"><span>{{patent.split('%')[0]}}</span></button>
     <br />
     </div>
 </td>
@@ -45,7 +45,7 @@
         <h2>Srpski naziv koji odgovara vašoj pretragi</h2>
         <h3 *ngIf="listaPatenta2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
         <div *ngFor="let patent of listaPatenta2" >
-            <button value="{{patent}}" (click)="idiNaEditResenja(patent)" class="button"><span>{{patent.split('%')[0]}}</span></button>
+            <button value="{{patent}}" (click)="idiNaEditPatenta(patent)" class="button"><span>{{patent.split('%')[0]}}</span></button>
             <br />
         </div>
     </div>
