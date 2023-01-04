@@ -64,4 +64,9 @@ public class PatentController {
         return new ResponseEntity<>(new XMLDto(result), HttpStatus.OK);
     }
 
+    @PostMapping(value = "/addText", consumes = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> addPatentText(@RequestBody String text) throws Exception {
+        patentService.addPatentFromText(text);
+        return new ResponseEntity<String>("Done", HttpStatus.OK);
+    }
 }

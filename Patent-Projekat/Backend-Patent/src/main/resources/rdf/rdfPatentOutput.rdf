@@ -1,11 +1,11 @@
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
 <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/rdf/patent">
-<pred:brojPrijave xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/" rdf:datatype="string"/>
+<pred:brojPrijave xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/" rdf:datatype="string">1</pred:brojPrijave>
 </rdf:Description>
 <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/rdf/patent">
-<pred:nazivPatentaSrpski xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/" rdf:datatype="string">ere </pred:nazivPatentaSrpski>
+<pred:nazivPatentaSrpski xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/" rdf:datatype="string">Neki</pred:nazivPatentaSrpski>
 </rdf:Description>
 <rdf:Description rdf:about="http://www.ftn.uns.ac.rs/rdf/patent">
-<pred:nazivPatentaEngleski xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/" rdf:datatype="string"/>
+<pred:nazivPatentaEngleski xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/" rdf:datatype="string">There</pred:nazivPatentaEngleski>
 </rdf:Description>
 </rdf:RDF>
