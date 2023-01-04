@@ -5,9 +5,25 @@
     <xs:element name="P-1">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="popunjava_zavod" type="P-1:tipPopunjavaZavod"/>
+                <xs:element name="popunjava_zavod">
+                    <xs:complexType>
+                        <xs:complexContent>
+                            <xs:extension base="P-1:tipPopunjavaZavod">
+                                <xs:attribute name="about" type="xs:string"/>
+                            </xs:extension>
+                        </xs:complexContent>
+                    </xs:complexType>
+                </xs:element>
                 <xs:element name="naslov" type="xs:string"/>
-                <xs:element name="naziv_pronalaska" type="P-1:tipNazivPronalaska"/>
+                <xs:element name="naziv_pronalaska">
+                    <xs:complexType>
+                        <xs:complexContent>
+                            <xs:extension base="P-1:tipNazivPronalaska">
+                                <xs:attribute name="about" type="xs:string"/>
+                            </xs:extension>
+                        </xs:complexContent>
+                    </xs:complexType>
+                </xs:element>
                 <xs:element name="podnosilac_prijave" type="P-1:tipPodnosilacPrijave"/>
                 <xs:element name="pronalazac" type="P-1:tipPronalazac"/>
                 <xs:element name="punomocnik" type="P-1:tipPunomocnik"/>
@@ -16,12 +32,20 @@
                 <xs:element name="zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava"
                     type="P-1:tipZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava"/>
             </xs:sequence>
-            <xs:attribute name="id" type="xs:string"/>
         </xs:complexType>
     </xs:element>
     <xs:complexType name="tipPopunjavaZavod">
         <xs:sequence>
-            <xs:element name="broj_prijave" type="xs:int"/>
+            <xs:element name="broj_prijave">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="property" type="xs:string"/>
+                            <xs:attribute name="datatype" type="xs:string"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="datum_prijema" type="xs:string"/>
             <xs:element name="priznati_datum_podnosenja" type="xs:string"/>
             <xs:element name="pecat_i_potpis" type="xs:string"/>
@@ -32,16 +56,34 @@
     </xs:complexType>
     <xs:complexType name="tipAdresa">
         <xs:sequence>
-            <xs:element name="naziv_ulice" type="xs:string"/>
-            <xs:element name="broj_ulice" type="xs:int"/>
-            <xs:element name="grad" type="xs:string"/>
-            <xs:element name="postanski_broj" type="xs:int"/>
+            <xs:element name="naziv_ulice_ustanove" type="xs:string"/>
+            <xs:element name="broj_ulice_ustanove" type="xs:int"/>
+            <xs:element name="grad_ustanove" type="xs:string"/>
+            <xs:element name="postanski_broj_ustanove" type="xs:int"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="tipNazivPronalaska">
         <xs:sequence>
-            <xs:element name="srpski_naziv" type="xs:string"/>
-            <xs:element name="engleski_naziv" type="xs:string"/>
+            <xs:element name="srpski_naziv">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="property" type="xs:string"/>
+                            <xs:attribute name="datatype" type="xs:string"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="engleski_naziv">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="property" type="xs:string"/>
+                            <xs:attribute name="datatype" type="xs:string"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="tipPodnosilacPrijave">
@@ -64,11 +106,11 @@
     </xs:complexType>
     <xs:complexType name="tipPrebivaliste">
         <xs:sequence>
-            <xs:element name="ulica" type="xs:string"/>
+            <xs:element name="naziv_ulice" type="xs:string"/>
             <xs:element name="broj_ulice" type="xs:int" nillable="true"/>
             <xs:element name="postanski_broj" type="xs:int" nillable="true"/>
-            <xs:element name="grad" type="xs:string"/>
-            <xs:element name="drzava" type="xs:string"/>
+            <xs:element name="naziv_grada" type="xs:string"/>
+            <xs:element name="naziv_drzave" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="tipKontakt">
@@ -107,7 +149,7 @@
     </xs:complexType>
     <xs:complexType name="tipDostavljanje">
         <xs:sequence>
-            <xs:element name="adresa" type="P-1:tipAdresa"/>
+            <xs:element name="adresa" type="P-1:tipAdresaDostavljanje"/>
             <xs:element name="nacin" type="P-1:tipNacin"/>
         </xs:sequence>
     </xs:complexType>
@@ -136,6 +178,14 @@
             <xs:element name="datum_podnosenja_ranije_prijave" type="xs:string"/>
             <xs:element name="broj_ranije_prijave" type="xs:string"/>
             <xs:element name="dvoslovna_oznaka_drzave_ili_organizacije" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="tipAdresaDostavljanje">
+        <xs:sequence>
+            <xs:element name="naziv_ulice" type="xs:string"/>
+            <xs:element name="broj_ulice" type="xs:int"/>
+            <xs:element name="grad" type="xs:string"/>
+            <xs:element name="postanski_broj" type="xs:int"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

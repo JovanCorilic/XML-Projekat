@@ -41,7 +41,7 @@ export class PatentCreateComponent {
       ' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"'+
       ' xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/">'+
       ' <popunjava_zavod about="http://www.ftn.uns.ac.rs/rdf/patent"> '+
-        ' <broj_prijave property="pred:brojPrijave" datatype="xs:int"> </broj_prijave>'+
+        ' <broj_prijave property="pred:brojPrijave" datatype="xs:string"> </broj_prijave>'+
         ' <datum_prijema> </datum_prijema>'+
         ' <priznati_datum_podnosenja> </priznati_datum_podnosenja>'+
         ' <pecat_i_potpis>Nevazno</pecat_i_potpis>'+

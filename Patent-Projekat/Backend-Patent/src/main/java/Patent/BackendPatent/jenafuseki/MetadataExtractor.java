@@ -26,7 +26,7 @@ public class MetadataExtractor {
 
     private static final String XSLT_FILE = "src/main/resources/xsl/grddl.xsl";
     private static final String RDF_FILE = "src/main/resources/rdf/rdfOutput.rdf";
-    private static final String RDF_FILE_RESENJE = "src/main/resources/rdf/rdfResenjeOutput.rdf";
+    private static final String RDF_FILE_PATENT = "src/main/resources/rdf/rdfPatentOutput.rdf";
 
     public MetadataExtractor() throws SAXException, IOException {
 
@@ -35,49 +35,15 @@ public class MetadataExtractor {
     }
 
     /**
-     * Generates RDF/XML based on RDFa metadata from an XML containing
-     * input stream by applying GRDDL XSL transformation.
-     *
-     * @param in XML containing input stream
-     * @param out RDF/XML output stream
-     */
-    public void extractMetadata(String in) throws FileNotFoundException, TransformerException {
-
-        OutputStream out = new FileOutputStream(new File(RDF_FILE));
-
-        // Create transformation source
-        StreamSource transformSource = new StreamSource(new File(XSLT_FILE));
-
-        // Initialize GRDDL transformer object
-        Transformer grddlTransformer = transformerFactory.newTransformer(transformSource);
-
-        // Set the indentation properties
-        grddlTransformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "2");
-        grddlTransformer.setOutputProperty(OutputKeys.INDENT, "yes");
-
-        // Initialize transformation subject
-        StreamSource source = new StreamSource(new StringReader(in));
-
-        // Initialize result stream
-        StreamResult result = new StreamResult(out);
-
-        // Trigger the transformation
-        grddlTransformer.transform(source, result);
-
-    }
-
-
-
-    /**
      * Generates RDF/XML based on RDFa metadata from an XML containing for Resenje xml file
      * input stream by applying GRDDL XSL transformation.
      *
      * @param in XML containing input stream
      * @param out RDF/XML output stream
      */
-    public void extractMetadataResenje(String in) throws FileNotFoundException, TransformerException {
+    public void extractMetadataPatent(String in) throws FileNotFoundException, TransformerException {
 
-        OutputStream out = new FileOutputStream(new File(RDF_FILE_RESENJE));
+        OutputStream out = new FileOutputStream(new File(RDF_FILE_PATENT));
 
         // Create transformation source
         StreamSource transformSource = new StreamSource(new File(XSLT_FILE));
@@ -97,7 +63,6 @@ public class MetadataExtractor {
 
         // Trigger the transformation
         grddlTransformer.transform(source, result);
-
     }
 
 }

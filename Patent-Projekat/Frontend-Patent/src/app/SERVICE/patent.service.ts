@@ -11,7 +11,7 @@ export class PatentService{
     private path = "http://localhost:8080/api/patent"
 
     sendXml(entity: Patent) {
-        return this.http.post(this.path+'/xonomy', entity);
+        return this.http.post(this.path+'/xonomyCreate', entity);
       }
       
     sviPatenti():Observable<string[]>{
@@ -19,7 +19,7 @@ export class PatentService{
     }
 
     getPatent(id:string):Observable<Patent>{
-      return this.http.post<Patent>(this.path+'/getDocument',new Patent(id));
+      return this.http.post<Patent>(this.path+'/getXMLDocument',new Patent(id));
     }
 
     searchMetapodaci(odluka:string, opcija:string):Observable<Patent>{

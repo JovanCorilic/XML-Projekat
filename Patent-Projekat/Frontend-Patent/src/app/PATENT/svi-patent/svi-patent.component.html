@@ -15,9 +15,9 @@
                     *ngIf="resForm.controls.odluka.touched && resForm.controls.odluka.errors?.required">
                     Ovo ne sme ostati prazno!</small>
             <select name = "opcija" id="opcija" formControlName="opcija">
-                <option value = "1" selected>Broj patenta</option>
-                <option value = "2">Odluka</option>
-                <option value = "3">Datum patenta</option>
+                <option value = "1" selected>Srpski naziv</option>
+                <option value = "2">Broj prijave</option>
+                <option value = "3">Engleski naziv</option>
             </select><br>
             <button type="submit"  [disabled]="resForm.invalid" class="button2">Pretrazi preko metapodataka</button>
         </div>
@@ -34,15 +34,15 @@
 </td>
 <td valign="top">
     <div *ngIf="opcija === '2'">
-        <h2>Odluke koje odgovaraju vašoj pretragi</h2>
+        <h2>Broj prijave koji odgovara vašoj pretragi</h2>
         <h4>{{rezultat}}</h4>
     </div>
     <div *ngIf="opcija === '3'">
-        <h2>Datumi rešenja koje odgovaraju vašoj pretragi</h2>
+        <h2>Engleski naziv koji odgovara vašoj pretragi</h2>
         <h4>{{rezultat}}</h4>
     </div>
     <div *ngIf="opcija === '1'">
-        <h2>Rezultat pretrage</h2>
+        <h2>Srpski naziv koji odgovara vašoj pretragi</h2>
         <h3 *ngIf="listaPatenta2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
         <div *ngFor="let patent of listaPatenta2" >
             <button value="{{patent}}" (click)="idiNaEditResenja(patent)" class="button"><span>{{patent.split('%')[0]}}</span></button>
