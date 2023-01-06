@@ -1,3 +1,4 @@
+// console.log("XONOMY SKRIPTA");
 var Xonomy = {
 	lang: "", //"en"|"de"|fr"| ...
 	mode: "nerd", //"nerd"|"laic"

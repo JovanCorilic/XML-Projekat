@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
-<trademark xmlns="http://ftn.uns.ac.rs/trademark" xsi:schemaLocation=" http://ftn.uns.ac.rs/trademark file:\C:\Users\vaske\Desktop\XML20222023\ZIG-APP\zig-back-app\src\main\resources\data\xsd\zig.xsd" trademark_id="string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<trademark>
   <applicant>
     <subject>
       <user>
@@ -15,7 +13,7 @@
       <city>string</city>
       <country>string</country>
     </address>
-    
+
   </applicant>
   <proxy>
     <subject>
@@ -42,8 +40,8 @@
     </address>
   </common_representative>
   <trademark_info>
-    <trademark_type>Guarantee Trademark</trademark_type>
-    <trademark_appearance>Three-Dimensional Trademark</trademark_appearance>
+    <trademark_type>IndividualTrademark</trademark_type>
+    <trademark_appearance>VerbalTrademark</trademark_appearance>
     <trademark_view>string</trademark_view>
     <trademark_colors>
       <trademark_color>string</trademark_color>
@@ -52,7 +50,7 @@
     <trademark_translation>string</trademark_translation>
     <trademark_description>string</trademark_description>
   </trademark_info>
-  <nice_classification>class 2</nice_classification>
+  <nice_classification>C2</nice_classification>
   <requested_right_of_priority_and_basis>string</requested_right_of_priority_and_basis>
   <fee>
     <basic>47601202349058</basic>
@@ -64,7 +62,7 @@
     <list_of_goods_and_services>string</list_of_goods_and_services>
     <power_of_attorney>string</power_of_attorney>
     <general_power_of_attorney_previously_submitted>false</general_power_of_attorney_previously_submitted>
-    <power_of_attorney_will_be_delivered_later>1</power_of_attorney_will_be_delivered_later>
+    <power_of_attorney_will_be_delivered_later>true</power_of_attorney_will_be_delivered_later>
     <general_act>string</general_act>
     <proof_of_priority>string</proof_of_priority>
     <proof_of_fee_payment>string</proof_of_fee_payment>

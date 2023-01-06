@@ -18,6 +18,11 @@ public class HelloController {
 		return "hello zig-back-app";
 	}
 	
+	@GetMapping(value = "html",produces = { "application/html", "text/html" })
+	public String getHtml() {
+		return "<h1>HTML H1</h1> <h3>Mali naslov</h3> tekstt";
+	}
+	
 	@PostMapping("xml")
 	public String getXMLFake(@RequestBody String xmldoc) {
 		return xmldoc;

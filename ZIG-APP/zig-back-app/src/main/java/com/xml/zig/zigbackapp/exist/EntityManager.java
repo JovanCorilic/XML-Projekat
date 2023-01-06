@@ -163,6 +163,7 @@ public class EntityManager {
 			}
 		}
 	}
+	
 
 	public ResourceSet retrieve(String collectionUri, String xpathExp) throws Exception  {
 		createConnection();
@@ -173,7 +174,7 @@ public class EntityManager {
 					authManager.getPassword());
 			XPathQueryService xpathService = (XPathQueryService) col.getService("XPathQueryService", "1.0");
 			xpathService.setProperty("indent", "yes");
-			xpathService.setNamespace("", TARGET_NAMESPACE);
+//			xpathService.setNamespace("", TARGET_NAMESPACE);
 			result = xpathService.query(xpathExp);
 		} finally {
 			if (col != null) {

@@ -1,10 +1,10 @@
-import { ZigFormComponent } from './components/zig-form/zig-form.component';
+import { TrademarkFormComponent } from './components/trademark-form/trademark-form.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 
-  { path: 'zig', component: ZigFormComponent }
+  { path: 'trademark', component: TrademarkFormComponent }
 
 
 ];

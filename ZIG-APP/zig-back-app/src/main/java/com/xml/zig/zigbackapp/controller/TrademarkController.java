@@ -34,8 +34,16 @@ public class TrademarkController {
 		return true;
 	}
 	
+	@PostMapping(value = "save")
+	public boolean saveTrademark(@RequestBody TrademarkSaveDTO trademarkSaveDTO) {
+		
+		boolean answer = ts.saveTrademark(trademarkSaveDTO);
+		
+		return true;
+	}
+	
 	@PostMapping(value = "save/{username}")
-	public boolean saveTrademark(@PathVariable("username") String username,@RequestBody TrademarkSaveDTO trademarkSaveDTO) {
+	public boolean saveTrademarkWithUsername(@PathVariable("username") String username,@RequestBody TrademarkSaveDTO trademarkSaveDTO) {
 		
 		boolean answer = ts.saveTrademark(trademarkSaveDTO, username);
 		
@@ -57,4 +65,13 @@ public class TrademarkController {
 		
 		return new ResponseEntity<List<String>>(trademarks, HttpStatus.OK);
 	}
+	
+	@GetMapping(value = "search/{username}/{text}")
+	public ResponseEntity<List<Trademark>> searchTrademarksFromUser(@PathVariable("username") String username,@PathVariable("text") String text) {
+		
+		List<Trademark> trademarks = ts.searchAllTrademarksFromUser(username,text);
+		
+		return new ResponseEntity<List<Trademark>>(trademarks, HttpStatus.OK);
+	}
+	
 }

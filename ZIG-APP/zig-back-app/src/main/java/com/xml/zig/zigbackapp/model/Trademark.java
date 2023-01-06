@@ -1,5 +1,7 @@
 package com.xml.zig.zigbackapp.model;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "trademark")
@@ -26,7 +28,11 @@ public class Trademark {
 	
 	private Long date;//date in milliseconds
 
+	private String trademark_id;//UUID 
 	
+	private String qrCode;
+	
+	private List<Document> documents;
 	
 	public Trademark() {
 	}
@@ -34,7 +40,7 @@ public class Trademark {
 	public Trademark(SubjectInfo applicant, SubjectInfo proxy, SubjectInfo common_representative,
 			TrademarkInfo trademark_info, NiceClassification nice_classification,
 			String requested_right_of_priority_and_basis, Fee fee, Institution institution, String trademark_number,
-			Long date) {
+			Long date,List<Document> documents) {
 		this.applicant = applicant;
 		this.proxy = proxy;
 		this.common_representative = common_representative;
@@ -45,6 +51,33 @@ public class Trademark {
 		this.institution = institution;
 		this.trademark_number = trademark_number;
 		this.date = date;
+		this.documents= documents;
+	}
+
+	
+	
+	public List<Document> getDocuments() {
+		return documents;
+	}
+
+	public void setDocuments(List<Document> documents) {
+		this.documents = documents;
+	}
+
+	public String getQrCode() {
+		return qrCode;
+	}
+
+	public void setQrCode(String qrCode) {
+		this.qrCode = qrCode;
+	}
+
+	public String getTrademark_id() {
+		return trademark_id;
+	}
+
+	public void setTrademark_id(String trademark_id) {
+		this.trademark_id = trademark_id;
 	}
 
 	public SubjectInfo getApplicant() {
@@ -133,9 +166,10 @@ public class Trademark {
 				+ common_representative + ", trademark_info=" + trademark_info + ", nice_classification="
 				+ nice_classification + ", requested_right_of_priority_and_basis="
 				+ requested_right_of_priority_and_basis + ", fee=" + fee + ", institution=" + institution
-				+ ", trademark_number=" + trademark_number + ", date=" + date + "]";
+				+ ", trademark_number=" + trademark_number + ", date=" + date + ", trademark_id=" + trademark_id
+				+ ", qrCode=" + qrCode + ", documents=" + documents + "]";
 	}
-	
+
 	
 	
 }
