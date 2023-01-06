@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    exclude-result-prefixes="xs"
-    version="2.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
     <xsl:template match = "/"> 
         <html>
             <head>
                 <title>
                    ZAHTEV ZA PRIZNANjE PATENTA
                 </title>
+                <style>
+                    table, tr, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                    vertical-align: text-top;
+                    font-family: arial;
+                    font-size: 9px;
+                    width: 100%;
+                    }
+                    body { font-family: arial;
+                    font-size: 9px;
+                    }
+                </style>
             </head>
             <body>
                 <table style="width: 55%">
@@ -36,23 +46,22 @@
                         </td>
                     </tr>
                 </table> <br></br>
-                <p>
+                <p style="font-size: 10px;">
                     Republika Srbija <br></br>
                     Zavod za intelektualnu svojinu <br></br>
                     Kneginje Ljubice broj 5 <br></br>
                     11000 Beograd <br></br>
                 </p>
-                <p>ZAHTEV <br></br>
-                    ZA PRIZNANjE PATENTA</p>
-                <p>(popuniti pisaćom mašinom ili računarom)</p>
-                <table style="width: 90%">
+                <p style="text-align: center;">ZAHTEV <br></br>
+                    ZA PRIZNANjE PATENTA</p><br></br>
+                <p style="text-align: center;">(popuniti pisaćom mašinom ili računarom)</p>
+                <table >
                     <tr>
                         <td colspan="3">
-                            Polje broj I	  NAZIV PRONALASKA <br></br>
+                            Polje broj I&#xA0;&#xA0;NAZIV PRONALASKA <br></br>
                             * Naziv pronalaska treba da jasno i sažeto izražava suštinu pronalaska i ne 
                             sme da sadrži izmišljene ili komercijalne nazive, žigove, imena, šifre, uobičajene 
                             skraćenice za proizvode i sl.
-                            
                         </td>
                     </tr>
                     <tr>
@@ -63,15 +72,15 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3">Polje broj II	   PODNOSILAC PRIJAVE  
+                        <td colspan="3">Polje broj II&#xA0;&#xA0;PODNOSILAC PRIJAVE&#xA0;&#xA0;  
                             <xsl:choose>
                                 <xsl:when test="P-1/podnosilac_prijave/je_pronalazac = 'true'">
-                                    <input type="checkbox" checked="">Podnosilac prijave je i pronalazač</input>
+                                    <input type="checkbox" checked="">(DA)</input>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <input type="checkbox" >Podnosilac prijave je i pronalazač</input>
+                                    <input type="checkbox" >(NE)</input>
                                 </xsl:otherwise>
-                            </xsl:choose>
+                            </xsl:choose>&#xA0;&#xA0;Podnosilac prijave je i pronalazač
                         </td>
                     </tr>
                     <tr>
@@ -97,7 +106,7 @@
                     <tr>
                         <td colspan="2">
                             Državljanstvo:  <xsl:value-of select = "P-1/podnosilac_prijave/licne_informacije/drzavljanstvo"/> 
-                            (popuniti samo za fizička lica)	
+                            &#xA0;&#xA0;(popuniti samo za fizička lica)	
                         </td>
                         <td>
                             E-pošta: <br></br>
@@ -110,30 +119,23 @@
                             * Ako više lica podnosi prijavu, potrebno je odrediti jedno od tih lica kao zajedničkog predstavnika i dostaviti izjavu o zajedničkom predstavniku potpisanu od strane svih podnosilaca ili imenovati zajedničkog punomoćnika za zastupanje i dostaviti punomoćje
                         </td>
                     </tr>
-                </table>
-                
-                <table style="width: 90%">
-                    <tr>
-                        
-                    </tr>
-                </table>
-                
-                <table>
+                </table>    
+                <table >
                     <tr>
                         <td colspan="3">
-                            Polje broj III        PRONALAZAČ  <br></br>
+                            Polje broj III&#xA0;&#xA0;PRONALAZAČ  <br></br>
                             (ako su svi pronalazači ujedno i podnosioci prijave, polje broj III se ne popunjava)<br></br>
                             * Ako svi podnosioci prijave nisu i pronalazači, dostavlja se izjava podnosilaca prijave o 
                             osnovu sticanja prava na podnošenje prijave u odnosu na pronalazače koji nisu i podnosioci 
                             prijave i u tom slučaju u polje broj III se unose podaci o svim pronalazačim <br></br>
                             <xsl:choose>
                                 <xsl:when test="P-1/pronalazac/da_li_pronalazac_zeli_da_bude_naveden = 'true'">
-                                    <input type="checkbox" checked="">Pronalazač ne želi da bude naveden u prijavi</input>
+                                    <input type="checkbox" checked="">(DA)</input>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <input type="checkbox" >Pronalazač ne želi da bude naveden u prijavi</input>
+                                    <input type="checkbox" >(NE)</input>
                                 </xsl:otherwise>
-                            </xsl:choose> <br></br>
+                            </xsl:choose>&#xA0;&#xA0;Pronalazač ne želi da bude naveden u prijavi<br></br>
                             (ako pronalazač ne želi da bude naveden u prijavi polje broj III se ne popunjava)<br></br>
                             *Ako pronalazač ne želi da bude naveden u prijavi, potrebno je dostaviti potpisanu 
                             izjavu pronalazača da ne želi da bude naveden.
@@ -172,33 +174,33 @@
                     </tr>
                 </table>
                 
-                <table style="width: 90%">
+                <table >
                     <tr>
                         <td colspan="3">
-                            Polje broj IV  <xsl:choose>
+                            Polje broj IV&#xA0;&#xA0;<xsl:choose>
                                 <xsl:when test="P-1/punomocnik/da_li_je_punomocnik_za_zastupanje = 'true'">
-                                    <input type="checkbox" checked="">PUNOMOĆNIK ZA ZASTUPANjE</input>
+                                    <input type="checkbox" checked="">(DA)</input>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <input type="checkbox" >PUNOMOĆNIK ZA ZASTUPANjE</input>
+                                    <input type="checkbox" >(NE)</input>
                                 </xsl:otherwise>
-                            </xsl:choose>  
+                            </xsl:choose>&#xA0;&#xA0;PUNOMOĆNIK ZA ZASTUPANjE&#xA0;&#xA0;  
                             <xsl:choose>
                                 <xsl:when test="P-1/punomocnik/da_li_je_punomocnik_za_prijem_pismena = 'true'">
-                                    <input type="checkbox" checked="">PUNOMOĆNIK ZA PRIJEM PISMENA</input>
+                                    <input type="checkbox" checked="">(DA)</input>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <input type="checkbox" >PUNOMOĆNIK ZA PRIJEM PISMENA</input>
+                                    <input type="checkbox" >(NE)</input>
                                 </xsl:otherwise>
-                            </xsl:choose>  <br></br>
+                            </xsl:choose>&#xA0;&#xA0;PUNOMOĆNIK ZA PRIJEM PISMENA  <br></br>
                             <xsl:choose>
                                 <xsl:when test="P-1/punomocnik/da_li_je_zajednicki_predstavnik = 'true'">
-                                    <input type="checkbox" checked="">ZAJEDNIČKI PREDSTAVNIK</input>
+                                    <input type="checkbox" checked="">(DA)</input>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <input type="checkbox" >ZAJEDNIČKI PREDSTAVNIK</input>
+                                    <input type="checkbox" >(NE)</input>
                                 </xsl:otherwise>
-                            </xsl:choose> <br></br>
+                            </xsl:choose>&#xA0;&#xA0;ZAJEDNIČKI PREDSTAVNIK <br></br>
                             * Punomoćnik za zastupanje je lice koje po ovlašćenju podnosioca prijave preduzima radnje u 
                             upravnom postupku u granicama punomoćja<br></br>
                             * Punomoćnik za prijem pismena je lice koje je podnosilac prijave odredio kao lice kome se  
@@ -230,7 +232,7 @@
                     </tr>
                     <tr>
                         <td colspan="3">
-                            Polje broj V        ADRESA ZA DOSTAVLjANjE  <br></br>
+                            Polje broj V&#xA0;&#xA0; ADRESA ZA DOSTAVLjANjE  <br></br>
                             (ovo polje se popunjava ako podnosilac prijave, zajednički predstavnik ili 
                             punomoćnik želi da se dostavljanje podnesaka vrši na drugoj adresi od njegove navedene adrese)
                         </td>
@@ -243,48 +245,48 @@
                     </tr>
                     <tr>
                         <td colspan="3">
-                            Polje broj VI        NAČIN DOSTAVLjANjA 
+                            Polje broj VI&#xA0;&#xA0; NAČIN DOSTAVLjANjA 
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3">
                             <xsl:choose>
                                 <xsl:when test="P-1/dostavljanje/nacin/dostavljanje_pismena_iskljucivo_elektronskim_putem = 'true'">
-                                    <input type="checkbox" checked="">Podnosilac prijave je saglasan da Zavod vrši dostavljanje pismena isključivo elektronskim putem u formi elektronskog dokumenta (u ovom slučaju neophodna je registracija na portalu „eUprave”)</input>
+                                    <input type="checkbox" checked="">(DA)</input>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <input type="checkbox" >Podnosilac prijave je saglasan da Zavod vrši dostavljanje pismena isključivo elektronskim putem u formi elektronskog dokumenta (u ovom slučaju neophodna je registracija na portalu „eUprave”)</input>
+                                    <input type="checkbox" >(NE)</input>
                                 </xsl:otherwise>
-                            </xsl:choose> <br></br>
+                            </xsl:choose>&#xA0;&#xA0;Podnosilac prijave je saglasan da Zavod vrši dostavljanje pismena isključivo elektronskim putem u formi elektronskog dokumenta (u ovom slučaju neophodna je registracija na portalu „eUprave”) <br></br>
                             <xsl:choose>
                                 <xsl:when test="P-1/dostavljanje/nacin/dostavljanje_pismena_u_papirnoj_formi = 'true'">
-                                    <input type="checkbox" checked="">Podnosilac prijave je saglasan da Zavod vrši dostavljanje pismena u papirnoj formi</input>
+                                    <input type="checkbox" checked="">(DA)</input>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <input type="checkbox" >Podnosilac prijave je saglasan da Zavod vrši dostavljanje pismena u papirnoj formi</input>
+                                    <input type="checkbox" >(NE)</input>
                                 </xsl:otherwise>
-                            </xsl:choose>
+                            </xsl:choose>&#xA0;&#xA0;Podnosilac prijave je saglasan da Zavod vrši dostavljanje pismena u papirnoj formi
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3">
-                            Polje broj VII 
+                            Polje broj VII&#xA0;&#xA0;
                             <xsl:choose>
                                 <xsl:when test="P-1/tip_prijave/da_li_je_dopunska_prijava = 'true'">
-                                    <input type="checkbox" checked="">DOPUNSKA PRIJAVA</input>
+                                    <input type="checkbox" checked="">(DA)</input>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <input type="checkbox" >DOPUNSKA PRIJAVA</input>
+                                    <input type="checkbox" >(NE)</input>
                                 </xsl:otherwise>
-                            </xsl:choose> 
+                            </xsl:choose>&#xA0;&#xA0;DOPUNSKA PRIJAVA&#xA0;&#xA0;
                             <xsl:choose>
                                 <xsl:when test="P-1/tip_prijave/da_li_je_izdvojena_prijava = 'true'">
-                                    <input type="checkbox" checked="">IZDVOJENA PRIJAVA</input>
+                                    <input type="checkbox" checked="">(DA)</input>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <input type="checkbox" >IZDVOJENA PRIJAVA</input>
+                                    <input type="checkbox" >(NE)</input>
                                 </xsl:otherwise>
-                            </xsl:choose>
+                            </xsl:choose>&#xA0;&#xA0;IZDVOJENA PRIJAVA
                         </td>
                     </tr>
                     <tr>
@@ -301,10 +303,10 @@
                     </tr>
                 </table>
                 
-                <table style="width: 90%">
+                <table >
                     <tr>
                         <td colspan="5">
-                            Polje broj VIII       ZAHTEV ZA PRIZNANjE PRAVA PRVENSTVA IZ RANIJIH PRIJAVA:
+                            Polje broj VIII&#xA0;&#xA0;ZAHTEV ZA PRIZNANjE PRAVA PRVENSTVA IZ RANIJIH PRIJAVA:
                         </td>
                     </tr>
                     <tr>
@@ -319,19 +321,20 @@
                             Dvoslovna oznaka države, regionalne ili međunarodne organizacije
                         </td>
                     </tr>
-                    <xsl:for-each select="P-1/zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava">
+                    <xsl:for-each select="P-1/zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava/ranija_prijava">
                         <tr>
                             <td>
-                                <xsl:value-of select="position()-1" />
+                                <xsl:value-of select="position()" />
                             </td>
                             <td>
-                                <xsl:value-of select = "ranija_prijava/datum_podnosenja_ranije_prijave"/>
+                                <xsl:value-of select = "datum_podnosenja_ranije_prijave"/>
+                            </td>
+                            <td></td>
+                            <td>
+                                <xsl:value-of select = "broj_ranije_prijave"/>
                             </td>
                             <td>
-                                <xsl:value-of select = "ranija_prijava/broj_ranije_prijave"/>
-                            </td>
-                            <td>
-                                <xsl:value-of select = "ranija_prijava/dvoslovna_oznaka_drzave_ili_organizacije"/>
+                                <xsl:value-of select = "dvoslovna_oznaka_drzave_ili_organizacije"/>
                             </td>
                         </tr>
                     </xsl:for-each>
