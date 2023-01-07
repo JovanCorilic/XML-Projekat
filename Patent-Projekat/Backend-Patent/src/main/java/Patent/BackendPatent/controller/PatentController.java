@@ -69,4 +69,10 @@ public class PatentController {
         patentService.addPatentFromText(text);
         return new ResponseEntity<String>("Done", HttpStatus.OK);
     }
+
+    @PostMapping(value = "/generateXHTMLandPDF/{id}")
+    public ResponseEntity<Void> generateXHTMLandPDF(@PathVariable("id") String id)throws Exception{
+        patentService.generateXHTMLandPDF(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

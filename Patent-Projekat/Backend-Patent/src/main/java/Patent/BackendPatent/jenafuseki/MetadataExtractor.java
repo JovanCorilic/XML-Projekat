@@ -24,8 +24,7 @@ public class MetadataExtractor {
 
     private TransformerFactory transformerFactory;
 
-    private static final String XSLT_FILE = "src/main/resources/xsl/grddl.xsl";
-    private static final String RDF_FILE = "src/main/resources/rdf/rdfOutput.rdf";
+    private static final String XSLT_FILE = "src/main/resources/xslt/grddl.xsl";
     private static final String RDF_FILE_PATENT = "src/main/resources/rdf/rdfPatentOutput.rdf";
 
     public MetadataExtractor() throws SAXException, IOException {

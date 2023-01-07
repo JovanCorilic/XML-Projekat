@@ -14,8 +14,6 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class FusekiReader {
-    private static final String QUERY_FILEPATH = "src/main/resources/rdf/sparql.rq";
-
     private FusekiReader(){}
 
     public static String readFile(String path, Charset encoding) throws IOException {

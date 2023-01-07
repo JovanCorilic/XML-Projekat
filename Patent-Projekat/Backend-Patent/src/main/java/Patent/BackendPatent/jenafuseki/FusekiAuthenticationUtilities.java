@@ -17,7 +17,6 @@ public class FusekiAuthenticationUtilities {
         public String updateEndpoint;
         public String dataEndpoint;
 
-
         public ConnectionProperties(Properties props) {
             super();
             dataset = props.getProperty("conn.dataset").trim();

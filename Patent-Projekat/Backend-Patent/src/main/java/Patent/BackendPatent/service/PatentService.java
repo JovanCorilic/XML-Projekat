@@ -6,10 +6,12 @@ import Patent.BackendPatent.jenafuseki.FusekiWriter;
 import Patent.BackendPatent.jenafuseki.MetadataExtractor;
 import Patent.BackendPatent.model.P1;
 import Patent.BackendPatent.repository.PatentRepository;
+import Patent.BackendPatent.xslt.PDFTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -85,5 +87,10 @@ public class PatentService {
         }
 
         return rezultat;
+    }
+
+    public void generateXHTMLandPDF(String id) throws Exception {
+        String xml = patentRepository.findPatentById(id);
+        PDFTransformer.generate(xml);
     }
 }
