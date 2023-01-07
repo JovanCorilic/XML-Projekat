@@ -19,6 +19,10 @@ public class PatentRepository {
         return existManager.loadString(collectionId, id);
     }
 
+    public String findPatentByNaziv(String naziv)throws Exception{
+        return existManager.findByNaziv(collectionId,naziv);
+    }
+
     public String[] getAll() throws Exception{
         return existManager.loadAll(collectionId);
     }

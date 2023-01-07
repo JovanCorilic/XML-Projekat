@@ -58,10 +58,24 @@ public class PatentController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    @GetMapping("pretragaPoNazivu/{naziv}")
+    public ResponseEntity<XMLDto>pretragaPoSrpskomNazivu(@PathVariable("naziv") String naziv) throws Exception{
+        try {
+            String document = patentService.FindNaziv(naziv);
+            return new ResponseEntity<>(new XMLDto(document),HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @GetMapping("downloadRDF/{id}")
     public ResponseEntity<XMLDto> downloadRDF(@PathVariable("id") String id) throws Exception {
-        String result = patentService.downloadRDF(id);
-        return new ResponseEntity<>(new XMLDto(result), HttpStatus.OK);
+        try {
+            String result = patentService.downloadRDF(id);
+            return new ResponseEntity<>(new XMLDto(result), HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping(value = "/addText", consumes = MediaType.TEXT_PLAIN_VALUE)
@@ -72,7 +86,11 @@ public class PatentController {
 
     @PostMapping(value = "/generateXHTMLandPDF/{id}")
     public ResponseEntity<Void> generateXHTMLandPDF(@PathVariable("id") String id)throws Exception{
-        patentService.generateXHTMLandPDF(id);
+        try {
+            patentService.generateXHTMLandPDF(id);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

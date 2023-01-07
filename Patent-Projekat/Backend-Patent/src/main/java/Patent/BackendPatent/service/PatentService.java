@@ -33,7 +33,9 @@ public class PatentService {
 
     public void addPatentFromText(String text)throws Exception{
         P1 p1 = jaxbParser.unmarshall(P1.class,text);
-        String docId = p1.getNazivPronalaska().getSrpskiNaziv().getValue();
+        int br = getAll().length;
+        //String docId = p1.getNazivPronalaska().getSrpskiNaziv().getValue();
+        String docId=""+br;
         patentRepository.savePatentFromText(text,docId);
         metadataExtractor.extractMetadataPatent(text);
         FusekiWriter.saveRDFPatent();
@@ -41,6 +43,14 @@ public class PatentService {
 
     public String getPatentXMLDocument(String docId) throws Exception{
         return patentRepository.findPatentById(docId);
+    }
+
+    public String getPatentBySrpskiNaziv(String naziv)throws Exception{
+        return patentRepository.findPatentByNaziv("<srpski_naziv property=\"pred:nazivPatentaSrpski\" datatype=\"xs:string\">"+naziv+"</srpski_naziv>");
+    }
+
+    public String getPatentByEngleskiNaziv(String naziv)throws Exception{
+        return patentRepository.findPatentByNaziv("<engleski_naziv property=\"pred:nazivPatentaEngleski\" datatype=\"xs:string\">"+naziv+"</engleski_naziv>");
     }
 
     public String[] getAll()throws Exception{
@@ -76,8 +86,9 @@ public class PatentService {
     }
 
     public String downloadRDF(String id) throws Exception {
-        String text = patentRepository.findPatentById(id);
-        metadataExtractor.extractMetadataPatent(text);
+        //String text = patentRepository.findPatentById(id);
+        String xml = FindNaziv(id);
+        metadataExtractor.extractMetadataPatent(xml);
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/rdf/rdfPatentOutput.rdf"));
         String rezultat="";
@@ -90,7 +101,18 @@ public class PatentService {
     }
 
     public void generateXHTMLandPDF(String id) throws Exception {
-        String xml = patentRepository.findPatentById(id);
+        String xml = FindNaziv(id);
         PDFTransformer.generate(xml);
+    }
+
+    public String FindNaziv(String id) throws Exception {
+        String xml = getPatentBySrpskiNaziv(id);
+        if (xml.equals("")) {
+            xml = getPatentByEngleskiNaziv(id);
+            if (xml.equals("")) {
+                throw new Exception();
+            }
+        }
+        return xml;
     }
 }

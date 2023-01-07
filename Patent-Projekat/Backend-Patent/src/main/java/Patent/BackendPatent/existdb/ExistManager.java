@@ -168,6 +168,26 @@ public class ExistManager {
         }
     }
 
+    public String findByNaziv(String collectionUri, String naziv)throws Exception{
+        createConnection();
+        Collection col = null;
+        try{
+            col = DatabaseManager.getCollection(authManager.getUri() + collectionUri, authManager.getUser(),
+                    authManager.getPassword());
+            col.setProperty(OutputKeys.INDENT, "yes");
+            String[] test = col.listResources();
+            for(String temp :test){
+                if (temp.contains(naziv))
+                    return temp;
+            }
+            return "";
+        }finally {
+            if(col!=null){
+                col.close();
+            }
+        }
+    }
+
     public ResourceSet retrieve(String collectionUri, String xpathExp) throws Exception  {
         createConnection();
         Collection col = null;
