@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,10 +34,7 @@ public class PatentService {
 
     public void addPatentFromText(String text)throws Exception{
         P1 p1 = jaxbParser.unmarshall(P1.class,text);
-
-        int br = getAll().length;
-        //String docId = p1.getNazivPronalaska().getSrpskiNaziv().getValue();
-        String docId=""+br;
+        String docId = dajMiID();
         p1.setId(docId);
         text=jaxbParser.marshallString(P1.class,p1);
         patentRepository.savePatentFromText(text,docId);
@@ -130,5 +128,21 @@ public class PatentService {
             }
         }
         return xml;
+    }
+
+    public String dajMiID() throws Exception {
+        String[]lista = patentRepository.getAll();
+        int max = -1;
+        for (String temp : lista){
+            if (max<Integer.parseInt(temp))
+                max=Integer.parseInt(temp);
+        }
+        String text;
+        for (int i = 0;i<max;i++){
+            text = ""+i;
+            if(!Arrays.asList(lista).contains(text))
+                return text;
+        }
+        return ""+(max+1);
     }
 }

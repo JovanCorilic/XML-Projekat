@@ -93,13 +93,13 @@ public class PatentController {
         }
     }
 
-    @PostMapping(value = "/addText", consumes = MediaType.TEXT_PLAIN_VALUE)
+    @PostMapping(value = "/addText", consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> addPatentText(@RequestBody String text) throws Exception {
         patentService.addPatentFromText(text);
         return new ResponseEntity<String>("Done", HttpStatus.OK);
     }
 
-    @PutMapping(value = "/TextEdit",consumes = MediaType.TEXT_PLAIN_VALUE)
+    @PutMapping(value = "/TextEdit",consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<Void>editPatentText(@RequestBody String text)throws Exception{
         patentService.editPatentFromText(text);
         return new ResponseEntity<>(HttpStatus.OK);
