@@ -175,10 +175,12 @@ public class ExistManager {
             col = DatabaseManager.getCollection(authManager.getUri() + collectionUri, authManager.getUser(),
                     authManager.getPassword());
             col.setProperty(OutputKeys.INDENT, "yes");
-            String[] test = col.listResources();
-            for(String temp :test){
-                if (temp.contains(naziv))
-                    return temp;
+            String[] listaNaziva = col.listResources();
+            for(String id :listaNaziva){
+                Resource resource = col.getResource(id);
+                String sadrzaj =(String) resource.getContent();
+                if (sadrzaj.contains(naziv))
+                    return sadrzaj;
             }
             return "";
         }finally {
@@ -186,6 +188,31 @@ public class ExistManager {
                 col.close();
             }
         }
+    }
+
+    public boolean DeleteByNaziv(String collectionUri, String naziv)throws Exception{
+        createConnection();
+        Collection col = null;
+        try{
+            col = DatabaseManager.getCollection(authManager.getUri() + collectionUri, authManager.getUser(),
+                    authManager.getPassword());
+            col.setProperty(OutputKeys.INDENT, "yes");
+            String[] listaNaziva = col.listResources();
+            for(String id :listaNaziva){
+                Resource resource = col.getResource(id);
+                String sadrzaj =(String) resource.getContent();
+                if (sadrzaj.contains(naziv)) {
+                    col.removeResource(resource);
+                    return true;
+                }
+            }
+            return false;
+        }finally {
+            if(col!=null){
+                col.close();
+            }
+        }
+
     }
 
     public ResourceSet retrieve(String collectionUri, String xpathExp) throws Exception  {

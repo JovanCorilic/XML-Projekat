@@ -68,6 +68,16 @@ public class PatentController {
         }
     }
 
+    @DeleteMapping("deletePoNazivu/{naziv}")
+    public ResponseEntity<Void>deletePoNazivu(@PathVariable("naziv")String naziv)throws Exception{
+        try {
+            patentService.deleteByNaziv(naziv);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @GetMapping("downloadRDF/{id}")
     public ResponseEntity<XMLDto> downloadRDF(@PathVariable("id") String id) throws Exception {
         try {

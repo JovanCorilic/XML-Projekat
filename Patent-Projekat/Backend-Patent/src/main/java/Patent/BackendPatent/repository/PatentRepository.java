@@ -26,4 +26,8 @@ public class PatentRepository {
     public String[] getAll() throws Exception{
         return existManager.loadAll(collectionId);
     }
+
+    public boolean deleteByNaziv(String naziv)throws Exception{
+        return existManager.DeleteByNaziv(collectionId,naziv);
+    }
 }

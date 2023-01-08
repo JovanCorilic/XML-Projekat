@@ -57,6 +57,11 @@ public class PatentService {
         return patentRepository.getAll();
     }
 
+    public void deleteByNaziv(String naziv)throws Exception{
+        if(!patentRepository.deleteByNaziv(naziv))
+            throw new Exception();
+    }
+
     public ArrayList<String> searchByMetadata(String odluka, String opcija) throws IOException {
         Map<String, String> params = new HashMap<>();
         if (opcija.equals("3"))
