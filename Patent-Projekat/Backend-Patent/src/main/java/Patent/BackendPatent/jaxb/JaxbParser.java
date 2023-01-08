@@ -11,34 +11,8 @@ import java.io.*;
 @Component
 public class JaxbParser {
 
-    public String insertString(
-            String originalString,
-            String stringToBeInserted,
-            int index)
-    {
-
-        // Create a new string
-        String newString = new String();
-
-        for (int i = 0; i < originalString.length(); i++) {
-
-            // Insert the original string character
-            // into the new string
-            newString += originalString.charAt(i);
-
-            if (i == index) {
-
-                // Insert the string to be inserted
-                // into the new string
-                newString += stringToBeInserted;
-            }
-        }
-
-        // return the modified String
-        return newString;
-    }
     public <T> T unmarshall(Class genericClass, String text) throws JAXBException {
-        text = insertString(text," xmlns=\"http://www.ftn.uns.rs/P-1\" ",118);
+
         JAXBContext context = JAXBContext.newInstance(genericClass);
         Unmarshaller unmarshaller = context.createUnmarshaller();
         T createdObject = (T) unmarshaller.unmarshal(new StringReader(text));

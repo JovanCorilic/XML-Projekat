@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="src/main/resources/xslt/P-1.xsl"?>
-<P-1 xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/">
+<P-1 xmlns="http://www.ftn.uns.rs/P-1" id="" xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/">
     <popunjava_zavod about="http://www.ftn.uns.ac.rs/rdf/patent">
         <broj_prijave property="pred:brojPrijave" datatype="xs:string">5</broj_prijave>
         <datum_prijema>10.10.2022</datum_prijema>

@@ -118,11 +118,38 @@ public class PDFTransformer {
 		}
     
     }
+
+	public static String insertString(
+			String originalString,
+			String stringToBeInserted,
+			int index)
+	{
+
+		// Create a new string
+		String newString = new String();
+
+		for (int i = 0; i < originalString.length(); i++) {
+
+			// Insert the original string character
+			// into the new string
+			newString += originalString.charAt(i);
+
+			if (i == index) {
+
+				// Insert the string to be inserted
+				// into the new string
+				newString += stringToBeInserted;
+			}
+		}
+
+		// return the modified String
+		return newString;
+	}
     
     public static void generate(String xml) throws IOException, DocumentException, ParserConfigurationException, SAXException {
 
     	System.out.println("[INFO] " + PDFTransformer.class.getSimpleName());
-
+		xml = xml.replace("xmlns=\"http://www.ftn.uns.rs/P-1\"","");
     	// Creates parent directory if necessary
     	File pdfFile = new File(OUTPUT_FILE);
 

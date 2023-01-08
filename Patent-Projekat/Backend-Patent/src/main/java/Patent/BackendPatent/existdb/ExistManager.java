@@ -168,6 +168,34 @@ public class ExistManager {
         }
     }
 
+    public String[] loadAllSrpskeNazive(String collectionUri) throws Exception{
+        createConnection();
+        Collection col = null;
+
+        try {
+            col = DatabaseManager.getCollection(authManager.getUri() + collectionUri, authManager.getUser(),
+                    authManager.getPassword());
+            col.setProperty(OutputKeys.INDENT, "yes");
+            String[] listaID = col.listResources();
+            String[] listaNaziva = new String[listaID.length];
+            int duzinaPrvogDela="<srpski_naziv property=\"pred:nazivPatentaSrpski\" datatype=\"xs:string\">".length();
+
+
+            for(int i = 0;i<listaID.length;i++){
+                Resource resource = col.getResource(listaID[i]);
+                String sadrzaj = (String) resource.getContent();
+                int pocetak =sadrzaj.indexOf("<srpski_naziv property=\"pred:nazivPatentaSrpski\" datatype=\"xs:string\">");
+                String naziv = sadrzaj.substring(pocetak+duzinaPrvogDela,sadrzaj.indexOf("</srpski_naziv>"));
+                listaNaziva[i]=naziv;
+            }
+            return listaNaziva;
+        } finally {
+            if (col != null) {
+                col.close();
+            }
+        }
+    }
+
     public String findByNaziv(String collectionUri, String naziv)throws Exception{
         createConnection();
         Collection col = null;

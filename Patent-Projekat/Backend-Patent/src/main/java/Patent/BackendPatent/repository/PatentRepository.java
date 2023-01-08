@@ -27,6 +27,10 @@ public class PatentRepository {
         return existManager.loadAll(collectionId);
     }
 
+    public String[] getAllSrpskeNazive()throws Exception{
+        return existManager.loadAllSrpskeNazive(collectionId);
+    }
+
     public boolean deleteByNaziv(String naziv)throws Exception{
         return existManager.DeleteByNaziv(collectionId,naziv);
     }

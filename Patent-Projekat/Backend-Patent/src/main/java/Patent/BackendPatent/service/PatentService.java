@@ -33,10 +33,21 @@ public class PatentService {
 
     public void addPatentFromText(String text)throws Exception{
         P1 p1 = jaxbParser.unmarshall(P1.class,text);
+
         int br = getAll().length;
         //String docId = p1.getNazivPronalaska().getSrpskiNaziv().getValue();
         String docId=""+br;
+        p1.setId(docId);
+        text=jaxbParser.marshallString(P1.class,p1);
         patentRepository.savePatentFromText(text,docId);
+        metadataExtractor.extractMetadataPatent(text);
+        FusekiWriter.saveRDFPatent();
+    }
+
+    public void editPatentFromText(String text)throws Exception{
+        P1 p1 = jaxbParser.unmarshall(P1.class,text);
+        String id = p1.getId();
+        patentRepository.savePatentFromText(text,id);
         metadataExtractor.extractMetadataPatent(text);
         FusekiWriter.saveRDFPatent();
     }
@@ -54,7 +65,7 @@ public class PatentService {
     }
 
     public String[] getAll()throws Exception{
-        return patentRepository.getAll();
+        return patentRepository.getAllSrpskeNazive();
     }
 
     public void deleteByNaziv(String naziv)throws Exception{

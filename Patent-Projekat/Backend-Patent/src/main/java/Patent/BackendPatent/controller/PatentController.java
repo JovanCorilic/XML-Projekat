@@ -34,11 +34,16 @@ public class PatentController {
         return new ResponseEntity<>(new XMLDto(document), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/getAll")
-    public ResponseEntity<String[]> getAllResenja() throws Exception {
-        String[] listaResenja = patentService.getAll();
+    @PutMapping(value = "/xonomyEdit",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void>editPatent(@RequestBody XMLDto entitet)throws Exception{
+        patentService.editPatentFromText(entitet.getText());
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
-        return new ResponseEntity<>(listaResenja, HttpStatus.OK);
+    @GetMapping(value = "/getAll")
+    public ResponseEntity<String[]> getAllPatente() throws Exception {
+        String[] listaPatenta = patentService.getAll();
+        return new ResponseEntity<>(listaPatenta, HttpStatus.OK);
     }
 
     @GetMapping("fusekiSearch/{odluka}/{opcija}")
@@ -92,6 +97,12 @@ public class PatentController {
     public ResponseEntity<String> addPatentText(@RequestBody String text) throws Exception {
         patentService.addPatentFromText(text);
         return new ResponseEntity<String>("Done", HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/TextEdit",consumes = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<Void>editPatentText(@RequestBody String text)throws Exception{
+        patentService.editPatentFromText(text);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping(value = "/generateXHTMLandPDF/{id}")

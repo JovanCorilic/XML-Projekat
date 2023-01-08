@@ -32,6 +32,7 @@
                 <xs:element name="zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava"
                     type="P-1:tipZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava"/>
             </xs:sequence>
+            <xs:attribute name="id" type="xs:string"/>
         </xs:complexType>
     </xs:element>
     <xs:complexType name="tipPopunjavaZavod">
