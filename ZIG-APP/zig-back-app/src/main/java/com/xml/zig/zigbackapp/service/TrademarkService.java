@@ -53,15 +53,15 @@ public class TrademarkService {
 		
 		tm.setTrademark_id(full_url);
 		
-		try {
-			
-			FusekiWriter.saveRDF(tm.getTrademark_id(),"created", tm.getDate()+"");
-			
-		} catch (IOException e1) {
-			
-			e1.printStackTrace();
-			
-		}
+//		try {
+//			
+//			FusekiWriter.saveRDF(tm.getTrademark_id(),"created", tm.getDate()+"");
+//			FusekiWriter.saveRDF(tm.getTrademark_id(),"USER", username");
+//		} catch (IOException e1) {
+//			
+//			e1.printStackTrace();
+//			
+//		}
 		
 //		GENERATE QRCODE FROM URL
 //		tm.setQrCode(qrGenerator.getQRCodeAsByteArray(full_url));

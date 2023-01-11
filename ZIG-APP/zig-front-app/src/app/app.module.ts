@@ -11,12 +11,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { EmployeeHomePageComponent } from './components/employee-home-page/employee-home-page.component';
+import { CitizenHomePageComponent } from './components/citizen-home-page/citizen-home-page.component';
+import { EmployeeMenuComponent } from './components/employee-menu/employee-menu.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrademarkFormComponent,
-    CitizenMenuComponent
+    CitizenMenuComponent,
+    EmployeeHomePageComponent,
+    CitizenHomePageComponent,
+    EmployeeMenuComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

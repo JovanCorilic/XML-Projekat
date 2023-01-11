@@ -2,11 +2,7 @@ package com.xml.zig.zigbackapp.controller;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,15 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 
-import com.lowagie.text.DocumentException;
 import com.xml.zig.zigbackapp.service.HTMLPDFService;
+
 
 @RestController
 @RequestMapping(value = "all/document")
 public class HTMLPDFController {
 
-	public static final String PDF_FILE = "src/main/resources/data/xslt/trademark2.pdf";
-
+	
 	@Autowired
 	private HTMLPDFService service;
 
@@ -38,18 +33,19 @@ public class HTMLPDFController {
 //		System.out.println("CONTROLLER " + xmlDocumentId);
 		String xml = service.generateHtml(xmlDocumentId);
 //		System.out.println(xml);
-		System.out.println(xml);
+//		System.out.println(xml);
 
+		
 		ByteArrayInputStream inputStream = new ByteArrayInputStream(xml.getBytes());
 
 		response.setContentType("application/html");
-		response.setHeader("Content-Disposition", "attachment; filename=file.html");
-		try {
-			IOUtils.copy(inputStream, response.getOutputStream());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		response.setHeader("Content-Disposition", "attachment; filename=file.html");
+//		try {
+//			IOUtils.copy(inputStream, response.getOutputStream());
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 		return new ResponseEntity<String>(xml, HttpStatus.OK);
 	}
@@ -59,18 +55,30 @@ public class HTMLPDFController {
 	public void getTrademarkPDF(HttpServletResponse response, @PathVariable("xmlDocumentId") String xmlDocumentId) {
 //		System.out.println("CONTROLLER " + xmlDocumentId);
 
-		String html = service.generateHtml(xmlDocumentId);
+//		String html = service.generateHtml(xmlDocumentId);
+		String html = service.generatePDF(xmlDocumentId);
 
+		
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		ITextRenderer renderer = new ITextRenderer();
 		renderer.setDocumentFromString(html);
 		renderer.layout();
 		renderer.createPDF(outputStream, false);
 		renderer.finishPDF();
+		
+//		try {
+//			renderer.getFontResolver().addFont("src/main/resources/fonts/CYRIL1.TTF", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+//			System.out.println("UCITAO FONT");
+//		} catch (DocumentException | IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+		
 		ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
 		// octet-stream
 		response.setContentType("application/pdf");
-		response.setHeader("Content-Disposition", "attachment; filename=file.pdf");
+		
+//		response.setHeader("Content-Disposition", "attachment; filename=file.pdf");
 		try {
 			IOUtils.copy(inputStream, response.getOutputStream());
 		} catch (IOException e) {
@@ -87,5 +95,7 @@ public class HTMLPDFController {
 //		System.out.println(xml);
 //		return new ResponseEntity<String>(pdf,HttpStatus.OK);
 	}
+	
+	
 
 }

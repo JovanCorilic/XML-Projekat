@@ -25,6 +25,8 @@ public class FusekiWriter {
 
 		Model model = ModelFactory.createDefaultModel();
 //		model.read(RDF_FILEPATH);
+		//model.setPrefix
+//		model.setNsPrefix("td", PREFIX);
 		model.add(model.createResource(PREFIX + subject), model.createProperty(PREFIX + predicate), PREFIX + object);
 
 		ByteArrayOutputStream out = new ByteArrayOutputStream();

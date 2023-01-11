@@ -24,7 +24,7 @@ public class HTMLPDFService {
 			String document = tr.loadTrademark(xmlDocumentId);
 
 //			System.out.println("IZMEDJU");
-			String html = transformer.generateHTML(document);
+			String html = transformer.generateHTML(document , HTMLPDFTransformer.XSL_FILE);
 
 //			System.out.println("ZAVRSIO");
 
@@ -44,10 +44,14 @@ public class HTMLPDFService {
 			String document = tr.loadTrademark(xmlDocumentId);
 
 //			System.out.println("IZMEDJU");
-			String pdf = transformer.generatePDF(document);
+//			String pdf = transformer.generatePDF(document);
 
 //			System.out.println("ZAVRSIO");
 
+//			return pdf;
+			
+			String pdf = transformer.generateHTML(document,HTMLPDFTransformer.XSL_FO_FILE);
+			
 			return pdf;
 
 		} catch (Exception e) {

@@ -36,7 +36,8 @@ public class HTMLPDFTransformer {
 	
 	public static final String XSL_FILE = "src/main/resources/data/xslt/trademark.xsl";
 	
-
+	public static final String XSL_FO_FILE = "src/main/resources/data/xslt/trademark-fo.xsl";
+	
 
 	public HTMLPDFTransformer() {
 
@@ -126,8 +127,8 @@ public class HTMLPDFTransformer {
 	
 	
 
-	public String generateHTML(String xml) throws IOException {
-
+	public String generateHTML(String xml ,String xsl) throws IOException {
+		
 		try {
 			
 //			System.out.println(xml);
@@ -135,7 +136,7 @@ public class HTMLPDFTransformer {
 			StreamSource xmlSources = new StreamSource(new ByteArrayInputStream(xml.getBytes()));
 			
 			
-			StreamSource xslSource = new StreamSource(Paths.get(XSL_FILE).toAbsolutePath().toFile());
+			StreamSource xslSource = new StreamSource(Paths.get(xsl).toAbsolutePath().toFile());
 			
 			
 			Transformer transformer = transformerFactory.newTransformer(xslSource);
@@ -178,7 +179,6 @@ public class HTMLPDFTransformer {
 		return null;
 	}
 
-	
 
 }
 

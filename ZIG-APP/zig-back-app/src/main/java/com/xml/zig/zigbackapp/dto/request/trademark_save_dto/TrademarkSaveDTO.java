@@ -1,7 +1,11 @@
 package com.xml.zig.zigbackapp.dto.request.trademark_save_dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.xml.zig.zigbackapp.model.Document;
 import com.xml.zig.zigbackapp.model.NiceClassification;
 
 @XmlRootElement(name = "trademark")
@@ -28,7 +32,17 @@ public class TrademarkSaveDTO {
 	
 	private Long date;//date in milliseconds
 
+	private ArrayList<Document> documents;
+
 	
+	
+	public ArrayList<Document> getDocuments() {
+		return documents;
+	}
+
+	public void setDocuments(ArrayList<Document> documents) {
+		this.documents = documents;
+	}
 
 	public SubjectInfo getApplicant() {
 		return applicant;

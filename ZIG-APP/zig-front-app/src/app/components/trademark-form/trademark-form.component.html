@@ -1,4 +1,15 @@
-<p>zig-form works!</p>
+
 <app-citizen-menu></app-citizen-menu>
 <div id="trademark-form"></div>
+
+<div class="text-center">
+  <input class="form-control" type="file"
+          (change)="onChange($event)">
+
+  <button (click)="onUpload()"
+      class="btn btn-success">
+      Upload
+  </button>
+</div>
 <button (click)="send()" class="btn btn-primary" type="button">Send</button>
+<img [src]="image_path" >

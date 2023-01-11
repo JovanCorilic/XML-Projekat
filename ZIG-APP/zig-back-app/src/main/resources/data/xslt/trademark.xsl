@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xsl:stylesheet
-	xmlns:fo="http://www.w3.org/1999/XSL/Format" 
-	xmlns:my = "xalan://com.xml.zig.zigbackapp.qrcode.QRCodeGenerator" 
-	extension-element-prefixes="my"  exclude-result-prefixes="my"
+	xmlns:fo="http://www.w3.org/1999/XSL/Format"
+	xmlns:my="xalan://com.xml.zig.zigbackapp.qrcode.QRCodeGenerator"
+	extension-element-prefixes="my" exclude-result-prefixes="my"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
-	
-	
-	
+
+
+
 	<xsl:template match="/">
-		
-	
+
+
 		<!-- sadržaj stranica -->
 
 		<html>
@@ -353,12 +353,14 @@
 														style="margin-top:0px;border-bottom:1px solid black;">X</div>
 												</xsl:when>
 												<xsl:otherwise>
-													
-													
-														<div
-														style="margin-top:0px;border-bottom:1px solid black;"><p></p></div>
-													
-													
+
+
+													<div
+														style="margin-top:0px;border-bottom:1px solid black;">
+														<p></p>
+													</div>
+
+
 												</xsl:otherwise>
 											</xsl:choose>
 
@@ -370,12 +372,14 @@
 														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">X</div>
 												</xsl:when>
 												<xsl:otherwise>
-												
-													
-														<div
-														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;"><p></p></div>
-													
-													
+
+
+													<div
+														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">
+														<p></p>
+													</div>
+
+
 												</xsl:otherwise>
 											</xsl:choose>
 
@@ -385,14 +389,14 @@
 											<xsl:choose>
 												<xsl:when
 													test="trademark/trademark_info/trademark_type='Guarantee Trademark'">
-													<div
-														style="margin-top:0px;border-top:1px solid black;">X</div>
+													<div style="margin-top:0px;border-top:1px solid black;">X</div>
 												</xsl:when>
 												<xsl:otherwise>
-													
-														<div
-														style="margin-top:0px;border-top:1px solid black;"><p></p></div>
-													
+
+													<div style="margin-top:0px;border-top:1px solid black;">
+														<p></p>
+													</div>
+
 												</xsl:otherwise>
 											</xsl:choose>
 
@@ -439,16 +443,18 @@
 											<xsl:choose>
 												<xsl:when
 													test="trademark/trademark_info/trademark_appearance='Verbal Trademark'">
-												<div
+													<div
 														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">X</div>
 												</xsl:when>
 												<xsl:otherwise>
-													
-													
-														<div
-														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;"><p></p></div>
-													
-													
+
+
+													<div
+														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">
+														<p></p>
+													</div>
+
+
 												</xsl:otherwise>
 											</xsl:choose>
 
@@ -459,12 +465,14 @@
 														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">X</div>
 												</xsl:when>
 												<xsl:otherwise>
-													
-													
-														<div
-														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;"><p></p></div>
-													
-													
+
+
+													<div
+														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">
+														<p></p>
+													</div>
+
+
 												</xsl:otherwise>
 											</xsl:choose>
 
@@ -475,28 +483,32 @@
 														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">X</div>
 												</xsl:when>
 												<xsl:otherwise>
-													
-													
-														<div
-														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;"><p></p></div>
-													
-													
+
+
+													<div
+														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">
+														<p></p>
+													</div>
+
+
 												</xsl:otherwise>
 											</xsl:choose>
 
 											<xsl:choose>
 												<xsl:when
 													test="trademark/trademark_info/trademark_appearance='Three-Dimensional Trademark'">
-												<div
+													<div
 														style="margin-top:0px;border-bottom:1px solid black;">X</div>
 												</xsl:when>
 												<xsl:otherwise>
-												
-													
-														<div
-														style="margin-top:0px;border-bottom:1px solid black;"><p></p></div>
-													
-													
+
+
+													<div
+														style="margin-top:0px;border-bottom:1px solid black;">
+														<p></p>
+													</div>
+
+
 												</xsl:otherwise>
 											</xsl:choose>
 
@@ -513,12 +525,14 @@
 														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">X</div>
 												</xsl:when>
 												<xsl:otherwise>
-													
-													
-														<div
-														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;"><p></p></div>
-													
-													
+
+
+													<div
+														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">
+														<p></p>
+													</div>
+
+
 												</xsl:otherwise>
 											</xsl:choose>
 
@@ -612,7 +626,7 @@
 											<!-- 'haha tekst mnkkn' -->
 											<xsl:attribute name="src">
 										        <xsl:value-of
-												select="my:getQRCodeAsByteArray(trademark/trademark_id)" />
+												select="trademark/trademark_info/trademark_view" />
 										    </xsl:attribute>
 
 										</img>
@@ -1105,14 +1119,14 @@
 							<div
 								style="float: left; width: 50%;border:1px solid black;margin-top:50px">
 
-								<div style="border:1px solid black;">11. Плаћене таксе: </div>
-								<div style="border:1px solid black;">а) основна такса  </div>
+								<div style="border:1px solid black;"><b>11. Плаћене таксе: </b></div>
+								<div style="border:1px solid black;"><b>а) основна такса </b> </div>
 								<div style="border:1px solid black;">
-									<p>б) за________класа</p>
-									<p>в) за графичко решење </p>
+									<p><b>б) за <xsl:value-of select="trademark/fee/nice_class"/> класу</b></p>
+									<p><b>в) за графичко решење </b></p>
 
 								</div>
-								<div style="border:1px solid black;">11. Плаћене таксе: </div>
+								<div style="border:1px solid black;"><b>УКУПНО </b> </div>
 
 
 							</div>
@@ -1120,7 +1134,7 @@
 							<div
 								style="float: right; width: 50%;border:1px solid black;margin-top:-150px;border-left:0px;">
 
-								<div style="border:1px solid black;">Динара</div>
+								<div style="border:1px solid black;"><b>Динара</b></div>
 
 								<div style="border:1px solid black;">
 									<xsl:value-of select="trademark/fee/basic" />
@@ -1166,7 +1180,7 @@
 										<div style="border:1px solid black">Пуномоћје</div>
 										<div style="border:1px solid black">Генерално пуномоћје раније приложено </div>
 										<div style="border:1px solid black">Пуномоћје ће бити накнадно достављено </div>
-										<div style="border:1px solid black">Општи акт о колективном жигу/жигу гаранције</div>
+										<div style="border:1px solid black">Општи акт о колек. жигу/жигу гаранције</div>
 										<div style="border:1px solid black">Доказ о праву првенства</div>
 										<div style="border:1px solid black">Доказ о уплати таксе</div>
 									</div>
@@ -1214,7 +1228,7 @@
 							<div style="float: left; width: 50%;padding-top:40px">
 
 								<div
-									style="border:1px solid black;height:180px;margin-top:-22px">
+									style="border:1px solid black;height:161px;margin-top:-21px">
 
 									<p>Број пријаве жига:</p>
 									<p>
@@ -1230,7 +1244,7 @@
 
 										<xsl:value-of select="trademark/date" />
 									</p>
-									
+
 
 								</div>
 
@@ -1272,8 +1286,26 @@
 						</p>
 
 					</div>
+					QR CODE:
+					<div
+						style="height:283px;padding-top:10px;border-left: 1px solid black;">
+						
+						<img style="height:270px;width:350px;border:1px solid black;">
+							<!-- trademark/trademark_info/trademark_view -->
+							<!-- 'haha tekst mnkkn' -->
+							<xsl:attribute name="src">
+										        <xsl:value-of
+								select="my:getQRCodeAsByteArray(trademark/trademark_id)" />
+										    </xsl:attribute>
 
+						</img>
+
+
+					</div>
+					
+					 
 				</div>
+				
 
 			</body>
 		</html>
