@@ -34,7 +34,13 @@ public class PatentService {
 
     public void addPatentFromText(String text)throws Exception{
         P1 p1 = jaxbParser.unmarshall(P1.class,text);
-        String docId = dajMiID();
+        String docId ;
+        try{
+            docId = dajMiID();
+        }
+        catch(Exception e){
+            docId = "0";
+        }
         p1.setId(docId);
         text=jaxbParser.marshallString(P1.class,p1);
         patentRepository.savePatentFromText(text,docId);
