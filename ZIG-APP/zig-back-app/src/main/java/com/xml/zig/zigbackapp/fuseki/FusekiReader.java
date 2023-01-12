@@ -24,6 +24,7 @@ public class FusekiReader {
 	private FusekiReader() {
 	}
 
+	
 	public static ArrayList<String> executeQuery(Map<String, String> params) throws IOException {
 		FusekiAuthenticationUtilities.ConnectionProperties conn = FusekiAuthenticationUtilities.loadProperties();
 		String sparqlQueryTemplate = readFile(QUERY_FILEPATH, StandardCharsets.UTF_8);
@@ -55,6 +56,7 @@ public class FusekiReader {
 		query.close();
 		return foundFakultete;
 	}
+	
 
 	public static String readFile(String path, Charset encoding) throws IOException {
 		byte[] encoded = Files.readAllBytes(Paths.get(path));

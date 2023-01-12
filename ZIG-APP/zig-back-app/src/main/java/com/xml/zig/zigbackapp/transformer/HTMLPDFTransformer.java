@@ -38,7 +38,10 @@ public class HTMLPDFTransformer {
 	
 	public static final String XSL_FO_FILE = "src/main/resources/data/xslt/trademark-fo.xsl";
 	
-
+	public static final String XSL_SOLUTION_FILE = "src/main/resources/data/xslt/solution.xsl";
+	
+	public static final String XSL_REPORT_FILE = "src/main/resources/data/xslt/report.xsl";
+	
 	public HTMLPDFTransformer() {
 
 		/* Inicijalizacija DOM fabrike */

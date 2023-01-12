@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.xml.zig.zigbackapp.dto.request.TrademarkTableDTO;
 import com.xml.zig.zigbackapp.dto.request.trademark_save_dto.TrademarkSaveDTO;
 import com.xml.zig.zigbackapp.model.Trademark;
 import com.xml.zig.zigbackapp.service.TrademarkService;
@@ -66,12 +67,12 @@ public class TrademarkController {
 		return new ResponseEntity<List<String>>(trademarks, HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "search/{username}/{text}")
-	public ResponseEntity<List<Trademark>> searchTrademarksFromUser(@PathVariable("username") String username,@PathVariable("text") String text) {
+	@GetMapping(value = "search/{text}")
+	public ResponseEntity<List<TrademarkTableDTO>> searchTrademarksFromUser(@PathVariable("text") String text) {
 		
-		List<Trademark> trademarks = ts.searchAllTrademarksFromUser(username,text);
+		List<TrademarkTableDTO> trademarks = ts.searchAllTrademarksFromUser(text);
 		
-		return new ResponseEntity<List<Trademark>>(trademarks, HttpStatus.OK);
+		return new ResponseEntity<List<TrademarkTableDTO>>(trademarks, HttpStatus.OK);
 	}
 	
 }

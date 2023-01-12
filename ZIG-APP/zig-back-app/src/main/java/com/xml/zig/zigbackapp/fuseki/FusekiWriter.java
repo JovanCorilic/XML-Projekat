@@ -15,7 +15,7 @@ public class FusekiWriter {
 //	private static final String RDF_FILEPATH = "src/main/resources/data/rdf/rdfOutput.rdf";
 	private static final String GRAPH_URI = "metadata";
 	
-	private static final String PREFIX = "http://ftn.uns.ac.rs/trademarks/";
+	public static final String PREFIX = "http://ftn.uns.ac.rs/trademarks/";
 
 	public static void saveRDF(String subject,String predicate,String object) throws IOException {
 		
@@ -27,7 +27,7 @@ public class FusekiWriter {
 //		model.read(RDF_FILEPATH);
 		//model.setPrefix
 //		model.setNsPrefix("td", PREFIX);
-		model.add(model.createResource(PREFIX + subject), model.createProperty(PREFIX + predicate), PREFIX + object);
+		model.add(model.createResource(PREFIX + subject), model.createProperty(PREFIX + predicate), object);
 
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		
@@ -58,5 +58,7 @@ public class FusekiWriter {
 		processor.execute();
 
 	}
+	
+	
 
 }

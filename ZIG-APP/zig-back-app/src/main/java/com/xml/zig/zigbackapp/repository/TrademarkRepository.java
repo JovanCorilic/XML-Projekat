@@ -83,11 +83,12 @@ public class TrademarkRepository {
 		return cols_list;
 	}
 
-	public List<String> searchAllTrademarksFromUser(String username, String text) {
+	public List<String> searchAllTrademarksFromUser(String text) {
 		
-		String collectionId = "/db/trademark/" + username;
+		String collectionId = "/db/trademark/" ;
 
-		String xpath = "//*[text() ='" + text + "']/ancestor::trademark";
+//		String xpath = "//*[text() ='" + text + "']/ancestor::trademark";
+		String xpath = "//*[contains(text() ,'" + text + "')]/ancestor::trademark";
 		/*
 		 * 
 		 * //*[text() = '"+ text + "']"

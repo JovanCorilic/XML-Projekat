@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.google.zxing.WriterException;
+import com.xml.zig.zigbackapp.dto.request.TrademarkTableDTO;
 import com.xml.zig.zigbackapp.dto.request.trademark_save_dto.TrademarkSaveDTO;
 import com.xml.zig.zigbackapp.fuseki.FusekiWriter;
 import com.xml.zig.zigbackapp.jaxb.JaxB;
@@ -172,12 +173,12 @@ public class TrademarkService {
 		return trademarks;
 	}
 
-	public List<Trademark> searchAllTrademarksFromUser(String username, String text) {
+	public List<TrademarkTableDTO> searchAllTrademarksFromUser(String text) {
 		
 		
 		List<Trademark> trademarks = new ArrayList<Trademark>();
 		try {
-			List<String> trademarksString = tr.searchAllTrademarksFromUser(username,text);
+			List<String> trademarksString = tr.searchAllTrademarksFromUser(text);
 			
 			trademarks = trademarksString.stream().map(
 					
@@ -197,9 +198,17 @@ public class TrademarkService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		List<TrademarkTableDTO> lttdto = trademarks.stream().map(e->new TrademarkTableDTO(e.getTrademark_id(),"TRADEMARK")).collect(Collectors.toList());
+		
+		lttdto.stream().forEach(e -> e.setStatus(TreadmarkSearchService.getStatusForTrademark(e.getDocumentid())));
+
+		List<TrademarkTableDTO> lttdto_with_solutions = TreadmarkSearchService.getFullTrademarkSearchList(lttdto);
+
+		return lttdto_with_solutions;
 		
 		// TODO Auto-generated method stub
-		return trademarks;
+//		return lttdto;
+		
 	}
 	
 
