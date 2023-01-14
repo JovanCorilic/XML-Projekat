@@ -26,7 +26,13 @@
 						<b>RESENJE ID:</b> <br/>
 						<xsl:value-of
 									select="solution/id" />
-						<br/><br/><b>ZIG ID:</b> <br/>
+						<br/><br/><b>ZIG ID je:</b> <br/>
+						<a >
+							<xsl:attribute name="href">http://localhost:8888/all/document/html/<xsl:value-of
+								select="solution/trademark_id" />
+						    </xsl:attribute>
+							LINK
+						</a>
 						<xsl:value-of
 									select="solution/trademark_id" />
 									

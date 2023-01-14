@@ -1,3 +1,4 @@
+import { SolutionComponent } from './components/solution/solution.component';
 import { LoginComponent } from './components/login/login.component';
 import { EmployeeHomePageComponent } from './components/employee-home-page/employee-home-page.component';
 import { CitizenHomePageComponent } from './components/citizen-home-page/citizen-home-page.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'trademark', component: TrademarkFormComponent },
   { path: 'citizen-home', component: CitizenHomePageComponent },
-  { path: 'employee-home', component: EmployeeHomePageComponent }
+  { path: 'employee-home', component: EmployeeHomePageComponent },
+  { path: 'solution/:uuid', component: SolutionComponent }
 
 ];
 

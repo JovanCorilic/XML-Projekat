@@ -40,7 +40,7 @@ public class HTMLPDFController {
 		ByteArrayInputStream inputStream = new ByteArrayInputStream(xml.getBytes());
 
 		response.setContentType("application/html");
-//		response.setHeader("Content-Disposition", "attachment; filename=file.html");
+		response.setHeader("Content-Disposition", "attachment; filename=file.html");
 		try {
 			IOUtils.copy(inputStream, response.getOutputStream());
 		} catch (IOException e) {
@@ -70,7 +70,7 @@ public class HTMLPDFController {
 		// octet-stream
 		response.setContentType("application/pdf");
 		
-//		response.setHeader("Content-Disposition", "attachment; filename=file.pdf");
+		response.setHeader("Content-Disposition", "attachment; filename=file.pdf");
 		try {
 			IOUtils.copy(inputStream, response.getOutputStream());
 		} catch (IOException e) {
@@ -98,7 +98,7 @@ public class HTMLPDFController {
 		// octet-stream
 		response.setContentType("application/pdf");
 		
-//		response.setHeader("Content-Disposition", "attachment; filename=file.pdf");
+		response.setHeader("Content-Disposition", "attachment; filename=file.pdf");
 		try {
 			IOUtils.copy(inputStream, response.getOutputStream());
 		} catch (IOException e) {
@@ -119,13 +119,13 @@ public class HTMLPDFController {
 		ByteArrayInputStream inputStream = new ByteArrayInputStream(xml.getBytes());
 
 		response.setContentType("application/html");
-//		response.setHeader("Content-Disposition", "attachment; filename=file.html");
-//		try {
-//			IOUtils.copy(inputStream, response.getOutputStream());
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		response.setHeader("Content-Disposition", "attachment; filename=file.html");
+		try {
+			IOUtils.copy(inputStream, response.getOutputStream());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		return new ResponseEntity<String>(xml, HttpStatus.OK);
 	}
@@ -158,7 +158,7 @@ public class HTMLPDFController {
 		// octet-stream
 		response.setContentType("application/pdf");
 		
-//		response.setHeader("Content-Disposition", "attachment; filename=file.pdf");
+		response.setHeader("Content-Disposition", "attachment; filename=file.pdf");
 		try {
 			IOUtils.copy(inputStream, response.getOutputStream());
 		} catch (IOException e) {
@@ -166,20 +166,13 @@ public class HTMLPDFController {
 			e.printStackTrace();
 		}
 
-//		System.out.println(myPdf.toString());
-
-//		String url = new File(inputFile).toURI().toURL().toString();
-
-//        System.out.println(pdf);
-
-//		System.out.println(xml);
-//		return new ResponseEntity<String>(pdf,HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/json/{xmlDocumentId}", produces = { "text/json;charset=UTF-8" })
 	public void getTrademarkJSON(HttpServletResponse response,
 			@PathVariable("xmlDocumentId") String xmlDocumentId) {
-
+		System.out.println("JSON DOWNLOAD");
+		
 		String json = service.generateJSON(xmlDocumentId);
 
 		ByteArrayInputStream inputStream = new ByteArrayInputStream(json.getBytes());
@@ -198,7 +191,6 @@ public class HTMLPDFController {
 	@GetMapping(value = "/rdf/{xmlDocumentId}", produces = { "text/rdf;charset=UTF-8" })
 	public void getTrademarkRDF(HttpServletResponse response,
 			@PathVariable("xmlDocumentId") String xmlDocumentId) {
-
 		String rdf = service.generateRDF(xmlDocumentId);
 
 		ByteArrayInputStream inputStream = new ByteArrayInputStream(rdf.getBytes());

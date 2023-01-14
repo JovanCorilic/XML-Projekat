@@ -5,6 +5,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "metadata")
 public class MetadataDTO {
 
+	private String status;
+	
+	private Boolean statusnot;
+	
 	private String role;
 	
 	private String usrname;
@@ -25,14 +29,18 @@ public class MetadataDTO {
 	
 	private Boolean secondop;
 	
+	private Boolean thirdop;
+	
 	public MetadataDTO() {
 		super();
 		
 	}
 
-	public MetadataDTO(String role, String usrname, Boolean usernamenot, String typa, Boolean typenot, Long datestart,
-			Long dateend, Boolean datenot ,  Boolean firstop, Boolean secondop) {
-		super();
+	public MetadataDTO(String status, Boolean statusnot, String role, String usrname, Boolean usernamenot, String typa,
+			Boolean typenot, Long datestart, Long dateend, Boolean datenot, Boolean firstop, Boolean secondop,
+			Boolean thirdop) {
+		this.status = status;
+		this.statusnot = statusnot;
 		this.role = role;
 		this.usrname = usrname;
 		this.usernamenot = usernamenot;
@@ -43,9 +51,66 @@ public class MetadataDTO {
 		this.datenot = datenot;
 		this.firstop = firstop;
 		this.secondop = secondop;
+		this.thirdop = thirdop;
 	}
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+	public Boolean getThirdop() {
+		return thirdop;
+	}
+
+
+
+
+
+	public void setThirdop(Boolean thirdop) {
+		this.thirdop = thirdop;
+	}
+
+
+
+
+
+	public String getStatus() {
+		return status;
+	}
+
+
+
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+
+
+
+	public Boolean getStatusnot() {
+		return statusnot;
+	}
+
+
+
+
+
+	public void setStatusnot(Boolean statusnot) {
+		this.statusnot = statusnot;
+	}
+
+
+
+
 
 	public String getRole() {
 		return role;

@@ -29,13 +29,9 @@ public class RegisterUserController {
 	@PostMapping
 	public ResponseEntity<Boolean> registerUser(@RequestBody RegisterUserDTO rudto) {
 
-		System.out.println("PROSAO");
-
 		System.out.println(rudto);
 		
 		Boolean answer = us.saveUser(rudto);
-
-		System.out.println("STIGAO");
 		
 		return new ResponseEntity<Boolean>(answer, HttpStatus.OK);
 

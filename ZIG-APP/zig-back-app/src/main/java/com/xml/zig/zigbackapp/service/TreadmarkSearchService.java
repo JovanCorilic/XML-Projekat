@@ -36,6 +36,10 @@ public class TreadmarkSearchService {
 
 		try {
 
+			status = MyQueryExecutor
+					.executeAllQuery(SparqlQueryConstants.getStatusTriple(md.getStatus(), md.getStatusnot()));
+
+			System.out.println("STATUS SIZE: "+status.size());
 			username = MyQueryExecutor
 					.executeAllQuery(SparqlQueryConstants.getUserTriple(md.getUsrname(), md.getUsernamenot()));
 
@@ -44,15 +48,20 @@ public class TreadmarkSearchService {
 			date = MyQueryExecutor.executeAllQuery(
 					SparqlQueryConstants.getDateTriple(md.getDatestart(), md.getDateend(), md.getDatenot()));
 
-			if (md.getFirstop() && !username.isEmpty() && !type.isEmpty()) {
+			if (md.getFirstop() && !md.getUsrname().equals("") && !md.getTypa().equals("")) {
 				username.retainAll(type);
 			} else {
 				username.addAll(type);
 			}
-			if (md.getSecondop() && !username.isEmpty() && !date.isEmpty()) {
+			if (md.getSecondop() && !md.getUsrname().equals("") && !md.getDatestart().equals(0)) {
 				username.retainAll(date);
 			} else {
 				username.addAll(date);
+			}
+			if (md.getThirdop() && !md.getUsrname().equals("") && !md.getStatus().equals("")) {
+				username.retainAll(status);
+			} else {
+				username.addAll(status);
 			}
 
 			if (md.getRole().equals("CITIZEN")) {

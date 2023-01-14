@@ -27,7 +27,7 @@ public class FormSearchController {
 	@Autowired
 	private TreadmarkSearchService tss;
 	
-	@PostMapping(value = "get_all")
+	@PostMapping(value = "metadata")
 	public ResponseEntity<List<TrademarkTableDTO>> getAllDocumentsByMetadata(@RequestBody MetadataDTO metadata) {
 		
 		List<TrademarkTableDTO> trademarks = tss.getAllDocumentsByMetadata(metadata);

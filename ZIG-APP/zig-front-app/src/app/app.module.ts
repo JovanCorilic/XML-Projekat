@@ -15,6 +15,8 @@ import { EmployeeHomePageComponent } from './components/employee-home-page/emplo
 import { CitizenHomePageComponent } from './components/citizen-home-page/citizen-home-page.component';
 import { EmployeeMenuComponent } from './components/employee-menu/employee-menu.component';
 import { LoginComponent } from './components/login/login.component';
+import { SolutionComponent } from './components/solution/solution.component';
+import { FormTableComponent } from './components/form-table/form-table.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { LoginComponent } from './components/login/login.component';
     EmployeeHomePageComponent,
     CitizenHomePageComponent,
     EmployeeMenuComponent,
-    LoginComponent
+    LoginComponent,
+    SolutionComponent,
+    FormTableComponent
   ],
   imports: [
     BrowserModule,

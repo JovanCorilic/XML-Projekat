@@ -8,9 +8,9 @@ public class Institution {
 	
 	private String power_of_attorney; //FILE PATH
 	
-	private boolean general_power_of_attorney_previously_submitted;
+	private String general_power_of_attorney_previously_submitted;
 	
-	private boolean power_of_attorney_will_be_delivered_later;
+	private String power_of_attorney_will_be_delivered_later;
 	
 	private String general_act; //FILE PATH
 	
@@ -43,19 +43,19 @@ public class Institution {
 		this.power_of_attorney = power_of_attorney;
 	}
 
-	public boolean isGeneral_power_of_attorney_previously_submitted() {
+	public String isGeneral_power_of_attorney_previously_submitted() {
 		return general_power_of_attorney_previously_submitted;
 	}
 
-	public void setGeneral_power_of_attorney_previously_submitted(boolean general_power_of_attorney_previously_submitted) {
+	public void setGeneral_power_of_attorney_previously_submitted(String general_power_of_attorney_previously_submitted) {
 		this.general_power_of_attorney_previously_submitted = general_power_of_attorney_previously_submitted;
 	}
 
-	public boolean isPower_of_attorney_will_be_delivered_later() {
+	public String isPower_of_attorney_will_be_delivered_later() {
 		return power_of_attorney_will_be_delivered_later;
 	}
 
-	public void setPower_of_attorney_will_be_delivered_later(boolean power_of_attorney_will_be_delivered_later) {
+	public void setPower_of_attorney_will_be_delivered_later(String power_of_attorney_will_be_delivered_later) {
 		this.power_of_attorney_will_be_delivered_later = power_of_attorney_will_be_delivered_later;
 	}
 

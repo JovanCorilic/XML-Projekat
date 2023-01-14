@@ -313,17 +313,17 @@
 
 							<xsl:choose>
 								<xsl:when
-									test="trademark/trademark_info/trademark_type='Individual Trademark'">
+									test="trademark/trademark_info/trademark_type='IndividualTrademark'">
 									<div
 										style="margin-top:0px;border-bottom:1px solid black;height:15px">X</div>
 								</xsl:when>
 								<xsl:when
-									test="trademark/trademark_info/trademark_type='Collective Trademark'">
+									test="trademark/trademark_info/trademark_type='CollectiveTrademark'">
 									<div
 										style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;height:15px;margin-top:20px">X</div>
 								</xsl:when>
 								<xsl:when
-									test="trademark/trademark_info/trademark_type='Guarantee Trademark'">
+									test="trademark/trademark_info/trademark_type='GuaranteeTrademark'">
 									<div
 										style="margin-top:0px;border-top:1px solid black;height:15px;margin-top:40px">X</div>
 								</xsl:when>
@@ -366,28 +366,28 @@
 
 							<xsl:choose>
 								<xsl:when
-									test="trademark/trademark_info/trademark_appearance='Verbal Trademark'">
+									test="trademark/trademark_info/trademark_appearance='VerbalTrademark'">
 									<div
 										style="margin-top:0px;border-bottom:1px solid black;height:15px">X</div>
 								</xsl:when>
 								<xsl:when
-									test="trademark/trademark_info/trademark_appearance='Graphic Trademark'">
+									test="trademark/trademark_info/trademark_appearance='GraphicTrademark'">
 									<div
 										style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;height:15px;margin-top:20px">X</div>
 								</xsl:when>
 								<xsl:when
-									test="trademark/trademark_info/trademark_appearance='Combined Trademark'">
+									test="trademark/trademark_info/trademark_appearance='CombinedTrademark'">
 									<div
 										style="margin-top:0px;border-top:1px solid black;height:15px;margin-top:40px">X</div>
 								</xsl:when>
 								<xsl:when
-									test="trademark/trademark_info/trademark_appearance='Three-Dimensional Trademark'">
+									test="trademark/trademark_info/trademark_appearance='ThreeDimensionalTrademark'">
 									<div
 										style="margin-top:0px;border-top:1px solid black;height:15px;margin-top:60px">X</div>
 								</xsl:when>
 
 								<xsl:when
-									test="trademark/trademark_info/trademark_appearance='Another Trademark'">
+									test="trademark/trademark_info/trademark_appearance='AnotherTrademark'">
 									<div
 										style="margin-top:0px;border-top:1px solid black;height:15px;margin-top:80px">X</div>
 								</xsl:when>

@@ -348,7 +348,7 @@
 
 											<xsl:choose>
 												<xsl:when
-													test="trademark/trademark_info/trademark_type='Individual Trademark'">
+													test="trademark/trademark_info/trademark_type='IndividualTrademark'">
 													<div
 														style="margin-top:0px;border-bottom:1px solid black;">X</div>
 												</xsl:when>
@@ -367,7 +367,7 @@
 
 											<xsl:choose>
 												<xsl:when
-													test="trademark/trademark_info/trademark_type='Collective Trademark'">
+													test="trademark/trademark_info/trademark_type='CollectiveTrademark'">
 													<div
 														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">X</div>
 												</xsl:when>
@@ -388,7 +388,7 @@
 
 											<xsl:choose>
 												<xsl:when
-													test="trademark/trademark_info/trademark_type='Guarantee Trademark'">
+													test="trademark/trademark_info/trademark_type='GuaranteeTrademark'">
 													<div style="margin-top:0px;border-top:1px solid black;">X</div>
 												</xsl:when>
 												<xsl:otherwise>
@@ -442,7 +442,7 @@
 
 											<xsl:choose>
 												<xsl:when
-													test="trademark/trademark_info/trademark_appearance='Verbal Trademark'">
+													test="trademark/trademark_info/trademark_appearance='VerbalTrademark'">
 													<div
 														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">X</div>
 												</xsl:when>
@@ -460,7 +460,7 @@
 
 											<xsl:choose>
 												<xsl:when
-													test="trademark/trademark_info/trademark_appearance='Graphic Trademark'">
+													test="trademark/trademark_info/trademark_appearance='GraphicTrademark'">
 													<div
 														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">X</div>
 												</xsl:when>
@@ -478,7 +478,7 @@
 
 											<xsl:choose>
 												<xsl:when
-													test="trademark/trademark_info/trademark_appearance='Combined Trademark'">
+													test="trademark/trademark_info/trademark_appearance='CombinedTrademark'">
 													<div
 														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">X</div>
 												</xsl:when>
@@ -496,7 +496,7 @@
 
 											<xsl:choose>
 												<xsl:when
-													test="trademark/trademark_info/trademark_appearance='Three-Dimensional Trademark'">
+													test="trademark/trademark_info/trademark_appearance='ThreeDimensionalTrademark'">
 													<div
 														style="margin-top:0px;border-bottom:1px solid black;">X</div>
 												</xsl:when>
@@ -520,7 +520,7 @@
 
 											<xsl:choose>
 												<xsl:when
-													test="trademark/trademark_info/trademark_appearance='Another Trademark'">
+													test="trademark/trademark_info/trademark_appearance='AnotherTrademark'">
 													<div
 														style="margin-top:0px;border-bottom:1px solid black;border-top:1px solid black;">X</div>
 												</xsl:when>
@@ -1112,21 +1112,35 @@
 					</div>
 
 					<div
-						style="width: 70%;height:650px; text-align: center;background-color:#ffffff; margin-left: 20%;padding-bottom: 10%;">
+						style="width: 70%;height:850px; text-align: center;background-color:#ffffff; margin-left: 20%;padding-bottom: 10%;">
 
 						<div style="margin-left:-100px">
 
 							<div
 								style="float: left; width: 50%;border:1px solid black;margin-top:50px">
 
-								<div style="border:1px solid black;"><b>11. Плаћене таксе: </b></div>
-								<div style="border:1px solid black;"><b>а) основна такса </b> </div>
 								<div style="border:1px solid black;">
-									<p><b>б) за <xsl:value-of select="trademark/fee/nice_class"/> класу</b></p>
-									<p><b>в) за графичко решење </b></p>
+									<b>11. Плаћене таксе: </b>
+								</div>
+								<div style="border:1px solid black;">
+									<b>а) основна такса </b>
+								</div>
+								<div style="border:1px solid black;">
+									<p>
+										<b>
+											б) за
+											<xsl:value-of select="trademark/fee/nice_class" />
+											класу
+										</b>
+									</p>
+									<p>
+										<b>в) за графичко решење </b>
+									</p>
 
 								</div>
-								<div style="border:1px solid black;"><b>УКУПНО </b> </div>
+								<div style="border:1px solid black;">
+									<b>УКУПНО </b>
+								</div>
 
 
 							</div>
@@ -1134,7 +1148,9 @@
 							<div
 								style="float: right; width: 50%;border:1px solid black;margin-top:-150px;border-left:0px;">
 
-								<div style="border:1px solid black;"><b>Динара</b></div>
+								<div style="border:1px solid black;">
+									<b>Динара</b>
+								</div>
 
 								<div style="border:1px solid black;">
 									<xsl:value-of select="trademark/fee/basic" />
@@ -1165,7 +1181,7 @@
 						</div>
 
 
-						<div style="margin-left:-100px;margin-top: 3%">
+						<div style="margin-left:-10px;margin-top: 3%">
 
 							<div style="float: left; width: 50%;">
 
@@ -1178,17 +1194,18 @@
 										<div style="border:1px solid black">Примерак знака</div>
 										<div style="border:1px solid black">Списак робе и услуга**</div>
 										<div style="border:1px solid black">Пуномоћје</div>
-										<div style="border:1px solid black">Генерално пуномоћје раније приложено </div>
-										<div style="border:1px solid black">Пуномоћје ће бити накнадно достављено </div>
-										<div style="border:1px solid black">Општи акт о колек. жигу/жигу гаранције</div>
+										<div style="border:1px solid black">Генерално пуномоћје </div>
+										<div style="border:1px solid black">Пуномоћје  накнадно достављено </div>
+										<div style="border:1px solid black">Општи акт о колек. жигу</div>
 										<div style="border:1px solid black">Доказ о праву првенства</div>
 										<div style="border:1px solid black">Доказ о уплати таксе</div>
 									</div>
 									<div style="float: right; width: 20%;">
 
 										<div style="border:1px solid black">
-											<xsl:value-of
+												<xsl:value-of
 												select="trademark/institution/trademark_sample" />
+											
 										</div>
 										<div style="border:1px solid black">
 											<xsl:value-of
@@ -1253,7 +1270,7 @@
 						</div>
 
 						<p
-							style="text-align: justify;margin-top:350px;margin-left:-100px">
+							style="text-align: justify;margin-top:350px;margin-left:-10px">
 
 							**Уз заокруживање броја класе робе/услуга Ничанске
 							класификације у
@@ -1288,8 +1305,8 @@
 					</div>
 					QR CODE:
 					<div
-						style="height:283px;padding-top:10px;border-left: 1px solid black;">
-						
+						style="height:283px;padding-top:10px;">
+
 						<img style="height:270px;width:350px;border:1px solid black;">
 							<!-- trademark/trademark_info/trademark_view -->
 							<!-- 'haha tekst mnkkn' -->
@@ -1302,10 +1319,10 @@
 
 
 					</div>
-					
-					 
+
+
 				</div>
-				
+
 
 			</body>
 		</html>

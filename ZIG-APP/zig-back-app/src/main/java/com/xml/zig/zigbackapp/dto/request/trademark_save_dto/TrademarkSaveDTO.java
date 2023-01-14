@@ -32,15 +32,25 @@ public class TrademarkSaveDTO {
 	
 	private Long date;//date in milliseconds
 
-	private ArrayList<Document> documents;
+	private List<Document> documents;
 
+	private String username;
 	
 	
-	public ArrayList<Document> getDocuments() {
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public List<Document> getDocuments() {
 		return documents;
 	}
 
-	public void setDocuments(ArrayList<Document> documents) {
+	public void setDocuments(List<Document> documents) {
 		this.documents = documents;
 	}
 

@@ -31,7 +31,7 @@ public class QRCodeGenerator {
 			
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			
-			MatrixToImageWriter.writeToStream(bitMatrix, "PNG", baos);
+			MatrixToImageWriter.writeToStream(bitMatrix, "JPEG", baos);
 			
 //			System.out.println(new String(baos.toByteArray(), StandardCharsets.UTF_8));
 			
@@ -44,7 +44,7 @@ public class QRCodeGenerator {
 			
 //			String escaape_pic = StringEscapeUtils.escapeXml10(pic);
 			
-			String image_html = "data:image/png;base64, " + image;
+			String image_html = "data:image/jpeg;base64," + image;
 			
 			return image_html;
 			

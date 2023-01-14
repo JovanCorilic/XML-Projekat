@@ -78,16 +78,16 @@ export class TrademarkService {
             return jsElement.hasChildElement("trademark_info");
             }
         },
-        {
+        // {
 
-          caption: 'Add <nice_classification>',
-          action: Xonomy.newElementChild,
-          actionParameter: '<nice_classification> </nice_classification>',
-          mustBeBefore:['requested_right_of_priority_and_basis','fee','institution','trademark_number','date'],
-          hideIf: function(jsElement:any){
-            return jsElement.hasChildElement("nice_classification");
-            }
-        },
+        //   caption: 'Add <nice_classification>',
+        //   action: Xonomy.newElementChild,
+        //   actionParameter: '<nice_classification> </nice_classification>',
+        //   mustBeBefore:['requested_right_of_priority_and_basis','fee','institution','trademark_number','date'],
+        //   hideIf: function(jsElement:any){
+        //     return jsElement.hasChildElement("nice_classification");
+        //     }
+        // },
         {
 
           caption: 'Add <requested_right_of_priority_and_basis>',
@@ -108,35 +108,35 @@ export class TrademarkService {
             return jsElement.hasChildElement("fee");
             }
         },
-        {
+        // {
 
-          caption: 'Add <institution>',
-          action: Xonomy.newElementChild,
-          actionParameter: '<institution> </institution>',
-          mustBeBefore:['trademark_number','date'],
-          hideIf: function(jsElement:any){
-            return jsElement.hasChildElement("institution");
-            }
-        },
-        {
+        //   caption: 'Add <institution>',
+        //   action: Xonomy.newElementChild,
+        //   actionParameter: '<institution> </institution>',
+        //   mustBeBefore:['trademark_number','date'],
+        //   hideIf: function(jsElement:any){
+        //     return jsElement.hasChildElement("institution");
+        //     }
+        // },
+        // {
 
-          caption: 'Add <trademark_number>',
-          action: Xonomy.newElementChild,
-          actionParameter: '<trademark_number> </trademark_number>',
-          mustBeBefore:['date'],
-          hideIf: function(jsElement:any){
-            return jsElement.hasChildElement("trademark_number");
-            }
-        },
-        {
+        //   caption: 'Add <trademark_number>',
+        //   action: Xonomy.newElementChild,
+        //   actionParameter: '<trademark_number> </trademark_number>',
+        //   mustBeBefore:['date'],
+        //   hideIf: function(jsElement:any){
+        //     return jsElement.hasChildElement("trademark_number");
+        //     }
+        // },
+        // {
 
-          caption: 'Add <date>',
-          action: Xonomy.newElementChild,
-          actionParameter: '<date> </date>',
-          hideIf: function(jsElement:any){
-            return jsElement.hasChildElement("date");
-            }
-        },
+        //   caption: 'Add <date>',
+        //   action: Xonomy.newElementChild,
+        //   actionParameter: '<date> </date>',
+        //   hideIf: function(jsElement:any){
+        //     return jsElement.hasChildElement("date");
+        //     }
+        // },
        ]}
        ,
        "applicant":{
@@ -650,9 +650,9 @@ export class TrademarkService {
         oneltmer: true,
         asker: Xonomy.askPicklist,
         askerParameter: [
-          { value: "Individual Trademark" },
-          { value: "Collective Trademark" },
-          { value: "Guarantee Trademark" }
+          { value: "IndividualTrademark" },
+          { value: "CollectiveTrademark" },
+          { value: "GuaranteeTrademark" }
         ]
       },
 
@@ -661,11 +661,11 @@ export class TrademarkService {
         oneltmer: true,
         asker: Xonomy.askPicklist,
         askerParameter: [
-          { value: "Verbal Trademark" },
-          { value: "Graphic Trademark" },
-          { value: "Combined Trademark" },
-          { value: "Three-Dimensional Trademark" },
-          { value: "Another Trademark" }
+          { value: "VerbalTrademark" },
+          { value: "GraphicTrademark" },
+          { value: "CombinedTrademark" },
+          { value: "ThreeDimensionalTrademark" },
+          { value: "AnotherTrademark" }
         ]
       },
 

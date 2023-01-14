@@ -8,6 +8,7 @@ public class ZigBackAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ZigBackAppApplication.class, args);
+		
 	}
 
 }

@@ -38,6 +38,8 @@ public class TrademarkController {
 	@PostMapping(value = "save")
 	public boolean saveTrademark(@RequestBody TrademarkSaveDTO trademarkSaveDTO) {
 		
+		
+		System.out.println("ZASTOO");
 		boolean answer = ts.saveTrademark(trademarkSaveDTO);
 		
 		return true;
@@ -59,6 +61,22 @@ public class TrademarkController {
 		return new ResponseEntity<Trademark>(trademark, HttpStatus.OK);
 	}
 	
+	@GetMapping(value = "getAllDoc/{uuid}")
+	public void getTrademark(@PathVariable("uuid") String uuid) {
+		
+		ts.loadAllDocTrademark( uuid);
+		
+		
+	}
+	
+	@GetMapping(value = "getImages/{uuid}")
+	public ResponseEntity<List<String>>  getAllDocumentImages(@PathVariable("uuid") String uuid) {
+		
+		List<String> l = ts.loadAllDocumentImages( uuid);
+		
+		return new ResponseEntity<List<String>>(l, HttpStatus.OK);
+	}
+	
 	@GetMapping(value = "get/{username}")
 	public ResponseEntity<List<String>> getAllTrademarksFromUser(@PathVariable("username") String username) {
 		
@@ -67,10 +85,10 @@ public class TrademarkController {
 		return new ResponseEntity<List<String>>(trademarks, HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "search/{text}")
-	public ResponseEntity<List<TrademarkTableDTO>> searchTrademarksFromUser(@PathVariable("text") String text) {
-		
-		List<TrademarkTableDTO> trademarks = ts.searchAllTrademarksFromUser(text);
+	@GetMapping(value = "search/{role}/{text}")
+	public ResponseEntity<List<TrademarkTableDTO>> searchTrademarksFromUser(@PathVariable("text") String text,@PathVariable("role") String role) {
+		System.out.println("PRETRAGA");
+		List<TrademarkTableDTO> trademarks = ts.searchAllTrademarksFromUser(text,role);
 		
 		return new ResponseEntity<List<TrademarkTableDTO>>(trademarks, HttpStatus.OK);
 	}

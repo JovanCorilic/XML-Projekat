@@ -2,21 +2,21 @@ package com.xml.zig.zigbackapp.model;
 
 public class Institution {
 
-	private String trademark_sample; //FILE PATH
+	private String trademark_sample = "-"; //FILE PATH
 	
-	private String list_of_goods_and_services; //FILE PATH
+	private String list_of_goods_and_services= "-"; //FILE PATH
 	
-	private String power_of_attorney; //FILE PATH
+	private String power_of_attorney= "-"; //FILE PATH
 	
-	private boolean general_power_of_attorney_previously_submitted;
+	private String general_power_of_attorney_previously_submitted= "-";
 	
-	private boolean power_of_attorney_will_be_delivered_later;
+	private String power_of_attorney_will_be_delivered_later= "-";
 	
-	private String general_act; //FILE PATH
+	private String general_act= "-"; //FILE PATH
 	
-	private String proof_of_priority; //FILE PATH
+	private String proof_of_priority= "-"; //FILE PATH
 	
-	private String proof_of_fee_payment; //FILE PATH
+	private String proof_of_fee_payment= "-"; //FILE PATH
 
 	
 	
@@ -25,7 +25,7 @@ public class Institution {
 	}
 
 	public Institution(String trademark_sample, String list_of_goods_and_services, String power_of_attorney,
-			boolean general_power_of_attorney_previously_submitted, boolean power_of_attorney_will_be_delivered_later,
+			String general_power_of_attorney_previously_submitted, String power_of_attorney_will_be_delivered_later,
 			String general_act, String proof_of_priority, String proof_of_fee_payment) {
 	
 		this.trademark_sample = trademark_sample;
@@ -63,19 +63,19 @@ public class Institution {
 		this.power_of_attorney = power_of_attorney;
 	}
 
-	public boolean isGeneral_power_of_attorney_previously_submitted() {
+	public String isGeneral_power_of_attorney_previously_submitted() {
 		return general_power_of_attorney_previously_submitted;
 	}
 
-	public void setGeneral_power_of_attorney_previously_submitted(boolean general_power_of_attorney_previously_submitted) {
+	public void setGeneral_power_of_attorney_previously_submitted(String general_power_of_attorney_previously_submitted) {
 		this.general_power_of_attorney_previously_submitted = general_power_of_attorney_previously_submitted;
 	}
 
-	public boolean isPower_of_attorney_will_be_delivered_later() {
+	public String isPower_of_attorney_will_be_delivered_later() {
 		return power_of_attorney_will_be_delivered_later;
 	}
 
-	public void setPower_of_attorney_will_be_delivered_later(boolean power_of_attorney_will_be_delivered_later) {
+	public void setPower_of_attorney_will_be_delivered_later(String power_of_attorney_will_be_delivered_later) {
 		this.power_of_attorney_will_be_delivered_later = power_of_attorney_will_be_delivered_later;
 	}
 
