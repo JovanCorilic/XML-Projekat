@@ -80,11 +80,11 @@ public class PatentService {
     public ArrayList<String> searchByMetadata(String odluka, String opcija) throws IOException {
         Map<String, String> params = new HashMap<>();
         if (opcija.equals("3"))
-            params.put("EngleskiNaziv",odluka);
+            params.put("nazivPatentaEngleski",odluka);
         else if(opcija.equals("2"))
-            params.put("BrojPrijave",odluka);
+            params.put("brojPrijave",odluka);
         else
-            params.put("SrpskiNaziv",odluka);
+            params.put("nazivPatentaSrpski",odluka);
 
         return FusekiReader.executeQueryPatent(params,opcija);
     }
