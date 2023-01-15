@@ -15,7 +15,6 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   public login(token: any): Observable<Token> {
-
     return this.http.post<Token>(`${this.apiUrl}`, token, { headers: this.headers });
   }
 

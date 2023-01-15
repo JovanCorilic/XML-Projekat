@@ -83,7 +83,7 @@
       <label for="exampleInputType" class="form-label">Type</label>
       <!-- <input type="typa" formControlName="typa" class="form-control" id="exampleInputType" aria-describedby="typaHelp"> -->
       <select class="custom-select" (change)="changeCity($event)" formControlName="typa">
-        <option value="">Choose your city</option>
+        <option value="">TRADEMARK TYPE</option>
         <option *ngFor="let tr of trademark_types" [ngValue]="tr">{{tr}}</option>
       </select>
 

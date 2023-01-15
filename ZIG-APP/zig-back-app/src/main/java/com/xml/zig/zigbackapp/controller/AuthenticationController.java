@@ -38,7 +38,7 @@ public class AuthenticationController {
 	public ResponseEntity<UserTokenState> createAuthenticationToken(
 			@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response) {
 
-		
+		System.out.println("ULAZIM LOGIN");
 //		System.out.println(authenticationRequest.getPassword()+authenticationRequest.getUsername());
 		// Ukoliko kredencijali nisu ispravni, logovanje nece biti uspesno, desice se
 		// AuthenticationException

@@ -47,17 +47,16 @@ public class TrademarkService {
 	public boolean saveTrademark(TrademarkSaveDTO ts) {
 
 		UUID uuid = UUID.randomUUID();
-
+		
 		Trademark tm = modelMapper.map(ts, Trademark.class);
+		
 		// url + "/" + uuid.toString();
 		String full_url = uuid.toString();
+
 		tm.setTrademark_id(full_url);
 
 		tm.setInstitution(new Institution());
 
-//		System.out.println(ts.getDocuments().size());
-//		System.out.println("OOO");
-//		System.out.println(ts.getDocuments().get(1));
 		try {
 			FusekiWriter.saveRDF(tm.getTrademark_id(),"date", (new Date()).getTime()+"");
 			FusekiWriter.saveRDF(tm.getTrademark_id(),"status","WAIT");
@@ -70,13 +69,10 @@ public class TrademarkService {
 			
 		}
 
-//		GENERATE QRCODE FROM URL
-//		tm.setQrCode(qrGenerator.getQRCodeAsByteArray(full_url));
-
-//		tm.setApplicant(ts.getApplicant());
 
 		String trademark_text = "";
 		try {
+//			System.out.println("MARSAL");
 			trademark_text = jaxB.marshall(Trademark.class, tm);
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block

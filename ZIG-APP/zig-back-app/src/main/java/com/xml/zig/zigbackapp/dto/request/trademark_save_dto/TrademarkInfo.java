@@ -1,7 +1,13 @@
 package com.xml.zig.zigbackapp.dto.request.trademark_save_dto;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.xml.zig.zigbackapp.model.Document;
 import com.xml.zig.zigbackapp.model.TrademarkAppearance;
 import com.xml.zig.zigbackapp.model.TrademarkColor;
 import com.xml.zig.zigbackapp.model.TrademarkType;
@@ -14,7 +20,8 @@ public class TrademarkInfo {
 	
 	private String trademark_view;
 	
-	private ArrayList<TrademarkColor> trademark_colors;
+//	@JacksonXmlProperty(localName = "trademark_color")
+	private List<TrademarkColor> trademark_colors = new ArrayList<TrademarkColor>();
 	
 	private String trademark_transliteration;
 	
@@ -47,7 +54,7 @@ public class TrademarkInfo {
 		this.trademark_view = trademark_view;
 	}
 
-	public ArrayList<TrademarkColor> getTrademark_colors() {
+	public List<TrademarkColor> getTrademark_colors() {
 		return trademark_colors;
 	}
 

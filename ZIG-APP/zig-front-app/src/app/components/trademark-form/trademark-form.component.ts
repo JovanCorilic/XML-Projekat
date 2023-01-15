@@ -49,7 +49,7 @@ export class TrademarkFormComponent implements OnInit, AfterViewInit {
     text = document_text;
     if(this.list_files.length>0){
 
-
+      let document_text = text.split("</trademark>")[0].trim();
       document_text += '<documents>';
 
       for (let elem of this.list_files){

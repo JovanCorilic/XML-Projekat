@@ -2,6 +2,8 @@ package com.xml.zig.zigbackapp.controller;
 
 import java.util.List;
 
+import javax.xml.bind.JAXBException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.xml.zig.zigbackapp.dto.request.TrademarkTableDTO;
 import com.xml.zig.zigbackapp.dto.request.trademark_save_dto.TrademarkSaveDTO;
+import com.xml.zig.zigbackapp.jaxb.JaxB;
 import com.xml.zig.zigbackapp.model.Trademark;
 import com.xml.zig.zigbackapp.service.TrademarkService;
 
@@ -29,22 +32,26 @@ public class TrademarkController {
 	@Autowired
 	private TrademarkService ts;
 	
+	@Autowired
+	private JaxB jaxB;
+	
 	@GetMapping(value = "bol")
 	public boolean getBol(){
 		
 		return true;
+		
 	}
-	
+//	@RequestBody TrademarkSaveDTO trademarkSaveDTO
 	@PostMapping(value = "save")
 	public boolean saveTrademark(@RequestBody TrademarkSaveDTO trademarkSaveDTO) {
-		
-		
-		System.out.println("ZASTOO");
+		System.out.println("SIZE" + trademarkSaveDTO.getTrademark_info().getTrademark_colors().size());
+//		System.out.println("SIZE" + trademarkSaveDTO.getTrademark_info().getTrademark_colors().get(0));
 		boolean answer = ts.saveTrademark(trademarkSaveDTO);
 		
 		return true;
 	}
 	
+
 	@PostMapping(value = "save/{username}")
 	public boolean saveTrademarkWithUsername(@PathVariable("username") String username,@RequestBody TrademarkSaveDTO trademarkSaveDTO) {
 		
@@ -87,7 +94,6 @@ public class TrademarkController {
 	
 	@GetMapping(value = "search/{role}/{text}")
 	public ResponseEntity<List<TrademarkTableDTO>> searchTrademarksFromUser(@PathVariable("text") String text,@PathVariable("role") String role) {
-		System.out.println("PRETRAGA");
 		List<TrademarkTableDTO> trademarks = ts.searchAllTrademarksFromUser(text,role);
 		
 		return new ResponseEntity<List<TrademarkTableDTO>>(trademarks, HttpStatus.OK);

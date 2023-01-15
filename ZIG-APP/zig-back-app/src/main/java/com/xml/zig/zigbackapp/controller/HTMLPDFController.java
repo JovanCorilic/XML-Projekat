@@ -115,7 +115,7 @@ public class HTMLPDFController {
 //		System.out.println(xml);
 //		System.out.println(xml);
 
-		
+		String s= "<html><body>dsadsa</body></html";
 		ByteArrayInputStream inputStream = new ByteArrayInputStream(xml.getBytes());
 
 		response.setContentType("application/html");

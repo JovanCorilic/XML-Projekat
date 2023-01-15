@@ -154,13 +154,18 @@ export class FormTableComponent implements OnInit {
   public metadataSearch():void{
     console.log(this.metadataForm.value);
     console.log(+this.metadataForm.value.datestart);
+    let type:string = this.metadataForm.value.typa;
+    if(type.includes(':')){
+      type = type.split(':')[1].trim();
+    }
+
     let txt = '<metadata>';
     txt += '<status>' + this.metadataForm.value.status + '</status>';
     txt += '<statusnot>' + this.metadataForm.value.statusnot + '</statusnot>';
     txt += '<role>' + this.my_role + '</role>';
     txt += '<usrname>' + this.metadataForm.value.username + '</usrname>';
     txt += '<usernamenot>' + this.metadataForm.value.usernamenot + '</usernamenot>';
-    txt += '<typa>' + this.metadataForm.value.typa + '</typa>';
+    txt += '<typa>' + type + '</typa>';
     txt += '<typenot>' + this.metadataForm.value.typenot + '</typenot>';
     txt += '<datestart>' + +this.metadataForm.value.datestart + '</datestart>';
     txt += '<dateend>' + +this.metadataForm.value.dateend + '</dateend>';
