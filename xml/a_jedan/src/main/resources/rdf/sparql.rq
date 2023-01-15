@@ -1,0 +1,6 @@
+SELECT * FROM <http://localhost:8085/fuseki/A1local/data/metadata> where{
+    ?A1 <https://1564.com/predicate/naslov> ?naslov .
+    ?A1 <https://1564.com/predicate/broj_prijave> ?broj_prijave .
+    FILTER(CONTAINS(UCASE(str(?naslov)), UCASE("{{naslov}}"))
+    && CONTAINS(UCASE(str(?broj_prijave)), UCASE("{{broj_prijave}}"))).
+}

@@ -1,0 +1,8 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+<rdf:Description rdf:about="">
+<pred:naslov xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Patent za zavrnut elektromagnetni uredjaj</pred:naslov>
+</rdf:Description>
+<rdf:Description rdf:about="">
+<pred:broj_prijave xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">5415156</pred:broj_prijave>
+</rdf:Description>
+</rdf:RDF>

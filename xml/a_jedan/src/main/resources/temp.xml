@@ -1,0 +1,59 @@
+<A-1 xmlns:pred="https://1564.com/predicate" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:/C:/Users/User/Desktop/A-1.xsd">
+    <zavod_za_intelektualnu_svoinu>LND D.O.O.</zavod_za_intelektualnu_svoinu>
+    <adresa>
+        <grad>Novi Sad</grad>
+        <naziv_ulice>Marka Pavlica</naziv_ulice>
+        <broj_ulice>45</broj_ulice>
+    </adresa>
+    <obrazac>Obrazac za patente</obrazac>
+    <x:naslov xmlns:x="https://1564.com" property="pred:naslov">Patent za zavrnut elektromagnetni uredjaj</x:naslov>
+    <podnosilac_firma>
+        <poslovno_ime>Misic i Pavlic Izumi D.O.O.</poslovno_ime>
+        <sediste_nosioca_autorskog>Novi Sad</sediste_nosioca_autorskog>
+    </podnosilac_firma>
+    <telefon>035/0365-035-30</telefon>
+    <email>SlavkoMisic@MiLIzumi</email>
+    <pseudonim>Dr. Strija</pseudonim>
+    <autor>
+        <ime>Slavko</ime>
+        <prezime>Misic</prezime>
+        <adresa>
+            <grad>Novi Sad</grad>
+            <naziv_ulice>Bulevar Oslobodjenja</naziv_ulice>
+            <broj_ulice>12</broj_ulice>
+        </adresa>
+    </autor>
+    <naslov>Patent za zavrnut elektromagnetni uredjaj</naslov>
+    <vrsti_autorskog_dela>patent</vrsti_autorskog_dela>
+    <forma_zapisa_autorskog_dela>tekst</forma_zapisa_autorskog_dela>
+    <podnosioci>
+        <podnosilac>
+            <anoniman>
+                <delo_delo_anonimnog_autora>zavrnut elektromagnetni uredjaj</delo_delo_anonimnog_autora>
+            </anoniman>
+        </podnosilac>
+        <podnosilac>
+            <mrtav>
+                <prezime>Palvic</prezime>
+                <ime>Sima</ime>
+                <godina_smrti>2022</godina_smrti>
+            </mrtav>
+        </podnosilac>
+    </podnosioci>
+    <da_li_je_delo_stvoreno_u_radnom_odnosu>da</da_li_je_delo_stvoreno_u_radnom_odnosu>
+    <nameravani_nacin_korišćenja_autorskog_dela>masinski</nameravani_nacin_korišćenja_autorskog_dela>
+    <nosilac_prijave>
+        <podnosilac_prijave>slavko</podnosilac_prijave>
+    </nosilac_prijave>
+    <podneti_prilozi_zahtev>
+        <popunjava>
+            <ime>Slavko</ime>
+            <prezime>Misic</prezime>
+        </popunjava>
+        <prilozi_prijave>patent</prilozi_prijave>
+        <opis_autorskog_dela>bolji magnet</opis_autorskog_dela>
+        <primer_autorskog_dela>demonstracija.mp4</primer_autorskog_dela>
+    </podneti_prilozi_zahtev>
+    <x:broj_prijave xmlns:x="https://1564.com" property="pred:broj_prijave">5415156</x:broj_prijave>
+    <datum_podnosenja>11.12.2023</datum_podnosenja>
+</A-1>
