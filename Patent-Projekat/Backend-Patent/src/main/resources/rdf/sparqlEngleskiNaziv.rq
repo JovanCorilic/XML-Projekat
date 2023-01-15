@@ -1,0 +1,4 @@
+SELECT * FROM <http://localhost:8081/fuseki/Dataset/data/patentMetadata> where{
+    ?Dataset <http://www.ftn.uns.ac.rs/rdf/examples/predicate/nazivPatentaEngleski> ?nazivPatentaEngleski .
+    FILTER(CONTAINS(UCASE(str(?nazivPatentaEngleski)), UCASE("{{nazivPatentaEngleski}}"))).
+}
