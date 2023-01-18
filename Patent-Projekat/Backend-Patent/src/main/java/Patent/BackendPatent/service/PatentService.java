@@ -42,6 +42,10 @@ public class PatentService {
             docId = "0";
         }
         p1.setId(docId);
+        p1.getPopunjavaZavod().setAbout(p1.getPopunjavaZavod().getAbout()+"/"+docId);
+
+        p1.getNazivPronalaska().setAbout(p1.getNazivPronalaska().getAbout()+"/"+docId);
+
         text=jaxbParser.marshallString(P1.class,p1);
         patentRepository.savePatentFromText(text,docId);
         metadataExtractor.extractMetadataPatent(text);

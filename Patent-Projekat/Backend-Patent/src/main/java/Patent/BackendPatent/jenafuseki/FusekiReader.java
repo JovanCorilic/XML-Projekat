@@ -60,7 +60,8 @@ public class FusekiReader {
                 else if(varName.contains("nazivPatentaEngleski")){
                     String value = varValue.toString();
                     foundPatent.add(value);
-                }
+                }else if(varName.equals("Dataset"))
+                    foundPatent.add(""+varValue);
             }
         }
         ResultSetFormatter.outputAsXML(System.out,results);
