@@ -22,7 +22,7 @@ export class NavbarComponent {
 
   goToSviPatentiNijeProsaoZavod(){
     
-    this.router.navigate(['/svi-patent/false']);
+    this.router.navigate(['/svi-patent-neprodjeni/false']);
     
   }
 
