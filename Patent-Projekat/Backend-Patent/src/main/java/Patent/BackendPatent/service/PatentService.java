@@ -33,6 +33,7 @@ public class PatentService {
     }
 
     public void addPatentFromText(String text)throws Exception{
+        text = text.replaceAll("xml:space='preserve'","");
         P1 p1 = jaxbParser.unmarshall(P1.class,text);
         String docId ;
         try{
@@ -53,6 +54,7 @@ public class PatentService {
     }
 
     public void editPatentFromText(String text)throws Exception{
+        text = text.replaceAll("xml:space='preserve'","");
         P1 p1 = jaxbParser.unmarshall(P1.class,text);
         String id = p1.getId();
         patentRepository.savePatentFromText(text,id);

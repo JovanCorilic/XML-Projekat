@@ -34,6 +34,7 @@ export class EditPatentComponent {
         let specification = this.xonomyPatentEditService.PatentSpecification;
         let xmlString = res.text;
         Xonomy.render(xmlString, element, specification);
+        Xonomy.refresh();
       }
     )
   }
@@ -64,6 +65,8 @@ export class EditPatentComponent {
   send(){
     let text = Xonomy.harvest();
     const patent = new Patent("");
+    text = '<?xml version="1.0" encoding="UTF-8"?>'+
+    ' <?xml-stylesheet type="text/xsl" href="src/main/resources/xslt/P-1.xsl"?> '+ text;
     patent.text = text;
     this.patentService.sendXml(patent).subscribe(
       res=>{

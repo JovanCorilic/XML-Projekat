@@ -16,6 +16,7 @@ import { PatentCreateComponent } from './PATENT/patent-create/patent-create.comp
 import { SviPatentComponent } from './PATENT/svi-patent/svi-patent.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 
+
 @NgModule({
   declarations: [
     AppComponent,

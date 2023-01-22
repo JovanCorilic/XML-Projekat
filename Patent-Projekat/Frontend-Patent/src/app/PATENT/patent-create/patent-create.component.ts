@@ -15,7 +15,7 @@ export class PatentCreateComponent {
     private router: Router,
     private patentService: PatentService){}
 
-  ngAfterViewInit(){
+  ngAfterViewInit(): void{
     let element = document.getElementById("editor");
 
     let xmlLicneInformacije = 
@@ -37,8 +37,7 @@ export class PatentCreateComponent {
     
 
     let xml = 
-    '<P-1 xmlns="http://www.ftn.uns.rs/P-1"'+
-      ' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"'+
+    ' <P-1 xmlns="http://www.ftn.uns.rs/P-1" id=""'+
       ' xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/">'+
       ' <popunjava_zavod about="http://www.ftn.uns.ac.rs/rdf/patent"> '+
         ' <broj_prijave property="pred:brojPrijave" datatype="xs:string"> </broj_prijave>'+
@@ -98,12 +97,16 @@ export class PatentCreateComponent {
     let specification = this.xonomyPatentCreateService.PatentSpecification;
     Xonomy.setMode("laic");
     Xonomy.render(xml,element,specification);
+    Xonomy.refresh();
   }
 
   send(){
     let text = Xonomy.harvest();
     const patent = new Patent("");
+    text = '<?xml version="1.0" encoding="UTF-8"?>'+
+    ' <?xml-stylesheet type="text/xsl" href="src/main/resources/xslt/P-1.xsl"?> '+ text;
     patent.text=text;
+    //console.log(text);
     this.patentService.sendXml(patent).subscribe(
       res=>{this.router.navigate(['']);}
     )
