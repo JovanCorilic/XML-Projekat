@@ -66,6 +66,16 @@ public class PatentService {
         return patentRepository.findPatentById(docId);
     }
 
+    public String getOznakePatenta(String id)throws Exception{
+        String xml = patentRepository.findPatentById(id);
+        P1 p1 = jaxbParser.unmarshall(P1.class,xml);
+        String natrag = "";
+        natrag +="Broj prijave : "+p1.getPopunjavaZavod().getBrojPrijave().getValue()+
+                " Srpski naziv: "+p1.getNazivPronalaska().getSrpskiNaziv().getValue()+
+                " Engleski naziv: "+p1.getNazivPronalaska().getEngleskiNaziv().getValue();
+        return natrag;
+    }
+
     public String getPatentBySrpskiNaziv(String naziv)throws Exception{
         return patentRepository.findPatentByNaziv("<srpski_naziv property=\"pred:nazivPatentaSrpski\" datatype=\"xs:string\">"+naziv+"</srpski_naziv>");
     }
@@ -75,7 +85,31 @@ public class PatentService {
     }
 
     public String[] getAll()throws Exception{
-        return patentRepository.getAllSrpskeNazive();
+        String[]SviPatenti = patentRepository.getAll();
+        ArrayList<String>lista = new ArrayList<>();
+        for (String temp : SviPatenti){
+            if (!patentRepository.findPatentById(temp).contains("<broj_prijave property=\"pred:brojPrijave\" datatype=\"xs:string\"/>"))
+                lista.add(temp);
+        }
+        String[]lista2 = new String[lista.size()];
+        for (int i = 0;i<lista.size();i++){
+            lista2[i]=lista.get(i);
+        }
+        return lista2;
+    }
+
+    public String[] getAllNijeProsaoZavod()throws Exception{
+        String[]SviPatenti = patentRepository.getAll();
+        ArrayList<String>lista = new ArrayList<>();
+        for (String temp : SviPatenti){
+            if (patentRepository.findPatentById(temp).contains("<broj_prijave property=\"pred:brojPrijave\" datatype=\"xs:string\"/>"))
+                lista.add(temp);
+        }
+        String[]lista2 = new String[lista.size()];
+        for (int i = 0;i<lista.size();i++){
+            lista2[i]=lista.get(i);
+        }
+        return lista2;
     }
 
     public void deleteByNaziv(String naziv)throws Exception{

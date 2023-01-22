@@ -11,7 +11,7 @@ const routes: Routes = [
     component : PatentCreateComponent
   },
   {
-    path : 'svi-patent',
+    path : 'svi-patent/:prodjeno',
     component: SviPatentComponent
   },
   {

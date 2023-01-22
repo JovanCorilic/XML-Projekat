@@ -34,6 +34,12 @@ public class PatentController {
         return new ResponseEntity<>(new XMLDto(document), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/getOznakePatenta/{id}")
+    public ResponseEntity<XMLDto> getOznakePatenta(@PathVariable("id") String id) throws Exception {
+        String temp = patentService.getOznakePatenta(id);
+        return new ResponseEntity<>(new XMLDto(temp),HttpStatus.OK);
+    }
+
     @PutMapping(value = "/xonomyEdit",consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void>editPatent(@RequestBody XMLDto entitet)throws Exception{
         patentService.editPatentFromText(entitet.getText());
@@ -43,6 +49,12 @@ public class PatentController {
     @GetMapping(value = "/getAll")
     public ResponseEntity<String[]> getAllPatente() throws Exception {
         String[] listaPatenta = patentService.getAll();
+        return new ResponseEntity<>(listaPatenta, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/getAllNijeProsaoZavod")
+    public ResponseEntity<String[]> getAllPatenteNijeProsaoZavod() throws Exception {
+        String[] listaPatenta = patentService.getAllNijeProsaoZavod();
         return new ResponseEntity<>(listaPatenta, HttpStatus.OK);
     }
 

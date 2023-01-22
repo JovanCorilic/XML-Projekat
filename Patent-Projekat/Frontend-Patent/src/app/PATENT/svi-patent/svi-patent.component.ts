@@ -1,7 +1,7 @@
 import { PatentService } from 'src/app/SERVICE/patent.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup  } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-svi-patent',
@@ -17,10 +17,15 @@ export class SviPatentComponent implements OnInit{
   res2Form:FormGroup;
   opcija=<string>{}
   rezultat = <string>{}
+  prodjeno:boolean=false;
+  temp:string|null;
+  mapa:Map<string,string>;
+  mapaMetaPodaci:Map<string,string>;
 
   constructor(
     private patentService:PatentService,
     private router:Router,
+    private route:ActivatedRoute,
     private fBuilder:FormBuilder
   ) {
     this.resForm = this.fBuilder.group({
@@ -30,7 +35,25 @@ export class SviPatentComponent implements OnInit{
     this.res2Form=this.fBuilder.group({
       odluka2:""
     });
+   
+    this.temp=this.route.snapshot.paramMap.get('prodjeno');
+      if(this.temp != null)
+        this.prodjeno = this.convertToBoolean(this.temp);
+      else
+        this.prodjeno = false;
+    this.mapa= new Map();
+    this.mapaMetaPodaci = new Map();
+
    }
+
+  convertToBoolean(input: string): boolean {
+    try {
+        return JSON.parse(input.toLowerCase());
+    }
+    catch (e) {
+        return false;
+    }
+  }
 
   get form():{ [key: string]: AbstractControl; }
   {
@@ -38,11 +61,25 @@ export class SviPatentComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.patentService.sviPatenti().subscribe(
-      res=>{
-        this.listaPatenta=res;
-      }
-    )
+   this.listaPatenta;
+    if(this.prodjeno)
+      this.patentService.sviPatentiProsaoZavod().subscribe(
+        res=>{
+          this.listaPatenta=res;
+          this.listaPatenta.forEach(element => {
+            this.prikazOznakaPatenta(element,this.mapa);
+          });
+        }
+      );
+    else if(!this.prodjeno)
+        this.patentService.sviPatentiNijeProsaoZavod().subscribe(
+          res=>{
+            this.listaPatenta=res;
+            this.listaPatenta.forEach(element => {
+              this.prikazOznakaPatenta(element,this.mapa);
+            });
+          }
+        );
   }
 
   idiNaEditPatenta(patent:string){
@@ -58,22 +95,34 @@ export class SviPatentComponent implements OnInit{
         res=>{
           this.rezultat = res.text;
           
-          if (this.opcija == "1"){
+          
             
-            let test:string[] = [];
-            
-            this.rezultat.split('\n').forEach(function(value){
-              
-              if(value!=""){
-                let temp:string = value.split('^')[0].trim()
-                test.push(temp+"%20")
-              }
-            });
-            this.listaPatenta2=test;
+          let test:string[] = [];
+          
+          let lista = this.rezultat.split('\n');
+          
+          for(let i = 0;i<lista.length;i++){
+            if(!lista[i].includes("http://www.ftn.uns.ac.rs/rdf/patent"))
+              continue;
+            let tempLista = lista[i].split("/");
+            test.push(tempLista[tempLista.length-1]);
           }
+          this.listaPatenta2=test;
+          this.listaPatenta2.forEach(element => {
+            this.prikazOznakaPatenta(element,this.mapaMetaPodaci);
+          });
         }
       )
     }
+  }
+
+  prikazOznakaPatenta(id:string,Mapa:Map<string,string>){
+    this.patentService.getOznakePatenta(id).subscribe(
+      res=>{
+        Mapa.set(id,res.text);
+      }
+    );
+
   }
 
   pretraziPoTekstualnomSadrzaju(){

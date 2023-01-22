@@ -20,8 +20,16 @@ export class NavbarComponent {
     this.router.navigate(['/patent-create']);
   }
 
-  goToSviPatenti(){
-    this.router.navigate(['/svi-patent'])
+  goToSviPatentiNijeProsaoZavod(){
+    
+    this.router.navigate(['/svi-patent/false']);
+    
+  }
+
+  goToSviPatentiProsaoZavod(){
+    
+    this.router.navigate(['/svi-patent/true']);
+   
   }
 
   goToLogOut(){}
