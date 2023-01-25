@@ -31,9 +31,9 @@ public class FusekiReader {
         else
             QUERY_FILEPATH_PATENT += "SrpskiNaziv.rq";
         String sparqlQueryTemplate = readFile(QUERY_FILEPATH_PATENT, StandardCharsets.UTF_8);
-        System.out.println("Query: " + sparqlQueryTemplate);
+
         String sparqlQuery = StringSubstitutor.replace(sparqlQueryTemplate,params,"{{","}}");
-        System.out.println("Query: " + sparqlQuery);
+
         QueryExecution query = QueryExecutionFactory.sparqlService(conn.queryEndpoint,sparqlQuery);
         ResultSet results = query.execSelect();
 
@@ -48,7 +48,7 @@ public class FusekiReader {
             while(variableBindings.hasNext()){
                 varName = variableBindings.next();
                 varValue = querySolution.get(varName);
-                System.out.println(varName + ": " + varValue);
+
                 if(varName.contains("brojPrijave")){
                     String value = varValue.toString();
                     foundPatent.add(value);

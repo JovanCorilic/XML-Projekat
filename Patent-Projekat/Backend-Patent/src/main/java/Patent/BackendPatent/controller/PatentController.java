@@ -1,5 +1,6 @@
 package Patent.BackendPatent.controller;
 
+
 import Patent.BackendPatent.dto.XMLDto;
 import Patent.BackendPatent.service.PatentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +8,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
-
+import org.apache.commons.compress.utils.IOUtils;
+import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 @RestController
@@ -104,6 +110,36 @@ public class PatentController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("downloadHTML/{id}")
+    public ResponseEntity<XMLDto>downloadHTML(@PathVariable("id")String id)throws Exception{
+        try {
+            String result = patentService.downloadHTML(id);
+            return new ResponseEntity<>(new XMLDto(result), HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+
+    @GetMapping("downloadPDF/{id}")
+    public void download(HttpServletResponse response, @PathVariable("id")String id) throws Exception {
+        ByteArrayOutputStream result = patentService.downloadPDF(id);
+        ByteArrayInputStream temp = new ByteArrayInputStream(result.toByteArray());
+        IOUtils.copy(temp, response.getOutputStream());
+        response.flushBuffer();
+    }
+    /*@ResponseBody
+    @GetMapping("downloadPDF/{id}")
+    public ResponseEntity<PatentPDF>downloadPDF(@PathVariable("id")String id)throws Exception{
+        try {
+            ByteArrayOutputStream result = patentService.downloadPDF(id);
+
+            return new ResponseEntity<>(new PatentPDF(result.toByteArray()), HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }*/
 
     @PostMapping(value = "/addText", consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> addPatentText(@RequestBody String text) throws Exception {

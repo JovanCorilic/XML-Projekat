@@ -10,10 +10,7 @@ import Patent.BackendPatent.xslt.PDFTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -158,6 +155,15 @@ public class PatentService {
         }
 
         return rezultat;
+    }
+
+    public String downloadHTML(String id)throws Exception{
+        return PDFTransformer.generateAndDownloadHTML(patentRepository.findPatentById(id));
+    }
+
+    public ByteArrayOutputStream downloadPDF(String id)throws Exception{
+        return PDFTransformer.generateAndDownloadPDF(PDFTransformer.generateAndDownloadHTML(patentRepository.findPatentById(id)));
+
     }
 
     public void generateXHTMLandPDF(String id) throws Exception {

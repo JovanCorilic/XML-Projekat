@@ -1,3 +1,4 @@
+
 import { Patent } from './../MODEL/Patent';
 import { Observable } from "rxjs";
 import { HttpClient } from '@angular/common/http';
@@ -13,6 +14,10 @@ export class PatentService{
     sendXml(entity: Patent) {
         return this.http.post(this.path+'/xonomyCreate', entity);
     }
+
+    editXml(entity: Patent) {
+      return this.http.put(this.path+'/xonomyEdit', entity);
+  }
 
     sviPatentiNijeProsaoZavod():Observable<string[]>{
       return this.http.get<string[]>(this.path+'/getAllNijeProsaoZavod');
@@ -44,5 +49,14 @@ export class PatentService{
 
     downloadRDF(id:string):Observable<Patent>{
       return this.http.get<Patent>(this.path+"/downloadRDF"+`/${id}`);
+    }
+
+    downloadHTML(id:string):Observable<Patent>{
+      return this.http.get<Patent>(this.path+"/downloadHTML"+`/${id}`);
+    }
+
+    downloadPDF(id:string){
+      window.location.href = this.path + "/downloadPDF"+`/${id}`;
+      //return this.http.get<PatentPDF>(this.path+"/downloadPDF"+`/${id}`);
     }
 }

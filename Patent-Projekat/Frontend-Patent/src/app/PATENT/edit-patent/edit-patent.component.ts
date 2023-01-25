@@ -33,7 +33,9 @@ export class EditPatentComponent {
         let element = document.getElementById("editor");
         let specification = this.xonomyPatentEditService.PatentSpecification;
         let xmlString = res.text;
+        Xonomy.setMode("laic");
         Xonomy.render(xmlString, element, specification);
+        
         Xonomy.refresh();
       }
     )
@@ -42,10 +44,32 @@ export class EditPatentComponent {
   downloadRDF(){
     this.patentService.downloadRDF(this.patentId).subscribe(
       res=>{
-        console.log(res.text);
-        this.previewAndDownload(res.text,this.patentId.split('%')[0],'rdf');
+        this.patentService.getOznakePatenta(this.patentId).subscribe(
+          res2=>{
+            this.previewAndDownload(res.text,res2.text,'rdf');
+          }
+        )
+        
       }
     )
+  }
+
+  downloadHTML(){
+    this.patentService.downloadHTML(this.patentId).subscribe(
+      res=>{
+        this.patentService.getOznakePatenta(this.patentId).subscribe(
+          res2=>{
+            this.previewAndDownload(res.text,res2.text,'html');
+          }
+        )
+        
+      }
+    )
+  }
+
+  downloadPDF(){
+    this.patentService.downloadPDF(this.patentId);
+      
   }
 
   previewAndDownload(response: any, id: string, tip: string){
@@ -68,14 +92,14 @@ export class EditPatentComponent {
     text = '<?xml version="1.0" encoding="UTF-8"?>'+
     ' <?xml-stylesheet type="text/xsl" href="src/main/resources/xslt/P-1.xsl"?> '+ text;
     patent.text = text;
-    this.patentService.sendXml(patent).subscribe(
+    this.patentService.editXml(patent).subscribe(
       res=>{
-        this.router.navigate(['/svi-patent']);
+        this.router.navigate(['']);
       }
     )
   }
 
   natrag(){
-    this.router.navigate(['/svi-patent']);
+    this.router.navigate(['']);
   }
 }

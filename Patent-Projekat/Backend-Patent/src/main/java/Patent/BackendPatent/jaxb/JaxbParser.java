@@ -43,7 +43,7 @@ public class JaxbParser {
         int duzina2 = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>".length();
         temp = insertString(temp," xmlns:pred=\"http://www.ftn.uns.ac.rs/rdf/examples/predicate/\" ",duzina);
         temp = insertString(temp,"<?xml-stylesheet type=\"text/xsl\" href=\"src/main/resources/xslt/P-1.xsl\"?>",duzina2-1);
-        System.out.println(temp);
+
         return temp;
     }
 
