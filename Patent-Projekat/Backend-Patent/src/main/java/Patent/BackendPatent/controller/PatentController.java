@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 @RestController
@@ -24,11 +22,21 @@ public class PatentController {
     @Autowired
     private PatentService patentService;
 
+    //Operacije pravljenje i edit xml-a ----------------------------------------------------------------
+
     @PostMapping(value = "/xonomyCreate", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> addPatentFrontEnd(@RequestBody XMLDto entitet) throws Exception{
+    public ResponseEntity<Void> addPatentFrontend(@RequestBody XMLDto entitet) throws Exception{
         patentService.addPatentFromText(entitet.getText());
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @PutMapping(value = "/xonomyEdit",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void>editPatentFrontend(@RequestBody XMLDto entitet)throws Exception{
+        patentService.editPatentFromText(entitet.getText());
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //Operacije dobijanja xml-a ----------------------------------------------------------------------
 
     @PostMapping(value = "/getXMLDocument", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<XMLDto> getPatentXMLDocument(@RequestBody XMLDto xmlDto) throws Exception {
@@ -46,14 +54,20 @@ public class PatentController {
         return new ResponseEntity<>(new XMLDto(temp),HttpStatus.OK);
     }
 
-    @PutMapping(value = "/xonomyEdit",consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void>editPatent(@RequestBody XMLDto entitet)throws Exception{
-        patentService.editPatentFromText(entitet.getText());
-        return new ResponseEntity<>(HttpStatus.OK);
+    @GetMapping("pretragaPoNazivu/{naziv}")
+    public ResponseEntity<XMLDto>pretragaPoSrpskomEngleskomNazivu(@PathVariable("naziv") String naziv) throws Exception{
+        try {
+            String document = patentService.FindNaziv(naziv);
+            return new ResponseEntity<>(new XMLDto(document),HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
+    //Operacije get lista XML-a --------------------------------------------------------------------
+
     @GetMapping(value = "/getAll")
-    public ResponseEntity<String[]> getAllPatente() throws Exception {
+    public ResponseEntity<String[]> getAllPatenteProsaoZavod() throws Exception {
         String[] listaPatenta = patentService.getAll();
         return new ResponseEntity<>(listaPatenta, HttpStatus.OK);
     }
@@ -63,6 +77,8 @@ public class PatentController {
         String[] listaPatenta = patentService.getAllNijeProsaoZavod();
         return new ResponseEntity<>(listaPatenta, HttpStatus.OK);
     }
+
+    //Operacije pretraga po xml i metapodacima --------------------------------------------------------------
 
     @GetMapping("fusekiSearch/{odluka}/{opcija}")
     public ResponseEntity<XMLDto> searchFromRDF(@PathVariable("odluka") String odluka, @PathVariable("opcija") String opcija) throws IOException {
@@ -81,25 +97,7 @@ public class PatentController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping("pretragaPoNazivu/{naziv}")
-    public ResponseEntity<XMLDto>pretragaPoSrpskomNazivu(@PathVariable("naziv") String naziv) throws Exception{
-        try {
-            String document = patentService.FindNaziv(naziv);
-            return new ResponseEntity<>(new XMLDto(document),HttpStatus.OK);
-        }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @DeleteMapping("deletePoNazivu/{naziv}")
-    public ResponseEntity<Void>deletePoNazivu(@PathVariable("naziv")String naziv)throws Exception{
-        try {
-            patentService.deleteByNaziv(naziv);
-            return new ResponseEntity<>(HttpStatus.OK);
-        }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+    //Operacija download raznih delova ----------------------------------------------------------------
 
     @GetMapping("downloadRDF/{id}")
     public ResponseEntity<XMLDto> downloadRDF(@PathVariable("id") String id) throws Exception {
@@ -123,7 +121,7 @@ public class PatentController {
 
 
     @GetMapping("downloadPDF/{id}")
-    public void download(HttpServletResponse response, @PathVariable("id")String id) throws Exception {
+    public void downloadPDF(HttpServletResponse response, @PathVariable("id")String id) throws Exception {
         ByteArrayOutputStream result = patentService.downloadPDF(id);
         ByteArrayInputStream temp = new ByteArrayInputStream(result.toByteArray());
         IOUtils.copy(temp, response.getOutputStream());
@@ -141,6 +139,8 @@ public class PatentController {
         }
     }*/
 
+    //Operacije slanje xml sa xml formatom ------------------------------------------------------------
+
     @PostMapping(value = "/addText", consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<String> addPatentText(@RequestBody String text) throws Exception {
         patentService.addPatentFromText(text);
@@ -152,6 +152,20 @@ public class PatentController {
         patentService.editPatentFromText(text);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    //Operacija brisanja ------------------------------------------------------------------------------
+
+    @DeleteMapping("deletePoNazivu/{naziv}")
+    public ResponseEntity<Void>deletePoNazivu(@PathVariable("naziv")String naziv)throws Exception{
+        try {
+            patentService.deleteByNaziv(naziv);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    //-------------------------------------------------------------------------------------------
 
     @PostMapping(value = "/generateXHTMLandPDF/{id}")
     public ResponseEntity<Void> generateXHTMLandPDF(@PathVariable("id") String id)throws Exception{

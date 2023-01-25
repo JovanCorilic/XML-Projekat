@@ -26,10 +26,10 @@ public class FusekiAuthenticationUtilities {
             updateEndpoint = String.join("/", endpoint, dataset, props.getProperty("conn.update").trim());
             dataEndpoint = String.join("/", endpoint, dataset, props.getProperty("conn.data").trim());
 
-            System.out.println("[INFO] Parsing connection properties:");
+            /*System.out.println("[INFO] Parsing connection properties:");
             System.out.println("[INFO] Query endpoint: " + queryEndpoint);
             System.out.println("[INFO] Update endpoint: " + updateEndpoint);
-            System.out.println("[INFO] Graph store endpoint: " + dataEndpoint);
+            System.out.println("[INFO] Graph store endpoint: " + dataEndpoint);*/
         }
     }
 

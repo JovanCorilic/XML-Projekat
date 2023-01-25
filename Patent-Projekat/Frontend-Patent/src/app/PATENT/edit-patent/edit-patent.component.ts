@@ -13,6 +13,7 @@ declare const Xonomy:any;
 export class EditPatentComponent {
   patentId=<string>{}
   temp:string|null;
+  prodjeno:string|null;
 
   constructor(
     private patentService:PatentService,
@@ -25,6 +26,7 @@ export class EditPatentComponent {
         this.patentId = this.temp;
       else
         this.patentId = "nista";
+    this.prodjeno=this.route.snapshot.paramMap.get('prodjeno');
    }
 
   ngOnInit(): void {
@@ -72,6 +74,10 @@ export class EditPatentComponent {
       
   }
 
+  downloadJSON(){
+
+  }
+
   previewAndDownload(response: any, id: string, tip: string){
     let type = "application/"+tip;
     let blob = new Blob([response], { type: type});
@@ -82,10 +88,6 @@ export class EditPatentComponent {
     link.click();
   }
 
-  downloadJSON(){
-
-  }
-
   send(){
     let text = Xonomy.harvest();
     const patent = new Patent("");
@@ -94,12 +96,12 @@ export class EditPatentComponent {
     patent.text = text;
     this.patentService.editXml(patent).subscribe(
       res=>{
-        this.router.navigate(['']);
+        this.router.navigate(['/svi-patent-neprodjeni/'+this.prodjeno]);
       }
     )
   }
 
   natrag(){
-    this.router.navigate(['']);
+    this.router.navigate(['/svi-patent-neprodjeni/'+this.prodjeno]);
   }
 }

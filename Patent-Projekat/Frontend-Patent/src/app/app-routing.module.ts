@@ -19,7 +19,7 @@ const routes: Routes = [
     component: SviPatentComponent
   },
   {
-    path: 'edit-patent/:patent',
+    path: 'edit-patent/:patent/:prodjeno',
     component:EditPatentComponent
   }
 ];

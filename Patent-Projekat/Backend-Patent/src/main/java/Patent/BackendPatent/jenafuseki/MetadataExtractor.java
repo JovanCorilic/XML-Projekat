@@ -32,6 +32,36 @@ public class MetadataExtractor {
         // Setup the XSLT transformer factory
         transformerFactory = new TransformerFactoryImpl();
     }
+    /**
+     * Generates RDF/XML based on RDFa metadata from an XML containing for Resenje xml file
+     * input stream by applying GRDDL XSL transformation.
+     *
+     * @param in XML containing input stream
+     * @param out RDF/XML output stream
+     */
+    public String extractMetadataPatentInString(String in)throws FileNotFoundException, TransformerException{
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        // Create transformation source
+        StreamSource transformSource = new StreamSource(new File(XSLT_FILE));
+
+        // Initialize GRDDL transformer object
+        Transformer grddlTransformer = transformerFactory.newTransformer(transformSource);
+
+        // Set the indentation properties
+        grddlTransformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "2");
+        grddlTransformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
+        // Initialize transformation subject
+        StreamSource source = new StreamSource(new StringReader(in));
+
+        // Initialize result stream
+        StreamResult result = new StreamResult(out);
+
+        // Trigger the transformation
+        grddlTransformer.transform(source, result);
+        return result.getOutputStream().toString();
+    }
 
     /**
      * Generates RDF/XML based on RDFa metadata from an XML containing for Resenje xml file

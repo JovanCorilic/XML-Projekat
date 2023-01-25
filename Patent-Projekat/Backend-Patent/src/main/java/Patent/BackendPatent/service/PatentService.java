@@ -29,6 +29,8 @@ public class PatentService {
         this.metadataExtractor = metadataExtractor;
     }
 
+    //Operacije vezane za pravljenje i edit xml -----------------------------------------------------
+
     public void addPatentFromText(String text)throws Exception{
         text = text.replaceAll("xml:space='preserve'","");
         P1 p1 = jaxbParser.unmarshall(P1.class,text);
@@ -46,8 +48,25 @@ public class PatentService {
 
         text=jaxbParser.marshallString(P1.class,p1);
         patentRepository.savePatentFromText(text,docId);
-        metadataExtractor.extractMetadataPatent(text);
-        FusekiWriter.saveRDFPatent();
+        //metadataExtractor.extractMetadataPatent(text);
+        //FusekiWriter.saveRDFPatent();
+        FusekiWriter.saveRDFPatentFromString(metadataExtractor.extractMetadataPatentInString(text));
+    }
+
+    public String dajMiID() throws Exception {
+        String[]lista = patentRepository.getAll();
+        int max = -1;
+        for (String temp : lista){
+            if (max<Integer.parseInt(temp))
+                max=Integer.parseInt(temp);
+        }
+        String text;
+        for (int i = 0;i<max;i++){
+            text = ""+i;
+            if(!Arrays.asList(lista).contains(text))
+                return text;
+        }
+        return ""+(max+1);
     }
 
     public void editPatentFromText(String text)throws Exception{
@@ -55,22 +74,15 @@ public class PatentService {
         P1 p1 = jaxbParser.unmarshall(P1.class,text);
         String id = p1.getId();
         patentRepository.savePatentFromText(text,id);
-        metadataExtractor.extractMetadataPatent(text);
-        FusekiWriter.saveRDFPatent();
+        //metadataExtractor.extractMetadataPatent(text);
+        //FusekiWriter.saveRDFPatent();
+        FusekiWriter.saveRDFPatentFromString(metadataExtractor.extractMetadataPatentInString(text));
     }
+
+    //Operacije vezane za dobijanje xml dokumenta ---------------------------------------------
 
     public String getPatentXMLDocument(String docId) throws Exception{
         return patentRepository.findPatentById(docId);
-    }
-
-    public String getOznakePatenta(String id)throws Exception{
-        String xml = patentRepository.findPatentById(id);
-        P1 p1 = jaxbParser.unmarshall(P1.class,xml);
-        String natrag = "";
-        natrag +="Broj prijave : "+p1.getPopunjavaZavod().getBrojPrijave().getValue()+
-                " Srpski naziv: "+p1.getNazivPronalaska().getSrpskiNaziv().getValue()+
-                " Engleski naziv: "+p1.getNazivPronalaska().getEngleskiNaziv().getValue();
-        return natrag;
     }
 
     public String getPatentBySrpskiNaziv(String naziv)throws Exception{
@@ -80,6 +92,8 @@ public class PatentService {
     public String getPatentByEngleskiNaziv(String naziv)throws Exception{
         return patentRepository.findPatentByNaziv("<engleski_naziv property=\"pred:nazivPatentaEngleski\" datatype=\"xs:string\">"+naziv+"</engleski_naziv>");
     }
+
+    //Operacije za dobijanje liste xml-ova -----------------------------------------------------------
 
     public String[] getAll()throws Exception{
         String[]SviPatenti = patentRepository.getAll();
@@ -95,24 +109,21 @@ public class PatentService {
         return lista2;
     }
 
-    public String[] getAllNijeProsaoZavod()throws Exception{
-        String[]SviPatenti = patentRepository.getAll();
-        ArrayList<String>lista = new ArrayList<>();
-        for (String temp : SviPatenti){
+    public String[] getAllNijeProsaoZavod()throws Exception {
+        String[] SviPatenti = patentRepository.getAll();
+        ArrayList<String> lista = new ArrayList<>();
+        for (String temp : SviPatenti) {
             if (patentRepository.findPatentById(temp).contains("<broj_prijave property=\"pred:brojPrijave\" datatype=\"xs:string\"/>"))
                 lista.add(temp);
         }
-        String[]lista2 = new String[lista.size()];
-        for (int i = 0;i<lista.size();i++){
-            lista2[i]=lista.get(i);
+        String[] lista2 = new String[lista.size()];
+        for (int i = 0; i < lista.size(); i++) {
+            lista2[i] = lista.get(i);
         }
         return lista2;
     }
 
-    public void deleteByNaziv(String naziv)throws Exception{
-        if(!patentRepository.deleteByNaziv(naziv))
-            throw new Exception();
-    }
+    //Operacije za pretragu xml i metapodataka ----------------------------------------------------------
 
     public ArrayList<String> searchByMetadata(String odluka, String opcija) throws IOException {
         Map<String, String> params = new HashMap<>();
@@ -142,19 +153,10 @@ public class PatentService {
         return temp;
     }
 
+    //Download html,pdf,... --------------------------------------------------------------------------
+
     public String downloadRDF(String id) throws Exception {
-        //String text = patentRepository.findPatentById(id);
-        String xml = FindNaziv(id);
-        metadataExtractor.extractMetadataPatent(xml);
-
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/rdf/rdfPatentOutput.rdf"));
-        String rezultat="";
-        String temp;
-        while ((temp=bufferedReader.readLine())!=null){
-            rezultat=rezultat+temp + "\n";
-        }
-
-        return rezultat;
+        return metadataExtractor.extractMetadataPatentInString(patentRepository.findPatentById(id));
     }
 
     public String downloadHTML(String id)throws Exception{
@@ -166,9 +168,16 @@ public class PatentService {
 
     }
 
-    public void generateXHTMLandPDF(String id) throws Exception {
-        String xml = FindNaziv(id);
-        PDFTransformer.generate(xml);
+    //---------------------------------------------------------------------------------------------
+
+    public String getOznakePatenta(String id)throws Exception{
+        String xml = patentRepository.findPatentById(id);
+        P1 p1 = jaxbParser.unmarshall(P1.class,xml);
+        String natrag = "";
+        natrag +="Broj prijave : "+p1.getPopunjavaZavod().getBrojPrijave().getValue()+
+                " | Srpski naziv: "+p1.getNazivPronalaska().getSrpskiNaziv().getValue()+
+                " | Engleski naziv: "+p1.getNazivPronalaska().getEngleskiNaziv().getValue();
+        return natrag;
     }
 
     public String FindNaziv(String id) throws Exception {
@@ -182,19 +191,14 @@ public class PatentService {
         return xml;
     }
 
-    public String dajMiID() throws Exception {
-        String[]lista = patentRepository.getAll();
-        int max = -1;
-        for (String temp : lista){
-            if (max<Integer.parseInt(temp))
-                max=Integer.parseInt(temp);
-        }
-        String text;
-        for (int i = 0;i<max;i++){
-            text = ""+i;
-            if(!Arrays.asList(lista).contains(text))
-                return text;
-        }
-        return ""+(max+1);
+    public void deleteByNaziv(String naziv)throws Exception{
+        if(!patentRepository.deleteByNaziv(naziv))
+            throw new Exception();
     }
+
+    public void generateXHTMLandPDF(String id) throws Exception {
+        String xml = FindNaziv(id);
+        PDFTransformer.generate(xml);
+    }
+
 }

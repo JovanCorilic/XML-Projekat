@@ -83,7 +83,29 @@ export class SviPatentComponent implements OnInit{
   }
 
   idiNaEditPatenta(patent:string){
-    this.router.navigate(['/edit-patent/'+patent]);
+    this.router.navigate(['/edit-patent/'+patent+'/'+this.prodjeno]);
+  }
+
+  prikazOznakaPatenta(id:string,Mapa:Map<string,string>){
+    this.patentService.getOznakePatenta(id).subscribe(
+      res=>{
+        Mapa.set(id,res.text);
+      }
+    );
+
+  }
+
+  pretraziPoTekstualnomSadrzaju(){
+    if (this.res2Form.value["odluka2"]==""){
+      alert("Polje unos za pretragu tekstualnog sadrzaja mora biti popunjeno!");
+    }else{
+      this.patentService.searchTekstualniSadrzaj(this.res2Form.value["odluka2"]).subscribe(
+        res=>{
+          this.opcija="1";
+          this.listaPatenta2=res;
+        }
+      )
+    }
   }
 
   pretraziPrekoMetapodatak(){
@@ -116,25 +138,4 @@ export class SviPatentComponent implements OnInit{
     }
   }
 
-  prikazOznakaPatenta(id:string,Mapa:Map<string,string>){
-    this.patentService.getOznakePatenta(id).subscribe(
-      res=>{
-        Mapa.set(id,res.text);
-      }
-    );
-
-  }
-
-  pretraziPoTekstualnomSadrzaju(){
-    if (this.res2Form.value["odluka2"]==""){
-      alert("Polje unos za pretragu tekstualnog sadrzaja mora biti popunjeno!");
-    }else{
-      this.patentService.searchTekstualniSadrzaj(this.res2Form.value["odluka2"]).subscribe(
-        res=>{
-          this.opcija="1";
-          this.listaPatenta2=res;
-        }
-      )
-    }
-  }
 }
