@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zig trademark_id="str1234">
+  <applicant>
+    <subject />
+    <street_name>str1234</street_name>
+    <street_number>str1234</street_number>
+    <zip_code>str1234</zip_code>
+    <city>str1234</city>
+    <country>str1234</country>
+  </applicant>
+  <proxy>
+    <subject />
+    <street_name>str1234</street_name>
+    <street_number>str1234</street_number>
+    <zip_code>str1234</zip_code>
+    <city>str1234</city>
+    <country>str1234</country>
+  </proxy>
+  <common_representative>
+    <subject />
+    <street_name>str1234</street_name>
+    <street_number>str1234</street_number>
+    <zip_code>str1234</zip_code>
+    <city>str1234</city>
+    <country>str1234</country>
+  </common_representative>
+  <trademark>
+    <trademark_type>Individual Trademark</trademark_type>
+    <trademark_appearance>Verbal Trademark</trademark_appearance>
+    <trademark_view>str1234</trademark_view>
+    <trademark_colors>
+      <trademark_color>str1234</trademark_color>
+    </trademark_colors>
+    <trademark_transliteration>str1234</trademark_transliteration>
+    <trademark_translation>str1234</trademark_translation>
+    <trademark_description>str1234</trademark_description>
+  </trademark>
+  <nice_classification>class 1</nice_classification>
+  <requested_right_of_priority_and_basis>str1234</requested_right_of_priority_and_basis>
+  <fee>
+    <basic>123.45</basic>
+    <nice_class>123.45</nice_class>
+    <graphical_solution>123.45</graphical_solution>
+  </fee>
+  <institution>
+    <trademark_sample>str1234</trademark_sample>
+    <list_of_goods_and_services>str1234</list_of_goods_and_services>
+    <power_of_attorney>str1234</power_of_attorney>
+    <general_power_of_attorney_previously_submitted>true</general_power_of_attorney_previously_submitted>
+    <power_of_attorney_will_be_delivered_later>true</power_of_attorney_will_be_delivered_later>
+    <general_act>str1234</general_act>
+    <proof_of_priority>str1234</proof_of_priority>
+    <proof_of_fee_payment>str1234</proof_of_fee_payment>
+  </institution>
+  <trademark_number>str1234</trademark_number>
+  <date>12345</date>
+</zig>

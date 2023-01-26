@@ -1,0 +1,35 @@
+
+
+<div style="width:20%;text-align: center;margin-left: 40%;margin-top: 10%;">
+
+  <form [formGroup]="registerForm">
+    <div class="mb-3">
+      <label for="exampleInputUsername" class="form-label">Username</label>
+      <input type="username" formControlName="username" class="form-control" id="exampleInputUsername" aria-describedby="usernameHelp">
+
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword" class="form-label">Password</label>
+      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword">
+    </div>
+    <div class="mb-3 form-check">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="true" formControlName="role" id="flexRadioDefault1">
+        <label style="margin-left:-15%" class="form-check-label" for="flexRadioDefault1">
+          CITIZEN
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio"  [value]="false" formControlName="role" id="flexRadioDefault2" checked>
+        <label style="margin-left:-15%" class="form-check-label" for="flexRadioDefault2">
+          EMPLOYEE
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="register()">Register</button>
+  </form>
+
+</div>
+
+
+

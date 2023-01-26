@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace = "http://ftn.uns.ac.rs/trademark"
+    xmlns = "http://ftn.uns.ac.rs/trademark"
+    elementFormDefault="qualified">
+    
+    <xs:element name = "trademark">
+        
+        <xs:complexType>
+            
+            <xs:sequence>
+                
+                <xs:element  name = "applicant" type="subject_info" minOccurs = "1" maxOccurs = "1"/>
+                <xs:element  name = "proxy" type="subject_info" minOccurs = "1" maxOccurs = "1"/>
+                <xs:element  name = "common_representative" type="subject_info" minOccurs = "1" maxOccurs = "1"/>
+                
+                <xs:element  name = "trademark_info" type="trademark_info" minOccurs = "1" maxOccurs = "1"/>
+                
+                <xs:element  name = "nice_classification" type="nice_classification" minOccurs = "1" maxOccurs = "1"/>
+                
+                <xs:element  name = "requested_right_of_priority_and_basis" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+                
+                <xs:element  name = "fee" type="fee" minOccurs = "1" maxOccurs = "1"/>
+                
+                <xs:element  name = "institution" type="institution" minOccurs = "1" maxOccurs = "1"/>
+                
+                <xs:element  name = "trademark_number" type="trademark_number" minOccurs = "1" maxOccurs = "1"/>
+                
+                <xs:element  name = "date" type="xs:long" minOccurs = "1" maxOccurs = "1"/><!-- Broj milisekundi -->
+                
+
+            </xs:sequence>
+          
+            <xs:attribute name="trademark_id" type="xs:string"/>
+
+        </xs:complexType>
+  
+    </xs:element>
+
+    <xs:simpleType name="trademark_number">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{6}\/\d{2}"/> <!-- 0-999\0-99 -->
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="institution">
+        <xs:sequence><!-- XS:STRING -> FILE LOCATION ON DISK-->
+
+            <xs:element  name = "trademark_sample" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element  name = "list_of_goods_and_services" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+
+            <xs:element  name = "power_of_attorney" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element  name = "general_power_of_attorney_previously_submitted" type="xs:boolean" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element  name = "power_of_attorney_will_be_delivered_later" type="xs:boolean" minOccurs = "1" maxOccurs = "1"/>
+            
+            <xs:element  name = "general_act" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+            
+            <xs:element  name = "proof_of_priority" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+
+            <xs:element  name = "proof_of_fee_payment" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="fee">
+        <xs:sequence>
+            <xs:element  name = "basic" type="xs:long" minOccurs = "1" maxOccurs = "1"/>
+            <!-- <xs:element  name = "basic" type="fee_additional" minOccurs = "1" maxOccurs = "1"/> -->
+            <xs:element  name = "nice_class" type="xs:long" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element  name = "graphical_solution" type="xs:long" minOccurs = "1" maxOccurs = "1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- <xs:complexType name="fee_additional">
+        <xs:choice>
+            <xs:element  name = "nice_class" type="xs:decimal" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element  name = "graphical_solution" type="xs:decimal" minOccurs = "1" maxOccurs = "1"/>
+        </xs:choice>
+    </xs:complexType> -->
+
+    <xs:simpleType name="nice_classification">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="class 1"/>
+            <xs:enumeration value="class 2"/>
+            <xs:enumeration value="class 3"/>
+            <xs:enumeration value="class 4"/>
+            <xs:enumeration value="class 5"/>
+            <xs:enumeration value="class 6"/>
+            <xs:enumeration value="class 7"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="trademark_info">
+        <xs:sequence>
+            <xs:element  name = "trademark_type" type="trademark_type" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element  name = "trademark_appearance" type="trademark_appearance" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element  name = "trademark_view" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element  name = "trademark_colors" type="trademark_colors" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element  name = "trademark_transliteration" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element  name = "trademark_translation" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element  name = "trademark_description" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+            
+        </xs:sequence>
+    </xs:complexType>
+
+    
+
+
+    <xs:complexType name="trademark_colors">
+        <xs:sequence>
+            <xs:element  name = "trademark_color" type="xs:string" minOccurs = "1" maxOccurs = "unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+        
+    <xs:simpleType name="trademark_appearance">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Verbal Trademark"/>
+            <xs:enumeration value="Graphic Trademark"/>
+            <xs:enumeration value="Combined Trademark"/>
+            <xs:enumeration value="Three-Dimensional Trademark"/>
+            <xs:enumeration value="Another Trademark"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="trademark_type">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Individual Trademark"/>
+            <xs:enumeration value="Collective Trademark"/>
+            <xs:enumeration value="Guarantee Trademark"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+
+
+    <xs:complexType name="subject_info">
+        <xs:sequence>
+            <xs:element name = "subject" type="subject" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element name = "address" type="address" minOccurs = "1" maxOccurs = "1"/>
+            
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="address">
+        <xs:sequence>
+            <xs:element name = "street_name" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element name = "street_number" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element name = "zip_code" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element name = "city" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element name = "country" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="subject">
+        <xs:choice>
+            <xs:element name = "company" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="user" type="user" minOccurs="1" maxOccurs="1" />
+        </xs:choice>
+    </xs:complexType>
+        
+    <xs:complexType name="user">
+        <xs:sequence>
+            <xs:element name = "first_name" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+            <xs:element name = "last_name" type="xs:string" minOccurs = "1" maxOccurs = "1"/>
+        </xs:sequence>
+    </xs:complexType>
+        
+    
+    
+    
+</xs:schema>
