@@ -98,16 +98,17 @@ export class PatentCreateComponent {
     Xonomy.setMode("laic");
     Xonomy.render(xml,element,specification);
     Xonomy.refresh();
+    
   }
 
   send(){
     let text = Xonomy.harvest();
-    const patent = new Patent("");
+    
     text = '<?xml version="1.0" encoding="UTF-8"?>'+
     ' <?xml-stylesheet type="text/xsl" href="src/main/resources/xslt/P-1.xsl"?> '+ text;
-    patent.text=text;
+    
     //console.log(text);
-    this.patentService.sendXml(patent).subscribe(
+    this.patentService.sendXml(text).subscribe(
       res=>{this.router.navigate(['']);}
     )
   }

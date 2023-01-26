@@ -1,3 +1,4 @@
+import { Konverzija } from './../../SERVICE/konverzija.service';
 import { PatentService } from 'src/app/SERVICE/patent.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup  } from '@angular/forms';
@@ -65,7 +66,7 @@ export class SviPatentComponent implements OnInit{
     if(this.prodjeno)
       this.patentService.sviPatentiProsaoZavod().subscribe(
         res=>{
-          this.listaPatenta=res;
+          this.listaPatenta = Konverzija.uzimanjePodatakaXMLDtoLista(res);
           this.listaPatenta.forEach(element => {
             this.prikazOznakaPatenta(element,this.mapa);
           });
@@ -74,7 +75,8 @@ export class SviPatentComponent implements OnInit{
     else if(!this.prodjeno)
         this.patentService.sviPatentiNijeProsaoZavod().subscribe(
           res=>{
-            this.listaPatenta=res;
+            
+            this.listaPatenta = Konverzija.uzimanjePodatakaXMLDtoLista(res);
             this.listaPatenta.forEach(element => {
               this.prikazOznakaPatenta(element,this.mapa);
             });
@@ -89,7 +91,7 @@ export class SviPatentComponent implements OnInit{
   prikazOznakaPatenta(id:string,Mapa:Map<string,string>){
     this.patentService.getOznakePatenta(id).subscribe(
       res=>{
-        Mapa.set(id,res.text);
+        Mapa.set(id,Konverzija.uzimanjePodatakaXMLDto(res));
       }
     );
 
@@ -102,7 +104,7 @@ export class SviPatentComponent implements OnInit{
       this.patentService.searchTekstualniSadrzaj(this.res2Form.value["odluka2"]).subscribe(
         res=>{
           this.opcija="1";
-          this.listaPatenta2=res;
+          this.listaPatenta2=Konverzija.uzimanjePodatakaXMLDtoLista(res);
         }
       )
     }
@@ -115,7 +117,7 @@ export class SviPatentComponent implements OnInit{
       this.opcija = this.resForm.value["opcija"];
       this.patentService.searchMetapodaci(this.resForm.value["odluka"], this.resForm.value["opcija"]).subscribe(
         res=>{
-          this.rezultat = res.text;
+          this.rezultat = Konverzija.uzimanjePodatakaXMLDto(res);
           
           
             

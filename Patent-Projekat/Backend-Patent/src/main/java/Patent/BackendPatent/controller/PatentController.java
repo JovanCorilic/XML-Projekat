@@ -2,7 +2,10 @@ package Patent.BackendPatent.controller;
 
 
 import Patent.BackendPatent.dto.XMLDto;
+import Patent.BackendPatent.dto.XMLListaDTO;
+import Patent.BackendPatent.model.P1;
 import Patent.BackendPatent.service.PatentService;
+import com.itextpdf.tool.xml.html.head.XML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +17,11 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
-@RequestMapping(value = "api/patent", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "api/patent", produces = MediaType.APPLICATION_XML_VALUE,
+        consumes = MediaType.APPLICATION_XML_VALUE)
 @CrossOrigin
 public class PatentController {
     @Autowired
@@ -24,28 +29,28 @@ public class PatentController {
 
     //Operacije pravljenje i edit xml-a ----------------------------------------------------------------
 
-    @PostMapping(value = "/xonomyCreate", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> addPatentFrontend(@RequestBody XMLDto entitet) throws Exception{
-        patentService.addPatentFromText(entitet.getText());
+    @PostMapping(value = "/xonomyCreate")
+    public ResponseEntity<Void> addPatentFrontend(@RequestBody String entitet) throws Exception{
+        patentService.addPatentFromText(entitet);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PutMapping(value = "/xonomyEdit",consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void>editPatentFrontend(@RequestBody XMLDto entitet)throws Exception{
-        patentService.editPatentFromText(entitet.getText());
+    @PutMapping(value = "/xonomyEdit")
+    public ResponseEntity<Void>editPatentFrontend(@RequestBody String entitet)throws Exception{
+        patentService.editPatentFromText(entitet);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     //Operacije dobijanja xml-a ----------------------------------------------------------------------
 
-    @PostMapping(value = "/getXMLDocument", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<XMLDto> getPatentXMLDocument(@RequestBody XMLDto xmlDto) throws Exception {
-        String document = patentService.getPatentXMLDocument(xmlDto.getText());
+    @GetMapping(value = "/getXMLDocument/{id}")
+    public ResponseEntity<String> getPatentXMLDocument(@PathVariable("id") String id) throws Exception {
+        String document = patentService.getPatentXMLDocument(id);
         document = document.replaceAll("\n","");
         if(document.equals("")) {
             return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(new XMLDto(document), HttpStatus.OK);
+        return new ResponseEntity<>(document, HttpStatus.OK);
     }
 
     @GetMapping(value = "/getOznakePatenta/{id}")
@@ -67,15 +72,16 @@ public class PatentController {
     //Operacije get lista XML-a --------------------------------------------------------------------
 
     @GetMapping(value = "/getAll")
-    public ResponseEntity<String[]> getAllPatenteProsaoZavod() throws Exception {
+    public ResponseEntity<XMLListaDTO> getAllPatenteProsaoZavod() throws Exception {
         String[] listaPatenta = patentService.getAll();
-        return new ResponseEntity<>(listaPatenta, HttpStatus.OK);
+        return new ResponseEntity<>(new XMLListaDTO(listaPatenta), HttpStatus.OK);
     }
 
     @GetMapping(value = "/getAllNijeProsaoZavod")
-    public ResponseEntity<String[]> getAllPatenteNijeProsaoZavod() throws Exception {
+    public ResponseEntity<XMLListaDTO> getAllPatenteNijeProsaoZavod() throws Exception {
         String[] listaPatenta = patentService.getAllNijeProsaoZavod();
-        return new ResponseEntity<>(listaPatenta, HttpStatus.OK);
+
+        return new ResponseEntity<>(new XMLListaDTO(listaPatenta), HttpStatus.OK);
     }
 
     //Operacije pretraga po xml i metapodacima --------------------------------------------------------------
@@ -87,14 +93,14 @@ public class PatentController {
         for (String r : result) {
             output += "\n" + r;
         }
-        System.out.println("OUTPUT: " + output);
+        //System.out.println("OUTPUT: " + output);
         return new ResponseEntity<>(new XMLDto(output), HttpStatus.OK);
     }
 
     @GetMapping("pretragaPoTekstualnomSadrzaju/{odluka}")
-    public ResponseEntity<String[]> searchFromXMLTextContent(@PathVariable("odluka") String odluka) throws Exception {
+    public ResponseEntity<XMLListaDTO> searchFromXMLTextContent(@PathVariable("odluka") String odluka) throws Exception {
         String[] result = patentService.searchByTextContent(odluka);
-        return new ResponseEntity<>(result, HttpStatus.OK);
+        return new ResponseEntity<>(new XMLListaDTO(result), HttpStatus.OK);
     }
 
     //Operacija download raznih delova ----------------------------------------------------------------
@@ -119,8 +125,7 @@ public class PatentController {
         }
     }
 
-
-    @GetMapping("downloadPDF/{id}")
+    @GetMapping(value = "downloadPDF/{id}", produces = MediaType.ALL_VALUE, consumes = MediaType.ALL_VALUE)
     public void downloadPDF(HttpServletResponse response, @PathVariable("id")String id) throws Exception {
         ByteArrayOutputStream result = patentService.downloadPDF(id);
         ByteArrayInputStream temp = new ByteArrayInputStream(result.toByteArray());

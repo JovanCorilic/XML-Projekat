@@ -1,4 +1,4 @@
-import { Patent } from './../../MODEL/Patent';
+import { Konverzija } from './../../SERVICE/konverzija.service';
 import { XonomyPatentEditService } from './../../SERVICE/xonomyPatentEdit.service';
 import { PatentService } from './../../SERVICE/patent.service';
 import { Component } from '@angular/core';
@@ -34,7 +34,7 @@ export class EditPatentComponent {
       res=>{
         let element = document.getElementById("editor");
         let specification = this.xonomyPatentEditService.PatentSpecification;
-        let xmlString = res.text;
+        let xmlString = res;
         Xonomy.setMode("laic");
         Xonomy.render(xmlString, element, specification);
         
@@ -48,7 +48,7 @@ export class EditPatentComponent {
       res=>{
         this.patentService.getOznakePatenta(this.patentId).subscribe(
           res2=>{
-            this.previewAndDownload(res.text,res2.text,'rdf');
+            this.previewAndDownload(Konverzija.uzimanjePodatakaXMLDto(res),Konverzija.uzimanjePodatakaXMLDto(res2),'rdf');
           }
         )
         
@@ -61,7 +61,7 @@ export class EditPatentComponent {
       res=>{
         this.patentService.getOznakePatenta(this.patentId).subscribe(
           res2=>{
-            this.previewAndDownload(res.text,res2.text,'html');
+            this.previewAndDownload(Konverzija.uzimanjePodatakaXMLDto(res),Konverzija.uzimanjePodatakaXMLDto(res2),'html');
           }
         )
         
@@ -70,8 +70,15 @@ export class EditPatentComponent {
   }
 
   downloadPDF(){
-    this.patentService.downloadPDF(this.patentId);
-      
+    this.patentService.downloadPDF(this.patentId);/*.subscribe(
+      res=>{
+        let url = window.URL.createObjectURL(res);
+        var link = document.createElement('a');
+        link.href = url;
+        link.download = "patent-";
+        link.click();
+      }
+    )*/
   }
 
   downloadJSON(){
@@ -90,11 +97,11 @@ export class EditPatentComponent {
 
   send(){
     let text = Xonomy.harvest();
-    const patent = new Patent("");
+    
     text = '<?xml version="1.0" encoding="UTF-8"?>'+
     ' <?xml-stylesheet type="text/xsl" href="src/main/resources/xslt/P-1.xsl"?> '+ text;
-    patent.text = text;
-    this.patentService.editXml(patent).subscribe(
+    
+    this.patentService.editXml(text).subscribe(
       res=>{
         this.router.navigate(['/svi-patent-neprodjeni/'+this.prodjeno]);
       }
