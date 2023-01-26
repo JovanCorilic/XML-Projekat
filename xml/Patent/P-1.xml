@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="src/main/resources/xslt/P-1.xsl"?>
+<P-1 xmlns="http://www.ftn.uns.rs/P-1" id="" xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/">
+    <popunjava_zavod about="http://www.ftn.uns.ac.rs/rdf/patent">
+        <broj_prijave property="pred:brojPrijave" datatype="xs:string">5</broj_prijave>
+        <datum_prijema>10.10.2022</datum_prijema>
+        <priznati_datum_podnosenja>10.10.2022</priznati_datum_podnosenja>
+        <pecat_i_potpis></pecat_i_potpis>
+        <drzava>Republika Srbija</drzava>
+        <ustanova>Zavod za intelektualnu svojinu</ustanova>
+        <adresa>
+            <naziv_ulice_ustanove>Kneginje Ljubice</naziv_ulice_ustanove>
+            <broj_ulice_ustanove>5</broj_ulice_ustanove>
+            <grad_ustanove>Beograd</grad_ustanove>
+            <postanski_broj_ustanove>11000</postanski_broj_ustanove>
+        </adresa>
+    </popunjava_zavod>
+    <naslov>ZAHTEV ZA PRIZNANjE PATENTA</naslov>
+    <naziv_pronalaska about="http://www.ftn.uns.ac.rs/rdf/patent">
+        <srpski_naziv property="pred:nazivPatentaSrpski" datatype="xs:string">Test</srpski_naziv>
+        <engleski_naziv property="pred:nazivPatentaEngleski" datatype="xs:string">Test First</engleski_naziv>
+    </naziv_pronalaska>
+    <podnosilac_prijave>
+        <licne_informacije>
+            <naziv>
+                <osoba>
+                    <ime>Petar</ime>
+                    <prezime>Petrović</prezime>
+                 </osoba> 
+            </naziv>
+            <prebivaliste>
+                <naziv_ulice>Makimilijan</naziv_ulice>
+                <broj_ulice>12</broj_ulice>
+                <postanski_broj>11000</postanski_broj>
+                <naziv_grada>Beograd</naziv_grada>
+                <naziv_drzave>Republika Srbija</naziv_drzave>
+            </prebivaliste>
+            <kontakt>
+                <broj_telefona>55515544</broj_telefona>
+                <broj_faksa>151021</broj_faksa>
+                <e-posta>test@gmail.com</e-posta>
+            </kontakt>
+        </licne_informacije>
+        <drzavljanstvo>Srpsko</drzavljanstvo>
+        <je_pronalazac>true</je_pronalazac>
+    </podnosilac_prijave>
+    <pronalazac>
+        <da_li_pronalazac_zeli_da_bude_naveden>true</da_li_pronalazac_zeli_da_bude_naveden>
+        <licne_informacije>
+            <naziv>
+                <osoba>
+                    <ime>Petar</ime>
+                    <prezime>Petrović</prezime>
+                </osoba> 
+            </naziv>
+            <prebivaliste>
+                <naziv_ulice>Makimilijan</naziv_ulice>
+                <broj_ulice>12</broj_ulice>
+                <postanski_broj>11000</postanski_broj>
+                <naziv_grada>Beograd</naziv_grada>
+                <naziv_drzave>Republika Srbija</naziv_drzave>
+            </prebivaliste>
+            <kontakt>
+                <broj_telefona>55515544</broj_telefona>
+                <broj_faksa>151021</broj_faksa>
+                <e-posta>test@gmail.com</e-posta>
+            </kontakt>
+        </licne_informacije>
+    </pronalazac>
+    <punomocnik>
+        <da_li_je_punomocnik_za_zastupanje>true</da_li_je_punomocnik_za_zastupanje>
+        <da_li_je_punomocnik_za_prijem_pismena>false</da_li_je_punomocnik_za_prijem_pismena>
+        <da_li_je_zajednicki_predstavnik>true</da_li_je_zajednicki_predstavnik>
+        <licne_informacije>
+            <naziv>
+                <firma>
+                    <poslovno_ime>Advokat Jedan</poslovno_ime>
+                </firma>
+            </naziv>
+            <prebivaliste>
+                <naziv_ulice>Lilijam</naziv_ulice>
+                <broj_ulice>9</broj_ulice>
+                <postanski_broj>11000</postanski_broj>
+                <naziv_grada>Beograd</naziv_grada>
+                <naziv_drzave>Republika Srbija</naziv_drzave>
+            </prebivaliste>
+            <kontakt>
+                <broj_telefona>5552185154</broj_telefona>
+                <broj_faksa>42135</broj_faksa>
+                <e-posta>test2@gmail.com</e-posta>
+            </kontakt>
+        </licne_informacije>
+    </punomocnik>
+    <dostavljanje>
+        <adresa>
+            <naziv_ulice>Makimilijan</naziv_ulice>
+            <broj_ulice>12</broj_ulice>
+            <grad>Beograd</grad>
+            <postanski_broj>11000</postanski_broj>
+        </adresa>
+        <nacin>
+            <dostavljanje_pismena_iskljucivo_elektronskim_putem>false</dostavljanje_pismena_iskljucivo_elektronskim_putem>
+            <dostavljanje_pismena_u_papirnoj_formi>true</dostavljanje_pismena_u_papirnoj_formi>
+        </nacin>
+    </dostavljanje>
+    <tip_prijave>
+        <da_li_je_dopunska_prijava>false</da_li_je_dopunska_prijava>
+        <da_li_je_izdvojena_prijava>true</da_li_je_izdvojena_prijava>
+        <broj_prvobitne_prijave>1</broj_prvobitne_prijave>
+        <datum_podnosenja_prvobitne_prijave>10.09.2022</datum_podnosenja_prvobitne_prijave>
+    </tip_prijave>
+    <zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+        <ranija_prijava>
+            <datum_podnosenja_ranije_prijave>10.09.2022</datum_podnosenja_ranije_prijave>
+            <broj_ranije_prijave>1</broj_ranije_prijave>
+            <dvoslovna_oznaka_drzave_ili_organizacije>RS</dvoslovna_oznaka_drzave_ili_organizacije>
+        </ranija_prijava>
+        <ranija_prijava>
+            <datum_podnosenja_ranije_prijave>22.09.2022</datum_podnosenja_ranije_prijave>
+            <broj_ranije_prijave>2</broj_ranije_prijave>
+            <dvoslovna_oznaka_drzave_ili_organizacije>RS</dvoslovna_oznaka_drzave_ili_organizacije>
+        </ranija_prijava>
+        <ranija_prijava>
+            <datum_podnosenja_ranije_prijave>29.09.2022</datum_podnosenja_ranije_prijave>
+            <broj_ranije_prijave>3</broj_ranije_prijave>
+            <dvoslovna_oznaka_drzave_ili_organizacije>RS</dvoslovna_oznaka_drzave_ili_organizacije>
+        </ranija_prijava>
+        <ranija_prijava>
+            <datum_podnosenja_ranije_prijave>09.10.2022</datum_podnosenja_ranije_prijave>
+            <broj_ranije_prijave>4</broj_ranije_prijave>
+            <dvoslovna_oznaka_drzave_ili_organizacije>RS</dvoslovna_oznaka_drzave_ili_organizacije>
+        </ranija_prijava>
+    </zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava>
+</P-1>

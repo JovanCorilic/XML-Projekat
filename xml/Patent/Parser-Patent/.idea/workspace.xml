@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4d8c7cbe-dfdd-4b4f-9161-172b9e5a9072" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/controller/PatentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/controller/PatentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/existdb/ExistManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/existdb/ExistManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/jaxb/JaxbParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/jaxb/JaxbParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/ObjectFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/P1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipAdresa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipAdresaDostavljanje.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipDostavljanje.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipFirma.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipKontakt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipLicneInformacije.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipNacin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipNaziv.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipNazivPronalaska.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipOsoba.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipPodnosilacPrijave.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipPopunjavaZavod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipPrebivaliste.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipPronalazac.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipPunomocnik.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipRanijaPrijava.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipTipPrijave.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/TipZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/model/package-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/repository/PatentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/repository/PatentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/service/PatentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/service/PatentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/xslt/PDFTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Patent-Projekat/Backend-Patent/src/main/java/Patent/BackendPatent/xslt/PDFTransformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../P-1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../P-1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../P-1.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/../P-1.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/P-1.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/data/P-1.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/ObjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/ObjectFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/P1.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/P1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipAdresa.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipAdresa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipAdresaDostavljanje.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipAdresaDostavljanje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipDostavljanje.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipDostavljanje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipFirma.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipFirma.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipKontakt.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipKontakt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipLicneInformacije.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipLicneInformacije.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipNacin.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipNacin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipNaziv.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipNaziv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipNazivPronalaska.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipNazivPronalaska.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipOsoba.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipOsoba.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipPodnosilacPrijave.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipPodnosilacPrijave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipPopunjavaZavod.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipPopunjavaZavod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipPrebivaliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipPrebivaliste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipPronalazac.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipPronalazac.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipPunomocnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipPunomocnik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipRanijaPrijava.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipRanijaPrijava.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipTipPrijave.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipTipPrijave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/TipZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/rs/uns/ftn/p_1/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/Patent_Ucitavanje_I_Ispis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/Patent_Ucitavanje_I_Ispis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/ObjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/ObjectFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/P1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/P1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipAdresa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipAdresa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipAdresaDostavljanje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipAdresaDostavljanje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipDostavljanje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipDostavljanje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipFirma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipFirma.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipKontakt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipKontakt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipLicneInformacije.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipLicneInformacije.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipNacin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipNacin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipNaziv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipNaziv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipNazivPronalaska.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipNazivPronalaska.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipOsoba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipOsoba.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipPodnosilacPrijave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipPodnosilacPrijave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipPopunjavaZavod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipPopunjavaZavod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipPrebivaliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipPrebivaliste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipPronalazac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipPronalazac.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipPunomocnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipPunomocnik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipRanijaPrijava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipRanijaPrijava.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipTipPrijave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipTipPrijave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/TipZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/TipZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patent/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patent/package-info.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2ImlkmxCtBWB67v1CLn6LGbYTti" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Patent_Ucitavanje_I_Ispis" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Parser.Patent_Ucitavanje_I_Ispis" />
+      <module name="Parser-Patent" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Patent_Ucitavanje_I_Ispis" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4d8c7cbe-dfdd-4b4f-9161-172b9e5a9072" name="Changes" comment="" />
+      <created>1670794787165</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670794787165</updated>
+      <workItem from="1670794788447" duration="101000" />
+      <workItem from="1670794992601" duration="20000" />
+      <workItem from="1670795256824" duration="1443000" />
+      <workItem from="1672158866145" duration="608000" />
+      <workItem from="1672751696531" duration="87000" />
+      <workItem from="1673172724976" duration="98000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
