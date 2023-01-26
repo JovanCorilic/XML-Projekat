@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace = "http://www.zahtev.org"
+    xmlns = "http://www.zahtev.org"
+    elementFormDefault="qualified">
+    
+    <xs:element name = "zahtev">
+        
+        <xs:complexType>
+            <xs:sequence>
+                
+                <xs:element ref = "organ" minOccurs = "1" maxOccurs = "1"/>
+                <xs:element ref = "nazivZahteva" minOccurs = "1" maxOccurs = "1"/>
+                <xs:element ref = "zakon" minOccurs = "1" maxOccurs = "1"/>
+                <xs:element ref = "opisInformacije" minOccurs = "1" maxOccurs = "1"/>
+                <xs:element ref = "grad" minOccurs = "1" maxOccurs = "1"/>
+                <xs:element ref = "datum" minOccurs = "1" maxOccurs = "1"/>
+                <xs:element ref = "trazilacInformacije" minOccurs = "1" maxOccurs = "1"/>
+                <xs:element ref = "adresa" minOccurs = "1" maxOccurs = "1"/>
+                <xs:element ref = "kontaktPodaci" minOccurs = "1" maxOccurs = "1"/>
+                <xs:element ref = "potpis" minOccurs = "1" maxOccurs = "1"/>
+              
+            </xs:sequence>
+          
+        </xs:complexType>
+  
+    </xs:element>
+    
+    <xs:element name = "organ">
+        
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref = "naziv" minOccurs = "1" maxOccurs = "1"/>
+                <xs:element ref = "sediste" minOccurs = "1" maxOccurs = "1"/>
+                
+            </xs:sequence>
+        </xs:complexType>
+        
+    </xs:element>
+    
+    <xs:element name = "zakon">
+        
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element ref = "clan" minOccurs = "1" maxOccurs = "1"/>
+                <xs:element ref = "stav" minOccurs = "1" maxOccurs = "1"/>
+                <xs:choice  minOccurs = "1" maxOccurs = "unbounded">
+                    <xs:element ref = "glasnik"/>  
+                </xs:choice>
+                
+                <xs:choice  minOccurs = "1" maxOccurs = "1">
+                    <xs:element ref = "obavestenje"/>  
+                    <xs:element ref = "uvid"/>  
+                    <xs:element ref = "kopija"/>  
+                    <xs:element ref = "dostava"/>  
+                </xs:choice>
+            </xs:sequence>
+            
+        </xs:complexType>
+        
+    </xs:element>
+    
+    
+   
+    
+    
+    <xs:element name = "dostava">
+        
+        <xs:complexType >
+            <xs:choice>
+                <xs:element ref = "posta"/>  
+                <xs:element ref = "elektornskaPosta"/>  
+                <xs:element ref = "faks"/>  
+                <xs:element ref = "drugiNacin"/>  
+            </xs:choice>
+   
+        </xs:complexType>
+        
+    </xs:element>
+    
+    <xs:element name = "posta">
+        
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element name = "postaCheck" type = "xs:boolean"/>   
+            </xs:sequence>
+            
+        </xs:complexType>
+        
+    </xs:element>
+    
+    <xs:element name = "elektornskaPosta">
+        
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element name = "elektornskaPostaCheck" type = "xs:boolean"/>   
+            </xs:sequence>
+            
+        </xs:complexType>
+        
+    </xs:element>
+    
+    
+    <xs:element name = "faks">
+        
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element name = "faksCheck" type = "xs:boolean"/>   
+            </xs:sequence>
+            
+        </xs:complexType>
+        
+    </xs:element>
+    
+    
+    <xs:element name = "drugiNacin">
+        
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element name = "drugiNacinCheck" type = "xs:boolean"/>   
+            </xs:sequence>
+            
+        </xs:complexType>
+        
+    </xs:element>
+    
+    <xs:element name = "opisInformacije">
+        
+        <xs:complexType mixed="true">
+            <xs:choice>
+                <xs:element name = "opis" type = "xs:string"/>   
+            </xs:choice>
+            
+        </xs:complexType>
+        
+    </xs:element>
+    
+    <xs:simpleType name="glasnikType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{0,3}\/\d{0,2}"/> <!-- 0-999\0-99 -->
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:element name = "potpis" type = "xs:string"/>
+    
+    <xs:element name = "kontaktPodaci" type = "xs:string"/>
+    
+    <xs:element name = "adresa" type = "xs:string"/>
+
+    <xs:element name = "trazilacInformacije" type = "xs:string"/>
+    
+    <xs:element name = "datum" type = "xs:date"/>
+    
+    <xs:element name = "grad" type = "xs:string"/>
+    
+
+    
+    <xs:element name = "glasnik" type = "glasnikType" />
+    
+    <xs:element name = "clan" type = "xs:positiveInteger"/>  
+    <xs:element name = "stav" type = "xs:positiveInteger"/>  
+    
+    <xs:element name = "obavestenje" type = "xs:string"/>  
+    <xs:element name = "uvid" type = "xs:string"/>  
+    <xs:element name = "kopija" type = "xs:string"/>  
+
+    <xs:element name = "nazivZahteva" type = "xs:string"/>
+    
+    <xs:element name = "naziv" type = "xs:string"/>
+    <xs:element name = "sediste" type = "xs:string"/>
+</xs:schema>

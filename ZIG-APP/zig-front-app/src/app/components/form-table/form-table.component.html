@@ -1,0 +1,244 @@
+<div style="width:20%;text-align: center;margin-left: 40%;margin-top: 2%;">
+
+  <form [formGroup]="reportForm" *ngIf="this.my_role.includes('EMPLOYEE')">
+    <div class="mb-3">
+      <label for="exampleInputText" class="form-label">Start Date:</label>
+      <input type="text" formControlName="start" class="form-control" id="exampleInputText" aria-describedby="textHelp">
+
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputText" class="form-label">End Date:</label>
+      <input type="text" formControlName="end" class="form-control" id="exampleInputText" aria-describedby="textHelp">
+
+    </div>
+
+    <button type="submit" class="btn btn-danger" (click)="generateReportPDF()">GENERATE REPORT</button>
+  </form>
+
+
+  <form [formGroup]="textForm" style="margin-top: 15%;">
+    <div class="mb-3">
+      <label for="exampleInputText" class="form-label">Text Search:</label>
+      <input type="text" formControlName="text" class="form-control" id="exampleInputText" aria-describedby="textHelp">
+
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="textSearch()">Text Search</button>
+  </form>
+
+
+
+  <form [formGroup]="metadataForm" style="margin-top: 15%;">
+    <!--STATUS-->
+    <div class="mb-3">
+      <label for="exampleInputStatus" class="form-label">Status</label>
+      <input type="status" formControlName="status" class="form-control" id="exampleInputStatus"
+        aria-describedby="statusHelp">
+
+    </div>
+
+    <div class="mb-3 form-check">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="true" formControlName="statusnot" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          YES
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="false" formControlName="statusnot" id="flexRadioDefault2"
+          checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          NO
+        </label>
+      </div>
+    </div>
+
+    <!--USERNAME-->
+    <div class="mb-3">
+      <label for="exampleInputUsername" class="form-label">Username</label>
+      <input type="username" formControlName="username" class="form-control" id="exampleInputUsername"
+        aria-describedby="usernameHelp">
+
+    </div>
+    <div class="mb-3 form-check">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="true" formControlName="usernamenot"
+          id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          YES
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="false" formControlName="usernamenot"
+          id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          NO
+        </label>
+      </div>
+    </div>
+
+    <!--TYPE-->
+    <div class="mb-3">
+      <label for="exampleInputType" class="form-label">Type</label>
+      <!-- <input type="typa" formControlName="typa" class="form-control" id="exampleInputType" aria-describedby="typaHelp"> -->
+      <select class="custom-select" (change)="changeCity($event)" formControlName="typa">
+        <option value="">TRADEMARK TYPE</option>
+        <option *ngFor="let tr of trademark_types" [ngValue]="tr">{{tr}}</option>
+      </select>
+
+    </div>
+    <div class="mb-3 form-check">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="true" formControlName="typenot" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          YES
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="false" formControlName="typenot" id="flexRadioDefault2"
+          checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          NO
+        </label>
+      </div>
+    </div>
+
+    <!--DATE-->
+    <div class="mb-3">
+      <label for="exampleInputDatestart" class="form-label">Date Start</label>
+      <input type="datestart" formControlName="datestart" class="form-control" id="exampleInputDatestart"
+        aria-describedby="datestartHelp">
+
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputDateend" class="form-label">Date End</label>
+      <input type="dateend" formControlName="dateend" class="form-control" id="exampleInputDateend"
+        aria-describedby="dateendHelp">
+
+    </div>
+    <div class="mb-3 form-check">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="true" formControlName="datenot" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          YES
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="false" formControlName="datenot" id="flexRadioDefault2"
+          checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          NO
+        </label>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputDateend" class="form-label">First Operator</label>
+
+    </div>
+
+    <div class="mb-3 form-check">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="true" formControlName="firstop" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          AND
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="false" formControlName="firstop" id="flexRadioDefault2"
+          checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          OR
+        </label>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputDateend" class="form-label">Second Operator</label>
+
+    </div>
+
+    <div class="mb-3 form-check">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="true" formControlName="secondop" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          AND
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="false" formControlName="secondop" id="flexRadioDefault2"
+          checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          OR
+        </label>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputDateend" class="form-label">Third Operator</label>
+
+    </div>
+
+    <div class="mb-3 form-check">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="true" formControlName="thirdop" id="flexRadioDefault11">
+        <label class="form-check-label" for="flexRadioDefault11">
+          AND
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [value]="false" formControlName="thirdop" id="flexRadioDefault12"
+          checked>
+        <label class="form-check-label" for="flexRadioDefault12">
+          OR
+        </label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="metadataSearch()">Metadata Search</button>
+  </form>
+
+
+</div>
+
+<table class="user-table" style="width: 80%; margin-left: 10%;margin-top: 100px;">
+  <thead>
+    <tr>
+      <!-- <th class="user-table-cell">ID</th> -->
+      <th *ngFor="let column of columns" class="user-table-cell">
+        {{column}}
+        <!-- <span (click)="spanClick()"></span> -->
+      </th>
+      <th class="user-table-cell">HTML</th>
+      <th class="user-table-cell">PDF</th>
+      <th class="user-table-cell">RDF</th>
+      <th class="user-table-cell">JSON</th>
+      <th class="user-table-cell" *ngIf="this.my_role.includes('EMPLOYEE')">VIEW INFO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let docm of teble_data;let i = index">
+      <td *ngFor="let column of columns" class="user-table-cell">
+        {{docm[column]}}
+      </td>
+
+
+      <td><button class="btn btn-primary" (click)="generateHTML(i)">HTML</button></td>
+      <td><button class="btn btn-success" (click)="generatePDF(i)">PDF</button></td>
+      <td><button class="btn btn-info" (click)="generateRDF(i)" *ngIf="docm['documenttype'] != 'SOLUTION'">RDF</button>
+      </td>
+      <td><button class="btn btn-danger" (click)="generateJSON(i)"
+          *ngIf="docm['documenttype'] != 'SOLUTION'">JSON</button></td>
+      <td><button class="btn btn-warning" (click)="viewSolution(i)"
+          *ngIf="this.my_role.includes('EMPLOYEE') && docm['documenttype'] != 'SOLUTION'"
+          [disabled]="docm['status'] !== 'WAIT'">
+
+          VIEW INFO</button></td>
+    </tr>
+  </tbody>
+
+</table>
+
+<div style="height:100px"></div>

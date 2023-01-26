@@ -1,0 +1,21 @@
+<app-employee-menu></app-employee-menu>
+<h1 style="margin-left: 42%; margin-top: 3em">CREATE SOLUTION</h1>
+
+<h1 style="margin-left: 42%; margin-top: 3em;">DOCUMENTS:</h1>
+<ng-container *ngFor="let i of this.list_files">
+  <span>
+    <img [src]="i" style="width: 250px; margin-left: 40%; margin-top: 3em; height: 250px" />
+  </span>
+</ng-container>
+
+<div style="width: 50%; margin-left: 40%; margin-top: 3em" id="solution-form"></div>
+
+<button (click)="accept()" class="btn btn-success" type="button"
+  style="width: 10%; margin-left: 37%; margin-top: 3em;margin-bottom: 7em;">
+  ACCEPT
+</button>
+
+<button (click)="decline()" class="btn btn-danger" type="button"
+  style="width: 10%;margin-left: 2%;margin-top: 3em;margin-bottom: 7em;">
+  DECLINE
+</button>

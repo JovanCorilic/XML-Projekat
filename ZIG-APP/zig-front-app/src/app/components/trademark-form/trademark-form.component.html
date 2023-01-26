@@ -1,0 +1,32 @@
+<app-citizen-menu></app-citizen-menu>
+
+<div style="width: 50%; margin-left: 35%; margin-top: 3em" id="trademark-form"></div>
+
+<div class="text-center" style="width: 50%; margin-left: 25%; margin-top: 3em">
+  <input class="form-control" type="file" (change)="onChangeLogo($event)" />
+
+  <button (click)="onLogo()" class="btn btn-info">Upload Logo</button>
+</div>
+
+<ng-container *ngIf="this.logo != null">
+  <img [src]="logo" style="width: 100px; margin-left: 47%; margin-top: 3em; height: 100px" />
+</ng-container>
+
+<div class="text-center" style="width: 50%; margin-left: 25%; margin-top: 3em">
+  <input class="form-control" type="file" (change)="onChange($event)" />
+
+  <button (click)="onUpload()" class="btn btn-success">Upload Documents</button>
+</div>
+<!-- <ng-container *ngIf=" this.image_paths === [] "> -->
+
+<ng-container *ngFor="let i of this.image_paths">
+  <span>
+    <img [src]="i" style="width: 100px; margin-left: 47%; margin-top: 3em; height: 100px" />
+  </span>
+</ng-container>
+<!-- </ng-container > -->
+
+<button (click)="send()" class="btn btn-primary" type="button" style="width: 30%; margin-left: 35%; margin-top: 3em">
+  Send
+</button>
+<!-- <img [src]="image_path" > -->
