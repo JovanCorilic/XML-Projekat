@@ -165,7 +165,34 @@ public class PatentService {
 
     public ByteArrayOutputStream downloadPDF(String id)throws Exception{
         return PDFTransformer.generateAndDownloadPDF(PDFTransformer.generateAndDownloadHTML(patentRepository.findPatentById(id)));
+    }
 
+    public String downloadJSON(String id)throws Exception{
+        P1 p1 = jaxbParser.unmarshall(P1.class,patentRepository.findPatentById(id));
+        String temp = "[\n" +
+                "\t{\n" +
+                "\t\t\"@id\": \""+p1.getNazivPronalaska().getAbout()+"\",\n" +
+                "\t\t\"http://www.ftn.uns.ac.rs/rdf/examples/predicate/brojPrijave\": [\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"@type\": \"string\",\n" +
+                "\t\t\t\t\"@value\": \""+p1.getPopunjavaZavod().getBrojPrijave().getValue()+"\"\n" +
+                "\t\t\t}\n" +
+                "\t\t],\n" +
+                "\t\t\"http://www.ftn.uns.ac.rs/rdf/examples/predicate/nazivPatentaEngleski\": [\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"@type\": \"string\",\n" +
+                "\t\t\t\t\"@value\": \""+p1.getNazivPronalaska().getEngleskiNaziv().getValue()+"\"\n" +
+                "\t\t\t}\n" +
+                "\t\t],\n" +
+                "\t\t\"http://www.ftn.uns.ac.rs/rdf/examples/predicate/nazivPatentaSrpski\": [\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"@type\": \"string\",\n" +
+                "\t\t\t\t\"@value\": \""+p1.getNazivPronalaska().getSrpskiNaziv().getValue()+"\"\n" +
+                "\t\t\t}\n" +
+                "\t\t]\n" +
+                "\t}\n" +
+                "]";
+        return temp;
     }
 
     //---------------------------------------------------------------------------------------------

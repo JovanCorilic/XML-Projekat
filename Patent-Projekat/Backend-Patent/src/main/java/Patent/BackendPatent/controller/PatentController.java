@@ -144,6 +144,16 @@ public class PatentController {
         }
     }*/
 
+    @GetMapping("/downloadJSON/{id}")
+    public ResponseEntity<XMLDto> downloadJSON(@PathVariable("id")String id)throws Exception{
+        try {
+            String result = patentService.downloadJSON(id);
+            return new ResponseEntity<>(new XMLDto(result),HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     //Operacije slanje xml sa xml formatom ------------------------------------------------------------
 
     @PostMapping(value = "/addText", consumes = MediaType.APPLICATION_XML_VALUE)

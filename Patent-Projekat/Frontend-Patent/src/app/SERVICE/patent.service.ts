@@ -91,4 +91,8 @@ export class PatentService{
       return this.http.get(this.path+"/downloadPDF"+`/${id}`, HTTPOptions);*/
       //return this.http.get<any>(this.path+"/downloadPDF"+`/${id}`,this.HTTPOptions);
     }
+
+    downloadJSON(id:string){
+      return this.http.get<any>(this.path+"/downloadJSON"+`/${id}`,this.HTTPOptions);
+    }
 }

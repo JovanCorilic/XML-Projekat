@@ -82,7 +82,16 @@ export class EditPatentComponent {
   }
 
   downloadJSON(){
-
+    this.patentService.downloadJSON(this.patentId).subscribe(
+      res=>{
+        this.patentService.getOznakePatenta(this.patentId).subscribe(
+          res2=>{
+            this.previewAndDownload(Konverzija.uzimanjePodatakaXMLDto(res),Konverzija.uzimanjePodatakaXMLDto(res2),'json');
+          }
+        )
+        
+      }
+    )
   }
 
   previewAndDownload(response: any, id: string, tip: string){
