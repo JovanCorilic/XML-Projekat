@@ -1,3 +1,4 @@
+import { Korisnik } from './../MODEL/Korisnik';
 import { PatentLista } from './../MODEL/PatentLista';
 
 import { Patent } from './../MODEL/Patent';
@@ -95,4 +96,23 @@ export class PatentService{
     downloadJSON(id:string){
       return this.http.get<any>(this.path+"/downloadJSON"+`/${id}`,this.HTTPOptions);
     }
+
+    //Provera logina ------------------------------------------------------------------
+
+    login(korisnik:Korisnik):Observable<any>{
+
+      return this.http.post(this.path+"/login",korisnik)
+      
+    }
+
+    logout():Observable<any>{
+        return this.http.get(this.path+"/logout");
+    }
+
+    isLoggedIn():boolean{
+      if(!localStorage.getItem('user')){
+          return false;
+      }
+      return true;
+  }
 }

@@ -1,11 +1,13 @@
 package Patent.BackendPatent.controller;
 
 
+import Patent.BackendPatent.dto.KorisnikDTO;
+import Patent.BackendPatent.dto.UserTokenStateDTO;
 import Patent.BackendPatent.dto.XMLDto;
 import Patent.BackendPatent.dto.XMLListaDTO;
-import Patent.BackendPatent.model.P1;
+import Patent.BackendPatent.model.security.Korisnik;
+import Patent.BackendPatent.security.auth.service.JwtUtil;
 import Patent.BackendPatent.service.PatentService;
-import com.itextpdf.tool.xml.html.head.XML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +19,12 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @RestController
 @RequestMapping(value = "api/patent", produces = MediaType.APPLICATION_XML_VALUE,
@@ -26,6 +33,37 @@ import java.util.List;
 public class PatentController {
     @Autowired
     private PatentService patentService;
+    @Autowired
+    private JwtUtil jwtUtil;
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    //Operacije za korisnika --------------------------------------------------------------------
+
+    @PostMapping(value = "/login",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.ALL_VALUE)
+    public ResponseEntity<?> login() throws Exception{
+
+        KorisnikDTO korisnikDTO = new KorisnikDTO("1","1");
+        //Boolean dobro = superAdminService.login(superAdminDTO.getEmail(),superAdminDTO.getLozinka());
+        //superAdminService.login(superAdminDTO.getEmail(),superAdminDTO.getLozinka());
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(korisnikDTO.getEmail(), korisnikDTO.getLozinka()));
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        Korisnik user = (Korisnik) authentication.getPrincipal();
+        String jwt = jwtUtil.generateToken(user.getEmail(), user.getUloge().get(0).getNaziv());
+        int expiresIn = jwtUtil.getExpiredIn();
+        String text = "Ulogovao se :" + korisnikDTO.getEmail() +" u "+ new Date();
+        return new ResponseEntity<>(new UserTokenStateDTO(jwt, (long) expiresIn), HttpStatus.OK);
+    }
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    //@PreAuthorize("hasAnyRole('Sluzbenik')")
+    @GetMapping(value = "/logout",consumes = MediaType.ALL_VALUE,produces = MediaType.ALL_VALUE)
+    public ResponseEntity<?>logoutUser()throws Exception{
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Korisnik korisnik = (Korisnik) auth.getPrincipal();
+        SecurityContextHolder.clearContext();
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
     //Operacije pravljenje i edit xml-a ----------------------------------------------------------------
 

@@ -6,12 +6,16 @@
     <span style="font-size: larger;font-family:'Trebuchet MS';">Patent</span>
     <span class="lilspace"></span>
     <div>
-      <button  (click)="goToPatentCreate()" >Pravljenje patenta</button>
+      <button *ngIf="getRole()!=='Sluzbenik'"  (click)="goToRegister()" >Registracija</button>
       <span class="lilspace"></span>
-      <button   (click)="goToSviPatentiNijeProsaoZavod()" >Svi patenti koje nije prošao Zavod</button>
+      <button *ngIf="getRole()!=='Sluzbenik'"  (click)="goToLogin()" >Login</button>
       <span class="lilspace"></span>
-      <button   (click)="goToSviPatentiProsaoZavod()" >Svi patenti koje je prošao Zavod</button>
+      <button *ngIf="getRole()==='Sluzbenik'"  (click)="goToPatentCreate()" >Pravljenje patenta</button>
       <span class="lilspace"></span>
-      <button  id="signin-button" (click)="goToLogOut()" >Logout</button>
+      <button *ngIf="getRole()==='Sluzbenik'"   (click)="goToSviPatentiNijeProsaoZavod()" >Svi patenti koje nije prošao Zavod</button>
+      <span class="lilspace"></span>
+      <button *ngIf="getRole()==='Sluzbenik'"   (click)="goToSviPatentiProsaoZavod()" >Svi patenti koje je prošao Zavod</button>
+      <span class="lilspace"></span>
+      <button *ngIf="getRole()==='Sluzbenik'"  id="signin-button" (click)="goToLogOut()" >Logout</button>
     </div>  
 </mat-toolbar>

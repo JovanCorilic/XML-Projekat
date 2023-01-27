@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav'
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -15,6 +15,7 @@ import { EditPatentComponent } from './PATENT/edit-patent/edit-patent.component'
 import { PatentCreateComponent } from './PATENT/patent-create/patent-create.component';
 import { SviPatentComponent } from './PATENT/svi-patent/svi-patent.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { Interceptor } from './SERVICE/intercept.service';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatIconModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
