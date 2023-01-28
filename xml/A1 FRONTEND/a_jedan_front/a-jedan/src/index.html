@@ -10,6 +10,158 @@
   <script src="assets/xonomy.js"></script>
   <script src="assets/jquery.min.js"></script>
 </head>
+<script type="text/javascript">
+  let ziv = 1;
+  let mrtav = 1;
+  let anoniman = 1;
+  function Pseudonim(){
+      var divtag = document.getElementById('Pseudonim_Znak_Autora');
+      divtag.innerHTML = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pseudonim: <input type=\"text\" id=\"pseudonim2\">";
+  }
+  function Znak_Autora(){
+      var divtag = document.getElementById('Pseudonim_Znak_Autora');
+      divtag.innerHTML = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Znak Autora: <input type=\"text\" id=\"znak_autora2\">";
+  }
+  function Punomocnik(){
+    var divtag = document.getElementById('Punomocnik');
+      divtag.innerHTML = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+      "Ime: <input type=\"text\" id=\"ime3\"><br />"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+                "Prezime: <input type=\"text\" id=\"prezime3\"><br />"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+                "Adresa<br />"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+                    "Grad: <input type=\"text\" id=\"grad3\"><br />"+
+                    "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+                    "Ulica: <input type=\"text\" id=\"ulica3\"><br />"+
+                    "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+                    "Broj: <input type=\"text\" id=\"broj3\"><br />";
+  }
+
+  function Podnosioci(){
+    var divtag = document.getElementById('Podnosioci');
+          divtag.innerHTML = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "<input type=\"button\" value=\"Dodaj Zivog Podnosioca\" onclick=\"Zivi_Podnosioci()\"><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "<div id=\"Zivi_Podnosioci\"></div><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "<input type=\"button\" value=\"Dodaj Mrtvog Podnosioca\" onclick=\"Mrtvi_Podnosioci()\"><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "<div id=\"Mrtvi_Podnosioci\"></div><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "<input type=\"button\" value=\"Dodaj Anonimnog Podnosioca\" onclick=\"Anonimni_Podnosioci()\"><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "<div id=\"Anonimni_Podnosioci\"></div><br /><br />";
+  }
+
+  function Zivi_Podnosioci(){
+    var divtag = document.getElementById('Zivi_Podnosioci');
+          divtag.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "Ziv Podnosioc br." + ziv + "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "Ime: <input type=\"text\" id=\"ime8_" + ziv + "\"><br />"+
+          "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "Prezime: <input type=\"text\" id=\"prezime8_" + ziv + "\"><br />"+
+          "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "Adresa<br />"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+                "Grad: <input type=\"text\" id=\"grad8_" + ziv + "\"><br />"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+                "Ulica: <input type=\"text\" id=\"ulica8_" + ziv + "\"><br />"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+                "Broj: <input type=\"text\" id=\"broj8_" + ziv + "\"><br />"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+                "Drzavljanstvo: <input type=\"text\" id=\"drzavljanstvo8_" + ziv + "\"><br />"+
+                "<hr />";
+            ziv += 1;
+  }
+
+  function Mrtvi_Podnosioci(){
+    var divtag = document.getElementById('Mrtvi_Podnosioci');
+          divtag.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "Mrtav Podnosioc br." + mrtav + "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "Ime: <input type=\"text\" id=\"ime8_" + mrtav + "\"><br />"+
+          "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "Prezime: <input type=\"text\" id=\"prezime8_" + mrtav + "\"><br />"+
+          "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "Godina Smrti: <input type=\"text\" id=\"umro8_" + mrtav + "\"><br />"+
+                "<hr />";
+          mrtav += 1;
+  }
+
+  function Anonimni_Podnosioci(){
+    var divtag = document.getElementById('Anonimni_Podnosioci');
+          divtag.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "Anonimni Podnosioc br." + anoniman + "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+          "Delo Anonimnog Autora: <input type=\"text\" id=\"delo8_" + anoniman + "\"><br />"+
+                "<hr />";
+          anoniman += 1;
+  }
+  function Nacin_Koriscenja(){
+    var divtag = document.getElementById('Nacin_Namera');
+      divtag.innerHTML = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nacin Koriscenja: <input type=\"text\" id=\"nacin_koriscenja10\">";
+  }
+  function Nameravani_Nacin_Koriscenja(){
+    var divtag = document.getElementById('Nacin_Namera');
+      divtag.innerHTML = "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nameravani Nacin Koriscenja: <input type=\"text\" id=\"nameravani_nacin_koriscenja10\">";
+  }
+
+  function Napravi_Rec(length) {
+    let result = '';
+    const characters = 'ertuioplkjhgfdsazcvbnm';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+  }
+
+  function Napravi_Broj(length) {
+    let result = '';
+    const characters = '123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+  }
+
+  function Napravi_Datum() {
+    let length = 5;
+    let result = '';
+    const characters = '123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return (result%29 + 1) + "." + (result%12 + 1) + "." + (result%2 + 2020);
+  }
+
+  function Popuni_Random(){
+    var data = []; 
+    var table = document.getElementById( 'Tabela' ); 
+    var input = table.getElementsByTagName( 'input' ); 
+    for ( var z = 0; z < input.length; z++ ) {
+      if(input[z].id != "")
+        input[z].setAttribute("value", Napravi_Rec(15));
+    }
+    document.getElementById( 'datum' ).setAttribute("value", Napravi_Datum());
+    document.getElementById( 'broj_prijave' ).setAttribute("value", Napravi_Broj(5));
+    document.getElementById( 'telefon1' ).setAttribute("value", "06" + Napravi_Broj(8));
+    document.getElementById( 'broj1' ).setAttribute("value", Napravi_Broj(2));
+    document.getElementById( 'email1' ).setAttribute("value", Napravi_Rec(8) + "@" + Napravi_Rec(5) + ".com");
+    if(document.getElementById( 'broj3' ))//Da li postoji???
+      document.getElementById( 'broj3' ).setAttribute("value", Napravi_Broj(2));
+
+    for ( var z = 0; z < input.length; z++ ) {
+      if(input[z].id.includes("broj8_"))
+        input[z].setAttribute("value", Napravi_Broj(2));
+      if(input[z].id.includes("umro8_"))
+        input[z].setAttribute("value", Napravi_Datum(2));
+    }
+  }
+
+</script>
 <body>
   <app-root></app-root>
 </body>
