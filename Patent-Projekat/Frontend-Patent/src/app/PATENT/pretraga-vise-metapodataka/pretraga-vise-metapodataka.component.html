@@ -1,0 +1,19 @@
+<table>
+    <tr>
+        <td>
+            <div id="editor"></div><br><br>
+            <button (click)="send()">Pošalji</button>
+            <button (click)="back()">Natrag</button>
+        </td>
+        <td>
+            
+            <h2>Rezultat pretrage</h2>
+            <h3 *ngIf="lista.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
+            <div *ngFor="let patent of lista" >
+                <button  (click)="idiNaEditPatenta(patent)" class="button">{{mapaMetaPodaci.get(patent)}}</button>
+                <br />
+            </div>
+            
+        </td>
+    </tr>
+</table>

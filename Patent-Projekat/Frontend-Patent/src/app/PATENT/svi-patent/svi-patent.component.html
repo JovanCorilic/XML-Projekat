@@ -18,10 +18,12 @@
                 <option value = "1" selected>Srpski naziv</option>
                 <option value = "2">Broj prijave</option>
                 <option value = "3">Engleski naziv</option>
+                <option value = "4">Priznati datum podnošenja</option>
             </select><br>
             <button type="submit"  [disabled]="resForm.invalid" class="button2">Pretrazi preko metapodataka</button>
         </div>
-    </form>
+    </form><br>
+    <button (click)="pretragaPoViseMetapodataka()" class="button">Pretraga po više metapodataka</button>
     <h2>Pretraga po tekstualnom sadržaju</h2>
     <form [formGroup]="res2Form" (ngSubmit)="pretraziPoTekstualnomSadrzaju()" class="form-inline">
         <div class="form-group" align="center">
@@ -35,7 +37,7 @@
 <td valign="top">
     
     <div *ngIf="opcija === '2'">
-        <h2>Broj prijave koji odgovara vašoj pretragi</h2>
+        <h2>Broj prijave koji odgovara vašoj pretrazi</h2>
         <h3 *ngIf="listaPatenta2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
         <div *ngFor="let patent of listaPatenta2" >
             <button  (click)="idiNaEditPatenta(patent)" class="button">{{mapaMetaPodaci.get(patent)}}</button>
@@ -44,7 +46,7 @@
         <h3 *ngIf="listaPatenta2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
     </div>
     <div *ngIf="opcija === '3'">
-        <h2>Engleski naziv koji odgovara vašoj pretragi</h2>
+        <h2>Engleski naziv koji odgovara vašoj pretrazi</h2>
         <h3 *ngIf="listaPatenta2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
         <div *ngFor="let patent of listaPatenta2" >
             <button  (click)="idiNaEditPatenta(patent)" class="button">{{mapaMetaPodaci.get(patent)}}</button>
@@ -53,13 +55,20 @@
         
     </div>
     <div *ngIf="opcija === '1'">
-        <h2>Srpski naziv koji odgovara vašoj pretragi</h2>
+        <h2>Srpski naziv koji odgovara vašoj pretrazi</h2>
         <h3 *ngIf="listaPatenta2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
         <div *ngFor="let patent of listaPatenta2" >
             <button  (click)="idiNaEditPatenta(patent)" class="button">{{mapaMetaPodaci.get(patent)}}</button>
             <br />
         </div>
-        
+    </div>
+    <div *ngIf="opcija === '4'">
+        <h2>Priznati datum podnošenja koji odgovara vašoj pretrazi</h2>
+        <h3 *ngIf="listaPatenta2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
+        <div *ngFor="let patent of listaPatenta2" >
+            <button  (click)="idiNaEditPatenta(patent)" class="button">{{mapaMetaPodaci.get(patent)}}</button>
+            <br />
+        </div>
     </div>
 </td>
 </tr>

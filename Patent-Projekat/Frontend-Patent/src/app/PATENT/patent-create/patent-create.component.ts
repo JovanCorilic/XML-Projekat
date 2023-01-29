@@ -42,7 +42,7 @@ export class PatentCreateComponent {
       ' <popunjava_zavod about="http://www.ftn.uns.ac.rs/rdf/patent"> '+
         ' <broj_prijave property="pred:brojPrijave" datatype="xs:string"> </broj_prijave>'+
         ' <datum_prijema> </datum_prijema>'+
-        ' <priznati_datum_podnosenja> </priznati_datum_podnosenja>'+
+        ' <priznati_datum_podnosenja property="pred:priznatDatumPodnosenja" datatype="xs:string"> </priznati_datum_podnosenja>'+
         ' <pecat_i_potpis>Nevazno</pecat_i_potpis>'+
         ' <drzava>Republika Srbija</drzava>'+
         ' <ustanova>Zavod za intelektualnu svojinu</ustanova>'+

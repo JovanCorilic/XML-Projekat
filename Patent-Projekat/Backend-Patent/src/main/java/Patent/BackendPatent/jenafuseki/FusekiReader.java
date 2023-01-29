@@ -24,12 +24,20 @@ public class FusekiReader {
     public static ArrayList<String> executeQueryPatent(Map<String,String> params, String opcija) throws IOException {
         FusekiAuthenticationUtilities.ConnectionProperties conn = FusekiAuthenticationUtilities.loadProperties();
         String QUERY_FILEPATH_PATENT = "src/main/resources/rdf/sparql";
-        if (opcija.equals("3"))
-            QUERY_FILEPATH_PATENT += "EngleskiNaziv.rq";
-        else if(opcija.equals("2"))
-            QUERY_FILEPATH_PATENT += "BrojPrijave.rq";
-        else
-            QUERY_FILEPATH_PATENT += "SrpskiNaziv.rq";
+        switch (opcija) {
+            case "3":
+                QUERY_FILEPATH_PATENT += "EngleskiNaziv.rq";
+                break;
+            case "2":
+                QUERY_FILEPATH_PATENT += "BrojPrijave.rq";
+                break;
+            case "1":
+                QUERY_FILEPATH_PATENT += "SrpskiNaziv.rq";
+                break;
+            case "4":
+                QUERY_FILEPATH_PATENT += "priznatDatumPodnosenja.rq";
+                break;
+        }
         String sparqlQueryTemplate = readFile(QUERY_FILEPATH_PATENT, StandardCharsets.UTF_8);
 
         String sparqlQuery = StringSubstitutor.replace(sparqlQueryTemplate,params,"{{","}}");
@@ -62,6 +70,10 @@ public class FusekiReader {
                     foundPatent.add(value);
                 }else if(varName.equals("Dataset"))
                     foundPatent.add(""+varValue);
+                else if (varName.contains("priznatDatumPodnosenja")){
+                    String value = varValue.toString();
+                    foundPatent.add(value);
+                }
             }
         }
         ResultSetFormatter.outputAsXML(System.out,results);

@@ -64,10 +64,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint).and()
 
                 // svim korisnicima dopusti da pristupe putanji /auth/**
-                .authorizeRequests().antMatchers("/api/superadmin/**").permitAll()
+                .authorizeRequests()
                 .antMatchers("/api/patent/login").permitAll()
-                .antMatchers("/api/ZahtevSertifikat/create").permitAll()
-                .antMatchers("/api/ZahtevSertifikat/potvrdaZahteva/**").permitAll()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
                 // umesto anotacija iynad svake metode, moze i ovde da se proveravaju prava pristupa ya odredjeni URL
                 //.antMatchers(HttpMethod.GET, "/api/cultural-content-category").hasRole("ROLE_ADMIN")
@@ -88,9 +86,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         // TokenAuthenticationFilter ce ignorisati sve ispod navedene putanje
-        web.ignoring().antMatchers(HttpMethod.POST, "/api/patent/login", "/recover/**", "/api/ZahtevSertifikat/create");
+        web.ignoring().antMatchers(HttpMethod.POST, "/api/patent/login", "/recover/**");
         web.ignoring().antMatchers(HttpMethod.GET,  "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html",
                 "/**/*.css", "/**/*.js", "/recover/**");
-        web.ignoring().antMatchers(HttpMethod.PUT,"/api/ZahtevSertifikat/potvrdaZahteva/**");
+
     }
 }

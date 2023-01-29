@@ -4,7 +4,7 @@ import Patent.BackendPatent.jaxb.JaxbParser;
 import Patent.BackendPatent.jenafuseki.FusekiReader;
 import Patent.BackendPatent.jenafuseki.FusekiWriter;
 import Patent.BackendPatent.jenafuseki.MetadataExtractor;
-import Patent.BackendPatent.model.P1;
+import Patent.BackendPatent.model.patent.P1;
 import Patent.BackendPatent.repository.PatentRepository;
 import Patent.BackendPatent.xslt.PDFTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,12 +127,20 @@ public class PatentService {
 
     public ArrayList<String> searchByMetadata(String odluka, String opcija) throws IOException {
         Map<String, String> params = new HashMap<>();
-        if (opcija.equals("3"))
-            params.put("nazivPatentaEngleski",odluka);
-        else if(opcija.equals("2"))
-            params.put("brojPrijave",odluka);
-        else
-            params.put("nazivPatentaSrpski",odluka);
+        switch (opcija) {
+            case "3":
+                params.put("nazivPatentaEngleski", odluka);
+                break;
+            case "2":
+                params.put("brojPrijave", odluka);
+                break;
+            case "1":
+                params.put("nazivPatentaSrpski", odluka);
+                break;
+            case "4":
+                params.put("priznatDatumPodnosenja",odluka);
+                break;
+        }
 
         return FusekiReader.executeQueryPatent(params,opcija);
     }
@@ -201,9 +209,22 @@ public class PatentService {
         String xml = patentRepository.findPatentById(id);
         P1 p1 = jaxbParser.unmarshall(P1.class,xml);
         String natrag = "";
-        natrag +="Broj prijave : "+p1.getPopunjavaZavod().getBrojPrijave().getValue()+
+        String temp;
+        if(p1.getPopunjavaZavod().getBrojPrijave().getValue().equals(""))
+            temp = "/";
+        else
+            temp = p1.getPopunjavaZavod().getBrojPrijave().getValue();
+
+        String temp2;
+        if(p1.getPopunjavaZavod().getPriznatiDatumPodnosenja().getValue().equals(""))
+            temp2 = "/";
+        else
+            temp2 = p1.getPopunjavaZavod().getPriznatiDatumPodnosenja().getValue();
+
+        natrag +="Broj prijave : "+temp+
                 " | Srpski naziv: "+p1.getNazivPronalaska().getSrpskiNaziv().getValue()+
-                " | Engleski naziv: "+p1.getNazivPronalaska().getEngleskiNaziv().getValue();
+                " | Engleski naziv: "+p1.getNazivPronalaska().getEngleskiNaziv().getValue()+
+                " | Datum podnošenja: "+temp2;
         return natrag;
     }
 

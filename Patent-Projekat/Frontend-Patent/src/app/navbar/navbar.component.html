@@ -16,6 +16,10 @@
       <span class="lilspace"></span>
       <button *ngIf="getRole()==='Sluzbenik'"   (click)="goToSviPatentiProsaoZavod()" >Svi patenti koje je prošao Zavod</button>
       <span class="lilspace"></span>
+      <button *ngIf="getRole()==='Sluzbenik'"   (click)="goToCreateResenje()" >Pravljenje rešenja</button>
+      <span class="lilspace"></span>
+      <button *ngIf="getRole()==='Sluzbenik'"   (click)="goToSvaResenja()" >Sva rešenja</button>
+      <span class="lilspace"></span>
       <button *ngIf="getRole()==='Sluzbenik'"  id="signin-button" (click)="goToLogOut()" >Logout</button>
     </div>  
 </mat-toolbar>

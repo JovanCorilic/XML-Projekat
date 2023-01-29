@@ -30,10 +30,13 @@ export class PatentService{
         return this.http.post(this.path+'/xonomyCreate', entity,{headers: this.headers});
     }
 
+    
+
     editXml(entity: string) {
       return this.http.put(this.path+'/xonomyEdit', entity,{headers: this.headers});
     }
 
+    
     //Operacije prikaz svih xml-ova ---------------------------------------------------------------------
 
     sviPatentiNijeProsaoZavod():Observable<any>{
@@ -44,11 +47,15 @@ export class PatentService{
       return this.http.get<any>(this.path+'/getAll',this.HTTPOptions);
     }
 
+    
+
     //Operacije dobijanje xml-a ---------------------------------------------------------------------------------
 
     getPatent(id:string):Observable<any>{
       return this.http.get<any>(this.path+'/getXMLDocument'+`/${id}`,this.HTTPOptions);
     }
+
+    
 
     getPatentSrpskiEngleskiNaziv(id:string):Observable<any>{
       return this.http.get<any>(this.path+'/pretragaPoNazivu'+`/${id}`,this.HTTPOptions);
@@ -62,6 +69,10 @@ export class PatentService{
 
     searchMetapodaci(odluka:string, opcija:string):Observable<any>{
       return this.http.get<any>(this.path+'/fusekiSearch'+`/${odluka}`+`/${opcija}`,this.HTTPOptions);
+    }
+
+    searchViseMetapodataka(text:string):Observable<any>{
+      return this.http.post(this.path+'/pretragaViseMetapodataka', text,this.HTTPOptions);
     }
 
     searchTekstualniSadrzaj(odluka:string):Observable<any>{

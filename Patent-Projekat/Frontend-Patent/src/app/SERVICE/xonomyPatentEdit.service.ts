@@ -42,7 +42,15 @@ export class XonomyPatentEditService{
                         hasText:true
                     },
                     'priznati_datum_podnosenja':{
-                        hasText:true
+                        hasText:true,
+                        attributes: {
+                            'property':{
+                                isInvisible:true
+                            },
+                            'datatype':{
+                                isInvisible:true
+                            }
+                        }
                     },
                     'pecat_i_potpis':{
                         hasText:true,

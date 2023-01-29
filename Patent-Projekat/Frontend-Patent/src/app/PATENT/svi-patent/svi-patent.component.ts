@@ -110,6 +110,10 @@ export class SviPatentComponent implements OnInit{
     }
   }
 
+  pretragaPoViseMetapodataka(){
+    this.router.navigate(['/pretragaViseMetapodataka/'+this.prodjeno]);
+  }
+
   pretraziPrekoMetapodatak(){
     if (this.resForm.value["odluka"]==""){
       alert("Polje za unos metapodataka mora biti popunjeno!");
@@ -118,9 +122,7 @@ export class SviPatentComponent implements OnInit{
       this.patentService.searchMetapodaci(this.resForm.value["odluka"], this.resForm.value["opcija"]).subscribe(
         res=>{
           this.rezultat = Konverzija.uzimanjePodatakaXMLDto(res);
-          
-          
-            
+
           let test:string[] = [];
           
           let lista = this.rezultat.split('\n');

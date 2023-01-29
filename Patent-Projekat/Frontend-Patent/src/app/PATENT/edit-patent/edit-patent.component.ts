@@ -112,12 +112,33 @@ export class EditPatentComponent {
     
     this.patentService.editXml(text).subscribe(
       res=>{
-        this.router.navigate(['/svi-patent-neprodjeni/'+this.prodjeno]);
+        let daLiJeProdjeno =false;
+        if(this.prodjeno != null)
+          daLiJeProdjeno = this.convertToBoolean(this.prodjeno);
+        if(daLiJeProdjeno)
+          this.router.navigate(['/svi-patent/true']);
+        else
+          this.router.navigate(['/svi-patent-neprodjeni/false']);
       }
     )
   }
 
   natrag(){
-    this.router.navigate(['/svi-patent-neprodjeni/'+this.prodjeno]);
+    let daLiJeProdjeno =false;
+    if(this.prodjeno != null)
+      daLiJeProdjeno = this.convertToBoolean(this.prodjeno);
+    if(daLiJeProdjeno)
+      this.router.navigate(['/svi-patent/true']);
+    else
+      this.router.navigate(['/svi-patent-neprodjeni/false']);
+  }
+
+  convertToBoolean(input: string): boolean {
+    try {
+        return JSON.parse(input.toLowerCase());
+    }
+    catch (e) {
+        return false;
+    }
   }
 }

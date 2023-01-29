@@ -49,6 +49,14 @@ export class NavbarComponent {
    
   }
 
+  goToCreateResenje(){
+    this.router.navigate(['/createResenja']);
+  }
+
+  goToSvaResenja(){
+    this.router.navigate(['/svaResenja']);
+  }
+
   goToRegister(){
 
   }

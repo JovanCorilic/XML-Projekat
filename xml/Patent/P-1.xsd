@@ -48,7 +48,16 @@
                 </xs:complexType>
             </xs:element>
             <xs:element name="datum_prijema" type="xs:string"/>
-            <xs:element name="priznati_datum_podnosenja" type="xs:string"/>
+            <xs:element name="priznati_datum_podnosenja">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="property" type="xs:string"/>
+                            <xs:attribute name="datatype" type="xs:string"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="pecat_i_potpis" type="xs:string"/>
             <xs:element name="drzava" type="xs:string"/>
             <xs:element name="ustanova" type="xs:string"/>

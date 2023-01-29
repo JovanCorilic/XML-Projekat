@@ -16,6 +16,10 @@ import { PatentCreateComponent } from './PATENT/patent-create/patent-create.comp
 import { SviPatentComponent } from './PATENT/svi-patent/svi-patent.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { Interceptor } from './SERVICE/intercept.service';
+import { SvaResenjaComponent } from './RESENJE/sva-resenja/sva-resenja.component';
+import { EditResenjeComponent } from './RESENJE/edit-resenje/edit-resenje.component';
+import { CreateResenjeComponent } from './RESENJE/create-resenje/create-resenje.component';
+import { PretragaViseMetapodatakaComponent } from './PATENT/pretraga-vise-metapodataka/pretraga-vise-metapodataka.component';
 
 
 @NgModule({
@@ -24,7 +28,11 @@ import { Interceptor } from './SERVICE/intercept.service';
     NavbarComponent,
     EditPatentComponent,
     PatentCreateComponent,
-    SviPatentComponent
+    SviPatentComponent,
+    SvaResenjaComponent,
+    EditResenjeComponent,
+    CreateResenjeComponent,
+    PretragaViseMetapodatakaComponent
   ],
   imports: [
     BrowserModule,

@@ -46,7 +46,15 @@ export class XonomyPatentCreateService{
                     },
                     'priznati_datum_podnosenja':{
                         hasText:false,
-                        isReadOnly:true
+                        isReadOnly:true,
+                        attributes: {
+                            'property':{
+                                isInvisible:true
+                            },
+                            'datatype':{
+                                isInvisible:true
+                            }
+                        }
                     },
                     'pecat_i_potpis':{
                         hasText:true,
