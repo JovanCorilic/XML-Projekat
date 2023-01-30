@@ -27,7 +27,7 @@ export class PretragaViseMetapodatakaComponent {
       this.temp=this.route.snapshot.paramMap.get('prodjeno');
       this.mapaMetaPodaci = new Map();
       this.odlukaForm = this.fBuilder.group({
-        odluka:""
+        opcija:"AND"
       });
     }
 

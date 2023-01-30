@@ -29,6 +29,7 @@ export class EditResenjeComponent {
    }
 
   ngOnInit(): void {
+  
   this.resenjeService.getResenje(this.patentId).subscribe(
     res=>{
       let element = document.getElementById("editor");

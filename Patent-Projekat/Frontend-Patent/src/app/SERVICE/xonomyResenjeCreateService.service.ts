@@ -102,7 +102,7 @@ export class XonomyResenjeCreateService{
                         }
                     },
                 'referenca_na_zahtev':{
-                    hasText:false
+                    hasText:true
                 }
         }
     }

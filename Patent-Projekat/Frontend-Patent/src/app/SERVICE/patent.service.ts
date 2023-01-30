@@ -72,6 +72,7 @@ export class PatentService{
     }
 
     searchViseMetapodataka(text:string,opcija:string):Observable<any>{
+      
       return this.http.post(this.path+'/pretragaViseMetapodataka'+`/${opcija}`, text,this.HTTPOptions);
     }
 

@@ -92,14 +92,14 @@ export class SvaResenjaComponent {
         res=>{
           this.opcija="1";
           this.listaResenja2=Konverzija.uzimanjePodatakaXMLDtoLista(res);
+          this.listaResenja2.forEach(element => {
+            this.prikazOznakaPatenta(element,this.mapaMetaPodaci);
+          });
         }
       )
     }
   }
 
-  pretragaPoViseMetapodataka(){
-    this.router.navigate(['/pretragaViseMetapodataka/'+this.prodjeno]);
-  }
 
   pretraziPrekoMetapodatak(){
     if (this.resForm.value["odluka"]==""){

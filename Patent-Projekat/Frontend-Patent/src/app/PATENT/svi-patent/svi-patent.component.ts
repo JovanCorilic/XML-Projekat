@@ -105,6 +105,9 @@ export class SviPatentComponent implements OnInit{
         res=>{
           this.opcija="1";
           this.listaPatenta2=Konverzija.uzimanjePodatakaXMLDtoLista(res);
+          this.listaPatenta2.forEach(element => {
+            this.prikazOznakaPatenta(element,this.mapaMetaPodaci);
+          });
         }
       )
     }

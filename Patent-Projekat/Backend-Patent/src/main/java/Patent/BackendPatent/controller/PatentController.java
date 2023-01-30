@@ -59,10 +59,13 @@ public class PatentController {
     //@PreAuthorize("hasAnyRole('Sluzbenik')")
     @GetMapping(value = "/logout",consumes = MediaType.ALL_VALUE,produces = MediaType.ALL_VALUE)
     public ResponseEntity<?>logoutUser()throws Exception{
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Korisnik korisnik = (Korisnik) auth.getPrincipal();
-        SecurityContextHolder.clearContext();
-
+        try {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            Korisnik korisnik = (Korisnik) auth.getPrincipal();
+            SecurityContextHolder.clearContext();
+        }catch (Exception e){
+            SecurityContextHolder.clearContext();
+        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -136,7 +139,7 @@ public class PatentController {
         return new ResponseEntity<>(new XMLDto(output), HttpStatus.OK);
     }
 
-    @GetMapping("pretragaViseMetapodataka/{opcija}")
+    @PostMapping("pretragaViseMetapodataka/{opcija}")
     public ResponseEntity<XMLDto> searchFromRDFViseMetapodataka(@PathVariable("opcija") String opcija, @RequestBody String text) throws IOException, JAXBException {
         ArrayList<String> result = patentService.searchByViseMetadataPodataka(opcija, text);
         String output = "";

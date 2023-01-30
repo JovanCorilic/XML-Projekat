@@ -44,7 +44,7 @@ public class ResenjeService {
         resenje.getDatumOdlukeOZahtevu().setAbout(resenje.getDatumOdlukeOZahtevu().getAbout()+"/"+docId);
 
         resenje.getSluzbenik().setAbout(resenje.getSluzbenik().getAbout()+"/"+docId);
-        text=jaxbParser.marshallString(Resenje.class,resenje);
+        text=jaxbParser.marshallStringResenje(Resenje.class,resenje);
         resenjeRepository.saveResenjeFromText(text,docId);
         FusekiWriter.saveRDFResenjeFromString(metadataExtractor.extractMetadataPatentInString(text));
     }
@@ -86,7 +86,7 @@ public class ResenjeService {
         Resenje resenje = jaxbParser.unmarshall(Resenje.class,xml);
         String natrag = "";
 
-        natrag +="Datum kada je napravljeno resenje : "+resenje.getDatumOdlukeOZahtevu()+
+        natrag +="Datum kada je napravljeno resenje : "+resenje.getDatumOdlukeOZahtevu().getValue()+
                 " | Broj prijave zahteva: "+resenje.getReferencaNaZahtev();
         return natrag;
     }

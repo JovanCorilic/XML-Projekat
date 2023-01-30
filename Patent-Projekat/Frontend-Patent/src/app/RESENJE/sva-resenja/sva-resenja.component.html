@@ -46,7 +46,7 @@
     
     <div *ngIf="opcija === '2'">
         <h2>Službenik koji odgovara vašoj pretrazi</h2>
-        <h3 *ngIf="listaResenja2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
+        
         <div *ngFor="let resenje of listaResenja2" >
             <button  (click)="idiNaEditResenje(resenje)" class="button">{{mapaMetaPodaci.get(resenje)}}</button>
             <br />
@@ -55,7 +55,7 @@
     </div>
     
     <div *ngIf="opcija === '1'">
-        <h2>Datum odluke o zahtevu koji odgovara vašoj pretrazi</h2>
+        <h2>Rezultat koji odgovara vašoj pretrazi</h2>
         <h3 *ngIf="listaResenja2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
         <div *ngFor="let resenje of listaResenja2" >
             <button  (click)="idiNaEditResenje(resenje)" class="button">{{mapaMetaPodaci.get(resenje)}}</button>

@@ -47,6 +47,19 @@ public class JaxbParser {
         return temp;
     }
 
+    public <T> String marshallStringResenje(Class genericClass,T objecToMarshall) throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(genericClass);
+        Marshaller marshaller = context.createMarshaller();
+        StringWriter sw = new StringWriter();
+        marshaller.marshal(objecToMarshall, sw);
+        String temp = sw.toString();
+        int duzina = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><resenje".length();
+        int duzina2 = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>".length();
+        temp = insertString(temp," xmlns:pred=\"http://www.ftn.uns.ac.rs/rdf/resenje/predicate/\" ",duzina);
+        //temp = insertString(temp,"<?xml-stylesheet type=\"text/xsl\" href=\"src/main/resources/xslt/P-1.xsl\"?>",duzina2-1);
+        return temp;
+    }
+
     public String insertString(
             String originalString,
             String stringToBeInserted,

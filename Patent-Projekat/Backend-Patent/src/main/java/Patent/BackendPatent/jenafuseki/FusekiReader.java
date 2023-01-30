@@ -24,10 +24,9 @@ public class FusekiReader {
 
     /*
     SELECT * FROM <http://localhost:8081/fuseki/Dataset/data/patentMetadata> where{
-        ?Dataset <http://www.ftn.uns.ac.rs/rdf/examples/predicate/brojPrijave> ?brojPrijave .
-        ?Dataset <http://www.ftn.uns.ac.rs/rdf/examples/predicate/brojPrijave> ?brojPrijave .
-        FILTER(CONTAINS(UCASE(str(?brojPrijave)), UCASE("{{brojPrijave}}"))).
-    }
+    ?Dataset <http://www.ftn.uns.ac.rs/rdf/examples/predicate/nazivPatentaSrpski> ?nazivPatentaSrpski .
+    FILTER(CONTAINS(UCASE(str(?nazivPatentaSrpski)), UCASE("1"))).
+}
 
      */
 
@@ -42,25 +41,25 @@ public class FusekiReader {
         String filter = "FILTER(";
         if(!metapodaci.getBrojPrijave().equals("")) {
             sparqlQuery += "?Dataset <http://www.ftn.uns.ac.rs/rdf/examples/predicate/brojPrijave> ?brojPrijave . ";
-            filter +="CONTAINS(UCASE(str(?brojPrijave)), UCASE(\"{{"+metapodaci.getBrojPrijave()+"}}\"))";
+            filter +="CONTAINS(UCASE(str(?brojPrijave)), UCASE(\""+metapodaci.getBrojPrijave()+"\"))";
         }
         if(!metapodaci.getPriznatiDatumPodnosenja().equals("")) {
             sparqlQuery += "?Dataset <http://www.ftn.uns.ac.rs/rdf/examples/predicate/priznatDatumPodnosenja> ?priznatDatumPodnosenja . ";
             if(!filter.equals("FILTER("))
                 filter+=" "+temp+" ";
-            filter+= "CONTAINS(UCASE(str(?priznatDatumPodnosenja)), UCASE(\"{{"+metapodaci.getPriznatiDatumPodnosenja()+"}}\"))";
+            filter+= "CONTAINS(UCASE(str(?priznatDatumPodnosenja)), UCASE(\""+metapodaci.getPriznatiDatumPodnosenja()+"\"))";
         }
         if(!metapodaci.getSrpskiNaziv().equals("")) {
             sparqlQuery += "?Dataset <http://www.ftn.uns.ac.rs/rdf/examples/predicate/nazivPatentaSrpski> ?nazivPatentaSrpski . ";
             if(!filter.equals("FILTER("))
                 filter+=" "+temp+" ";
-            filter+="CONTAINS(UCASE(str(?nazivPatentaSrpski)), UCASE(\"{{"+metapodaci.getSrpskiNaziv()+"}}\"))";
+            filter+="CONTAINS(UCASE(str(?nazivPatentaSrpski)), UCASE(\""+metapodaci.getSrpskiNaziv()+"\"))";
         }
         if (!metapodaci.getEngleskiNaziv().equals("")) {
             sparqlQuery += "?Dataset <http://www.ftn.uns.ac.rs/rdf/examples/predicate/nazivPatentaEngleski> ?nazivPatentaEngleski . ";
             if(!filter.equals("FILTER("))
                 filter+=" "+temp+" ";
-            filter+="CONTAINS(UCASE(str(?nazivPatentaEngleski)), UCASE(\"{{"+metapodaci.getEngleskiNaziv()+"}}\"))";
+            filter+="CONTAINS(UCASE(str(?nazivPatentaEngleski)), UCASE(\""+metapodaci.getEngleskiNaziv()+"\"))";
         }
         filter+=").";
         sparqlQuery+=filter+" }";
@@ -105,17 +104,22 @@ public class FusekiReader {
         String sparqlQuery = "";
         switch (opcija){
             case "1":
-                sparqlQuery = "SELECT * FROM <http://localhost:8081/fuseki/Dataset/data/resenjeMetadata> where{\n" +
-                        "    ?Dataset <http://www.ftn.uns.ac.rs/rdf/resenje/predicate/datumOdlukeOZahtevu> ?datumOdlukeOZahtevu .\n" +
-                        "    FILTER(CONTAINS(UCASE(str(?datumOdlukeOZahtevu)), UCASE(\"{{"+odluka+"}}\"))).\n" +
+                sparqlQuery = "SELECT * FROM <http://localhost:8081/fuseki/Dataset/data/resenjeMetadata> where{" +
+                        " ?Dataset <http://www.ftn.uns.ac.rs/rdf/resenje/predicate/datumOdlukeOZahtevu> ?datumOdlukeOZahtevu ." +
+                        " FILTER(CONTAINS(UCASE(str(?datumOdlukeOZahtevu)), UCASE(\""+odluka+"\"))). " +
                         "}";
+                //sparqlQuery = readFile("src/main/resources/rdf/test.rq", StandardCharsets.UTF_8);
+                break;
             case "2":
+                if (odluka.split(" ").length==1)
+                    return new ArrayList<>();
                 sparqlQuery = "SELECT * FROM <http://localhost:8081/fuseki/Dataset/data/resenjeMetadata> where{\n" +
                         "    ?Dataset <http://www.ftn.uns.ac.rs/rdf/resenje/predicate/ime> ?ime .\n" +
                         "    ?Dataset <http://www.ftn.uns.ac.rs/rdf/resenje/predicate/prezime> ?prezime .\n" +
-                        "    FILTER(CONTAINS(UCASE(str(?ime)), UCASE(\"{{"+odluka.split(" ")[0]+"}}\"))" +
-                        "       && CONTAINS(UCASE(str(?prezime)), UCASE(\"{{"+odluka.split(" ")[1]+"}}\"))).\n" +
+                        "    FILTER(CONTAINS(UCASE(str(?ime)), UCASE(\""+odluka.split(" ")[0]+"\"))" +
+                        "       && CONTAINS(UCASE(str(?prezime)), UCASE(\""+odluka.split(" ")[1]+"\"))).\n" +
                         "}";
+                break;
         }
 
         QueryExecution query = QueryExecutionFactory.sparqlService(conn.queryEndpoint,sparqlQuery);
@@ -148,7 +152,6 @@ public class FusekiReader {
                     foundPatent.add(""+varValue);
             }
         }
-        //ResultSetFormatter.outputAsXML(System.out,results);
         query.close();
         return foundPatent;
     }
@@ -173,7 +176,7 @@ public class FusekiReader {
         String sparqlQueryTemplate = readFile(QUERY_FILEPATH_PATENT, StandardCharsets.UTF_8);
 
         String sparqlQuery = StringSubstitutor.replace(sparqlQueryTemplate,params,"{{","}}");
-
+        System.out.println(sparqlQuery);
         QueryExecution query = QueryExecutionFactory.sparqlService(conn.queryEndpoint,sparqlQuery);
         ResultSet results = query.execSelect();
 

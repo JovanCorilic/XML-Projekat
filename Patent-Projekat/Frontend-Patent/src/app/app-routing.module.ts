@@ -1,3 +1,4 @@
+import { EditResenjeComponent } from './RESENJE/edit-resenje/edit-resenje.component';
 import { CreateResenjeComponent } from './RESENJE/create-resenje/create-resenje.component';
 import { SvaResenjaComponent } from './RESENJE/sva-resenja/sva-resenja.component';
 import { PretragaViseMetapodatakaComponent } from './PATENT/pretraga-vise-metapodataka/pretraga-vise-metapodataka.component';
@@ -39,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: 'editResenja/:resenje',
-    component:EditPatentComponent
+    component:EditResenjeComponent
   }
 ];
 

@@ -18,12 +18,9 @@ export class CreateResenjeComponent {
     let element = document.getElementById("editor");
     let xml = 
     `<resenje xmlns="http://www.ftn.uns.rs/ResenjePatent"
-    id=""
-    xmlns:pred="http://www.ftn.uns.ac.rs/rdf/resenje/predicate/">
+     id="" xmlns:pred="http://www.ftn.uns.ac.rs/rdf/resenje/predicate/">
       <datum_odluke_o_zahtevu about="http://www.ftn.uns.ac.rs/rdf/resenjePatent" property="pred:datumOdlukeOZahtevu" datatype="xs:string"></datum_odluke_o_zahtevu>
       <da_li_je_prosao>
-          <sifra></sifra>
-          <!--<obrazlozenje></obrazlozenje>-->
       </da_li_je_prosao>
       <sluzbenik about="http://www.ftn.uns.ac.rs/rdf/resenjePatent">
           <ime property="pred:ime" datatype="xs:string"></ime>
