@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Konverzija } from './../../SERVICE/konverzija.service';
 import { XonomyViseMetapodatakaService } from './../../SERVICE/xonomyViseMetapodataka.service';
 import { Component } from '@angular/core';
@@ -16,13 +17,18 @@ export class PretragaViseMetapodatakaComponent {
   prodjeno:boolean=false;
   lista:string[] = [];
   mapaMetaPodaci:Map<string,string>;
+  odlukaForm:FormGroup;
 
   constructor(private xonomyViseMetapodatakaService: XonomyViseMetapodatakaService,
     private router: Router,
     private route:ActivatedRoute,
-    private patentService: PatentService){
+    private patentService: PatentService,
+    private fBuilder:FormBuilder){
       this.temp=this.route.snapshot.paramMap.get('prodjeno');
       this.mapaMetaPodaci = new Map();
+      this.odlukaForm = this.fBuilder.group({
+        odluka:""
+      });
     }
 
     ngAfterViewInit(): void{
@@ -46,7 +52,8 @@ export class PretragaViseMetapodatakaComponent {
     send(){
       let text = Xonomy.harvest();
       text = '<?xml version="1.0" encoding="UTF-8"?>'+text;
-      this.patentService.searchViseMetapodataka(text).subscribe(
+      let opcija = this.odlukaForm.value['opcija'];
+      this.patentService.searchViseMetapodataka(text,opcija).subscribe(
         res=>{
           let rezultat = Konverzija.uzimanjePodatakaXMLDto(res);
           let test:string[] = [];

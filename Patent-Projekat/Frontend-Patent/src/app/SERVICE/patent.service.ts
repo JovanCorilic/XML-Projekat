@@ -71,8 +71,8 @@ export class PatentService{
       return this.http.get<any>(this.path+'/fusekiSearch'+`/${odluka}`+`/${opcija}`,this.HTTPOptions);
     }
 
-    searchViseMetapodataka(text:string):Observable<any>{
-      return this.http.post(this.path+'/pretragaViseMetapodataka', text,this.HTTPOptions);
+    searchViseMetapodataka(text:string,opcija:string):Observable<any>{
+      return this.http.post(this.path+'/pretragaViseMetapodataka'+`/${opcija}`, text,this.HTTPOptions);
     }
 
     searchTekstualniSadrzaj(odluka:string):Observable<any>{

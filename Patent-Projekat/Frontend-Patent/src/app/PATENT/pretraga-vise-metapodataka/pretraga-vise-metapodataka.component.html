@@ -2,7 +2,13 @@
     <tr>
         <td>
             <div id="editor"></div><br><br>
-            <button (click)="send()">Pošalji</button>
+            <form [formGroup]="odlukaForm" (ngSubmit)="send()">
+                <button type="submit" >Pošalji</button>
+                <select name = "opcija" id="opcija" formControlName="opcija">
+                    <option value = "AND" selected>AND</option>
+                    <option value = "OR">OR</option>
+                </select>
+            </form>
             <button (click)="back()">Natrag</button>
         </td>
         <td>

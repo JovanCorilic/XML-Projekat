@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
 import org.apache.commons.compress.utils.IOUtils;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXBException;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -127,6 +128,17 @@ public class PatentController {
     @GetMapping("fusekiSearch/{odluka}/{opcija}")
     public ResponseEntity<XMLDto> searchFromRDF(@PathVariable("odluka") String odluka, @PathVariable("opcija") String opcija) throws IOException {
         ArrayList<String> result = patentService.searchByMetadata(odluka, opcija);
+        String output = "";
+        for (String r : result) {
+            output += "\n" + r;
+        }
+        //System.out.println("OUTPUT: " + output);
+        return new ResponseEntity<>(new XMLDto(output), HttpStatus.OK);
+    }
+
+    @GetMapping("pretragaViseMetapodataka/{opcija}")
+    public ResponseEntity<XMLDto> searchFromRDFViseMetapodataka(@PathVariable("opcija") String opcija, @RequestBody String text) throws IOException, JAXBException {
+        ArrayList<String> result = patentService.searchByViseMetadataPodataka(opcija, text);
         String output = "";
         for (String r : result) {
             output += "\n" + r;

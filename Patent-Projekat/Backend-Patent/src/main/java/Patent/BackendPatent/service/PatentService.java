@@ -5,11 +5,13 @@ import Patent.BackendPatent.jenafuseki.FusekiReader;
 import Patent.BackendPatent.jenafuseki.FusekiWriter;
 import Patent.BackendPatent.jenafuseki.MetadataExtractor;
 import Patent.BackendPatent.model.patent.P1;
+import Patent.BackendPatent.model.viseMetapodataka.Metapodaci;
 import Patent.BackendPatent.repository.PatentRepository;
 import Patent.BackendPatent.xslt.PDFTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.bind.JAXBException;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -143,6 +145,11 @@ public class PatentService {
         }
 
         return FusekiReader.executeQueryPatent(params,opcija);
+    }
+
+    public ArrayList<String> searchByViseMetadataPodataka(String opcija,String text) throws IOException, JAXBException {
+        Metapodaci metapodaci = jaxbParser.unmarshall(Metapodaci.class,text);
+        return FusekiReader.executeQueryViseMetapodataka(metapodaci,opcija);
     }
 
     public String[] searchByTextContent(String odluka) throws Exception {
