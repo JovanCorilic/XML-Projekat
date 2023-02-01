@@ -31,13 +31,7 @@ import com.D_A_B_Eb_G_D_G_A.a_jedan_front.model.Adresa;
 
 import com.D_A_B_Eb_G_D_G_A.a_jedan_front.repository.A1Repository;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.StringWriter;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -88,8 +82,48 @@ public class XMLService {
 		FusekiWriter.saveRDF();
 	}
 
+	public String getStanje(String fajl) throws IOException {
+		File ff = new File("./src/main/resources/izlaz/Stanje.txt");
+		ArrayList<String> lista = new ArrayList<>();
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(ff))) {
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				if(line.substring(1).equals(fajl))
+					return line.charAt(0)+"";
+			}
+		} catch (IOException ex) {
+			System.out.format("I/O error: %s%n", ex);
+		}
+		return "N";
+	}
+
+	public void postaviStanje(String fajl, String stanje) throws Exception {
+		File ff = new File("./src/main/resources/izlaz/Stanje.txt");
+		ArrayList<String> lista = new ArrayList<>();
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(ff))) {
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				if(!line.substring(1).equals(fajl))
+					lista.add(line);
+			}
+		} catch (IOException ex) {
+			System.out.format("I/O error: %s%n", ex);
+		}
+		lista.add(stanje+fajl);
+
+		FileWriter myWriter = new FileWriter(ff);
+		for (String ssss: lista) {
+			myWriter.write(ssss+"\n");
+		}
+		myWriter.close();
+	}
+
 	public XMLResource getFromName(String text) throws Exception {
 		return a1Repository.getA1(text);
+	}
+
+	public String[] getAll() throws Exception {
+		return a1Repository.getAll();
 	}
 
 
@@ -465,5 +499,113 @@ public class XMLService {
 			sb.append(str).append(delimiter);
 		return sb.substring(0, sb.length() - 1);
 	}
+
+
+
+
+
+
+
+
+
+	public boolean filtriraj_xml(String dokument, String filter, char znak) {
+		try {
+			String sadrzaj = getFromName(dokument).getContent().toString().toLowerCase();
+
+
+			return ((znak == 'D' && sadrzaj.contains(filter.toLowerCase())) ||
+					(znak == 'N' && (!sadrzaj.contains(filter.toLowerCase()))));
+
+
+			}catch (Exception e){
+			return true;
+		}
+
+	}
+
+	public boolean filtriraj_xml_datum(String dokument, String datum1, String datum2) {
+		try {
+			String sadrzaj = getFromName(dokument).getContent().toString();
+
+			String[] datumi = sadrzaj.split("</x:Datum_Podnosenja>")[0].split(">");
+			String datum = datumi[datumi.length-1];
+
+			String datumVeci = datum2;
+			String datumManji = datum1;
+			if(veci_datum(datum1, datum2)){
+				datumVeci = datum1;
+				datumManji = datum2;
+			}
+
+			return veci_datum(datum, datumManji) && veci_datum(datumVeci, datum);
+
+		}catch (Exception e){
+			return true;
+		}
+
+	}
+
+	public ArrayList<String> unija(ArrayList<String> a, ArrayList<String> b) {
+		a.addAll(b);
+		return a;
+	}
+
+	public ArrayList<String> presek(ArrayList<String> a, ArrayList<String> b) {
+		a.retainAll(b);
+		return a;
+	}
+
+	public ArrayList<String> ekskluzivno(ArrayList<String> a, ArrayList<String> b) {
+		ArrayList<String> isti = new ArrayList<>(a);
+		isti.retainAll(b);
+		a.addAll(b);
+		a.removeAll(isti);
+		return a;
+	}
+
+	public boolean veci_datum(String datum1, String datum2) {
+
+		String[] datum1s = datum1.split("\\.");
+		String[] datum2s = datum2.split("\\.");
+
+		if( Integer.parseInt(datum1s[2]) == Integer.parseInt(datum2s[2])){
+			if(Integer.parseInt(datum1s[1]) == Integer.parseInt(datum2s[1])){
+				return  Integer.parseInt(datum1s[0]) > Integer.parseInt(datum2s[0]);
+			}else {
+				return  Integer.parseInt(datum1s[1]) > Integer.parseInt(datum2s[1]);
+			}
+		}else{
+			return  Integer.parseInt(datum1s[2]) > Integer.parseInt(datum2s[2]);
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

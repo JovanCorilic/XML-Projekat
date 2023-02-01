@@ -1,50 +1,52 @@
-<AJedan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:/C:/Users/User/Desktop/a_jedan/a_jedan/src/main/resources/AJedan.xsd">
+<!--N-->
+<AJedan xmlns="https://www.D_A_B_F#_G_D_G_A.com" xmlns:pred="https://1564.com/predicate" xmlns:x="http://www.w3.org/2001/XMLSchema-instance">
     <Jedan>
         <Podnosilac>
-            <Ime>Ime0</Ime>
-            <Prezime>Prezime0</Prezime>
+            <Ime xml:space="preserve">ounpvavmuisclif</Ime>
+            <Prezime xml:space="preserve">gjhabrbbdkhuaod</Prezime>
             <Adresa>
-                <Grad>Grad0</Grad>
-                <Ulica>Ulica0</Ulica>
-                <Broj>Broj0</Broj>
+                <Grad xml:space="preserve">onhfeclmgntbrhm</Grad>
+                <Ulica xml:space="preserve">oepjndsfababpfa</Ulica>
+                <Broj xml:space="preserve">93</Broj>
             </Adresa>
-            <Drzavljanstvo>Drzavljanstvo0</Drzavljanstvo>
+            <Telefonski_Broj xml:space="preserve">0631391143</Telefonski_Broj>
+            <Drzavljanstvo xml:space="preserve">zfbddufdboatgru</Drzavljanstvo>
         </Podnosilac>
-        <Telefonski_Broj>Telefonski_Broj0</Telefonski_Broj>
-        <email>email0</email>
     </Jedan>
-    <Dva/>
+    <Dva>
+        <Znak_Autora xml:space="preserve"> </Znak_Autora>
+    </Dva>
     <Tri/>
     <Cetiri>
-        <Naslov>Naslov0</Naslov>
-        <Alternativni_Naslov>Alternativni_Naslov0</Alternativni_Naslov>
+        <x:Naslov property="pred:Naslov" xml:space="preserve">zbfilhmhsiaglmj</x:Naslov>
+        <Alternativni_Naslov xml:space="preserve">orrhthizdvfpgrv</Alternativni_Naslov>
     </Cetiri>
     <Pet>
         <Autorsko_Delo_Prerade>
-            <Podaci_O_Originalnom_Autorskom_Delu>Podaci_O_Originalnom_Autorskom_Delu0</Podaci_O_Originalnom_Autorskom_Delu>
-            <Ime_Autora>Ime_Autora0</Ime_Autora>
+            <Podaci_O_Originalnom_Autorskom_Delu xml:space="preserve">uatopheehlttgfc</Podaci_O_Originalnom_Autorskom_Delu>
+            <Ime_Autora xml:space="preserve">uirhzolcebdvmef</Ime_Autora>
         </Autorsko_Delo_Prerade>
     </Pet>
     <Sest>
-        <Podaci_O_Vrsti_Autorskog_Dela>Podaci_O_Vrsti_Autorskog_Dela0</Podaci_O_Vrsti_Autorskog_Dela>
+        <x:Podaci_O_Vrsti_Autorskog_Dela property="pred:Podaci_O_Vrsti_Autorskog_Dela" xml:space="preserve">pfngtngpujjjasg</x:Podaci_O_Vrsti_Autorskog_Dela>
     </Sest>
     <Sedam>
-        <Podaci_O_Formi_Autorskog_Zapisa_Dela>Podaci_O_Formi_Autorskog_Zapisa_Dela0</Podaci_O_Formi_Autorskog_Zapisa_Dela>
+        <Podaci_O_Formi_Autorskog_Zapisa_Dela xml:space="preserve">uujhfgopcigepar</Podaci_O_Formi_Autorskog_Zapisa_Dela>
     </Sedam>
     <Osam/>
     <Devet>
-        <Da_Li_Je_Autorsko_Delo_Stvoreno_U_Radnom_Odnosu>Da_Li_Je_Autorsko_Delo_Stvoreno_U_Radnom_Odnosu0</Da_Li_Je_Autorsko_Delo_Stvoreno_U_Radnom_Odnosu>
+        <Da_Li_Je_Autorsko_Delo_Stvoreno_U_Radnom_Odnosu xml:space="preserve">hosrkbuahntncjo</Da_Li_Je_Autorsko_Delo_Stvoreno_U_Radnom_Odnosu>
     </Devet>
     <Deset>
-        <Nameravani_Nacin_Koriscenja_Autorskog_Dela>Nameravani_Nacin_Koriscenja_Autorskog_Dela0</Nameravani_Nacin_Koriscenja_Autorskog_Dela>
+        <Nameravani_Nacin_Koriscenja_Autorskog_Dela xml:space="preserve">bnhukzcvdsjhlhg</Nameravani_Nacin_Koriscenja_Autorskog_Dela>
     </Deset>
     <Jedanaest>
-        <Potpis>Potpis0</Potpis>
+        <x:Potpis property="pred:Potpis" xml:space="preserve">uektsoehsmzdkiu</x:Potpis>
     </Jedanaest>
     <Dvanaest>
-        <Prilozi_Uz_Zahtev>Prilozi_Uz_Zahtev0</Prilozi_Uz_Zahtev>
+        <Prilozi_Uz_Zahtev xml:space="preserve">djtnuughtkkaagr</Prilozi_Uz_Zahtev>
     </Dvanaest>
-    <Opis_Autorskog_Dela>Opis_Autorskog_Dela0</Opis_Autorskog_Dela>
-    <Broj_Prijace>Broj_Prijace0</Broj_Prijace>
-    <Datum_Podnosenja>Datum_Podnosenja0</Datum_Podnosenja>
+    <Opis_Autorskog_Dela xml:space="preserve">pnuvbfjtkddvptu</Opis_Autorskog_Dela>
+    <x:Broj_Prijace property="pred:Broj_Prijace" xml:space="preserve">89963</x:Broj_Prijace>
+    <x:Datum_Podnosenja property="pred:Datum_Podnosenja" xml:space="preserve">21.10.2021</x:Datum_Podnosenja>
 </AJedan>

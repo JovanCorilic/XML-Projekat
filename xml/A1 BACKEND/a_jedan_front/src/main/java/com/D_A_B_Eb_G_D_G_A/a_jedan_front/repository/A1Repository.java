@@ -18,12 +18,31 @@ public class A1Repository {
 	
 	public void saveA1(String text) throws Exception {
 		//long unixTime = Instant.now().getEpochSecond();
-		existManager.storeFromText(collectionId, "A1-"+ "DrugaKonstolnaTacka", text);
-		//existManager.storeFromText(collectionId, "A1-"+ Long.toString(unixTime), text);
+		String naslovi[] = text.split("</x:Naslov>")[0].split(">");
+		String datumi[] = text.split("</x:Datum_Podnosenja>")[0].split(">");
+		existManager.storeFromText(collectionId, "A1-"+ ocistiNaziv(naslovi[naslovi.length-1]) + "-(" + ocistiNaziv(datumi[datumi.length-1]) + ")", "<!--N-->" + text);
+		//existManager.storeFromText(collectionId, "A1-"+ unixTime), text);
+	}
+
+	public void UpdateA1(String text, String naziv) throws Exception {
+
+		existManager.update(0, collectionId, naziv, null,null);
+		//existManager.storeFromText(collectionId, "A1-"+ unixTime), text);
+	}
+
+	private String ocistiNaziv(String ulaz){
+		String ss = ulaz.replace(" ", "-").replace("/", "-").replace("%","")
+				.replace("?","").replace("=","").replace("<","").replace(">","");
+		return (!(ss.trim().equals(""))) ? ss : "Neimenovani-Dokument-" + Long.toString(Instant.now().getEpochSecond());
 	}
 	
 	public XMLResource getA1(String text) throws Exception {
 		return existManager.load(collectionId, text);
+		//existManager.storeFromText(collectionId, "A1-"+ Long.toString(unixTime), text);
+	}
+
+	public String[] getAll() throws Exception {
+		return existManager.getAllA1(collectionId);
 		//existManager.storeFromText(collectionId, "A1-"+ Long.toString(unixTime), text);
 	}
 

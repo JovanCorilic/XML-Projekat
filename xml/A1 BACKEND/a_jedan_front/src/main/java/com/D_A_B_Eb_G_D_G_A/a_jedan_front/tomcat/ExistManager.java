@@ -6,6 +6,7 @@ import javax.xml.transform.OutputKeys;
 
 import org.exist.xmldb.DatabaseImpl;
 import org.exist.xmldb.EXistResource;
+import org.exist.xmldb.RemoteCollection;
 import org.exist.xupdate.XUpdateProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -153,6 +154,21 @@ public class ExistManager {
 			}
 		}
 		return result;
+	}
+
+	public String[] getAllA1(String collectionUri) throws Exception  {
+		createConnection();
+		Collection col = null;
+
+		try {
+			col = DatabaseManager.getCollection(authManager.getUri() + collectionUri, authManager.getUser(),
+					authManager.getPassword());
+		} finally {
+			if (col != null) {
+				col.close();
+			}
+		}
+		return ((RemoteCollection) col).getResources();
 	}
 
 	public void update(int template, String collectionUri, String document, String contextXPath, String patch)

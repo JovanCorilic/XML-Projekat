@@ -1,17 +1,17 @@
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
 <rdf:Description rdf:about="">
-<pred:Naslov xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Patent 213441</pred:Naslov>
+<pred:Naslov xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">iacdtlknnkroaps</pred:Naslov>
 </rdf:Description>
 <rdf:Description rdf:about="">
-<pred:Podaci_O_Vrsti_Autorskog_Dela xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Nacrt</pred:Podaci_O_Vrsti_Autorskog_Dela>
+<pred:Podaci_O_Vrsti_Autorskog_Dela xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">ozehnffdptdavph</pred:Podaci_O_Vrsti_Autorskog_Dela>
 </rdf:Description>
 <rdf:Description rdf:about="">
-<pred:Potpis xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">pot? pis...?</pred:Potpis>
+<pred:Potpis xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">cglasprhbhccuuf</pred:Potpis>
 </rdf:Description>
 <rdf:Description rdf:about="">
-<pred:Broj_Prijace xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">1564</pred:Broj_Prijace>
+<pred:Broj_Prijace xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">52872</pred:Broj_Prijace>
 </rdf:Description>
 <rdf:Description rdf:about="">
-<pred:Datum_Podnosenja xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">24.05.2022</pred:Datum_Podnosenja>
+<pred:Datum_Podnosenja xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">10.2.2021</pred:Datum_Podnosenja>
 </rdf:Description>
 </rdf:RDF>
