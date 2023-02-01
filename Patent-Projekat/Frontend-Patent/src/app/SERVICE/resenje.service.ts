@@ -43,6 +43,10 @@ export class ResenjeService{
         return this.http.get<any>(this.path+'/getResenje'+`/${id}`,this.HTTPOptions);
     }
 
+    getReferencuNaZahtev(id:string):Observable<any>{
+        return this.http.get<any>(this.path+'/getReferencuNaZahtev'+`/${id}`,this.HTTPOptions);
+    }
+
     getOznakeResenja(id:string):Observable<any>{
         return this.http.get<any>(this.path+"/getOznakeResenja"+`/${id}`,this.HTTPOptions);
     }

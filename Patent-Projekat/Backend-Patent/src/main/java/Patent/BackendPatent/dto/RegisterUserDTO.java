@@ -20,6 +20,9 @@ public class RegisterUserDTO {
 		this.role = role;
 	}
 
+	public RegisterUserDTO() {
+	}
+
 	public String getUsername() {
 		return username;
 	}

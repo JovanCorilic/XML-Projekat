@@ -22,17 +22,17 @@ export class SecurityService{
    }
 
    login(text:string):Observable<any>{
-
     return this.http.post(this.path+"/login",text,{headers: this.headers})
   }
 
   registracija(text:string):Observable<any>{
-
-    return this.http.post(this.path+"/register",text,this.HTTPOptions)
+  
+    return this.http.post(this.path+"/register",text,{headers: this.headers})
   }
 
   logout():Observable<any>{
-      return this.http.get(this.path+"/logout");
+    
+      return this.http.get(this.path+"/logout",this.HTTPOptions);
   }
 
   isLoggedIn():boolean{

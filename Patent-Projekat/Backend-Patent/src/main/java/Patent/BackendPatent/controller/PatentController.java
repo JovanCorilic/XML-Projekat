@@ -54,6 +54,13 @@ public class PatentController {
         return new ResponseEntity<>(document, HttpStatus.OK);
     }
 
+    @GetMapping("/getReferenciraneDokumente/{id}")
+    public ResponseEntity<XMLListaDTO>getReferenciraneDokumente(@PathVariable("id")String id)throws Exception{
+        String document = patentService.getPatentXMLDocument(id);
+        String[]lista = patentService.getReferenceNaDokumente(document);
+        return new ResponseEntity<>(new XMLListaDTO(lista),HttpStatus.OK);
+    }
+
     @GetMapping(value = "/getOznakePatenta/{id}")
     public ResponseEntity<XMLDto> getOznakePatenta(@PathVariable("id") String id) throws Exception {
         String temp = patentService.getOznakePatenta(id);

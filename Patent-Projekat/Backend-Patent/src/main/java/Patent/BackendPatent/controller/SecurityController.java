@@ -32,15 +32,16 @@ public class SecurityController {
     private AuthenticationManager authenticationManager;
     @Autowired
     private RestTemplate restTemplate;
+
     private JaxbParser jaxbParser;
 
-    @Bean
-    public RestTemplate restTemplate(){
-        return new RestTemplate();
+    public SecurityController(JaxbParser jaxbParser) {
+        this.jaxbParser = jaxbParser;
     }
 
-    @PostMapping("/register")
+    @PostMapping(value = "/register", produces = MediaType.ALL_VALUE)
     public ResponseEntity<Void>register(@RequestBody String xml) throws JAXBException {
+        xml = xml.replaceAll("xml:space='preserve'","");
         Patent.BackendPatent.dto.KorisnikDTO.Korisnik korisnik = jaxbParser.unmarshall(Patent.BackendPatent.dto.KorisnikDTO.Korisnik.class,xml);
         RegisterUserDTO registerUserDTO = new RegisterUserDTO(korisnik.getKorisnickoIme(),korisnik.getLozinka(),korisnik.getUloga());
 
@@ -73,5 +74,10 @@ public class SecurityController {
             SecurityContextHolder.clearContext();
         }
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @Bean
+    public RestTemplate restTemplate(){
+        return new RestTemplate();
     }
 }

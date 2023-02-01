@@ -14,6 +14,8 @@ export class EditPatentComponent {
   patentId=<string>{}
   temp:string|null;
   prodjeno:string|null;
+  mapa:Map<string,string>;
+  listaPatenta:string[]|undefined;
 
   constructor(
     private patentService:PatentService,
@@ -27,6 +29,7 @@ export class EditPatentComponent {
       else
         this.patentId = "nista";
     this.prodjeno=this.route.snapshot.paramMap.get('prodjeno');
+    this.mapa= new Map();
    }
 
   ngOnInit(): void {
@@ -39,6 +42,14 @@ export class EditPatentComponent {
         Xonomy.render(xmlString, element, specification);
         
         Xonomy.refresh();
+      }
+    )
+    this.patentService.getReferenciraneDokumente(this.patentId).subscribe(
+      res=>{
+        this.listaPatenta = Konverzija.uzimanjePodatakaXMLDtoLista(res);
+        this.listaPatenta.forEach(element => {
+          this.prikazOznakaPatenta(element,this.mapa);
+        });
       }
     )
   }
@@ -140,5 +151,18 @@ export class EditPatentComponent {
     catch (e) {
         return false;
     }
+  }
+
+  prikazOznakaPatenta(id:string,Mapa:Map<string,string>){
+    this.patentService.getOznakePatenta(id).subscribe(
+      res=>{
+        Mapa.set(id,Konverzija.uzimanjePodatakaXMLDto(res));
+      }
+    );
+
+  }
+
+  idiNaEditPatenta(patent:string){
+    this.router.navigate(['/edit-patent/'+patent+'/'+this.prodjeno]);
   }
 }

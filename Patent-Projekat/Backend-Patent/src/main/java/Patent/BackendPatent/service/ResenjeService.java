@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class ResenjeService {
@@ -78,6 +80,20 @@ public class ResenjeService {
 
     public String getResenjeXMLDocument(String docId) throws Exception{
         return resenjeRepository.findResenjeById(docId);
+    }
+
+    public String[] getReferencuNaZahtev(String xml)throws Exception{
+        Resenje resenje = jaxbParser.unmarshall(Resenje.class,xml);
+        Map<String, String> params = new HashMap<>();
+        params.put("brojPrijave", resenje.getReferencaNaZahtev());
+        ArrayList<String>listaNatrag = FusekiReader.executeQueryPatent(params,"2");
+        String[]natrag = new String[listaNatrag.size()];
+        for (int i = 0;i<listaNatrag.size();i+=2){
+            String[] tempLista = listaNatrag.get(i).split("/");
+            natrag[i] = tempLista[tempLista.length-1];
+
+        }
+        return natrag;
     }
 
     public String[] getAll()throws Exception{

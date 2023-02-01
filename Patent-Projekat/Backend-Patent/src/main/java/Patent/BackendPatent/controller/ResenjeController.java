@@ -59,6 +59,13 @@ public class ResenjeController {
         return new ResponseEntity<>(document, HttpStatus.OK);
     }
 
+    @GetMapping("/getReferencuNaZahtev/{id}")
+    public ResponseEntity<XMLListaDTO>getReferencuNaDokument(@PathVariable("id")String id)throws Exception{
+        String document = resenjeService.getResenjeXMLDocument(id);
+        String[] tempLista = resenjeService.getReferencuNaZahtev(document);
+        return new ResponseEntity<>(new XMLListaDTO(tempLista),HttpStatus.OK);
+    }
+
     @GetMapping(value = "/getOznakeResenja/{id}")
     public ResponseEntity<XMLDto> getOznakePatenta(@PathVariable("id") String id) throws Exception {
         String temp = resenjeService.getOznakeResenja(id);

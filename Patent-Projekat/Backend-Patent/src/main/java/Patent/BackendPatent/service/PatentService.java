@@ -87,6 +87,25 @@ public class PatentService {
         return patentRepository.findPatentById(docId);
     }
 
+    public String[] getReferenceNaDokumente(String xml)throws Exception{
+        P1 p1 = jaxbParser.unmarshall(P1.class,xml);
+        int velicina = p1.getZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava().getRanijaPrijava().size();
+        ArrayList<String>listaNatrag = new ArrayList<>();
+        for (int i = 0;i<velicina;i++){
+            String temp = p1.getZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava().getRanijaPrijava().get(i).getBrojRanijePrijave();
+            ArrayList<String>rezultat = searchByMetadata(temp,"2");
+            if (rezultat!=null)
+                for (int j = 0;j<rezultat.size();j+=2){
+                    String[] tempLista = rezultat.get(j).split("/");
+                    listaNatrag.add(tempLista[tempLista.length-1]);
+                }
+        }
+        String[]natrag = new String[listaNatrag.size()];
+        for(int i = 0;i<listaNatrag.size();i++)
+            natrag[i] = listaNatrag.get(i);
+        return natrag;
+    }
+
     public String getPatentBySrpskiNaziv(String naziv)throws Exception{
         return patentRepository.findPatentByNaziv("<srpski_naziv property=\"pred:nazivPatentaSrpski\" datatype=\"xs:string\">"+naziv+"</srpski_naziv>");
     }

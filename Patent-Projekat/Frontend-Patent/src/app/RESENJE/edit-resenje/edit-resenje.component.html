@@ -1,3 +1,16 @@
-<div id="editor"></div><br><br>
-<button (click)="send()" class="button3">Promeni</button>&nbsp;&nbsp;&nbsp;&nbsp;
-<button (click)="natrag()" class="button3">Natrag</button>
+<table>
+    <tr>
+        <td>
+            <div id="editor"></div><br><br>
+            <button (click)="send()" class="button3">Promeni</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button (click)="natrag()" class="button3">Natrag</button>
+        </td>
+        <td>
+            <div *ngFor="let resenje of listaResenja" >
+                <button (click)="idiNaEditResenje(resenje)" class="button">{{mapa.get(resenje)}}</button>
+                <br />
+                </div>
+        </td>
+    </tr>
+</table>
+

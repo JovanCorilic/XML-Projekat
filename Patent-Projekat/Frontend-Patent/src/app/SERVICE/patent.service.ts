@@ -55,7 +55,9 @@ export class PatentService{
       return this.http.get<any>(this.path+'/getXMLDocument'+`/${id}`,this.HTTPOptions);
     }
 
-    
+    getReferenciraneDokumente(id:string):Observable<any>{
+      return this.http.get<any>(this.path+'/getReferenciraneDokumente'+`/${id}`,this.HTTPOptions);
+    }
 
     getPatentSrpskiEngleskiNaziv(id:string):Observable<any>{
       return this.http.get<any>(this.path+'/pretragaPoNazivu'+`/${id}`,this.HTTPOptions);

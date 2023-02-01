@@ -2,7 +2,7 @@ import { ResenjeService } from './../../SERVICE/resenje.service';
 import { XonomyResenjeCreateService } from './../../SERVICE/xonomyResenjeCreateService.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PatentService } from 'src/app/SERVICE/patent.service';
+import { Konverzija } from 'src/app/SERVICE/konverzija.service';
 
 declare const Xonomy:any;
 
@@ -14,6 +14,8 @@ declare const Xonomy:any;
 export class EditResenjeComponent {
   patentId=<string>{}
   temp:string|null;
+  mapa:Map<string,string>;
+  listaResenja:string[]|undefined;
 
   constructor(
     private resenjeService:ResenjeService,
@@ -26,6 +28,7 @@ export class EditResenjeComponent {
         this.patentId = this.temp;
       else
         this.patentId = "nista";
+    this.mapa = new Map();
    }
 
   ngOnInit(): void {
@@ -39,6 +42,15 @@ export class EditResenjeComponent {
       Xonomy.render(xmlString, element, specification);
       
       Xonomy.refresh();
+    }
+  )
+
+  this.resenjeService.getReferencuNaZahtev(this.patentId).subscribe(
+    res=>{
+      this.listaResenja = Konverzija.uzimanjePodatakaXMLDtoLista(res);
+        this.listaResenja.forEach(element => {
+          this.prikazOznakaPatenta(element,this.mapa);
+        });
     }
   )
 }
@@ -57,6 +69,19 @@ send(){
 
 natrag(){
   this.router.navigate(['/svaResenja']);
+}
+
+idiNaEditResenje(resenje:string){
+  this.router.navigate(['/editResenja/'+resenje]);
+}
+
+prikazOznakaPatenta(id:string,Mapa:Map<string,string>){
+  this.resenjeService.getOznakeResenja(id).subscribe(
+    res=>{
+      Mapa.set(id,Konverzija.uzimanjePodatakaXMLDto(res));
+    }
+  );
+
 }
 
 }
