@@ -1,4 +1,5 @@
-import { PatentService } from 'src/app/SERVICE/patent.service';
+import { SecurityService } from './security.service';
+
 
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
@@ -7,12 +8,12 @@ import { CanActivate, Router } from '@angular/router';
 })
 export class LoginGuard implements CanActivate{
     constructor(
-        private patentService:PatentService,
+        private securityService:SecurityService,
         private router:Router
     ){}
 
     canActivate():boolean{
-        if (this.patentService.isLoggedIn()){
+        if (this.securityService.isLoggedIn()){
             this.router.navigate([' ']);
             return false;
         }

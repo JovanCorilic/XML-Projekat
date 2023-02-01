@@ -1,3 +1,5 @@
+import { LoginComponent } from './SECURITY/login/login.component';
+import { RegistracijaComponent } from './SECURITY/registracija/registracija.component';
 import { EditResenjeComponent } from './RESENJE/edit-resenje/edit-resenje.component';
 import { CreateResenjeComponent } from './RESENJE/create-resenje/create-resenje.component';
 import { SvaResenjaComponent } from './RESENJE/sva-resenja/sva-resenja.component';
@@ -41,6 +43,14 @@ const routes: Routes = [
   {
     path: 'editResenja/:resenje',
     component:EditResenjeComponent
+  },
+  {
+    path: 'registracija',
+    component:RegistracijaComponent
+  },
+  {
+    path: 'login',
+    component:LoginComponent
   }
 ];
 

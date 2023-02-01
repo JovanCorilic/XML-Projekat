@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.ftn.uns.rs/KorisnikDTO"
+    xmlns:KorisnikDTO="http://www.ftn.uns.rs/KorisnikDTO">
+
+    <xs:element name="korisnik">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="korisnicko_ime" type="xs:string"/>
+                <xs:element name="lozinka" type="xs:string"/>
+                <xs:element name="uloga" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

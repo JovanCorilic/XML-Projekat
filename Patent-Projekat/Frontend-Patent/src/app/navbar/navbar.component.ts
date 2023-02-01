@@ -1,8 +1,7 @@
-import { PatentService } from 'src/app/SERVICE/patent.service';
+import { SecurityService } from './../SERVICE/security.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { Korisnik } from '../MODEL/Korisnik';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +12,7 @@ export class NavbarComponent {
 
   constructor(
     private router: Router,
-    private patentService:PatentService
+    private securityService:SecurityService
   ){}
 
   getRole():string{
@@ -58,27 +57,16 @@ export class NavbarComponent {
   }
 
   goToRegister(){
-
+    this.router.navigate(['/registracija']);
   }
 
   goToLogin(){
-    this.patentService.login(new Korisnik("1","1")).subscribe(
-      res=>{
-        localStorage.setItem('user', JSON.stringify(res));
-        const item = localStorage.getItem('user');
-        const decodedItem = JSON.parse(item!);
-        localStorage.setItem('accessToken', decodedItem.accessToken);
-        const jwt: JwtHelperService = new JwtHelperService();
-        const info = jwt.decodeToken(decodedItem.accessToken);
-        localStorage.setItem('roles', info['roles']);
-        this.router.navigate(['']);
-      }
-    )
+    this.router.navigate(['/login']);
     //window.location.reload();
   }
 
   goToLogOut(){
-    this.patentService.logout().subscribe(
+    this.securityService.logout().subscribe(
       res=>{
         localStorage.removeItem('user');
         localStorage.removeItem('accessToken');

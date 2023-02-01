@@ -41,6 +41,8 @@ public class PDFTransformer {
 	//public static final String INPUT_FILE = "data/xslt/test.xml";
 	
 	public static final String XSL_FILE = "src/main/resources/xslt/P-1.xsl";
+
+	public static final String XSL_FILE_IZVESTAJ = "src/main/resources/xslt/Izvestaj.xsl";
 	
 	public static final String HTML_FILE = "src/main/resources/gen/Test.html";
 	
@@ -83,6 +85,51 @@ public class PDFTransformer {
         document.close();
         
     }
+
+	public static ByteArrayOutputStream generateAndDownloadPDFIzvestaj(String xml)throws Exception{
+		try {
+
+			// Initialize Transformer instance
+			PDFTransformer pdfTransformer = new PDFTransformer();
+			StreamSource transformSource = new StreamSource(new File(XSL_FILE_IZVESTAJ));
+			Transformer transformer = transformerFactory.newTransformer(transformSource);
+			transformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "2");
+			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
+			// Generate XHTML
+			transformer.setOutputProperty(OutputKeys.METHOD, "xhtml");
+
+			// Transform DOM to HTML
+			DOMSource source = new DOMSource(pdfTransformer.buildDocumentFromString(xml));
+
+			StreamResult result = new StreamResult(new ByteArrayOutputStream());
+
+			transformer.transform(source, result);
+
+			String html = result.getOutputStream().toString();
+
+			Document document = new Document();
+			ByteArrayOutputStream temp = new ByteArrayOutputStream();
+			PdfWriter writer = PdfWriter.getInstance(document, temp);
+
+			document.open();
+			byte[]temp2 = html.getBytes(StandardCharsets.UTF_8);
+			XMLWorkerHelper.getInstance().parseXHtml(writer,document,new ByteArrayInputStream(temp2));
+			document.close();
+
+			return temp;
+
+		} catch (TransformerConfigurationException e) {
+			e.printStackTrace();
+			return null;
+		} catch (TransformerFactoryConfigurationError e) {
+			e.printStackTrace();
+			return null;
+		} catch (TransformerException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	public static ByteArrayOutputStream generateAndDownloadPDF(String html)throws Exception{
 

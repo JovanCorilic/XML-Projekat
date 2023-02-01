@@ -20,6 +20,8 @@ import { SvaResenjaComponent } from './RESENJE/sva-resenja/sva-resenja.component
 import { EditResenjeComponent } from './RESENJE/edit-resenje/edit-resenje.component';
 import { CreateResenjeComponent } from './RESENJE/create-resenje/create-resenje.component';
 import { PretragaViseMetapodatakaComponent } from './PATENT/pretraga-vise-metapodataka/pretraga-vise-metapodataka.component';
+import { RegistracijaComponent } from './SECURITY/registracija/registracija.component';
+import { LoginComponent } from './SECURITY/login/login.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { PretragaViseMetapodatakaComponent } from './PATENT/pretraga-vise-metapo
     SvaResenjaComponent,
     EditResenjeComponent,
     CreateResenjeComponent,
-    PretragaViseMetapodatakaComponent
+    PretragaViseMetapodatakaComponent,
+    RegistracijaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

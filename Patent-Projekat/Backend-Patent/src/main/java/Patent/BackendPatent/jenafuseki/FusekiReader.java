@@ -99,6 +99,47 @@ public class FusekiReader {
         return foundPatent;
     }
 
+    public static ArrayList<String>executeQuery(String sparqlQuery) throws IOException {
+        FusekiAuthenticationUtilities.ConnectionProperties conn = FusekiAuthenticationUtilities.loadProperties();
+        QueryExecution query = QueryExecutionFactory.sparqlService(conn.queryEndpoint,sparqlQuery);
+        ResultSet results = query.execSelect();
+
+        String varName;
+        RDFNode varValue;
+        ArrayList<String> foundPatent = new ArrayList<>();
+        while(results.hasNext()){
+            // A single answer from a SELECT query
+            QuerySolution querySolution = results.next();
+            Iterator<String> variableBindings = querySolution.varNames();
+            // Retrieve variable bindings
+            while(variableBindings.hasNext()){
+                varName = variableBindings.next();
+                varValue = querySolution.get(varName);
+
+                if(varName.contains("datumOdlukeOZahtevu")){
+                    String value = varValue.toString();
+                    foundPatent.add(value);
+                }
+                else if(varName.contains("ime")){
+                    String value = varValue.toString();
+                    foundPatent.add(value);
+                }
+                else if(varName.contains("prezime")){
+                    String value = varValue.toString();
+                    foundPatent.add(value);
+                }else if(varName.equals("Dataset"))
+                    foundPatent.add(""+varValue);
+                else if (varName.contains("priznatDatumPodnosenja")){
+                    String value = varValue.toString();
+                    foundPatent.add(value);
+                }
+
+            }
+        }
+        query.close();
+        return foundPatent;
+    }
+
     public static ArrayList<String>executeQueryResenje(String odluka, String opcija) throws IOException {
         FusekiAuthenticationUtilities.ConnectionProperties conn = FusekiAuthenticationUtilities.loadProperties();
         String sparqlQuery = "";
