@@ -87,12 +87,15 @@ public class ResenjeService {
         Map<String, String> params = new HashMap<>();
         params.put("brojPrijave", resenje.getReferencaNaZahtev());
         ArrayList<String>listaNatrag = FusekiReader.executeQueryPatent(params,"2");
-        String[]natrag = new String[listaNatrag.size()];
+        ArrayList<String>tempListaNatrag = new ArrayList<>();
         for (int i = 0;i<listaNatrag.size();i+=2){
             String[] tempLista = listaNatrag.get(i).split("/");
-            natrag[i] = tempLista[tempLista.length-1];
+            tempListaNatrag.add(tempLista[tempLista.length-1]);
 
         }
+        String[]natrag = new String[tempListaNatrag.size()];
+        for (int i = 0;i<tempListaNatrag.size();i++)
+            natrag[i] = tempListaNatrag.get(i);
         return natrag;
     }
 

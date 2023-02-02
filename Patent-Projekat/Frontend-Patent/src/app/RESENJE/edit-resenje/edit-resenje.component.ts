@@ -72,7 +72,8 @@ natrag(){
 }
 
 idiNaEditResenje(resenje:string){
-  this.router.navigate(['/editResenja/'+resenje]);
+ 
+  this.router.navigate(['/edit-patent/'+resenje+'/true']);
 }
 
 prikazOznakaPatenta(id:string,Mapa:Map<string,string>){

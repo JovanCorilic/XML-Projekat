@@ -47,6 +47,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         //auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(korisnikService).passwordEncoder(passwordEncoder());
     }
 
     // Injektujemo implementaciju iz TokenUtils klase kako bismo mogli da koristimo njene metode za rad sa JWT u TokenAuthenticationFilteru
@@ -68,6 +69,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/security/login").permitAll()
                 .antMatchers("/api/security/logout").permitAll()
                 .antMatchers("/api/security/register").permitAll()
+                .antMatchers("/api/patent/downloadPDF/*").permitAll()
+                .antMatchers("/api/resenje/downloadPDF/*/*").permitAll()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
                 // umesto anotacija iynad svake metode, moze i ovde da se proveravaju prava pristupa ya odredjeni URL
                 //.antMatchers(HttpMethod.GET, "/api/cultural-content-category").hasRole("ROLE_ADMIN")
@@ -89,7 +92,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         // TokenAuthenticationFilter ce ignorisati sve ispod navedene putanje
         web.ignoring().antMatchers(HttpMethod.POST, "/api/security/login","/api/security/register", "/recover/**");
-        web.ignoring().antMatchers(HttpMethod.GET,  "/","/api/security/logout", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html",
+        web.ignoring().antMatchers(HttpMethod.GET,  "/","/api/patent/downloadPDF/*","/api/resenje/downloadPDF/*/*","/api/security/logout", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html",
                 "/**/*.css", "/**/*.js", "/recover/**");
 
     }

@@ -2,6 +2,7 @@ import { xml2js } from "xml-js";
 
 export class Konverzija{
     static uzimanjePodatakaXMLDtoLista(text: string):string[]{
+    
         const object = xml2js(text);
         let duzina = object.elements[0].elements.length;
         let lista = [duzina];

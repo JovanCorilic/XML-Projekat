@@ -9,6 +9,7 @@ import org.apache.jena.update.UpdateRequest;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.Console;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
