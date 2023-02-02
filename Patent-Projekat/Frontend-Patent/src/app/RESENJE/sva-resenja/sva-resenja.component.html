@@ -1,12 +1,13 @@
-<table cellpadding="0" cellspacing="0" border="0" >
-    <tr valign="top"><td>
-    <div *ngFor="let resenje of listaResenja" >
-    <button (click)="idiNaEditResenje(resenje)" class="button">{{mapa.get(resenje)}}</button>
+<table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+    <tr valign="top"><td style="width: 45%;">
     <br />
+    <div *ngFor="let resenje of listaResenja" >&nbsp;
+    <button (click)="idiNaEditResenje(resenje)" class="button is-info is-rounded">{{mapa.get(resenje)}}</button>
+    <br /><br />
     </div>
 </td>
-<td valign="top">
-    <h2>Pretraga preko metapodataka</h2>
+<td valign="top" style="width: 11%;text-align: center;"><br>
+    <h2>Pretraga preko metapodataka</h2><br>
     <form [formGroup]="resForm" (ngSubmit)="pretraziPrekoMetapodatak()" class="form-inline">
         <div class="form-group" align="center">
             <label for="metapodatak"></label>
@@ -18,35 +19,37 @@
                 <option value = "1" selected>Datum odluke o zahtevu</option>
                 <option value = "2">Službenik</option>
       
-            </select><br>
-            <button type="submit"  [disabled]="resForm.invalid" class="button2">Pretrazi preko metapodataka</button>
+            </select><br><br>
+            <button type="submit"  [disabled]="resForm.invalid" class="button is-link is-focused">Pretrazi preko metapodataka</button>
         </div>
-    </form>
-    <h2>Pretraga po tekstualnom sadržaju</h2>
+    </form><br>
+    <h2>Pretraga po tekstualnom sadržaju</h2><br>
     <form [formGroup]="res2Form" (ngSubmit)="pretraziPoTekstualnomSadrzaju()" class="form-inline">
         <div class="form-group" align="center">
             
             <label for="za tekstualni sadrzaj"></label>
             <input type="text" class="form-control" id="odluka2" placeholder="po tekstualnom sadržaju" name="odluka2" formControlName="odluka2"><br>
-            <button type="submit"  [disabled]="res2Form.invalid" class="button2">Pretrazi preko tekstualnog sadržaja</button>
+            <br>
+            <button type="submit"  [disabled]="res2Form.invalid" class="button is-link is-focused">Pretrazi preko tekstualnog sadržaja</button>
         </div>
-    </form>
-    <h2>Generisanje izveštaja</h2>
+    </form><br>
+    <h2>Generisanje izveštaja</h2><br>
     <form [formGroup]="res3Form" (ngSubmit)="generisanjeIzvestaja()" class="form-inline">
         <div class="form-group" align="center">
             <label for="Početni Datum ( npr. 15.12.2020 )"></label>
-            <input type="text" class="form-control" id="pocetniDatum" placeholder="Početni Datum" name="pocetniDatum" formControlName="pocetniDatum"><br>
+            <input type="text" class="form-control" id="pocetniDatum" placeholder="15.12.2020" name="pocetniDatum" formControlName="pocetniDatum"><br>
             <label for="Krajnji Datum ( npr. 15.12.2020 )"></label>
-            <input type="text" class="form-control" id="krajnjiDatum" placeholder="Krajnji Datum" name="krajnjiDatum" formControlName="krajnjiDatum"><br>
-            <button type="submit"  [disabled]="res3Form.invalid" class="button2">Generisanje izveštaja</button>
+            <input type="text" class="form-control" id="krajnjiDatum" placeholder="15.12.2020" name="krajnjiDatum" formControlName="krajnjiDatum"><br>
+            <br>
+            <button type="submit"  [disabled]="res3Form.invalid" class="button is-link is-focused">Generisanje izveštaja</button>
         </div>
     </form>
 </td>
-<td valign="top">
+<td valign="top" style="width: 44%;">
     
     <div *ngIf="opcija === '2'">
         <h2>Službenik koji odgovara vašoj pretrazi</h2>
-        
+        <br>
         <div *ngFor="let resenje of listaResenja2" >
             <button  (click)="idiNaEditResenje(resenje)" class="button">{{mapaMetaPodaci.get(resenje)}}</button>
             <br />
@@ -57,6 +60,7 @@
     <div *ngIf="opcija === '1'">
         <h2>Rezultat koji odgovara vašoj pretrazi</h2>
         <h3 *ngIf="listaResenja2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
+        <br>
         <div *ngFor="let resenje of listaResenja2" >
             <button  (click)="idiNaEditResenje(resenje)" class="button">{{mapaMetaPodaci.get(resenje)}}</button>
             <br />

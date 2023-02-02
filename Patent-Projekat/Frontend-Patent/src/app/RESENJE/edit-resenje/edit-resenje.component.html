@@ -1,15 +1,15 @@
-<table>
+<table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
     <tr>
-        <td>
+        <td valign="top" style="width: 50%;">
             <div id="editor"></div><br><br>
-            <button (click)="send()" class="button3">Promeni</button>&nbsp;&nbsp;&nbsp;&nbsp;
-            <button (click)="natrag()" class="button3">Natrag</button>
+            <button class="button is-link is-rounded" (click)="send()" style="margin-left: 45%">Promeni</button>&nbsp; &nbsp;
+            <button class="button is-danger is-rounded" (click)="natrag()">Natrag</button><br><br>
         </td>
-        <td>
+        <td style="width: 50%;text-align: center;">
             <h2>Referencirani dokumenti</h2>
+            <br />
             <div *ngFor="let resenje of listaResenja" >
-                <h2>Test</h2>
-                <button (click)="idiNaEditResenje(resenje)" class="button">{{mapa.get(resenje)}}</button>
+                <button (click)="idiNaEditResenje(resenje)" class="button is-info is-rounded">{{mapa.get(resenje)}}</button>
                 <br />
                 </div>
         </td>
