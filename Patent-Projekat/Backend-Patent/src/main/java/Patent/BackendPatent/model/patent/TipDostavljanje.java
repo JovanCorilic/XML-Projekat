@@ -94,4 +94,12 @@ public class TipDostavljanje {
         this.nacin = value;
     }
 
+    public boolean ProveraDostavljanje(){
+        if (
+                this.getAdresa().ProveraAdreseDostavljanje() || this.getNacin().ProveraNacin()
+        )return true;
+        else
+            return false;
+    }
+
 }

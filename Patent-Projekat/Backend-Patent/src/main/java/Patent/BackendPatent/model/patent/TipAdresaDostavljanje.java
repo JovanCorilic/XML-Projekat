@@ -134,4 +134,16 @@ public class TipAdresaDostavljanje {
         this.postanskiBroj = value;
     }
 
+    public boolean ProveraAdreseDostavljanje(){
+        if (
+                this.getGrad().equals("") ||
+                        this.getBrojUlice() == 0 ||
+                        this.getNazivUlice().equals("") ||
+                        this.getPostanskiBroj() == 0
+        ){
+            return true;
+        }else
+            return false;
+    }
+
 }

@@ -122,4 +122,15 @@ public class TipKontakt {
         this.ePosta = value;
     }
 
+    public boolean proveraKontakta(){
+        if (
+                this.getBrojFaksa().equals("") ||
+                        this.getEPosta().equals("") ||
+                        this.getBrojTelefona().equals("")
+        ){
+            return true;
+        }else
+            return false;
+    }
+
 }

@@ -114,4 +114,13 @@ public class TipPodnosilacPrijave {
         this.jePronalazac = value;
     }
 
+    public boolean proveraPodnosilacPrijave(){
+        if (
+                this.getDrzavljanstvo().equals("") || this.getLicneInformacije().ProveraLicneInformacije()
+        ){
+            return true;
+        }else
+            return false;
+    }
+
 }

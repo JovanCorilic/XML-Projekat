@@ -73,4 +73,14 @@ public class TipZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava {
         return this.ranijaPrijava;
     }
 
+    public boolean ProveraRanijePrijave(){
+        if (ranijaPrijava.isEmpty())
+            return false;
+        for (TipRanijaPrijava temp : ranijaPrijava){
+            if (temp.ProveraRanijaPrijava())
+                return true;
+        }
+        return false;
+    }
+
 }

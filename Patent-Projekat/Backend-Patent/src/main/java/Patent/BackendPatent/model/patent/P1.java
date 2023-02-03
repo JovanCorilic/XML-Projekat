@@ -437,4 +437,17 @@ public class P1 {
 
     }
 
+    public boolean ProveraP1(){
+        if (
+                this.getPodnosilacPrijave().proveraPodnosilacPrijave() ||
+                this.getPronalazac().ProveraPronalazac() ||
+                        this.getPunomocnik().ProveraPunomocnik() ||
+                        this.getDostavljanje().ProveraDostavljanje() ||
+                        this.getTipPrijave().ProveraTipPrijave() ||
+                        this.getZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava().ProveraRanijePrijave()
+        )return true;
+        else
+            return true;
+    }
+
 }

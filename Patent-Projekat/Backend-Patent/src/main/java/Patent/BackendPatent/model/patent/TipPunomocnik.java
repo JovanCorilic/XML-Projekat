@@ -126,4 +126,11 @@ public class TipPunomocnik {
         this.licneInformacije = value;
     }
 
+    public boolean ProveraPunomocnik(){
+        if (this.getLicneInformacije().ProveraLicneInformacije())
+            return true;
+        else
+            return false;
+    }
+
 }

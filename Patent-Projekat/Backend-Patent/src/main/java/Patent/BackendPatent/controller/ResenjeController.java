@@ -29,13 +29,21 @@ public class ResenjeController {
 
     @PostMapping("/xonomyCreateResenje")
     public ResponseEntity<Void>pravljenjeResenja(@RequestBody String entity) throws Exception {
-        resenjeService.addResenjeFromText(entity);
+        try {
+            resenjeService.addResenjeFromText(entity);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/xonomyEditResenje")
     public ResponseEntity<Void>editResenja(@RequestBody String entity) throws Exception{
-        resenjeService.editResenjeFromText(entity);
+        try {
+            resenjeService.editResenjeFromText(entity);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

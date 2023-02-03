@@ -78,4 +78,12 @@ public class TipNacin {
         this.dostavljanjePismenaUPapirnojFormi = value;
     }
 
+    public boolean ProveraNacin(){
+        if (
+                !this.isDostavljanjePismenaIskljucivoElektronskimPutem() && !this.isDostavljanjePismenaUPapirnojFormi()
+        )return true;
+        else
+            return false;
+    }
+
 }

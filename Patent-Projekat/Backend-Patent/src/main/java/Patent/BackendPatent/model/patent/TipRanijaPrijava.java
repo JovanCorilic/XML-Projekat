@@ -8,6 +8,8 @@
 
 package Patent.BackendPatent.model.patent;
 
+import Patent.BackendPatent.ostalo.KonverterDatum;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -120,6 +122,23 @@ public class TipRanijaPrijava {
      */
     public void setDvoslovnaOznakaDrzaveIliOrganizacije(String value) {
         this.dvoslovnaOznakaDrzaveIliOrganizacije = value;
+    }
+
+    public boolean ProveraRanijaPrijava(){
+        if (
+                this.getBrojRanijePrijave().equals("") ||
+                        this.getDatumPodnosenjaRanijePrijave().equals("") ||
+                        this.getDvoslovnaOznakaDrzaveIliOrganizacije().equals("")
+        ){
+            return true;
+        }else {
+            try {
+                KonverterDatum.konvertovanjeSamoDatumUDate(this.getDatumPodnosenjaRanijePrijave());
+            }catch (Exception e) {
+                return true;
+            }
+            return false;
+        }
     }
 
 }

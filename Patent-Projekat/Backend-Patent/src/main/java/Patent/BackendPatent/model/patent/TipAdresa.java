@@ -134,4 +134,16 @@ public class TipAdresa {
         this.postanskiBrojUstanove = value;
     }
 
+    public boolean proveraAdrese(){
+        if (
+                this.getGradUstanove().equals("") ||
+                        this.getBrojUliceUstanove() == 0 ||
+                        this.getNazivUliceUstanove().equals("") ||
+                        this.getPostanskiBrojUstanove() == 0
+        ){
+            return true;
+        }else
+            return false;
+    }
+
 }

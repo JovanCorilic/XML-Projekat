@@ -32,13 +32,21 @@ public class PatentController {
 
     @PostMapping(value = "/xonomyCreate")
     public ResponseEntity<Void> addPatentFrontend(@RequestBody String entitet) throws Exception{
-        patentService.addPatentFromText(entitet);
+        try {
+            patentService.addPatentFromText(entitet);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping(value = "/xonomyEdit")
     public ResponseEntity<Void>editPatentFrontend(@RequestBody String entitet)throws Exception{
-        patentService.editPatentFromText(entitet);
+        try {
+            patentService.editPatentFromText(entitet);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

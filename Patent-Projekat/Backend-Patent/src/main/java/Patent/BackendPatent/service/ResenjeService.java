@@ -6,6 +6,7 @@ import Patent.BackendPatent.jenafuseki.FusekiWriter;
 import Patent.BackendPatent.jenafuseki.MetadataExtractor;
 import Patent.BackendPatent.model.resenjePatent.Resenje;
 import Patent.BackendPatent.ostalo.KonverterDatum;
+import Patent.BackendPatent.ostalo.ProveraResenje;
 import Patent.BackendPatent.repository.ResenjeRepository;
 import Patent.BackendPatent.xslt.PDFTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,8 @@ public class ResenjeService {
     public void addResenjeFromText(String text)throws Exception{
         text = text.replaceAll("xml:space='preserve'","");
         Resenje resenje = jaxbParser.unmarshall(Resenje.class,text);
+        if (ProveraResenje.DaLiJeDobroResenje(resenje))
+            throw new Exception();
         String docId ;
         try{
             docId = dajMiID();
@@ -57,6 +60,8 @@ public class ResenjeService {
     public void editResenjeFromText(String text)throws Exception{
         text = text.replaceAll("xml:space='preserve'","");
         Resenje resenje = jaxbParser.unmarshall(Resenje.class,text);
+        if (ProveraResenje.DaLiJeDobroResenje(resenje))
+            throw new Exception();
         String id = resenje.getId();
         resenjeRepository.saveResenjeFromText(text,id);
         FusekiWriter.saveRDFResenjeFromString(metadataExtractor.extractMetadataPatentInString(text));

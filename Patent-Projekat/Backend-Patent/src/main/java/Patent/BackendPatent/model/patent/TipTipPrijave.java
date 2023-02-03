@@ -8,6 +8,8 @@
 
 package Patent.BackendPatent.model.patent;
 
+import Patent.BackendPatent.ostalo.KonverterDatum;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -124,6 +126,24 @@ public class TipTipPrijave {
      */
     public void setDatumPodnosenjaPrvobitnePrijave(String value) {
         this.datumPodnosenjaPrvobitnePrijave = value;
+    }
+
+    public boolean ProveraTipPrijave(){
+        if (
+                !this.isDaLiJeDopunskaPrijava() && !this.isDaLiJeIzdvojenaPrijava()
+        )return true;
+        if (
+                this.getDatumPodnosenjaPrvobitnePrijave().equals("")
+        ){
+            return true;
+        }else {
+            try {
+                KonverterDatum.konvertovanjeSamoDatumUDate(this.getDatumPodnosenjaPrvobitnePrijave());
+            }catch (Exception e){
+                return true;
+            }
+            return false;
+        }
     }
 
 }

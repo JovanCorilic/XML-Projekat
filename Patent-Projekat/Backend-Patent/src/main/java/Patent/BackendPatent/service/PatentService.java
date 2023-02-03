@@ -6,6 +6,7 @@ import Patent.BackendPatent.jenafuseki.FusekiWriter;
 import Patent.BackendPatent.jenafuseki.MetadataExtractor;
 import Patent.BackendPatent.model.patent.P1;
 import Patent.BackendPatent.model.viseMetapodataka.Metapodaci;
+import Patent.BackendPatent.ostalo.ProveraPodataka;
 import Patent.BackendPatent.repository.PatentRepository;
 import Patent.BackendPatent.xslt.PDFTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,8 @@ public class PatentService {
     public void addPatentFromText(String text)throws Exception{
         text = text.replaceAll("xml:space='preserve'","");
         P1 p1 = jaxbParser.unmarshall(P1.class,text);
+        if(ProveraPodataka.DaLiSuPravilnoUnetiPodaciOdKorisnika(p1))
+            throw new Exception();
         String docId ;
         try{
             docId = dajMiID();
@@ -74,12 +77,16 @@ public class PatentService {
     public void editPatentFromText(String text)throws Exception{
         text = text.replaceAll("xml:space='preserve'","");
         P1 p1 = jaxbParser.unmarshall(P1.class,text);
+        if (ProveraPodataka.DaLiSuPravilnoUnetiPodaciOdZavoda(p1))
+            throw new Exception();
         String id = p1.getId();
         patentRepository.savePatentFromText(text,id);
         //metadataExtractor.extractMetadataPatent(text);
         //FusekiWriter.saveRDFPatent();
         FusekiWriter.saveRDFPatentFromString(metadataExtractor.extractMetadataPatentInString(text));
     }
+
+
 
     //Operacije vezane za dobijanje xml dokumenta ---------------------------------------------
 

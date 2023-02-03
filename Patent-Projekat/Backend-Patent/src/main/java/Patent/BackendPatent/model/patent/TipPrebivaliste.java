@@ -178,4 +178,17 @@ public class TipPrebivaliste {
         this.nazivDrzave = value;
     }
 
+    public boolean proveraPrebivalista(){
+        if (
+                this.getNazivUlice().equals("") ||
+                        this.getNazivGrada().equals("") ||
+                        this.getNazivDrzave().equals("") ||
+                        this.getBrojUlice() ==0 ||
+                        this.getPostanskiBroj() == 0
+        ){
+            return true;
+        }else
+            return false;
+    }
+
 }

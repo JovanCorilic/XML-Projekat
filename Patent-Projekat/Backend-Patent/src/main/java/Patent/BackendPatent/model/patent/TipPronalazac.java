@@ -86,4 +86,11 @@ public class TipPronalazac {
         this.licneInformacije = value;
     }
 
+    public boolean ProveraPronalazac(){
+        if (this.isDaLiPronalazacZeliDaBudeNaveden())
+            if (this.getLicneInformacije().ProveraLicneInformacije())
+                return true;
+        return false;
+    }
+
 }

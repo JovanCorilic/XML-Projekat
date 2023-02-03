@@ -9,7 +9,7 @@ public class ResenjeRepository {
     @Autowired
     ExistManager existManager;
 
-    private final String collectionId="/db/resenje";
+    private final String collectionId="/db/ResenjePatent";
 
     public void saveResenjeFromText(String text, String id) throws Exception {
         existManager.storeFromText(collectionId, id , text);

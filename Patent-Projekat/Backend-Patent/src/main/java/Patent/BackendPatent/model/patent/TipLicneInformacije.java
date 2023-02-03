@@ -122,4 +122,12 @@ public class TipLicneInformacije {
         this.kontakt = value;
     }
 
+    public boolean ProveraLicneInformacije(){
+        if (
+                this.getKontakt().proveraKontakta() || this.getPrebivaliste().proveraPrebivalista()
+        )return true;
+        else
+            return false;
+    }
+
 }
