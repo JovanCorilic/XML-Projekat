@@ -40,7 +40,10 @@ export class CreateResenjeComponent {
     
     text = '<?xml version="1.0" encoding="UTF-8"?>'+text;
     this.resenjeService.sendResenje(text).subscribe(
-      res=>{this.router.navigate(['']);}
+      res=>{this.router.navigate(['']);},
+      error=>{
+        alert("Podaci nisu pravilni")
+      }
     )
   }
 

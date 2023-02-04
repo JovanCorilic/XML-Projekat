@@ -130,6 +130,9 @@ export class EditPatentComponent {
           this.router.navigate(['/svi-patent/true']);
         else
           this.router.navigate(['/svi-patent-neprodjeni/false']);
+      },
+      error=>{
+        alert("Podaci nisu pravilni")
       }
     )
   }

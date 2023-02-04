@@ -1,3 +1,4 @@
+import { PatentService } from './../../SERVICE/patent.service';
 import { ResenjeService } from './../../SERVICE/resenje.service';
 import { XonomyResenjeCreateService } from './../../SERVICE/xonomyResenjeCreateService.service';
 import { Component } from '@angular/core';
@@ -19,6 +20,7 @@ export class EditResenjeComponent {
 
   constructor(
     private resenjeService:ResenjeService,
+    private patentService:PatentService,
     private router:Router,
     private route:ActivatedRoute,
     private xonomyResenjeEdit:XonomyResenjeCreateService
@@ -63,6 +65,9 @@ send(){
   this.resenjeService.editResenje(text).subscribe(
     res=>{
       this.router.navigate(['/svaResenja']);
+    },
+    error=>{
+      alert("Podaci nisu pravilni")
     }
   )
 }
@@ -77,7 +82,7 @@ idiNaEditResenje(resenje:string){
 }
 
 prikazOznakaPatenta(id:string,Mapa:Map<string,string>){
-  this.resenjeService.getOznakeResenja(id).subscribe(
+  this.patentService.getOznakePatenta(id).subscribe(
     res=>{
       Mapa.set(id,Konverzija.uzimanjePodatakaXMLDto(res));
     }

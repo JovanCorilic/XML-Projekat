@@ -43,6 +43,8 @@ public class SecurityController {
     public ResponseEntity<Void>register(@RequestBody String xml) throws JAXBException {
         xml = xml.replaceAll("xml:space='preserve'","");
         Patent.BackendPatent.dto.KorisnikDTO.Korisnik korisnik = jaxbParser.unmarshall(Patent.BackendPatent.dto.KorisnikDTO.Korisnik.class,xml);
+        if (korisnik.ProveraKorisnik())
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         RegisterUserDTO registerUserDTO = new RegisterUserDTO(korisnik.getKorisnickoIme(),korisnik.getLozinka(),korisnik.getUloga());
 
         HttpEntity<RegisterUserDTO>httpEntity = new HttpEntity<>(registerUserDTO);

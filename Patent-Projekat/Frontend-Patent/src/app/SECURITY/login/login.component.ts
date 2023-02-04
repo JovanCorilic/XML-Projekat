@@ -44,6 +44,9 @@ export class LoginComponent {
         const info = jwt.decodeToken(decodedItem.accessToken);
         localStorage.setItem('roles', info['roles']);
         this.router.navigate(['']);
+      },
+      error=>{
+        alert("Nije moguć login sa unetim podacima!");
       }
     )
   }

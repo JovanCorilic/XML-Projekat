@@ -219,6 +219,12 @@ public class PatentService {
                 "\t\t\t\t\"@value\": \""+p1.getPopunjavaZavod().getBrojPrijave().getValue()+"\"\n" +
                 "\t\t\t}\n" +
                 "\t\t],\n" +
+                "\t\t\"http://www.ftn.uns.ac.rs/rdf/examples/predicate/priznatDatumPodnosenja\": [\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"@type\": \"string\",\n" +
+                "\t\t\t\t\"@value\": \""+p1.getPopunjavaZavod().getPriznatiDatumPodnosenja().getValue()+"\"\n" +
+                "\t\t\t}\n" +
+                "\t\t],\n" +
                 "\t\t\"http://www.ftn.uns.ac.rs/rdf/examples/predicate/nazivPatentaEngleski\": [\n" +
                 "\t\t\t{\n" +
                 "\t\t\t\t\"@type\": \"string\",\n" +

@@ -4,7 +4,7 @@
     <br />
     <div *ngFor="let patent of listaPatenta" >&nbsp;
     <button (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded">{{mapa.get(patent)}}</button>
-    <br />
+    <br /><br />
     </div>
 </td>
 <td  style="width: 11%;text-align: center;"><br>
@@ -44,7 +44,7 @@
         <br />
         <div *ngFor="let patent of listaPatenta2" >
             <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded">{{mapaMetaPodaci.get(patent)}}</button>
-            <br />
+            <br /><br />
         </div>
         <h3 *ngIf="listaPatenta2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
     </div>
@@ -54,7 +54,7 @@
         <br />
         <div *ngFor="let patent of listaPatenta2" >
             <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded">{{mapaMetaPodaci.get(patent)}}</button>
-            <br />
+            <br /><br />
         </div>
         
     </div>
@@ -64,7 +64,7 @@
         <br />
         <div *ngFor="let patent of listaPatenta2" >
             <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded">{{mapaMetaPodaci.get(patent)}}</button>
-            <br />
+            <br /><br />
         </div>
     </div>
     <div *ngIf="opcija === '4'">
@@ -73,7 +73,7 @@
         <br />
         <div *ngFor="let patent of listaPatenta2" >
             <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded">{{mapaMetaPodaci.get(patent)}}</button>
-            <br />
+            <br /><br />
         </div>
     </div>
 </td>

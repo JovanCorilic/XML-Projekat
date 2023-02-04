@@ -124,7 +124,6 @@ public class TipKontakt {
 
     public boolean proveraKontakta(){
         if (
-                this.getBrojFaksa().equals("") ||
                         this.getEPosta().equals("") ||
                         this.getBrojTelefona().equals("")
         ){

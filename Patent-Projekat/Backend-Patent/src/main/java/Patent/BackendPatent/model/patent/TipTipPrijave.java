@@ -129,7 +129,7 @@ public class TipTipPrijave {
     }
 
     public boolean ProveraTipPrijave(){
-        if (
+        /*if (
                 !this.isDaLiJeDopunskaPrijava() && !this.isDaLiJeIzdvojenaPrijava()
         )return true;
         if (
@@ -143,7 +143,8 @@ public class TipTipPrijave {
                 return true;
             }
             return false;
-        }
+        }*/
+        return false;
     }
 
 }

@@ -120,4 +120,13 @@ public class Korisnik {
         this.uloga = value;
     }
 
+    public boolean ProveraKorisnik(){
+        if (
+                this.getKorisnickoIme().equals("") ||
+                        this.getLozinka().equals("")
+        )return true;
+        else
+            return false;
+    }
+
 }

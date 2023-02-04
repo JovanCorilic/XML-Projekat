@@ -109,7 +109,10 @@ export class PatentCreateComponent {
     
     //console.log(text);
     this.patentService.sendXml(text).subscribe(
-      res=>{this.router.navigate(['']);}
+      res=>{this.router.navigate(['']);},
+      error=>{
+        alert("Podaci nisu pravilni")
+      }
     )
   }
 

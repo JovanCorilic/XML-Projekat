@@ -34,7 +34,8 @@ export class RegistracijaComponent {
     
     text = '<?xml version="1.0" encoding="UTF-8"?>'+text;
     this.securityService.registracija(text).subscribe(
-      res=>{this.router.navigate(['']);}
+      res=>{this.router.navigate(['']);},
+      error=>{alert("Registracija nije moguća sa unetim podacima!");}
     )
   }
 

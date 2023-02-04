@@ -447,7 +447,7 @@ public class P1 {
                         this.getZahtevZaPriznanjePravaPrvenstvaIzRanijihPrijava().ProveraRanijePrijave()
         )return true;
         else
-            return true;
+            return false;
     }
 
 }
