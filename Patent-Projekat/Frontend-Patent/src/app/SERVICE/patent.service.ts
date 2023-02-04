@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 export class PatentService{
     constructor(private http: HttpClient){}
     //{ responseType: 'string' }
-    private path = "http://localhost:8080/api/patent";
+    private path = "http://localhost:9195/api/patent";
     private headers = new HttpHeaders().set('Content-Type', 'application/xml');
     HTTPOptions:Object = {
 

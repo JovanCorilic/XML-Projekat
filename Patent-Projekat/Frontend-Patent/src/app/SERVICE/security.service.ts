@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 export class SecurityService{
     constructor(private http: HttpClient){}
     //{ responseType: 'string' }
-    private path = "http://localhost:8080/api/security";
+    private path = "http://localhost:9195/api/security";
     private headers = new HttpHeaders().set('Content-Type', 'application/xml');
     HTTPOptions:Object = {
 

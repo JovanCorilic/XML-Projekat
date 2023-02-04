@@ -43,6 +43,7 @@ export class LoginComponent {
         const jwt: JwtHelperService = new JwtHelperService();
         const info = jwt.decodeToken(decodedItem.accessToken);
         localStorage.setItem('roles', info['roles']);
+        console.log(localStorage.getItem('accessToken'));
         this.router.navigate(['']);
       },
       error=>{

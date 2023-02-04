@@ -7,10 +7,17 @@ Verzija jave je 1.8
 - U webapps stavljaju se exist.war i fuseki.war
 - Onda se u lib folderu pokrene tomcat preko komande 'startup'
 
+## Pokretanje programa
+- Za backend se koristio Spring a za frontend Angular. Za exist i fuseki bazu, koristio se Tomcat 8. 
+- Za P1 portovi su : 4252 - Frontend, 9195 - BackEnd, 8081 - Baza
+- Za A1 portovi su : 4200, 8080, 8085
+- Za Z1 portovi su : 8083, 8086, 8888, 9090 (Korsinik backend)
+- Backend i Frontend projekte otvoriti preko Visual Studio Code ( ili drugim po vašoj želji ) i pokrenuti ih
+
 ## Assets kod frontend-a
 - Koristi se xonomy (https://github.com/michmech/xonomy) i jQuery
 
 ## Članovi
-- SW39/2017	Filip Vasic
-- SW48/2017	Jovan	Ćorilić
-- SW79/2017	Bogdan Čiplić
+- SW39/2017	Filip Vasic -> Z1
+- SW48/2017	Jovan	Ćorilić -> P1
+- SW79/2017	Bogdan Čiplić -> A1

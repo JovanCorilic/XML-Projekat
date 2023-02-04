@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 export class ResenjeService{
     constructor(private http: HttpClient){}
     //{ responseType: 'string' }
-    private path = "http://localhost:8080/api/resenje";
+    private path = "http://localhost:9195/api/resenje";
     private headers = new HttpHeaders().set('Content-Type', 'application/xml');
     HTTPOptions:Object = {
 

@@ -41,10 +41,7 @@ public class ProveraPodataka {
     }
 
     public static boolean DaLiSuPravilnoUnetiPodaciOdZavoda(P1 p1)throws Exception{
-        if (DaLiVecPostojiSrpskiNazivZavod(p1.getNazivPronalaska().getSrpskiNaziv().getValue()))
-            return true;
-        if (DaLiVecPostojiEngleskiNazivZavod(p1.getNazivPronalaska().getEngleskiNaziv().getValue()))
-            return true;
+
         if (p1.ProveraP1())
             return true;
         if (ProveraUnetoZavod(p1.getPopunjavaZavod()))
