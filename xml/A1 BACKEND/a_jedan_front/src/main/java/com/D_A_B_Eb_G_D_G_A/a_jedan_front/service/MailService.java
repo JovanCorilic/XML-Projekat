@@ -32,7 +32,7 @@ public class MailService {
         mimeMessageHelper.addAttachment(fileSystemResource.getFilename(),
                 fileSystemResource);
         javaMailSender.send(mimeMessage);
-        System.out.printf("Mail with attachment sent successfully..");
+        System.out.println("Mail je poslat" + toEmail + " sa naslovom " + subject);
 
     }
 }

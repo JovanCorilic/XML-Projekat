@@ -26,7 +26,7 @@ public class MetadataExtractor {
 	private TransformerFactory transformerFactory;
 
 	private static final String XSLT_FILE = "src/main/resources/xsl/grddl.xsl";
-	private static final String RDF_FILE = "src/main/resources/rdf/rdfOutput.rdf";
+	//private static final String RDF_FILE = "src/main/resources/rdf/rdfOutput.rdf";
 
 	public MetadataExtractor() throws SAXException, IOException {
 		
@@ -41,8 +41,8 @@ public class MetadataExtractor {
 	 * @param in XML containing input stream
 	 * @param out RDF/XML output stream
 	 */
-	public void extractMetadata(String in) throws FileNotFoundException, TransformerException {
-
+	public void extractMetadata(String in, String naziv) throws FileNotFoundException, TransformerException {
+		String RDF_FILE = "src/main/resources/rdf/" + naziv + ".rdf";
 		OutputStream out = new FileOutputStream(new File(RDF_FILE));
 
 		// Create transformation source

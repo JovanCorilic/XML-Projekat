@@ -1,0 +1,17 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+<rdf:Description rdf:about="">
+<pred:Naslov xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">nije kopija</pred:Naslov>
+</rdf:Description>
+<rdf:Description rdf:about="">
+<pred:Podaci_O_Vrsti_Autorskog_Dela xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">fzhgmdkentjoued</pred:Podaci_O_Vrsti_Autorskog_Dela>
+</rdf:Description>
+<rdf:Description rdf:about="">
+<pred:Potpis xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">vhnuezinpzhsupg</pred:Potpis>
+</rdf:Description>
+<rdf:Description rdf:about="">
+<pred:Broj_Prijace xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">11436</pred:Broj_Prijace>
+</rdf:Description>
+<rdf:Description rdf:about="">
+<pred:Datum_Podnosenja xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">02.02.2023</pred:Datum_Podnosenja>
+</rdf:Description>
+</rdf:RDF>

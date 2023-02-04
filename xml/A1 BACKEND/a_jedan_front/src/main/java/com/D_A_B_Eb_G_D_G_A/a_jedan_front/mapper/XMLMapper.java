@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class XMLMapper {
 	public <T> T unmarshall(Class genericClass, String text) throws JAXBException {
-		text =text.replace("xmlns=\"https://www.D_A_B_F#_G_D_G_A.com\"", "");
+		text =text.replace("xmlns=\"https://www.D_A_B_F#_G_D_G_A.com\"", "").replace("x:", "");
 		System.out.println("////[XMLMapper:unmarshall]////////////////////////////////////////////////////////////////////////");
 		System.out.println(text);
 		System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////");

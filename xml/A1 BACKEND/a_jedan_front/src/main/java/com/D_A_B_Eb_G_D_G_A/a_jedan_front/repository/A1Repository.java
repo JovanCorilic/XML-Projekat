@@ -16,11 +16,13 @@ public class A1Repository {
 	@Autowired
 	private ExistManager existManager;
 	
-	public void saveA1(String text) throws Exception {
+	public String saveA1(String text) throws Exception {
 		//long unixTime = Instant.now().getEpochSecond();
 		String naslovi[] = text.split("</x:Naslov>")[0].split(">");
 		String datumi[] = text.split("</x:Datum_Podnosenja>")[0].split(">");
-		existManager.storeFromText(collectionId, "A1-"+ ocistiNaziv(naslovi[naslovi.length-1]) + "-(" + ocistiNaziv(datumi[datumi.length-1]) + ")", "<!--N-->" + text);
+		String ime = "A1-"+ ocistiNaziv(naslovi[naslovi.length-1]) + "-" + ocistiNaziv(datumi[datumi.length-1]);
+		existManager.storeFromText(collectionId, ime, text);
+		return ime;
 		//existManager.storeFromText(collectionId, "A1-"+ unixTime), text);
 	}
 
@@ -30,7 +32,7 @@ public class A1Repository {
 		//existManager.storeFromText(collectionId, "A1-"+ unixTime), text);
 	}
 
-	private String ocistiNaziv(String ulaz){
+	public static String ocistiNaziv(String ulaz){
 		String ss = ulaz.replace(" ", "-").replace("/", "-").replace("%","")
 				.replace("?","").replace("=","").replace("<","").replace(">","");
 		return (!(ss.trim().equals(""))) ? ss : "Neimenovani-Dokument-" + Long.toString(Instant.now().getEpochSecond());

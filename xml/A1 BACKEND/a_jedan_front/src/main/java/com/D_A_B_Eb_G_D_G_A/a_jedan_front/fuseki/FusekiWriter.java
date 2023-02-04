@@ -11,10 +11,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class FusekiWriter {
-    private static final String RDF_FILEPATH = "src/main/resources/rdf/rdfOutput.rdf";
+    //private static final String RDF_FILEPATH = "src/main/resources/rdf/rdfOutput.rdf";
     private static final String GRAPH_URI = "metadata";
 
-    public static void saveRDF() throws IOException {
+    public static void saveRDF(String naziv) throws IOException {
+        String RDF_FILEPATH = "src/main/resources/rdf/" + naziv + ".rdf";
         System.out.println("[INFO] Loading triples from an RDF/XML to a model...");
         FusekiAuthenticationUtilities.ConnectionProperties conn = FusekiAuthenticationUtilities.loadProperties();
 

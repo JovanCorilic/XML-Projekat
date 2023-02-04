@@ -76,10 +76,10 @@ public class XMLService {
 	}
 
 	public void saveFromString(String text) throws Exception {
-		a1Repository.saveA1(text);
-		metadataExtractor.extractMetadata(text);
+		String naziv = a1Repository.saveA1(text);
+		metadataExtractor.extractMetadata(text, naziv);
 		System.out.println("saveFromString metadataExtractor : " + metadataExtractor.toString());
-		FusekiWriter.saveRDF();
+		FusekiWriter.saveRDF(naziv);
 	}
 
 	public String getStanje(String fajl) throws IOException {
@@ -134,6 +134,11 @@ public class XMLService {
 
 		ArrayList<String> result = FusekiReader.executeQuery(params);
 		return result;
+	}
+
+	public ArrayList<String> getAllMeta() throws IOException {
+		Map<String, String> params = new HashMap<>();
+		return FusekiReader.getAllMetadata();
 	}
 
 
@@ -318,9 +323,9 @@ public class XMLService {
 
 		s = "\n\n1) Podnosilac - ime, prezime, adresa i državljanstvo autora ili drugog nosioca autorskog prava ako je podnosilac fizičko lice, odnosno poslovno ime i sedište nosioca autorskog prava ako je podnosilac pravno lice*:" + "\n" +
 				"\n   Ime: " + a1.getJedan().getPodnosilac().getIme() +
-				"   Prezime: " + a1.getJedan().getPodnosilac().getPrezime() +
-				"   Adresa: " + a1.getJedan().getPodnosilac().getAdresa().getGrad() + " , " + a1.getJedan().getPodnosilac().getAdresa().getUlica() + " " + a1.getJedan().getPodnosilac().getAdresa().getBroj()+
-				"   Drzavljanstvo: " + a1.getJedan().getPodnosilac().getDrzavljanstvo()
+				"\n   Prezime: " + a1.getJedan().getPodnosilac().getPrezime() +
+				"\n   Adresa: \n      " + a1.getJedan().getPodnosilac().getAdresa().getGrad() + "\n      " + a1.getJedan().getPodnosilac().getAdresa().getUlica() + " " + a1.getJedan().getPodnosilac().getAdresa().getBroj()+
+				"\n   Drzavljanstvo: " + a1.getJedan().getPodnosilac().getDrzavljanstvo()
 				;
 		paragrafi.add(s);
 
@@ -362,7 +367,7 @@ public class XMLService {
 
 
 		s= "\n\n" + "4) Naslov autorskog dela, odnosno alternativni naslov, ako ga ima, po kome autorsko delo može da se identifikuje" + "\n"+ "\n";
-		s += "   Naslov/i: \n      " + a1.getCetiri().getNaslov()  + "\n";
+		s += "   Naslov: " + a1.getCetiri().getNaslov()  + "\n";
 		try {
 			if( a1.getCetiri().getAlternativniNaslov() != null && a1.getCetiri().getAlternativniNaslov() != "") {
 				s += "   Alternativni naslov: " + a1.getCetiri().getAlternativniNaslov();
@@ -398,23 +403,33 @@ public class XMLService {
 		s = "\n\n" + "8) Podaci o autoru ako podnosilac prijave iz tačke 1. ovog zahteva nije autor i to: prezime, ime, adresa i državljanstvo autora (grupe autora ili koautora), a ako su u pitanju jedan ili više autora koji nisu živi, imena autora i godine smrti autora a ako je u pitanju autorsko delo anonimnog autora navod da je autorsko delo delo anonimnog autora: " + "\n" + "\n";
 		try {
 			for (AJedan.Osam.Podnosioci.ZiviPodnosioci.ZivPodnosilac ziv : a1.getOsam().getPodnosioci().getZiviPodnosioci().getZivPodnosilac()) {
-				s += "   Ime i Prezime: " + ziv.getIme() + " " + ziv.getPrezime() +
-						"\n   Adresa: " + ziv.getAdresa().getGrad() + " / " + ziv.getAdresa().getUlica() + " " + ziv.getAdresa().getBroj() +
-						"\n   Drzavljanstvo: " + ziv.getDrzavljanstvo() + "\n\n";
+				try {
+					s += "   Ime i Prezime: " + ziv.getIme() + " " + ziv.getPrezime();
+				}catch (Exception e){}
+				try {
+					s += "\n   Adresa: " + ziv.getAdresa().getGrad() + " / " + ziv.getAdresa().getUlica() + " " + ziv.getAdresa().getBroj();
+				}catch (Exception e){}
+				try {
+					s += "\n   Drzavljanstvo: " + ziv.getDrzavljanstvo() + "\n\n";
+				}catch (Exception e){}
 			}
 		}catch (Exception e){}
 
 		try {
 			for (AJedan.Osam.Podnosioci.MrtviPodnosioci.MrtavPodnosilac mrtav : a1.getOsam().getPodnosioci().getMrtviPodnosioci().getMrtavPodnosilac()) {
-				s += "   Ime i Prezime: " + mrtav.getIme() + " " + mrtav.getPrezime() +
-						"\n   Godina Smrti: " + mrtav.getGodinaSmrti() + "\n\n";
+				try {
+					s += "   Ime i Prezime: " + mrtav.getIme() + " " + mrtav.getPrezime() +
+							"\n   Godina Smrti: " + mrtav.getGodinaSmrti() + "\n\n";
+				}catch (Exception e){}
 			}
 		}catch (Exception e){}
 
 		try {
 			for (AJedan.Osam.Podnosioci.AnonimniPodnosioci.AnonimanPodnosilac anoniman : a1.getOsam().getPodnosioci().getAnonimniPodnosioci().getAnonimanPodnosilac()) {
-				s += "   Ime i Prezime: ******* *************  [Autor je Anoniman]" +
+				try{
+					s += "   Ime i Prezime: ******* *************  [Autor je Anoniman]" +
 						"\n   Delo Anonimnog Autora: " + anoniman.getDeloAnonimnogAutora() + "\n\n";
+				}catch (Exception e){}
 			}
 		}catch (Exception e){}
 
@@ -478,7 +493,7 @@ public class XMLService {
 		s += "                                                           " +"                                                           " + "Broj Prijave:\n"+
 				"                                                           " +"                                                           " + "A-" + a1.getBrojPrijace() + "\n"+
 				"                                                           " +"                                                           " + "Datum Podnosenja:\n"+
-				"                                                           " +"                                                           " + a1.getDatumPodnosenja();
+					"                                                           " +"                                                           " + a1.getDatumPodnosenja();
 
 		paragrafi.add(s);
 		return paragrafi;
@@ -545,6 +560,23 @@ public class XMLService {
 
 	}
 
+	public boolean filtriraj_meta_datum(String datum, String datum1, String datum2) {
+		try {
+			String datumVeci = datum2;
+			String datumManji = datum1;
+			if(veci_datum(datum1, datum2)){
+				datumVeci = datum1;
+				datumManji = datum2;
+			}
+
+			return veci_datum(datum, datumManji) && veci_datum(datumVeci, datum);
+
+		}catch (Exception e){
+			return true;
+		}
+
+	}
+
 	public ArrayList<String> unija(ArrayList<String> a, ArrayList<String> b) {
 		a.addAll(b);
 		return a;
@@ -581,31 +613,113 @@ public class XMLService {
 	}
 
 
+	public String getMailFromName(String tekst) {
+		String [] linije = tekst.split("</email>")[0].split(">");
+		return linije[linije.length-1];
+	}
 
 
+	public String PretvoriUXml(ArrayList<String> elementi, String tren_ime_elementa) {
+		return "\n\t<" + tren_ime_elementa + "/>"+
+					"\n\t\t<Podaci_O_Vrsti_Autorskog_Dela>" + elementi.get(0) + "</Podaci_O_Vrsti_Autorskog_Dela>"+
+					"\n\t\t<Datum_Podnosenja>" +  elementi.get(1) + "</Datum_Podnosenja>" +
+					"\n\t\t<Naslov>" + elementi.get(2) + "</Naslov>" +
+					"\n\t\t<Potpis>" + elementi.get(3) + "</Potpis>" +
+					"\n\t\t<Broj_Prijace>" + elementi.get(4) + "</Broj_Prijace>"+
+				"\n\t</" + tren_ime_elementa + "/>";
+	}
 
+	public void napraviJSON(String odgovor) throws IOException {
+		String sastav = "{\n\t\"Metapodaci\": {\n";
+		File fajl = new File("./src/main/resources/izlaz/A-1 Meta JSON Izlaz.json");
+		fajl.createNewFile();
 
+		String[] elementi = odgovor.replace("<Metapodaci>", "").split("<");
 
+		if(elementi.length <= 2){
+			FileWriter prepraviWriter = new FileWriter(fajl);
+			prepraviWriter.write("{\n\t\"Metapodaci\": {\n\t}\n}");
+			prepraviWriter.close();
+			return;
+		}
 
+		for (int brojac = 0; brojac<((elementi.length/12)) ; ++brojac) {
+			sastav += "\t\t\""+ elementi[12*brojac + 1].replace(">", "\": {").replace("\t", "");
+			for (int i = 0; i < 5; ++i) {
+				sastav += "\t\t\t\""+ elementi[(12*brojac + 2) + (2*i) ].replace(">", "\": \"") + "\",\n";
+			}
+			sastav = sastav.substring(0, sastav.length() - 2);
+			sastav += "\n\t\t},\n";
+		}
+		sastav = sastav.substring(0, sastav.length() - 2);
+		sastav += "\n\t}\n}";
+		FileWriter prepraviWriter = new FileWriter(fajl);
+		prepraviWriter.write(sastav);
+		prepraviWriter.close();
+	}
 
+	public void napraviRDF(String odgovor) throws IOException {
+		String sastav = "<Metapodaci>\n";
+		File fajl = new File("./src/main/resources/izlaz/A-1 Meta RDF Izlaz.rdf");
+		fajl.createNewFile();
 
+		String[] elementi = odgovor.replace("<Metapodaci>", "").split("<");
 
+		if(elementi.length <= 2){
+			FileWriter prepraviWriter = new FileWriter(fajl);
+			prepraviWriter.write("<?xml version=\"1.0\"?>\n\n" + odgovor + "\n</Metapodaci>");
+			prepraviWriter.close();
+			return;
+		}
 
+		for (int brojac = 0; brojac<((elementi.length/12)) ; ++brojac) {
+			sastav += "\t<Metapodatak fajl=\"http://localhost:8085/fuseki/A1local/data/"+ elementi[12*brojac + 1].replace(">", "\">").replace("\t", "");
+			for (int i = 0; i < 5; ++i) {
+				sastav += "\t\t<"+ elementi[(12*brojac + 2) + (2*i) ] + "</" + elementi[(12*brojac + 2) + (2*i) ].split(">")[0] +">\n";
+			}
+			sastav += "\t</Metapodatak>\n";
+		}
+		//sastav = sastav.substring(0, sastav.length() - 2);
+		sastav += "</Metapodaci>";
+		FileWriter prepraviWriter = new FileWriter(fajl);
+		prepraviWriter.write(sastav);
+		prepraviWriter.close();
+		/*String sastav = "<?xml version=\"1.0\"?>\n";
+		File fajl = new File("./src/main/resources/izlaz/A-1 Meta RDF Izlaz.rdf");
+		fajl.createNewFile();
 
+		String[] elementi = odgovor.split("<");
 
+		if(elementi.length <= 2){
+			FileWriter prepraviWriter = new FileWriter(fajl);
+			prepraviWriter.write("<?xml version=\"1.0\"?>\n\n" + odgovor + "\n</Metapodaci>");
+			prepraviWriter.close();
+			return;
+		}
 
+		for (int brojac = 0; brojac<((elementi.length/12)) ; ++brojac) {
+			elementi[12*brojac + 1] = "Metapodatak fajl=\"http://localhost:8085/fuseki/A1local/data/"+ elementi[12*brojac + 1].replace(">", "\">").replace("\t", "");
+			elementi[12*brojac + 12] = "/Metapodatak>";
+		}
+		boolean prvi = false;
+		for(String s:elementi){
+			if(prvi)
+				sastav += "<" + s;
+			prvi = true;
+		}
+		sastav = sastav.replace("<Metapodatak	", "\t<Metapodatak");
+		sastav = sastav.replace("</Metapodatak>", "</Broj_Prijace>\n\t</Metapodatak>\n");
+		sastav += "\n</Metapodaci>";
 
+		String[] odgovori = odgovor.split("\n");
+		odgovor = odgovor.replace("</Broj_Prijace>\n\t</","</Broj_Prijace>\n\t</Metapodatak fajl=\"http://localhost:8085/fuseki/A1local/data/");
 
+		for(String s:odgovori){
+				sastav += "<" + s;
+		}
 
-
-
-
-
-
-
-
-
-
-
-
+		FileWriter prepraviWriter = new FileWriter(fajl);
+		prepraviWriter.write(sastav);
+		prepraviWriter.close();*/
+	}
 }
