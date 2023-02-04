@@ -1,4 +1,4 @@
-import { Patent } from './../../MODEL/Patent';
+import { Konverzija } from './../../SERVICE/konverzija.service';
 import { XonomyPatentEditService } from './../../SERVICE/xonomyPatentEdit.service';
 import { PatentService } from './../../SERVICE/patent.service';
 import { Component } from '@angular/core';
@@ -13,6 +13,9 @@ declare const Xonomy:any;
 export class EditPatentComponent {
   patentId=<string>{}
   temp:string|null;
+  prodjeno:string|null;
+  mapa:Map<string,string>;
+  listaPatenta:string[]|undefined;
 
   constructor(
     private patentService:PatentService,
@@ -25,6 +28,8 @@ export class EditPatentComponent {
         this.patentId = this.temp;
       else
         this.patentId = "nista";
+    this.prodjeno=this.route.snapshot.paramMap.get('prodjeno');
+    this.mapa= new Map();
    }
 
   ngOnInit(): void {
@@ -32,8 +37,19 @@ export class EditPatentComponent {
       res=>{
         let element = document.getElementById("editor");
         let specification = this.xonomyPatentEditService.PatentSpecification;
-        let xmlString = res.text;
+        let xmlString = res;
+        Xonomy.setMode("laic");
         Xonomy.render(xmlString, element, specification);
+        
+        Xonomy.refresh();
+      }
+    )
+    this.patentService.getReferenciraneDokumente(this.patentId).subscribe(
+      res=>{
+        this.listaPatenta = Konverzija.uzimanjePodatakaXMLDtoLista(res);
+        this.listaPatenta.forEach(element => {
+          this.prikazOznakaPatenta(element,this.mapa);
+        });
       }
     )
   }
@@ -41,8 +57,50 @@ export class EditPatentComponent {
   downloadRDF(){
     this.patentService.downloadRDF(this.patentId).subscribe(
       res=>{
-        console.log(res.text);
-        this.previewAndDownload(res.text,this.patentId.split('%')[0],'rdf');
+        this.patentService.getOznakePatenta(this.patentId).subscribe(
+          res2=>{
+            this.previewAndDownload(Konverzija.uzimanjePodatakaXMLDto(res),Konverzija.uzimanjePodatakaXMLDto(res2),'rdf');
+          }
+        )
+        
+      }
+    )
+  }
+
+  downloadHTML(){
+    this.patentService.downloadHTML(this.patentId).subscribe(
+      res=>{
+        this.patentService.getOznakePatenta(this.patentId).subscribe(
+          res2=>{
+            this.previewAndDownload(Konverzija.uzimanjePodatakaXMLDto(res),Konverzija.uzimanjePodatakaXMLDto(res2),'html');
+          }
+        )
+        
+      }
+    )
+  }
+
+  downloadPDF(){
+    this.patentService.downloadPDF(this.patentId);/*.subscribe(
+      res=>{
+        let url = window.URL.createObjectURL(res);
+        var link = document.createElement('a');
+        link.href = url;
+        link.download = "patent-";
+        link.click();
+      }
+    )*/
+  }
+
+  downloadJSON(){
+    this.patentService.downloadJSON(this.patentId).subscribe(
+      res=>{
+        this.patentService.getOznakePatenta(this.patentId).subscribe(
+          res2=>{
+            this.previewAndDownload(Konverzija.uzimanjePodatakaXMLDto(res),Konverzija.uzimanjePodatakaXMLDto(res2),'json');
+          }
+        )
+        
       }
     )
   }
@@ -57,22 +115,57 @@ export class EditPatentComponent {
     link.click();
   }
 
-  downloadJSON(){
-
-  }
-
   send(){
     let text = Xonomy.harvest();
-    const patent = new Patent("");
-    patent.text = text;
-    this.patentService.sendXml(patent).subscribe(
+    
+    text = '<?xml version="1.0" encoding="UTF-8"?>'+
+    ' <?xml-stylesheet type="text/xsl" href="src/main/resources/xslt/P-1.xsl"?> '+ text;
+    
+    this.patentService.editXml(text).subscribe(
       res=>{
-        this.router.navigate(['/svi-patent']);
+        let daLiJeProdjeno =false;
+        if(this.prodjeno != null)
+          daLiJeProdjeno = this.convertToBoolean(this.prodjeno);
+        if(daLiJeProdjeno)
+          this.router.navigate(['/svi-patent/true']);
+        else
+          this.router.navigate(['/svi-patent-neprodjeni/false']);
+      },
+      error=>{
+        alert("Podaci nisu pravilni")
       }
     )
   }
 
   natrag(){
-    this.router.navigate(['/svi-patent']);
+    let daLiJeProdjeno =false;
+    if(this.prodjeno != null)
+      daLiJeProdjeno = this.convertToBoolean(this.prodjeno);
+    if(daLiJeProdjeno)
+      this.router.navigate(['/svi-patent/true']);
+    else
+      this.router.navigate(['/svi-patent-neprodjeni/false']);
+  }
+
+  convertToBoolean(input: string): boolean {
+    try {
+        return JSON.parse(input.toLowerCase());
+    }
+    catch (e) {
+        return false;
+    }
+  }
+
+  prikazOznakaPatenta(id:string,Mapa:Map<string,string>){
+    this.patentService.getOznakePatenta(id).subscribe(
+      res=>{
+        Mapa.set(id,Konverzija.uzimanjePodatakaXMLDto(res));
+      }
+    );
+
+  }
+
+  idiNaEditPatenta(patent:string){
+    this.router.navigate(['/edit-patent/'+patent+'/'+this.prodjeno]);
   }
 }

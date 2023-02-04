@@ -13,64 +13,106 @@ export class XonomyPatentEditService{
         elements:{
             'P-1':{
                 hasText:false,
+                attributes: {
+                    'id':{
+                        isInvisible:true
+                    }
+                }
             },
                 'popunjava_zavod':{
                     hasText:false,
+                    attributes: {
+                        'about':{
+                            isInvisible:true
+                        }
+                    }
                 },
-                'broj_prijave':{
-                    hasText:true,
-                    oneliner:true
-                },
-                'datum_prijema':{
-                    hasText:true,
-                    oneliner:true
-                },
-                'priznati_datum_podnosenja':{
-                    hasText:true,
-                    oneliner:true
-                },
-                'pecat_i_potpis':{
-                    hasText:true,
-                    isReadOnly:true
-                },
-                'drzava':{
-                    hasText:true,
-                    isReadOnly:true
-                },
-                'ustanova':{
-                    hasText:true,
-                    isReadOnly:true
-                },
-                    'adresa_ustanove':{
-                        isReadOnly:true,
-                        hasText:false
+                    'broj_prijave':{
+                        hasText:true,
+                        attributes: {
+                            'property':{
+                                isInvisible:true
+                            },
+                            'datatype':{
+                                isInvisible:true
+                            }
+                        }
                     },
-                        'naziv_ulice_ustanove':{
-                            hasText:true
+                    'datum_prijema':{
+                        hasText:true
+                    },
+                    'priznati_datum_podnosenja':{
+                        hasText:true,
+                        attributes: {
+                            'property':{
+                                isInvisible:true
+                            },
+                            'datatype':{
+                                isInvisible:true
+                            }
+                        }
+                    },
+                    'pecat_i_potpis':{
+                        hasText:true,
+                        isReadOnly:true
+                    },
+                    'drzava':{
+                        hasText:true,
+                        isReadOnly:true
+                    },
+                    'ustanova':{
+                        hasText:true,
+                        isReadOnly:true
+                    },
+                        'adresa_ustanove':{
+                            isReadOnly:true,
+                            hasText:false
                         },
-                        'broj_ulice_ustanove':{
-                            hasText:true
-                        },
-                        'grad_ustanove':{
-                            hasText:true
-                        },
-                        'postanski_broj_ustanove':{
-                            hasText:true
-                        },
+                            'naziv_ulice_ustanove':{
+                                hasText:true
+                            },
+                            'broj_ulice_ustanove':{
+                                hasText:true
+                            },
+                            'grad_ustanove':{
+                                hasText:true
+                            },
+                            'postanski_broj_ustanove':{
+                                hasText:true
+                            },
             'naslov':{
                 hasText:true,
                 isReadOnly:true
             },
             'naziv_pronalaska':{
-                hasText:false
+                hasText:false,
+                attributes: {
+                    'about':{
+                        isInvisible:true
+                    }
+                }
             },
                 'srpski_naziv':{
                     hasText:true,
-                    oneliner:true
+                    attributes: {
+                        'property':{
+                            isInvisible:true
+                        },
+                        'datatype':{
+                            isInvisible:true
+                        }
+                    }
                 },
                 'engleski_naziv':{
                     hasText:true,
-                    oneliner:true
+                    attributes: {
+                        'property':{
+                            isInvisible:true
+                        },
+                        'datatype':{
+                            isInvisible:true
+                        }
+                    }
                 },
             'podnosilac_prijave':{
                 hasText:false
@@ -115,12 +157,10 @@ export class XonomyPatentEditService{
                             }]
                         },
                             'ime':{
-                                hasText:true,
-                                oneliner:true
+                                hasText:true
                             },
                             'prezime':{
-                                hasText:true,
-                                oneliner:true
+                                hasText:true
                             },
                         'firma':{
                             hasText:false,
@@ -131,50 +171,40 @@ export class XonomyPatentEditService{
                             }]
                         },
                             'poslovno_ime':{
-                                hasText:true,
-                                oneliner:true
+                                hasText:true
                             },
                     'prebivaliste':{
                         hasText:false
                     },
                         'naziv_ulice':{
-                            hasText:true,
-                            oneliner:true
+                            hasText:true
                         },
                         'broj_ulice':{
-                            hasText:true,
-                            oneliner:true
+                            hasText:true
                         },
                         'postanski_broj':{
-                            hasText:true,
-                            oneliner:true
+                            hasText:true
                         },
                         'naziv_grada':{
-                            hasText:true,
-                            oneliner:true
+                            hasText:true
                         },
                         'naziv_drzave':{
-                            hasText:true,
-                            oneliner:true
+                            hasText:true
                         },
                     'kontakt':{
                         hasText:false
                     },
                         'broj_telefona':{
-                            hasText:true,
-                            oneliner:true
+                            hasText:true
                         },
                         'broj_faksa':{
-                            hasText:true,
-                            oneliner:true
+                            hasText:true
                         },
                         'e-posta':{
-                            hasText:true,
-                            oneliner:true
+                            hasText:true
                         },
                 'drzavljanstvo':{
-                    hasText:true,
-                    oneliner:true
+                    hasText:true
                 },
                 'je_pronalazac':{
                     hasText:true,
@@ -214,8 +244,7 @@ export class XonomyPatentEditService{
                     hasText:false
                 },
                     'grad':{
-                        hasText:true,
-                        oneliner:true
+                        hasText:true
                     },
                 'nacin':{
                     hasText:false
@@ -244,12 +273,10 @@ export class XonomyPatentEditService{
                     askerParameter:[{value: "true", caption: "Da"},{value: "false", caption: "Ne"}]
                 },
                 'broj_prvobitne_prijave':{
-                    hasText:true,
-                    oneliner:true
+                    hasText:true
                 },
                 'datum_podnosenja_prvobitne_prijave':{
-                    hasText:true,
-                    oneliner:true
+                    hasText:true
                 },
             'zahtev_za_priznanje_prava_prvenstva_iz_ranijih_prijava':{
                 hasText:false,
@@ -268,16 +295,13 @@ export class XonomyPatentEditService{
                     hasText:false
                 },
                     'datum_podnosenja_ranije_prijave':{
-                        hasText:true,
-                        oneliner:true
+                        hasText:true
                     },
                     'broj_ranije_prijave':{
-                        hasText:true,
-                        oneliner:true
+                        hasText:true
                     },
                     'dvoslovna_oznaka_drzave_ili_organizacije':{
-                        hasText:true,
-                        oneliner:true
+                        hasText:true
                     }
         }
     }

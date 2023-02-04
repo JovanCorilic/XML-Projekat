@@ -1,15 +1,60 @@
-<mat-toolbar style="background-color: blue;color: white;">
-    <button mat-mini-fab  (click)="goToHome()" id="home_btn" style="color: teal;background-color: turquoise;">
+<nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: rgb(188, 241, 245);">
+  <div class="navbar-brand">
+    <a class="navbar-item" (click)="goToHome()">
       <mat-icon>home</mat-icon>
-    </button>
-    <span class="lilspace"></span>
-    <span style="font-size: larger;font-family:'Trebuchet MS';">Patent</span>
-    <span class="lilspace"></span>
-    <div>
-      <button  (click)="goToPatentCreate()" >Pravljenje patenta</button>
-      <span class="lilspace"></span>
-      <button   (click)="goToSviPatenti()" >Svi patenti</button>
-      <span class="lilspace"></span>
-      <button  id="signin-button" (click)="goToLogOut()" >Logout</button>
-    </div>  
-</mat-toolbar>
+    </a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" (click)="goToPatentCreate()" style="font-size: large;font-family:'Trebuchet MS';" *ngIf="getRole()==='EMPLOYEE' || getRole()==='CITIZEN'" >
+        Pravljenje patenta
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" style="font-size: large;font-family:'Trebuchet MS';" *ngIf="getRole()==='EMPLOYEE'" >
+          Svi patenti
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" (click)="goToSviPatentiNijeProsaoZavod()">
+            Nije prošao Zavod
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item" (click)="goToSviPatentiProsaoZavod()">
+            Prošao je Zavod
+          </a>
+        </div>
+      </div>
+
+      <a class="navbar-item" (click)="goToCreateResenje()" style="font-size: large;font-family:'Trebuchet MS';" *ngIf="getRole()==='EMPLOYEE'" >
+        Pravljenje rešenja
+      </a>
+      <a class="navbar-item" (click)="goToSvaResenja()" style="font-size: large;font-family:'Trebuchet MS';" *ngIf="getRole()==='EMPLOYEE'" >
+        Sva rešenja
+      </a>
+
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons" *ngIf="getRole()!=='EMPLOYEE' && getRole()!=='CITIZEN'">
+          <a class="button is-info" (click)="goToLogin()">
+            <strong>Login</strong>
+          </a>
+          <a class="button is-light" (click)="goToRegister()">
+            Registracija
+          </a>
+        </div>
+        <div class="buttons" *ngIf="getRole()==='EMPLOYEE' || getRole()==='CITIZEN'">
+          <a class="button is-info" (click)="goToLogOut()">
+            <strong>Logout</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

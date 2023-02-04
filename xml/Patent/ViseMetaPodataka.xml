@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metapodaci xmlns="http://www.ftn.uns.rs/Metapodaci"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.ftn.uns.rs/Metapodaci file:/C:/Users/Kssbc/Documents/GitHub/XML-Projekat/xml/Patent/ViseMetaPodataka.xsd">
+    <broj_prijave></broj_prijave>
+    <priznati_datum_podnosenja></priznati_datum_podnosenja>
+    <srpski_naziv></srpski_naziv>
+    <engleski_naziv></engleski_naziv>
+</metapodaci>

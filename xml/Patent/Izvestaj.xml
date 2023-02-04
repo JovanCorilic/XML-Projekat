@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<izvestaj>
+    <datum_pocetka></datum_pocetka>
+    <datum_kraja></datum_kraja>
+    <broj_podnetih_prijava></broj_podnetih_prijava>
+    <broj_prihvacenih_zahteva></broj_prihvacenih_zahteva>
+    <broj_odbijenih_zahteva></broj_odbijenih_zahteva>
+</izvestaj>

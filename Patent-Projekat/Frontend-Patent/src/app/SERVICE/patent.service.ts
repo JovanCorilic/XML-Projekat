@@ -1,36 +1,115 @@
+import { Korisnik } from './../MODEL/Korisnik';
+import { PatentLista } from './../MODEL/PatentLista';
+
 import { Patent } from './../MODEL/Patent';
 import { Observable } from "rxjs";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 @Injectable({
     providedIn:'root'
 })
 export class PatentService{
     constructor(private http: HttpClient){}
+    //{ responseType: 'string' }
+    private path = "http://localhost:9195/api/patent";
+    private headers = new HttpHeaders().set('Content-Type', 'application/xml');
+    HTTPOptions:Object = {
 
-    private path = "http://localhost:8080/api/patent"
+      headers: new HttpHeaders({
+          'Content-Type': 'application/xml',
+          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': "Access-Control-Allow-Headers, Access-Control-Allow-Origin, Access-Control-Request-Method"
+      }),
+      responseType: 'text'
+   }
 
-    sendXml(entity: Patent) {
-        return this.http.post(this.path+'/xonomyCreate', entity);
-      }
+    //Pravljenje i edit xml-a -----------------------------------------------------------------------------
+
+    sendXml(entity: string) {
+        return this.http.post(this.path+'/xonomyCreate', entity,{headers: this.headers});
+    }
+
+    
+
+    editXml(entity: string) {
+      return this.http.put(this.path+'/xonomyEdit', entity,{headers: this.headers});
+    }
+
+    
+    //Operacije prikaz svih xml-ova ---------------------------------------------------------------------
+
+    sviPatentiNijeProsaoZavod():Observable<any>{
+      return this.http.get<any>(this.path+'/getAllNijeProsaoZavod',this.HTTPOptions);
+    }
       
-    sviPatenti():Observable<string[]>{
-      return this.http.get<string[]>(this.path+'/getAll');
+    sviPatentiProsaoZavod():Observable<any>{
+      return this.http.get<any>(this.path+'/getAll',this.HTTPOptions);
     }
 
-    getPatent(id:string):Observable<Patent>{
-      return this.http.post<Patent>(this.path+'/getXMLDocument',new Patent(id));
+    
+
+    //Operacije dobijanje xml-a ---------------------------------------------------------------------------------
+
+    getPatent(id:string):Observable<any>{
+      return this.http.get<any>(this.path+'/getXMLDocument'+`/${id}`,this.HTTPOptions);
     }
 
-    searchMetapodaci(odluka:string, opcija:string):Observable<Patent>{
-      return this.http.get<Patent>(this.path+'/fusekiSearch'+`/${odluka}`+`/${opcija}`);
+    getReferenciraneDokumente(id:string):Observable<any>{
+      return this.http.get<any>(this.path+'/getReferenciraneDokumente'+`/${id}`,this.HTTPOptions);
     }
 
-    searchTekstualniSadrzaj(odluka:string):Observable<string[]>{
-      return this.http.get<string[]>(this.path+'/pretragaPoTekstualnomSadrzaju'+`/${odluka}`);
+    getPatentSrpskiEngleskiNaziv(id:string):Observable<any>{
+      return this.http.get<any>(this.path+'/pretragaPoNazivu'+`/${id}`,this.HTTPOptions);
     }
 
-    downloadRDF(id:string):Observable<Patent>{
-      return this.http.get<Patent>(this.path+"/downloadRDF"+`/${id}`);
+    getOznakePatenta(id:string):Observable<any>{
+      return this.http.get<any>(this.path+"/getOznakePatenta"+`/${id}`,this.HTTPOptions);
     }
+
+    //Operacije pretraga xml-a i metapodataka -------------------------------------------------------------------------
+
+    searchMetapodaci(odluka:string, opcija:string):Observable<any>{
+      return this.http.get<any>(this.path+'/fusekiSearch'+`/${odluka}`+`/${opcija}`,this.HTTPOptions);
+    }
+
+    searchViseMetapodataka(text:string,opcija:string):Observable<any>{
+      
+      return this.http.post(this.path+'/pretragaViseMetapodataka'+`/${opcija}`, text,this.HTTPOptions);
+    }
+
+    searchTekstualniSadrzaj(odluka:string):Observable<any>{
+      return this.http.get<any>(this.path+'/pretragaPoTekstualnomSadrzaju'+`/${odluka}`,this.HTTPOptions);
+    }
+
+    //Operacije download raznih stvari ----------------------------------------------------------------------------------
+
+    downloadRDF(id:string):Observable<any>{
+      return this.http.get<any>(this.path+"/downloadRDF"+`/${id}`,this.HTTPOptions);
+    }
+
+    downloadHTML(id:string):Observable<any>{
+      return this.http.get<any>(this.path+"/downloadHTML"+`/${id}`,this.HTTPOptions);
+    }
+
+    downloadPDF(id:string){
+      window.location.href = this.path + "/downloadPDF"+`/${id}`;
+      /*let HTTPOptions:Object = {
+        headers : new HttpHeaders({
+          'Content-Type': 'application/xml',
+            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            
+            'Accept': 'application/pdf'
+        }),
+        responseType: 'blob'
+      }
+      return this.http.get(this.path+"/downloadPDF"+`/${id}`, HTTPOptions);*/
+      //return this.http.get<any>(this.path+"/downloadPDF"+`/${id}`,this.HTTPOptions);
+    }
+
+    downloadJSON(id:string){
+      return this.http.get<any>(this.path+"/downloadJSON"+`/${id}`,this.HTTPOptions);
+    }
+
+    
 }

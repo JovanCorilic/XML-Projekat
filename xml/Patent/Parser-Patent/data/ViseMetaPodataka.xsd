@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.ftn.uns.rs/Metapodaci"
+    xmlns:Metapodaci="http://www.ftn.uns.rs/Metapodaci">
+
+    <xs:element name="metapodaci">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="broj_prijave" type="xs:string"/>
+                <xs:element minOccurs="1" name="priznati_datum_podnosenja" type="xs:string"/>
+                <xs:element minOccurs="1" name="srpski_naziv" type="xs:string"/>
+                <xs:element minOccurs="1" name="engleski_naziv" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

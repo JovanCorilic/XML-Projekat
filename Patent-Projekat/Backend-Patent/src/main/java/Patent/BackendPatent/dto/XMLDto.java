@@ -1,5 +1,8 @@
 package Patent.BackendPatent.dto;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "xmlDTO")
 public class XMLDto {
     private String text;
 

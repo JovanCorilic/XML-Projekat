@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<korisnik xmlns="http://www.ftn.uns.rs/KorisnikDTO">
+    <korisnicko_ime></korisnicko_ime>
+    <lozinka></lozinka>
+    <uloga></uloga>
+</korisnik>

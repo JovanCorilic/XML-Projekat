@@ -7,16 +7,80 @@ import org.apache.jena.update.UpdateFactory;
 import org.apache.jena.update.UpdateProcessor;
 import org.apache.jena.update.UpdateRequest;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.Console;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 public class FusekiWriter {
 
     private static final String RDF_FILEPATH_PATENT = "src/main/resources/rdf/rdfPatentOutput.rdf";
     private static final String GRAPH_URI_PATENT = "patentMetadata";
+    private static final String GRAPH_URI_RESENJE = "resenjeMetadata";
+
+    public static void saveRDFPatentFromString(String text) throws IOException {
+
+        FusekiAuthenticationUtilities.ConnectionProperties conn = FusekiAuthenticationUtilities.loadProperties();
+
+        Model model = ModelFactory.createDefaultModel();
+
+        byte[]temp = text.getBytes(StandardCharsets.UTF_8);
+        ByteArrayInputStream in = new ByteArrayInputStream(temp);
+        model.read(in,SparqlUtil.NTRIPLES);
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        model.write(out, SparqlUtil.NTRIPLES);
+
+        model.write(System.out, SparqlUtil.RDF_XML);
+
+
+        UpdateRequest request = UpdateFactory.create();
+        UpdateProcessor processor = UpdateExecutionFactory.createRemote(request,conn.updateEndpoint);
+        processor.execute();
+
+        String sparqlUpdate = SparqlUtil.insertData(conn.dataEndpoint + "/"+ GRAPH_URI_PATENT,
+                new String(out.toByteArray()));
+
+
+        UpdateRequest update = UpdateFactory.create(sparqlUpdate);
+        processor = UpdateExecutionFactory.createRemote(update,conn.updateEndpoint);
+        processor.execute();
+
+    }
+
+    public static void saveRDFResenjeFromString(String text) throws IOException {
+
+        FusekiAuthenticationUtilities.ConnectionProperties conn = FusekiAuthenticationUtilities.loadProperties();
+
+        Model model = ModelFactory.createDefaultModel();
+
+        byte[]temp = text.getBytes(StandardCharsets.UTF_8);
+        ByteArrayInputStream in = new ByteArrayInputStream(temp);
+        model.read(in,SparqlUtil.NTRIPLES);
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        model.write(out, SparqlUtil.NTRIPLES);
+
+        model.write(System.out, SparqlUtil.RDF_XML);
+
+
+        UpdateRequest request = UpdateFactory.create();
+        UpdateProcessor processor = UpdateExecutionFactory.createRemote(request,conn.updateEndpoint);
+        processor.execute();
+
+        String sparqlUpdate = SparqlUtil.insertData(conn.dataEndpoint + "/"+ GRAPH_URI_RESENJE,
+                new String(out.toByteArray()));
+
+
+        UpdateRequest update = UpdateFactory.create(sparqlUpdate);
+        processor = UpdateExecutionFactory.createRemote(update,conn.updateEndpoint);
+        processor.execute();
+
+    }
 
     public static void saveRDFPatent() throws IOException {
-        System.out.println("[INFO] Loading triples from an RDF/XML to a model...");
+
         FusekiAuthenticationUtilities.ConnectionProperties conn = FusekiAuthenticationUtilities.loadProperties();
 
         Model model = ModelFactory.createDefaultModel();
@@ -24,16 +88,16 @@ public class FusekiWriter {
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         model.write(out, SparqlUtil.NTRIPLES);
-        System.out.println("[INFO] Rendering model as RDF/XML...");
+
         model.write(System.out, SparqlUtil.RDF_XML);
 
         UpdateRequest request = UpdateFactory.create();
         UpdateProcessor processor = UpdateExecutionFactory.createRemote(request,conn.updateEndpoint);
         processor.execute();
-        System.out.println("[INFO] Writing the triples to a named graph \"" + GRAPH_URI_PATENT + "\".");
+
         String sparqlUpdate = SparqlUtil.insertData(conn.dataEndpoint + "/"+ GRAPH_URI_PATENT,
                 new String(out.toByteArray()));
-        System.out.println(sparqlUpdate);
+
 
         UpdateRequest update = UpdateFactory.create(sparqlUpdate);
         processor = UpdateExecutionFactory.createRemote(update,conn.updateEndpoint);

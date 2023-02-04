@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.ftn.uns.rs/ResenjePatent"
+    xmlns:ResenjePatent="http://www.ftn.uns.rs/ResenjePatent">
+
+    <xs:element name="resenje">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="datum_odluke_o_zahtevu">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="about" type="xs:string"/>
+                                <xs:attribute name="property" type="xs:string"/>
+                                <xs:attribute name="datatype" type="xs:string"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="da_li_je_prosao" type="ResenjePatent:tipProlaz"/>
+                <xs:element name="sluzbenik">
+                    <xs:complexType>
+                        <xs:complexContent>
+                            <xs:extension base="ResenjePatent:tipSluzbenik">
+                                <xs:attribute name="about" type="xs:string"/>
+                            </xs:extension>
+                        </xs:complexContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="referenca_na_zahtev" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="tipSluzbenik">
+        <xs:sequence>
+            <xs:element name="ime">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="property" type="xs:string"/>
+                            <xs:attribute name="datatype" type="xs:string"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="prezime">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="property" type="xs:string"/>
+                            <xs:attribute name="datatype" type="xs:string"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="tipProlaz">
+        <xs:choice>
+            <xs:element fixed="" minOccurs="1" name="sifra" type="xs:string"/>
+            <xs:element minOccurs="1" name="obrazlozenje" type="xs:string"/>
+        </xs:choice>
+    </xs:complexType>
+</xs:schema>

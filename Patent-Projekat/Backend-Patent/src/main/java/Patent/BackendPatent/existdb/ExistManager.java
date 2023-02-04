@@ -109,7 +109,7 @@ public class ExistManager {
         res = (XMLResource) col.createResource(documentId, XMLResource.RESOURCE_TYPE);
         res.setContent(xmlString);
 
-        System.out.println(res.getContent());
+
         col.storeResource(res);
         closeConnection(col, res);
 

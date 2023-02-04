@@ -4,7 +4,7 @@
     <popunjava_zavod about="http://www.ftn.uns.ac.rs/rdf/patent">
         <broj_prijave property="pred:brojPrijave" datatype="xs:string">5</broj_prijave>
         <datum_prijema>10.10.2022</datum_prijema>
-        <priznati_datum_podnosenja>10.10.2022</priznati_datum_podnosenja>
+        <priznati_datum_podnosenja property="pred:priznatDatumPodnosenja" datatype="xs:string">10.10.2022</priznati_datum_podnosenja>
         <pecat_i_potpis></pecat_i_potpis>
         <drzava>Republika Srbija</drzava>
         <ustanova>Zavod za intelektualnu svojinu</ustanova>
