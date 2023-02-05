@@ -1,0 +1,5 @@
+SELECT *
+FROM <http://localhost:8085/fuseki/A1local/data/metadata>
+WHERE {
+  ?subject ?predicate ?object
+}

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:element name="AJedan">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Jedan">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Podnosilac">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Ime" type="xs:string"/>
+                                        <xs:element name="Prezime" type="xs:string"/>
+                                        <xs:element name="Adresa" type="adresa"/>
+                                        <xs:element name="Drzavljanstvo" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Telefonski_Broj" type="xs:string"/>
+                            <xs:element name="email" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Dva">
+                    <xs:complexType>
+                        <xs:choice minOccurs="0">
+                            <xs:element name="Pseudonim" type="xs:string"/>
+                            <xs:element name="Znak_Autora" type="xs:string"/>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Tri">
+                    <xs:complexType>
+                        <xs:sequence minOccurs="0">
+                            <xs:element name="Punomocnik">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Ime" type="xs:string"/>
+                                        <xs:element name="Prezime" type="xs:string"/>
+                                        <xs:element name="Adresa" type="adresa"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Cetiri">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Naslov" type="xs:string"/>
+                            <xs:element name="Alternativni_Naslov" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Pet">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Autorsko_Delo_Prerade">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Podaci_O_Originalnom_Autorskom_Delu"
+                                            type="xs:string"/>
+                                        <xs:element name="Ime_Autora" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Sest">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Podaci_O_Vrsti_Autorskog_Dela" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Sedam">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Podaci_O_Formi_Autorskog_Zapisa_Dela" type="xs:string"
+                            />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Osam">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Podnosioci">
+                                <xs:complexType>
+                                    <xs:sequence maxOccurs="1">
+                                        <xs:element name="Zivi_Podnosioci">
+                                            <xs:complexType>
+                                                <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                                                  <xs:element name="Ziv_Podnosilac">
+                                                  <xs:complexType>
+                                                  <xs:sequence>
+                                                  <xs:element name="Ime" type="xs:string"/>
+                                                  <xs:element name="Prezime" type="xs:string"/>
+                                                  <xs:element name="adresa" type="adresa"> </xs:element>
+                                                  <xs:element name="Drzavljanstvo" type="xs:string"
+                                                  />
+                                                  </xs:sequence>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Mrtvi_Podnosioci">
+                                            <xs:complexType>
+                                                <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                                                  <xs:element name="Mrtav_Podnosilac">
+                                                  <xs:complexType>
+                                                  <xs:sequence>
+                                                  <xs:element name="Ime" type="xs:string"/>
+                                                  <xs:element name="Prezime" type="xs:string"/>
+                                                  <xs:element name="Godina_Smrti" type="xs:string"/>
+                                                  </xs:sequence>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Anonimni_Podnosioci">
+                                            <xs:complexType>
+                                                <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                                                  <xs:element name="Anoniman_Podnosilac">
+                                                  <xs:complexType>
+                                                  <xs:sequence>
+                                                  <xs:element name="Delo_Anonimnog_Autora"
+                                                  type="xs:string"/>
+                                                  </xs:sequence>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Devet">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Da_Li_Je_Autorsko_Delo_Stvoreno_U_Radnom_Odnosu"
+                                type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Deset">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element name="Nacin_Koriscenja_Autorskog_Dela" type="xs:string"/>
+                            <xs:element name="Nameravani_Nacin_Koriscenja_Autorskog_Dela"
+                                type="xs:string"/>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Jedanaest">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Potpis" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Dvanaest">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Prilozi_Uz_Zahtev" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Opis_Autorskog_Dela" type="xs:string"/>
+                <xs:element name="Broj_Prijace" type="xs:string"/>
+                <xs:element name="Datum_Podnosenja" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="adresa">
+        <xs:sequence>
+            <xs:element name="Grad" type="xs:string"/>
+            <xs:element name="Ulica" type="xs:string"/>
+            <xs:element name="Broj" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

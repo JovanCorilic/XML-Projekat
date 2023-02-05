@@ -1,0 +1,17 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+<rdf:Description rdf:about="">
+<pred:Naslov xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Datum test</pred:Naslov>
+</rdf:Description>
+<rdf:Description rdf:about="">
+<pred:Podaci_O_Vrsti_Autorskog_Dela xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">fouoglahzvgmzne</pred:Podaci_O_Vrsti_Autorskog_Dela>
+</rdf:Description>
+<rdf:Description rdf:about="">
+<pred:Potpis xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">dpuanoerzpvjhkc</pred:Potpis>
+</rdf:Description>
+<rdf:Description rdf:about="">
+<pred:Broj_Prijace xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">73991</pred:Broj_Prijace>
+</rdf:Description>
+<rdf:Description rdf:about="">
+<pred:Datum_Podnosenja xmlns:pred="https://1564.com/predicate" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">04.02.2023</pred:Datum_Podnosenja>
+</rdf:Description>
+</rdf:RDF>

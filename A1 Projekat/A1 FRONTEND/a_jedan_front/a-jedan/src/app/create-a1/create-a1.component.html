@@ -1,0 +1,238 @@
+
+
+<table id="Tabela" style="background-color: rgb(247, 247, 247); list-style-type: none; padding: 10px; margin: auto; width: 900px;">
+    <tr>
+        <td colspan="2">ZAVOD ZA INTELEKTUALNU SVOJINU</td><td style="text-align:'right'" colspan="2"><b>OBRAZAC A-1</b></td>
+    </tr>
+    <tr>
+        <td colspan="4">Beograd, Kneginje Ljubice 5</td>
+    </tr>
+    <tr>
+        <td colspan="4" style="text-align:'center'">
+            <br /><br />
+            <b>ZAHTEV ZA UNOŠENJE U EVIDENCIJU I DEPONOVANJE AUTORSKIH DELA</b>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4"><br /><br /><br /><br /><b>(1)</b> Podnosilac - ime, prezime, adresa i državljanstvo autora ili drugog nosioca autorskog prava ako je
+            podnosilac fiziko lice, odnosno poslovno ime i sedište nosioca autorskog prava ako je podnosilac
+            pravno lice*:
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Ime: <input type="text" id="ime1"><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Prezime: <input type="text" id="prezime1"><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Adresa<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Grad: <input type="text" id="grad1"><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Ulica: <input type="text" id="ulica1"><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Broj: <input type="text" id="broj1"><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Drzavljanstvo: <input type="text" id="drzavljanstvo1"><br /><br /><hr />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Telefonski Broj: <input type="text" id="telefon1">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            E-mail Adresa: <input type="text" id="email1"><hr />
+        </td>
+    </tr>
+    <tr>
+    <td colspan="1"><br /><br /><b>(2)</b>&nbsp;<input type="button" value="Pseudonim" onclick="Pseudonim()"> ili <input type="button" value="Znak Autora" onclick="Znak_Autora()"> , (ako ga ima):<br />    
+        <div id="Pseudonim_Znak_Autora">
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pseudonim: <input type="text" id="pseudonim2">
+        </div>
+    </td>
+    </tr>
+    <tr>
+        <td colspan="1"><br /><br /><b>(3)</b> Ime, prezime i adresa punomoćnika, ako se prijava podnosi preko punomoćnika<br />
+
+            <div id="Punomocnik">
+                <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" value="Dodaj Punomoćnika" onclick="Punomocnik()"><br />
+                <!--
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Ime: <input type="text" id="ime3"><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Prezime: <input type="text" id="prezime3"><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Adresa<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Grad: <input type="text" id="grad3"><br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Ulica: <input type="text" id="ulica3"><br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Broj: <input type="text" id="broj3"><br />
+                -->
+            </div>
+    </tr>
+    <tr>
+    <td colspan="4">
+        <br /><br /><b>(4)</b> Naslov autorskog dela, odnosno alternativni naslov, ako ga ima, po kome autorsko delo može da se identifikuje</td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Naslov/i:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Naslov: <input type="text" id="naslov4"><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Alternativni naslov: <input type="text" id="alternativni_naslov4">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <br /><br /><b>(5)</b> Podaci o naslovu autorskog dela na kome se zasniva delo prerade, ako je u pitanju autorsko delo
+            prerade, kao i podatak o autoru izvornog dela
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Podaci O Originalnom Autorskom Delu: <input type="text" id="podaci_o_delu5"><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ime Autora: <input type="text" id="ime_autora5">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <br /><br /><b>(6)</b> Podaci o vrsti autorskog dela (književno delo, muziko delo, likovno delo, raunarski program i dr.) 
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vrsta autorskog dela: <input type="text" id="vrsta_dela6">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <br /><br /><b>(7)</b> Podaci o formi zapisa autorskog dela (štampani tekst, optiki disk i slino) *:
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forma zapisa autorskog dela: <input type="text" id="forma_dela7">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <br /><br /><b>(8)</b> Podaci o autoru ako podnosilac prijave iz take 1. ovog zahteva nije autor i to: prezime, ime, adresa
+            i državljanstvo autora (grupe autora ili koautora), a ako su u pitanju jedan ili više autora koji nisu
+            živi, imena autora i godine smrti autora a ako je u pitanju autorsko delo anonimnog autora navod
+            da je autorsko delo delo anonimnog autora:
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <div id="Podnosioci">
+                <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" value="Ima Podnosioce" onclick="Podnosioci()"><br />
+                <!--
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Ime: <input type="text" id="ime3"><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Prezime: <input type="text" id="prezime3"><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Adresa<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Grad: <input type="text" id="grad3"><br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Ulica: <input type="text" id="ulica3"><br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Broj: <input type="text" id="broj3"><br />
+                -->
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <br /><br /><b>(9)</b> Podatak da li je u pitanju autorsko delo stvoreno u radnom odnosu:
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Da Li Je Autorsko Delo Stvoreno U Radnom Odnosu?: <input type="text" id="radni_odnos9">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1"><br /><br /><b>(10)</b>&nbsp;<input type="button" value="Način korišćenja autorskog dela" onclick="Nacin_Koriscenja()">
+             ili <input type="button" value="nameravani način korišćenja autorskog dela" onclick="Nameravani_Nacin_Koriscenja()"><br />    
+            <div id="Nacin_Namera">
+                <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nacin Koriscenja: <input type="text" id="nacin_koriscenja10">
+            </div>
+        </td>
+    </tr>
+    <tr>
+    <td colspan="4">
+    <br />
+    </td>
+    </tr>
+    <tr>
+    <td colspan="2"><br /><br /><b>(11)</b>&nbsp;Potpis</td><td colspan="2"></td>
+    </tr>
+    <tr>
+        <td colspan="2"></td><td colspan="2">
+            <input type="text" id="potpis11"><hr />
+            <b>Podnosilac prijave, nosilac prava</b><br />
+            (mesto za potpis fizičkog lica, odnosno potpis<br />
+            zastupnika pravnog lica ili ovlašćenog predstavnika<br />
+            u pravnom licu)*
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            Prilozi koji se podnose uz zahtev:
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4"><br /><br /><b>(12)</b>&nbsp;Prilozi Uz Zahtev<br />
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prilozi Uz Zahtev: <input type="text" id="prilozi12">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4" style="text-align:'center'" ><br /><br /><br /><br /><br /><br /><b>POPUNJAVA ZAVOD:</b></td>
+    </tr>
+    <tr>
+        <td colspan="4"><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Prilozi uz prijavu</b></td>
+    </tr>
+    <tr>
+        <td colspan="4"><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- opis autorskog dela (ako je delo podneto na optikom disku</td>
+    </tr>
+    <tr>
+        <td colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="opis"><br />
+        </td>
+    </tr>
+
+    <tr>
+    <td colspan="2"></td><td colspan="2">
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        Broj Prijave<br />
+        A-<input disabled type="text" id="broj_prijave"><br />
+    <br />
+        Datum Podnosenja<br /><input disabled type="text" id="datum"></td>
+    </tr>
+    <tr>
+        <td>Rubrike u zahtevu A-1 koje su označene sa * moraju da budu obavezno popunjene.</td>
+    </tr>
+</table>
+
+<div style="text-align: center;"><br />
+    <button style="background-color: azure; height: 35px; width: 400px;" (click)="posalji_GUI()">Posalji</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input style="background-color: azure; height: 35px; width: 400px;" type="button" value="Popuni za mene" onclick="Popuni_Random()">
+
+</div>
+
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<div style="color: rgb(0, 185, 31);">&lt;!-- Preko Xonomy ----------------------------------------------------------></div>
+<div id="editor"></div>
+<button (click)="posalji()">Posalji Xonomy</button>
+<button (click)="posalji_popunjen()">Posalji Popunjen XML</button>
