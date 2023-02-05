@@ -5,14 +5,16 @@ Verzija jave je 1.8
 #### Kako se instalira
 - Skida se tomcat verzija 8 (https://tomcat.apache.org)
 - U webapps stavljaju se exist.war i fuseki.war
-- Onda se u lib folderu pokrene tomcat preko komande 'startup'
+- Onda se u bin folderu pokrene tomcat preko komande 'startup'
 
 ## Pokretanje programa
 - Za backend se koristio Spring a za frontend Angular. Za exist i fuseki bazu, koristio se Tomcat 8. 
-- Za P1 portovi su : 4252 - Frontend, 9195 - BackEnd, 8081 - Baza
+- Za P1 portovi su : 4252 - Frontend (namešteno je na ovaj port u angular.json) , 9195 - BackEnd, 8081 - Baza
 - Za A1 portovi su : 4200, 8080, 8085
 - Za Z1 portovi su : 8083, 8086, 8888, 9090 (Korsinik backend)
-- Backend i Frontend projekte otvoriti preko Visual Studio Code ( ili drugim po vašoj želji ) i pokrenuti ih
+- Backend projekte otvoriti preko Visual Studio Code ( ili drugim okruženjem po vašoj želji ) i pokrenuti ih
+- Frontend su Angularom urađeni. Ukucati prvo u konzoli u folderima frontend dela projekata npm install pa onda ng serve
+- Ako nije drugačije naglašeno za exist i fuseki , u tomcat folder otići u bin folder, onda u konzoli iz te lokacije ukucati startup
 
 ## Assets kod frontend-a
 - Koristi se xonomy (https://github.com/michmech/xonomy) i jQuery
