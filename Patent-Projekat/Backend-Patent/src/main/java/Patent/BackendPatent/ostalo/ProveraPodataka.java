@@ -11,10 +11,7 @@ import java.util.Map;
 
 public class ProveraPodataka {
     public static boolean DaLiSuPravilnoUnetiPodaciOdKorisnika(P1 p1)throws Exception{
-        if (DaLiVecPostojiSrpskiNazivKorisnik(p1.getNazivPronalaska().getSrpskiNaziv().getValue()))
-            return true;
-        if (DaLiVecPostojiEngleskiNazivKorisnik(p1.getNazivPronalaska().getEngleskiNaziv().getValue()))
-            return true;
+        
         if (p1.ProveraP1())
             return true;
         return false;

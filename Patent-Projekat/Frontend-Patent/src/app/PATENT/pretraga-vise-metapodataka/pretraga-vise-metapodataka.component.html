@@ -1,4 +1,4 @@
-<table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+<table cellpadding="0" cellspacing="0" border="0" style="width: 100%;table-layout:fixed;">
     <tr>
         <td valign="top" style="width: 50%;" >
             <div id="editor"></div><br><br>
@@ -16,7 +16,7 @@
             <h2>Rezultat pretrage</h2>
             <br />
             <div *ngFor="let patent of lista" >
-                <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded">{{mapaMetaPodaci.get(patent)}}</button>
+                <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded" style="width: 100%;">{{mapaMetaPodaci.get(patent)}}</button>
                 <br />
             </div>
             

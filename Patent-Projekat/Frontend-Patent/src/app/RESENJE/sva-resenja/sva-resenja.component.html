@@ -1,12 +1,12 @@
-<table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+<table cellpadding="0" cellspacing="0" border="0" style="width: 100%;table-layout:fixed;">
     <tr valign="top"><td style="width: 45%;">
     <br />
     <div *ngFor="let resenje of listaResenja" >&nbsp;
-    <button (click)="idiNaEditResenje(resenje)" class="button is-info is-rounded">{{mapa.get(resenje)}}</button>
+    <button (click)="idiNaEditResenje(resenje)" class="button is-info is-rounded" style="width: 100%;">{{mapa.get(resenje)}}</button>
     <br /><br />
     </div>
 </td>
-<td valign="top" style="width: 11%;text-align: center;"><br>
+<td valign="top" style="width: 20%;text-align: center;"><br>
     <h2>Pretraga preko metapodataka</h2><br>
     <form [formGroup]="resForm" (ngSubmit)="pretraziPrekoMetapodatak()" class="form-inline">
         <div class="form-group" align="center">
@@ -45,24 +45,24 @@
         </div>
     </form>
 </td>
-<td valign="top" style="width: 44%;">
+<td valign="top" style="width: 35%;">
     
     <div *ngIf="opcija === '2'">
         <h2>Službenik koji odgovara vašoj pretrazi</h2>
         <br>
         <div *ngFor="let resenje of listaResenja2" >
-            <button  (click)="idiNaEditResenje(resenje)" class="button is-info is-rounded">{{mapaMetaPodaci.get(resenje)}}</button>
+            <button  (click)="idiNaEditResenje(resenje)" class="button is-info is-rounded" style="width: 100%;">{{mapaMetaPodaci.get(resenje)}}</button>
             <br /><br />
         </div>
-        <h3 *ngIf="listaResenja2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
+        
     </div>
     
     <div *ngIf="opcija === '1'">
         <h2>Rezultat koji odgovara vašoj pretrazi</h2>
-        <h3 *ngIf="listaResenja2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
+        
         <br>
         <div *ngFor="let resenje of listaResenja2" >
-            <button  (click)="idiNaEditResenje(resenje)" class="button is-info is-rounded">{{mapaMetaPodaci.get(resenje)}}</button>
+            <button  (click)="idiNaEditResenje(resenje)" class="button is-info is-rounded" style="width: 100%;">{{mapaMetaPodaci.get(resenje)}}</button>
             <br /><br />
         </div>
         

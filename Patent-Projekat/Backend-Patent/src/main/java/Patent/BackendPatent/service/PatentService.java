@@ -37,9 +37,11 @@ public class PatentService {
     public void addPatentFromText(String text)throws Exception{
         text = text.replaceAll("xml:space='preserve'","");
         P1 p1 = jaxbParser.unmarshall(P1.class,text);
+        
         if(ProveraPodataka.DaLiSuPravilnoUnetiPodaciOdKorisnika(p1))
             throw new Exception();
         String docId ;
+        
         try{
             docId = dajMiID();
         }
@@ -50,7 +52,7 @@ public class PatentService {
         p1.getPopunjavaZavod().setAbout(p1.getPopunjavaZavod().getAbout()+"/"+docId);
 
         p1.getNazivPronalaska().setAbout(p1.getNazivPronalaska().getAbout()+"/"+docId);
-
+        
         text=jaxbParser.marshallString(P1.class,p1);
         patentRepository.savePatentFromText(text,docId);
         //metadataExtractor.extractMetadataPatent(text);
@@ -260,10 +262,10 @@ public class PatentService {
         else
             temp2 = p1.getPopunjavaZavod().getPriznatiDatumPodnosenja().getValue();
 
-        natrag +="Broj prijave : "+temp+
-                " | Srpski naziv: "+p1.getNazivPronalaska().getSrpskiNaziv().getValue()+
-                " | Engleski naziv: "+p1.getNazivPronalaska().getEngleskiNaziv().getValue()+
-                " | Datum podnošenja: "+temp2;
+        natrag +=""+temp+
+                "|"+p1.getNazivPronalaska().getSrpskiNaziv().getValue()+
+                "|"+p1.getNazivPronalaska().getEngleskiNaziv().getValue()+
+                "|"+temp2;
         return natrag;
     }
 

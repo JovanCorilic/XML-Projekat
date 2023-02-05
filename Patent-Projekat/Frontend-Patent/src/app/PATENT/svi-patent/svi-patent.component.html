@@ -1,13 +1,13 @@
-<table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+<table cellpadding="0" cellspacing="0" border="0" style="width: 100%;table-layout:fixed;">
     <tr valign="top">
 <td style="width: 45%;">
     <br />
     <div *ngFor="let patent of listaPatenta" >&nbsp;
-    <button (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded">{{mapa.get(patent)}}</button>
+    <button (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded" style="width: 100%;">{{mapa.get(patent)}}</button>
     <br /><br />
     </div>
 </td>
-<td  style="width: 11%;text-align: center;"><br>
+<td  style="width: 20%;text-align: center;"><br>
     <h2>Pretraga preko metapodataka</h2><br>
     <form [formGroup]="resForm" (ngSubmit)="pretraziPrekoMetapodatak()" class="form-inline">
         <div class="form-group" align="center">
@@ -36,43 +36,43 @@
         </div>
     </form>
 </td>
-<td valign="top" style="width: 44%;">
+<td valign="top" style="width: 35%;">
     
     <div *ngIf="opcija === '2'">
         <h2>Broj prijave koji odgovara vašoj pretrazi</h2>
-        <h3 *ngIf="listaPatenta2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
+        
         <br />
         <div *ngFor="let patent of listaPatenta2" >
-            <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded">{{mapaMetaPodaci.get(patent)}}</button>
+            <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded" style="width: 100%;">{{mapaMetaPodaci.get(patent)}}</button>
             <br /><br />
         </div>
-        <h3 *ngIf="listaPatenta2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
+        
     </div>
     <div *ngIf="opcija === '3'">
         <h2>Engleski naziv koji odgovara vašoj pretrazi</h2>
-        <h3 *ngIf="listaPatenta2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
+        
         <br />
         <div *ngFor="let patent of listaPatenta2" >
-            <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded">{{mapaMetaPodaci.get(patent)}}</button>
+            <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded" style="width: 100%;">{{mapaMetaPodaci.get(patent)}}</button>
             <br /><br />
         </div>
         
     </div>
     <div *ngIf="opcija === '1'">
         <h2>Srpski naziv koji odgovara vašoj pretrazi</h2>
-        <h3 *ngIf="listaPatenta2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
+        
         <br />
         <div *ngFor="let patent of listaPatenta2" >
-            <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded">{{mapaMetaPodaci.get(patent)}}</button>
+            <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded" style="width: 100%;">{{mapaMetaPodaci.get(patent)}}</button>
             <br /><br />
         </div>
     </div>
     <div *ngIf="opcija === '4'">
         <h2>Priznati datum podnošenja koji odgovara vašoj pretrazi</h2>
-        <h3 *ngIf="listaPatenta2.length==0" >Nije ništa nađeno što se podudara sa vašim unetim.</h3>
+        
         <br />
         <div *ngFor="let patent of listaPatenta2" >
-            <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded">{{mapaMetaPodaci.get(patent)}}</button>
+            <button  (click)="idiNaEditPatenta(patent)" class="button is-info is-rounded" style="width: 100%;">{{mapaMetaPodaci.get(patent)}}</button>
             <br /><br />
         </div>
     </div>
