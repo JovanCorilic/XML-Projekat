@@ -1,52 +1,52 @@
-<!--N-->
-<AJedan xmlns="https://www.D_A_B_F#_G_D_G_A.com" xmlns:pred="https://1564.com/predicate" xmlns:x="http://www.w3.org/2001/XMLSchema-instance">
+<AJedan >
     <Jedan>
         <Podnosilac>
-            <Ime xml:space="preserve">ounpvavmuisclif</Ime>
-            <Prezime xml:space="preserve">gjhabrbbdkhuaod</Prezime>
+            <Ime >eieifujbhgjkgfn</Ime>
+            <Prezime >pcorrbfbzjuvjjk</Prezime>
             <Adresa>
-                <Grad xml:space="preserve">onhfeclmgntbrhm</Grad>
-                <Ulica xml:space="preserve">oepjndsfababpfa</Ulica>
-                <Broj xml:space="preserve">93</Broj>
+                <Grad >lbdlcjczlbzcjhr</Grad>
+                <Ulica >ezojffpmseltpag</Ulica>
+                <Broj >69</Broj>
             </Adresa>
-            <Telefonski_Broj xml:space="preserve">0631391143</Telefonski_Broj>
-            <Drzavljanstvo xml:space="preserve">zfbddufdboatgru</Drzavljanstvo>
+            <Drzavljanstvo >daaoksnbekhunoh</Drzavljanstvo>
         </Podnosilac>
+        <Telefonski_Broj >0653758291</Telefonski_Broj>
+        <email >rbnzkp@superrito.com</email>
     </Jedan>
     <Dva>
-        <Znak_Autora xml:space="preserve"> </Znak_Autora>
+        <Znak_Autora > </Znak_Autora>
     </Dva>
     <Tri/>
     <Cetiri>
-        <x:Naslov property="pred:Naslov" xml:space="preserve">zbfilhmhsiaglmj</x:Naslov>
-        <Alternativni_Naslov xml:space="preserve">orrhthizdvfpgrv</Alternativni_Naslov>
+        <Naslov property="pred:Naslov" >gcjtmfaakpfdfve</Naslov>
+        <Alternativni_Naslov >zkpcavefjviktpu</Alternativni_Naslov>
     </Cetiri>
     <Pet>
         <Autorsko_Delo_Prerade>
-            <Podaci_O_Originalnom_Autorskom_Delu xml:space="preserve">uatopheehlttgfc</Podaci_O_Originalnom_Autorskom_Delu>
-            <Ime_Autora xml:space="preserve">uirhzolcebdvmef</Ime_Autora>
+            <Podaci_O_Originalnom_Autorskom_Delu >anroclanzekfomf</Podaci_O_Originalnom_Autorskom_Delu>
+            <Ime_Autora >pambnbtdcpsprah</Ime_Autora>
         </Autorsko_Delo_Prerade>
     </Pet>
     <Sest>
-        <x:Podaci_O_Vrsti_Autorskog_Dela property="pred:Podaci_O_Vrsti_Autorskog_Dela" xml:space="preserve">pfngtngpujjjasg</x:Podaci_O_Vrsti_Autorskog_Dela>
+        <Podaci_O_Vrsti_Autorskog_Dela property="pred:Podaci_O_Vrsti_Autorskog_Dela" >zfnhnogsnpnvbdk</Podaci_O_Vrsti_Autorskog_Dela>
     </Sest>
     <Sedam>
-        <Podaci_O_Formi_Autorskog_Zapisa_Dela xml:space="preserve">uujhfgopcigepar</Podaci_O_Formi_Autorskog_Zapisa_Dela>
+        <Podaci_O_Formi_Autorskog_Zapisa_Dela >ibighdrjturvaok</Podaci_O_Formi_Autorskog_Zapisa_Dela>
     </Sedam>
     <Osam/>
     <Devet>
-        <Da_Li_Je_Autorsko_Delo_Stvoreno_U_Radnom_Odnosu xml:space="preserve">hosrkbuahntncjo</Da_Li_Je_Autorsko_Delo_Stvoreno_U_Radnom_Odnosu>
+        <Da_Li_Je_Autorsko_Delo_Stvoreno_U_Radnom_Odnosu >tnnpovfsrekefkb</Da_Li_Je_Autorsko_Delo_Stvoreno_U_Radnom_Odnosu>
     </Devet>
     <Deset>
-        <Nameravani_Nacin_Koriscenja_Autorskog_Dela xml:space="preserve">bnhukzcvdsjhlhg</Nameravani_Nacin_Koriscenja_Autorskog_Dela>
+        <Nameravani_Nacin_Koriscenja_Autorskog_Dela >ckhgidtfeubitor</Nameravani_Nacin_Koriscenja_Autorskog_Dela>
     </Deset>
     <Jedanaest>
-        <x:Potpis property="pred:Potpis" xml:space="preserve">uektsoehsmzdkiu</x:Potpis>
+        <Potpis property="pred:Potpis" >arfjdohhccgtdcc</Potpis>
     </Jedanaest>
     <Dvanaest>
-        <Prilozi_Uz_Zahtev xml:space="preserve">djtnuughtkkaagr</Prilozi_Uz_Zahtev>
+        <Prilozi_Uz_Zahtev >ptlkrzmhacponrm</Prilozi_Uz_Zahtev>
     </Dvanaest>
-    <Opis_Autorskog_Dela xml:space="preserve">pnuvbfjtkddvptu</Opis_Autorskog_Dela>
-    <x:Broj_Prijace property="pred:Broj_Prijace" xml:space="preserve">89963</x:Broj_Prijace>
-    <x:Datum_Podnosenja property="pred:Datum_Podnosenja" xml:space="preserve">21.10.2021</x:Datum_Podnosenja>
+    <Opis_Autorskog_Dela >djrirgapocvupbp</Opis_Autorskog_Dela>
+    <Broj_Prijace property="pred:Broj_Prijace" >45332</Broj_Prijace>
+    <Datum_Podnosenja property="pred:Datum_Podnosenja" >03.02.2023</Datum_Podnosenja>
 </AJedan>

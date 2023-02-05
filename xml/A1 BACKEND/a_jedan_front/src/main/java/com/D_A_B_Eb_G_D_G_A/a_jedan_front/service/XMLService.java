@@ -35,6 +35,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import com.itextpdf.text.Document;
@@ -173,7 +174,7 @@ public class XMLService {
 		a_temp.createNewFile();
 
 		FileWriter myWriter = new FileWriter(a_temp);
-		myWriter.write(s);
+		myWriter.write(s.replace("x:", "").replace("xml:space=\"preserve\"", "").replace("xmlns=\"https://www.D_A_B_F#_G_D_G_A.com\" xmlns:pred=\"https://1564.com/predicate\" xmlns:x=\"http://www.w3.org/2001/XMLSchema-instance\"", ""));
 		myWriter.close();
 
 		Source xmlDoc=new StreamSource("./src/main/resources/temp.xml");
@@ -721,5 +722,116 @@ public class XMLService {
 		FileWriter prepraviWriter = new FileWriter(fajl);
 		prepraviWriter.write(sastav);
 		prepraviWriter.close();*/
+	}
+
+	public void prihvacen_log(String naziv_fajla, String ime, String prezime, String sifra) throws IOException, DocumentException {
+		File ff = new File("./src/main/resources/izlaz/log.txt");
+		ArrayList<String> lista = new ArrayList<>();
+		lista.add("<Logovi>");
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(ff))) {
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				if(!line.trim().equals("</Logovi>") && !line.trim().equals("<Logovi>"))
+					lista.add(line);
+			}
+		} catch (IOException ex) {
+			System.out.format("I/O error: %s%n", ex);
+		}
+
+		String linija = "<Log>"+
+				"<stanje>Prihvacen</stanje>"+
+				"<datum>" + getDate() + "</datum>"+
+				"<sifra>" + sifra + "</sifra>"+
+				"<ime>" + ime + "</ime>"+
+				"<prezime>" + prezime + "</prezime>"+
+				"<link>" + naziv_fajla + "</link>"+
+				"</Log>";
+		lista.add(linija);
+		lista.add("</Logovi>");
+
+		FileWriter myWriter = new FileWriter(ff);
+		for (String ssss: lista) {
+			myWriter.write(ssss+"\n");
+		}
+		myWriter.close();
+
+		napraviIzvestajPDF(lista);
+	}
+
+	public void odbijen_log(String naziv_fajla, String ime, String prezime, String razlog_odbijanja) throws IOException, DocumentException {
+		File ff = new File("./src/main/resources/izlaz/log.txt");
+		ArrayList<String> lista = new ArrayList<>();
+		lista.add("<Logovi>");
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(ff))) {
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				if(!line.trim().equals("</Logovi>") && !line.trim().equals("<Logovi>"))
+					lista.add(line);
+			}
+		} catch (IOException ex) {
+			System.out.format("I/O error: %s%n", ex);
+		}
+
+		String linija = "<Log>"+
+				"<stanje>Odbijen</stanje>"+
+				"<datum>" + getDate() + "</datum>"+
+				"<razlog_odbijanja>" + razlog_odbijanja + "</razlog_odbijanja>"+
+				"<ime>" + ime + "</ime>"+
+				"<prezime>" + prezime + "</prezime>"+
+				"<link>" + naziv_fajla + "</link>"+
+				"</Log>";
+		lista.add(linija);
+		lista.add("</Logovi>");
+
+		FileWriter myWriter = new FileWriter(ff);
+		for (String ssss: lista) {
+			myWriter.write(ssss+"\n");
+		}
+		myWriter.close();
+
+		napraviIzvestajPDF(lista);
+	}
+
+	private void napraviIzvestajPDF(ArrayList<String> lista) throws FileNotFoundException, DocumentException {
+		Document document = new Document();
+
+
+		PdfWriter.getInstance(document, new FileOutputStream(new File("./src/main/resources/izlaz/Izvestaj.pdf")));
+		if (!document.isOpen()) {
+			document.open();
+		}
+
+		document.add(new Paragraph("                                                                        IZVESTAJ\n\n\n"));
+
+		int brojac = 0;
+		for (String par : lista) {//test razloga</razlog_odbijanja><ime>udeoogpcfphugsu</ime><prezime>jclnufmfdlmdzol</prezime><link>A1-Datum-test-04.02.2023</link></Log>
+			par = par.replace("<Logovi>", "     Istorija prihvatanja i odbijanja zahteva za podnosenje intelektualne svojine\n\n");
+			par = par.replace("</Logovi>", "\n\nDokument je napisan " + getDate());
+			par = par.replace("<Log>", "    " + brojac + ")\n");
+			par = par.replace("<stanje>", "         Dokument je ");
+			par = par.replace("</stanje><datum>", " dana ");
+			par = par.replace("</datum><razlog_odbijanja>", "\n         Iz razloga sto \"");
+			par = par.replace("</datum><sifra>", "\n         Sa sifrom \"");
+			par = par.replace("</sifra><ime>", "\"\n         Koji pripada ");
+			par = par.replace("</razlog_odbijanja><ime>", "\"\n         Koji pripada ");
+			par = par.replace("</ime><prezime>", " ");
+			par = par.replace("</prezime><link>", "\n         ( Jedinstveno ime dokumenta je \"");
+			par = par.replace("</link></Log>", "\" )\n");
+			brojac += 1;
+			Paragraph pp = new Paragraph(par);
+			document.add(pp);
+		}
+		document.close();
+
+	}
+
+	public String getDate(){
+		String pattern = "dd/MM/yyyy";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+		String date = simpleDateFormat.format(new Date());
+		date = date.replace("/", ".");
+		System.out.println(date);
+		return date;
 	}
 }

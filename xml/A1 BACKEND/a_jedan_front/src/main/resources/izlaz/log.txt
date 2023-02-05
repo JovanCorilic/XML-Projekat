@@ -1,0 +1,19 @@
+<Logovi>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><razlog_odbijanja>nemam</razlog_odbijanja><ime>eieifujbhgjkgfn</ime><prezime>pcorrbfbzjuvjjk</prezime><link>A1-gcjtmfaakpfdfve-03.02.2023</link></Log>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><sifra>45332</sifra><ime>eieifujbhgjkgfn</ime><prezime>pcorrbfbzjuvjjk</prezime><link>A1-gcjtmfaakpfdfve-03.02.2023</link></Log>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><razlog_odbijanja>nemam</razlog_odbijanja><ime>eieifujbhgjkgfn</ime><prezime>pcorrbfbzjuvjjk</prezime><link>A1-gcjtmfaakpfdfve-03.02.2023</link></Log>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><razlog_odbijanja>nema</razlog_odbijanja><ime>hbtgrnpgizzazvt</ime><prezime>kdtblosljbccrjm</prezime><link>A1-ridjvezvcekehtc-05.02.2023</link></Log>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><razlog_odbijanja>test razloga</razlog_odbijanja><ime>udeoogpcfphugsu</ime><prezime>jclnufmfdlmdzol</prezime><link>A1-Datum-test-04.02.2023</link></Log>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><sifra>1675540743925</sifra><ime>zfthvkcpiovmnjl</ime><prezime>pvoeihkgpfsnavr</prezime><link>A1-br-prijave-04.02.2023</link></Log>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><sifra>39782</sifra><ime>brnuvrpvlllmzdv</ime><prezime>cibcodbujfdsfgv</prezime><link>A1-uggspmvehoekguk-04.02.2023</link></Log>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><sifra>39782</sifra><ime>brnuvrpvlllmzdv</ime><prezime>cibcodbujfdsfgv</prezime><link>A1-uggspmvehoekguk-04.02.2023</link></Log>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><sifra>39782</sifra><ime>brnuvrpvlllmzdv</ime><prezime>cibcodbujfdsfgv</prezime><link>A1-uggspmvehoekguk-04.02.2023</link></Log>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><sifra>39782</sifra><ime>brnuvrpvlllmzdv</ime><prezime>cibcodbujfdsfgv</prezime><link>A1-uggspmvehoekguk-04.02.2023</link></Log>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><razlog_odbijanja>ret</razlog_odbijanja><ime>utrnltotnbicczf</ime><prezime>zvcdzajmlzlacmo</prezime><link>A1-lrerhikgoddvphe-05.02.2023</link></Log>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><sifra>1675586809141</sifra><ime>jkngcjpzgihloce</ime><prezime>ghaconfbjajdnfj</prezime><link>A1-kojgivzvbnvpumn-05.02.2023</link></Log>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><razlog_odbijanja>gvdsgbfsg</razlog_odbijanja><ime>kjdegmfppdrufms</ime><prezime>gfdntzvdtncmljz</prezime><link>A1-ztjmebbzupdefin-04.02.2023</link></Log>
+<Log><stanje>Odbijen</stanje><datum>05.02.2023</datum><razlog_odbijanja>fdsgfsghsfh</razlog_odbijanja><ime>dbfeobetuaosstz</ime><prezime>mtlbdfijscjfcup</prezime><link>A1-nlkbutrufkzgpsm-05.02.2023</link></Log>
+<Log><stanje>Prihvacen</stanje><datum>05.02.2023</datum><sifra>A1-1675588726572</sifra><ime>nkudaaatikoatju</ime><prezime>bhjvfkgeptstzsz</prezime><link>A1-nsbpizlkkvmpgkc-05.02.2023</link></Log>
+<Log><stanje>Odbijen</stanje><datum>05.02.2023</datum><razlog_odbijanja>aedfgadga</razlog_odbijanja><ime>kfuhefhskovdevj</ime><prezime>nhousgtjbemjsft</prezime><link>A1-kvczcsnfizseeru-03.02.2023</link></Log>
+<Log><stanje>Odbijen</stanje><datum>05.02.2023</datum><razlog_odbijanja>hgtaehtrsj</razlog_odbijanja><ime>nsumnhijaaclius</ime><prezime>vtggjsngdgfnudd</prezime><link>A1-jgohdrfivlnutid-04.02.2023</link></Log>
+</Logovi>

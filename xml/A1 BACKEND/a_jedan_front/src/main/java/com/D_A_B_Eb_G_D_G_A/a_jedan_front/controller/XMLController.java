@@ -300,6 +300,40 @@ public class XMLController {
 		return new ResponseEntity<>(odgovor + "</Fajlovi>", HttpStatus.OK);
 	}
 
+	@GetMapping("/getIzvestaj")
+	public ResponseEntity<String> getIzvestaj() throws Exception {
+		/*
+		Sluzbenik moze da podnese resenje o svakom zahtevu koje ce da sadrzi:
+
+		- Datum odobravanja zahteva, sifru pod kojom je autorsko delo/patent/zig
+		zaveden, ime i prezime sluzbenika i referencu na sam zahtev, u slucaju
+		odobravanja zatheva.
+
+		- Datum odbijanja zahteva, obrazlozenje, ime i prezime sluzbenika i
+		referencu na sam zahtev, u slucaju odbijanja.
+
+		- Sluzbenik moze da generise izvestaj u PDF formatu. Izvestaj bi trebao da
+		sadrzi broj podnetih zahteva, broj prihvacenih zahteva i broj odbijenih zahteva za
+		odabrani vremenski period.
+		*/
+
+		File ff = new File("./src/main/resources/izlaz/log.txt");
+		String odg = "";
+
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(ff))) {
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				odg += line;
+			}
+		} catch (IOException ex) {
+			System.out.format("I/O error: %s%n", ex);
+		}
+
+		return new ResponseEntity<>(odg, HttpStatus.OK);
+	}
+
+
+
 	@GetMapping(value = "/sacuvajKaoPDF/{broj_prijave}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	@ResponseBody
 	public ResponseEntity<byte[]>  sacuvajKaoPDF(@PathVariable("broj_prijave") String broj_prijave) throws Exception{
@@ -376,6 +410,13 @@ public class XMLController {
 			emailSenderService.sendMailWithAttachment(service.getMailFromName(s), "Vas zahtev (" + broj_prijave + ") je prihvacen\n\nMozete da preuzmete PDF vaseg dokumenta ovde",
 	                "Vas dokument (" + broj_prijave + ") je prihvacen", "" + "./src/main/resources/izlaz/A-1 PDF Izlaz.pdf")
 	        ;
+
+			String[] imena = s.split("</Ime>")[0].split(">");
+			String[] prezimena = s.split("</Prezime>")[0].split(">");
+			String[] sifre = s.split("</x:Broj_Prijace>")[0].split(">");
+			//String datumi[] = s.split("</x:Datum_Podnosenja>")[0].split(">");
+
+			service.prihvacen_log(broj_prijave, imena[imena.length-1], prezimena[prezimena.length-1], sifre[sifre.length-1]);
 			
 			return new ResponseEntity<>("<Odgovor>Uspeh</Odgovor>", HttpStatus.OK);
 		}catch (Exception e){
@@ -383,8 +424,8 @@ public class XMLController {
 		}
 	}
 
-	@GetMapping("/odbi/{broj_prijave}")
-	public ResponseEntity<String> Odbi(@PathVariable("broj_prijave") String broj_prijave) throws Exception {
+	@GetMapping("/odbi/{broj_prijave}/{razlog_odbijanja}")
+	public ResponseEntity<String> Odbi(@PathVariable("broj_prijave") String broj_prijave, @PathVariable("razlog_odbijanja") String razlog_odbijanja) throws Exception {
 		try {
 			service.postaviStanje(broj_prijave, "O");
 			
@@ -395,9 +436,16 @@ public class XMLController {
 			File file = new File("./src/main/resources/izlaz/A-1 PDF Izlaz.pdf");
 			//byte[] contents = Files.readAllBytes(file.toPath());
 			
-			emailSenderService.sendMailWithAttachment(service.getMailFromName(s), "Vas zahtev (" + broj_prijave + ") je odbijen\n\nMozete da preuzmete PDF vaseg dokumenta ovde",
+			emailSenderService.sendMailWithAttachment(service.getMailFromName(s), "Vas zahtev (" + broj_prijave + ") je odbijen iz razloga: " + razlog_odbijanja + "\n\nMozete da preuzmete PDF vaseg dokumenta ovde",
 	                "Vas dokument (" + broj_prijave + ") je odbijen", "" + "./src/main/resources/izlaz/A-1 PDF Izlaz.pdf")
 	        ;
+
+			String[] imena = s.split("</Ime>")[0].split(">");
+			String[] prezimena = s.split("</Prezime>")[0].split(">");
+			//String[] sifre = s.split("</x:Broj_Prijace>")[0].split(">");
+			//String datumi[] = s.split("</x:Datum_Podnosenja>")[0].split(">");
+
+			service.odbijen_log(broj_prijave, imena[imena.length-1], prezimena[prezimena.length-1], razlog_odbijanja);
 			
 			return new ResponseEntity<>("<Odgovor>Uspeh</Odgovor>", HttpStatus.OK);
 		}catch (Exception e){
