@@ -161,7 +161,7 @@
     </tr>
     <tr>
         <td colspan="1"><br /><br /><b>(10)</b>&nbsp;<input type="button" value="Način korišćenja autorskog dela" onclick="Nacin_Koriscenja()">
-             ili <input type="button" value="nameravani način korišćenja autorskog dela" onclick="Nameravani_Nacin_Koriscenja()">:<br />    
+             ili <input type="button" value="nameravani način korišćenja autorskog dela" onclick="Nameravani_Nacin_Koriscenja()"><br />    
             <div id="Nacin_Namera">
                 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nacin Koriscenja: <input type="text" id="nacin_koriscenja10">
             </div>
@@ -212,9 +212,9 @@
     <td colspan="2"></td><td colspan="2">
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         Broj Prijave<br />
-        A-<input type="text" id="broj_prijave"><br />
+        A-<input disabled type="text" id="broj_prijave"><br />
     <br />
-        Datum Podnosenja<br /><input type="text" id="datum"></td>
+        Datum Podnosenja<br /><input disabled type="text" id="datum"></td>
     </tr>
     <tr>
         <td>Rubrike u zahtevu A-1 koje su označene sa * moraju da budu obavezno popunjene.</td>
@@ -222,9 +222,10 @@
 </table>
 
 <div style="text-align: center;"><br />
-    <input style="background-color: azure; height: 35px; width: 400px;" type="button" value="Posalji" onclick="Posalji()">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button style="background-color: azure; height: 35px; width: 400px;" (click)="posalji_GUI()">Posalji</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input style="background-color: azure; height: 35px; width: 400px;" type="button" value="Popuni za mene" onclick="Popuni_Random()">
+
 </div>
 
 
@@ -233,5 +234,5 @@
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <div style="color: rgb(0, 185, 31);">&lt;!-- Preko Xonomy ----------------------------------------------------------></div>
 <div id="editor"></div>
-<button (click)="posalji()">Posalji xonomy</button>
-<button (click)="posalji_popunjen()">Popuno XML i Posalji xonomy</button>
+<button (click)="posalji()">Posalji Xonomy</button>
+<button (click)="posalji_popunjen()">Posalji Popunjen XML</button>

@@ -1,0 +1,99 @@
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      border-style: groove;
+      margin: auto;
+      width: 95%;
+    }
+    
+    td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+          
+
+    </style>
+
+<br />
+<h2 style="margin-left: 500px;">Filtriraj dokumente po tekstu</h2>
+<br />
+<div style="background-color: rgb(255, 239, 239); list-style-type: none; padding: 10px; margin: auto; width: 1150px;">U Naslovu: (&nbsp;
+  NE<input type="checkbox" #ne1>
+  <input type="text" id="naslov1" #naslov1>&nbsp;
+  <select id="i_ili1" #i_ili1>
+    <option value="I">i</option>
+    <option value="L">ili</option>
+  </select>&nbsp;
+  NE<input type="checkbox" #ne2>
+  <input type="text" id="naslov2" #naslov2>&nbsp;)&nbsp;
+  <select id="i_ili2" #i_ili2>
+    <option value="I">i</option>
+    <option value="L">ili</option>
+  </select>&nbsp;
+  NE<input type="checkbox" #ne3>
+  <input type="text" id="naslov3" #naslov3>&nbsp;<br /><br />
+  
+  U Sadrzaju: (&nbsp;
+  NE<input type="checkbox" #ne4>
+  <input type="text" id="sadrzaj1" #sadrzaj1>&nbsp;
+  <select id="i_ili3" #i_ili3>
+    <option value="I">i</option>
+    <option value="L">ili</option>
+  </select>&nbsp;
+  NE<input type="checkbox" #ne5>
+  <input type="text" id="sadrzaj2" #sadrzaj2>&nbsp;)&nbsp;
+  <select id="i_ili4" #i_ili4>
+    <option value="I">i</option>
+    <option value="L">ili</option>
+  </select>&nbsp;(&nbsp;
+  NE<input type="checkbox" #ne6>
+  <input type="text" id="sadrzaj3" #sadrzaj3>&nbsp;
+  <select id="i_ili5" #i_ili5>
+    <option value="I">i</option>
+    <option value="L">ili</option>
+  </select>&nbsp;
+  NE<input type="checkbox" #ne7>
+  <input type="text" id="sadrzaj4" #sadrzaj4>&nbsp;)
+  <br /><br />
+  Datum: od <input type="text" id="datum1" #datum1 placeholder="dd.mm.yyyy"> do <input #datum2 placeholder="25.06.2023" type="text" id="datum2"><br /><br />
+  <div style="color: rgb(0, 185, 31);">&lt;!-- Datum se unosi formatom dd.mm.yyyy (Primer: 15.10.2012) i nije vazan redosled, program ce da im menja mesta po potrebi------></div>
+<div style="color: rgb(0, 185, 31);">&lt;!-- Sva Prazna Polja Vracaju TRUE (Bez obzira da li je "NE" otkaceno) -------------------------------------------------------------------------></div>
+<br /><input style="margin-left: 20px;" class="button" type="button" (click)="filtriraj(naslov1.value, naslov2.value, naslov3.value, sadrzaj1.value, sadrzaj2.value, sadrzaj3.value, sadrzaj4.value, datum1.value, datum2.value, i_ili1.value, i_ili2.value, i_ili3.value, i_ili4.value, i_ili5.value, ne1.checked, ne2.checked, ne3.checked, ne4.checked, ne5.checked, ne6.checked, ne7.checked)" value="Primeni">
+</div>
+<br />
+<div style="background-color: rgb(247, 247, 247); list-style-type: none; padding: 10px; margin: auto; width: 1150px;">
+
+    <h1 style="text-align: center;">Pregledaj Zahteve</h1>
+    <br /><br />
+    <table style="margin-bottom: 0px; width: 900px;">
+      <tr>
+          <th style="width: 90%;">Ime</th>
+          <th style="width: 10%;"></th>
+      </tr>
+  </table>
+    <table style="margin-bottom: 25px; width: 900px;" id="tabela-prihvati">
+
+    </table>
+</div>

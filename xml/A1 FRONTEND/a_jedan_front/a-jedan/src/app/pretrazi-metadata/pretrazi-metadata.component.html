@@ -1,0 +1,133 @@
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      border-style: groove;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 0px;
+      margin-top: 0px;
+    }
+    
+    td {
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 8px;
+    }
+
+    th {
+      text-align: center;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+          
+
+    </style>
+
+<br />
+<h2 style="margin-left: 500px;">Filtriraj dokumente po metapodacima</h2>
+<br />
+<div style="background-color: rgb(255, 239, 239); list-style-type: none; padding: 10px; margin: auto; width: 1150px;">
+
+    Metapodaci:
+    <div style="text-align: center;">
+    (&nbsp;
+  Da
+  <select id="meta1" #meta1>
+    <option value="2">Naslov</option>
+    <option value="4">Broj Prijace</option>
+    <option value="3">Potpis</option>
+    <option value="0">Podaci O Vrsti Dela</option>
+    <option value="1">Datum Podnosenja</option>
+  </select>&nbsp;
+  <input type="checkbox" #ne1><b>NE</b>&nbsp;&nbsp;sadrzi
+  <input type="text" id="vrednost1" #vrednost1>,&nbsp;
+  <select id="i_ili1" #i_ili1>
+    <option value="I">i</option>
+    <option value="L">ili</option>
+  </select>&nbsp;
+  da <select id="meta2" #meta2>
+    <option value="2">Naslov</option>
+    <option value="4">Broj Prijace</option>
+    <option value="3">Potpis</option>
+    <option value="0">Podaci O Vrsti Dela</option>
+    <option value="1">Datum Podnosenja</option>
+  </select>&nbsp;
+  <input type="checkbox" #ne2><b>NE</b>&nbsp;&nbsp;sadrzi
+  <input type="text" id="vrednost2" #vrednost2>&nbsp;&nbsp;)
+  <br />&nbsp;
+  <select id="i_ili2" #i_ili2>
+    <option value="I">i</option>
+    <option value="L">ili</option>
+  </select>
+  <br />
+  (&nbsp;
+  Da
+  <select id="meta3" #meta3>
+    <option value="2">Naslov</option>
+    <option value="4">Broj Prijace</option>
+    <option value="3">Potpis</option>
+    <option value="0">Podaci O Vrsti Dela</option>  
+    <option value="1">Datum Podnosenja</option>
+  </select>&nbsp;
+  <input type="checkbox" #ne3><b>NE</b>&nbsp;&nbsp;sadrzi
+  <input type="text" id="vrednost3" #vrednost3>,&nbsp;
+  <select id="i_ili3" #i_ili3>
+    <option value="I">i</option>
+    <option value="L">ili</option>
+  </select>&nbsp;
+  da <select id="meta4" #meta4>
+    <option value="2">Naslov</option>
+    <option value="4">Broj Prijace</option>
+    <option value="3">Potpis</option>
+    <option value="0">Podaci O Vrsti Dela</option>
+    <option value="1">Datum Podnosenja</option>
+  </select>&nbsp;
+  <input type="checkbox" #ne4><b>NE</b>&nbsp;&nbsp;sadrzi
+  <input type="text" id="vrednost4" #vrednost4>&nbsp;&nbsp;)
+  <br /><br />
+  Datum: od <input type="text" id="datum1" #datum1 placeholder="dd.mm.yyyy"> do <input #datum2 placeholder="25.06.2023" type="text" id="datum2">
+  </div><br /><br />
+  <div style="color: rgb(0, 185, 31);">&lt;!-- Datum se unosi formatom dd.mm.yyyy (Primer: 15.10.2012) i nije vazan redosled, program ce da im menja mesta po potrebi------></div>
+<div style="color: rgb(0, 185, 31);">&lt;!-- Sva Prazna Polja Vracaju TRUE (Bez obzira da li je "NE" otkaceno) -------------------------------------------------------------------------></div>
+<br /><input style="margin-left: 20px;" class="button" type="button" value="Primeni"
+(click)="filtriraj(meta1.value, meta2.value, meta3.value, meta4.value, vrednost1.value, vrednost2.value, vrednost3.value, vrednost4.value, datum1.value, datum2.value, i_ili1.value, i_ili2.value, i_ili3.value, ne1.checked, ne2.checked, ne3.checked, ne4.checked)">
+</div>
+<br />
+<div style="background-color: rgb(247, 247, 247); list-style-type: none; padding: 10px; margin: auto; width: 1150px;">
+
+    <h1 style="text-align: center;">Pregledaj Zahteve</h1>
+    <br /><br />
+    <table style="margin-bottom: 0px; width: 1100px;">
+      <tr>
+        <th style="width: 24%;">Podaci O Vrsti Dela</th>
+        <th style="width: 18%;">Datum Podnosenja</th> 
+        <th style="width: 15%;">Naslov</th>
+        <th style="width: 15;">Potpis</th>
+        <th style="width: 18%;">Broj Prijace</th>
+        <th style="width: 10%;">[---]</th>
+      </tr>
+  </table>
+    <table style="margin-bottom: 25px; width: 1100px;" id="tabela-prihvati">
+
+    </table>
+
+<div style="text-align: center;">
+    <button style="background-color: rgb(229, 255, 168); width: 300px; height: 50px; margin: 5px;" (click)="preuzmiJSON()">Preuzmi Podatke iz Tabele kao JSON</button>
+    <button style="background-color: rgb(252, 166, 255); width: 300px; height: 50px; margin: 5px;" (click)="preuzmiRDF()">Preuzmi Podatke iz Tabele kao RDF</button>
+</div>
+</div>
