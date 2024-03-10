@@ -1,4 +1,6 @@
 # XML-Projekat
+Projekat za predmet XML i veb servisi<br>
+Bavi se obradom XML fajlova i služi kao sistem za podršku pri obradi zahteva za prava intelektualne svojine. Moj deo je servis za rad sa patentima. Klijentski sloj je implementiran u Angular radnom okviru. Server je razvijen kao REST aplikacija u radnom okviru Spring uz oslonac na eXist i Fuseki bazu. U generisanju PDF se koristi jezik XSLT. Za login i registraciju postoji poseban server.<br>
 Verzija jave je 1.8
 ## Postavljanje baza
 - Za XML koristi se <b>exist</b> baza a za meta podatke koristi se <b>fuseki</b> (https://jena.apache.org/documentation/fuseki2/)
